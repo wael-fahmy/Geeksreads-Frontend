@@ -14,6 +14,7 @@ import { BookComponent } from './book/book.component';
 import { BookEntityComponent } from './book-entity/book-entity.component';
 import { BookCommentGuestComponent } from './book-comment-guest/book-comment-guest.component';
 import { BookCommentUserComponent } from './book-comment-user/book-comment-user.component';
+import { BookSuggestionComponent } from './book-suggestion/book-suggestion.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { BookCommentUserComponent } from './book-comment-user/book-comment-user.
     BookEntityComponent,
     BookCommentGuestComponent,
     BookCommentUserComponent,
+    BookSuggestionComponent,
   ],
   imports: [
     BrowserModule,
