@@ -25,6 +25,7 @@ import { GenresComponent } from './genres/genres.component';
 import { GenreRowComponent } from './genre-row/genre-row.component';
 import { NewsfeedComponent } from './newsfeed/newsfeed.component';
 import { NewsfeedPostComponent } from './newsfeed-post/newsfeed-post.component';
+import { MAT_LABEL_GLOBAL_OPTIONS } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,11 @@ import { NewsfeedPostComponent } from './newsfeed-post/newsfeed-post.component';
     BrowserAnimationsModule,
     MaterialModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: MAT_LABEL_GLOBAL_OPTIONS, useValue: {float: 'never'}
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

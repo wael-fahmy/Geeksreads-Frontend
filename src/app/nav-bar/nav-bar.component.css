@@ -1,17 +1,17 @@
-a {
-  color: #000000;
-  text-decoration: none;
-}
-
 mat-toolbar {
+  font-size: 1em;
   position: fixed;
   top: 0;
 }
 
+.container {
+  width: 70%;
+}
+
 #nav-logo{
   margin: 10px 0 0 0;
-  max-width: 200px;
   max-height: 200px;
+  max-width: 200px;
 }
 
 #nav-links-container {
@@ -22,11 +22,22 @@ mat-toolbar {
 }
 
 .nav-link a {
-  padding: 0 10px;
-
+  color: #000000;
+  cursor: pointer;
+  display: block;
+  padding: 16px 15px;
+  text-decoration: none;
 }
 
 .nav-link a:hover {
   background-color: #382110;
   color: #ffffff;
+}
+
+#nav-search-bar {
+  margin: 0 10px;
+}
+
+#nav-search-bar-icon {
+  margin: 0;
 }
