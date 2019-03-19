@@ -10,6 +10,7 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ProfileBookEntityComponent } from './profile-book-entity/profile-book-entity.component';
 import { ProfileEntityComponent } from './profile-entity/profile-entity.component';
+import { BookComponent } from './book/book.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { ProfileEntityComponent } from './profile-entity/profile-entity.componen
     ProfileComponent,
     ProfileBookEntityComponent,
     ProfileEntityComponent,
+    BookComponent,
   ],
   imports: [
     BrowserModule,
