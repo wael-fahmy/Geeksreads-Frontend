@@ -19,6 +19,7 @@ import { BookDetailsComponent } from './book-details/book-details.component';
 import { BookAuthorComponent } from './book-author/book-author.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
+import { SignOutComponent } from './sign-out/sign-out.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { SignUpComponent } from './sign-up/sign-up.component';
     BookAuthorComponent,
     SignInComponent,
     SignUpComponent,
+    SignOutComponent,
   ],
   imports: [
     BrowserModule,
