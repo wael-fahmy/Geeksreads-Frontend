@@ -1,0 +1,137 @@
+body{
+    background-color: darksalmon;
+}
+.Book_image 
+{
+    max-width: 150px;
+    max-height: 150px;
+    display: block;
+    
+}
+#review_book
+{
+    margin:0 0 0 15px;
+}
+#Book_Title
+{   
+    display: inline;
+    vertical-align: top;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+#Book_info
+{
+    margin: 60px 0 0 10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+#Book_info h3 
+{
+    margin: 0 0 0 15px;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+#Book_info p
+{
+    margin:10px 0 0 15px;
+}
+#Book_info span
+{
+    margin:10px 0 0 0;
+    color:blue;
+    text-decoration: underline;
+}
+#book_details
+{
+    color: blue;
+    margin: 10px 0 0 20px;
+    cursor:pointer;
+}
+#want_to_read
+{
+    margin: 30px 0 0 15px;
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    cursor:pointer;
+}
+#By_Author
+{
+    cursor:pointer;
+}
+#rate
+{
+    margin: 30px 0 0 5px;
+    background-color: darkgrey;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    cursor:pointer;
+}
+.book_discription
+{
+    margin:0 0 0 10px;
+}
+#Write_a_review
+{
+    margin: 0 0 0 20px;
+    background-color: darkgrey;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    cursor:pointer;
+}
+#Write_a_review:hover{
+    background-color: red;
+    transition: 1s;
+}
+.checked
+{
+    color:orange;
+}
+#review_book
+{
+    
+}
+#Book_info button:hover
+{
+    background-color: red;
+    transition: 1s;
+}
+#more_book_discription
+{
+    display: none;
+}
+#myBtn_book_discription:hover
+{
+    background-color: red;
+    transition: 1s;
+}
+#myBtn_book_discription
+{
+    background-color: darkgrey;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 12px;
+    cursor:pointer;
+}
+#dots_book_discription
+{
+    color:blue;
+}
