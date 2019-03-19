@@ -23,6 +23,7 @@ import { SignOutComponent } from './sign-out/sign-out.component';
 import { GenreComponent } from './genre/genre.component';
 import { GenresComponent } from './genres/genres.component';
 import { GenreRowComponent } from './genre-row/genre-row.component';
+import { NewsfeedComponent } from './newsfeed/newsfeed.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { GenreRowComponent } from './genre-row/genre-row.component';
     GenreComponent,
     GenresComponent,
     GenreRowComponent,
+    NewsfeedComponent
   ],
   imports: [
     BrowserModule,

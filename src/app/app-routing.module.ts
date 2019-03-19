@@ -8,6 +8,7 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 import { SignOutComponent } from './sign-out/sign-out.component';
 import { GenreComponent } from './genre/genre.component';
 import { GenresComponent } from './genres/genres.component';
+import { NewsfeedComponent } from './newsfeed/newsfeed.component';
 
 const routes: Routes = [
   {
@@ -41,6 +42,10 @@ const routes: Routes = [
   {
     path: 'genres',
     component: GenresComponent
+  },
+  {
+    path: 'newsfeed',
+    component: NewsfeedComponent
   }
 ];
 
