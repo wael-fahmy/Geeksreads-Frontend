@@ -9,6 +9,7 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ProfileBookEntityComponent } from './profile-book-entity/profile-book-entity.component';
+import { ProfileEntityComponent } from './profile-entity/profile-entity.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { ProfileBookEntityComponent } from './profile-book-entity/profile-book-e
     HomepageComponent,
     ProfileComponent,
     ProfileBookEntityComponent,
+    ProfileEntityComponent,
   ],
   imports: [
     BrowserModule,
