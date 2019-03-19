@@ -16,6 +16,7 @@ import { BookCommentGuestComponent } from './book-comment-guest/book-comment-gue
 import { BookCommentUserComponent } from './book-comment-user/book-comment-user.component';
 import { BookSuggestionComponent } from './book-suggestion/book-suggestion.component';
 import { BookDetailsComponent } from './book-details/book-details.component';
+import { BookAuthorComponent } from './book-author/book-author.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { BookDetailsComponent } from './book-details/book-details.component';
     BookCommentUserComponent,
     BookSuggestionComponent,
     BookDetailsComponent,
+    BookAuthorComponent,
   ],
   imports: [
     BrowserModule,
