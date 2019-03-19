@@ -8,6 +8,7 @@ import { MaterialModule } from './material.module';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { ProfileComponent } from './profile/profile.component';
+import { ProfileBookEntityComponent } from './profile-book-entity/profile-book-entity.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { ProfileComponent } from './profile/profile.component';
     NavBarComponent,
     HomepageComponent,
     ProfileComponent,
+    ProfileBookEntityComponent,
   ],
   imports: [
     BrowserModule,
