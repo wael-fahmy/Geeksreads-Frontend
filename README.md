@@ -4,7 +4,11 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Running the project
 
-Run `npm install`
+1. Clone the repository
+2. Change to its directory
+> cd Geeksreads-Frontend
+3. Run `npm install`
+4. Run `ng serve --open`
 
 ## Development server
 
