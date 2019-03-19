@@ -7,6 +7,7 @@ import { SignInComponent } from './sign-in/sign-in.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { SignOutComponent } from './sign-out/sign-out.component';
 import { GenreComponent } from './genre/genre.component';
+import { GenresComponent } from './genres/genres.component';
 
 const routes: Routes = [
   {
@@ -36,6 +37,10 @@ const routes: Routes = [
   {
     path: 'genre',
     component: GenreComponent
+  },
+  {
+    path: 'genres',
+    component: GenresComponent
   }
 ];
 

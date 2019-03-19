@@ -21,6 +21,7 @@ import { SignInComponent } from './sign-in/sign-in.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { SignOutComponent } from './sign-out/sign-out.component';
 import { GenreComponent } from './genre/genre.component';
+import { GenresComponent } from './genres/genres.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { GenreComponent } from './genre/genre.component';
     SignUpComponent,
     SignOutComponent,
     GenreComponent,
+    GenresComponent,
   ],
   imports: [
     BrowserModule,
