@@ -20,6 +20,7 @@ import { BookAuthorComponent } from './book-author/book-author.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { SignOutComponent } from './sign-out/sign-out.component';
+import { GenreComponent } from './genre/genre.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { SignOutComponent } from './sign-out/sign-out.component';
     SignInComponent,
     SignUpComponent,
     SignOutComponent,
+    GenreComponent,
   ],
   imports: [
     BrowserModule,

@@ -6,6 +6,7 @@ import { BookComponent } from './book/book.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { SignOutComponent } from './sign-out/sign-out.component';
+import { GenreComponent } from './genre/genre.component';
 
 const routes: Routes = [
   {
@@ -31,6 +32,10 @@ const routes: Routes = [
   {
     path: 'sign-out',
     component: SignOutComponent
+  },
+  {
+    path: 'genre',
+    component: GenreComponent
   }
 ];
 
