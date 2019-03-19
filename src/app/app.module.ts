@@ -26,6 +26,7 @@ import { GenreRowComponent } from './genre-row/genre-row.component';
 import { NewsfeedComponent } from './newsfeed/newsfeed.component';
 import { NewsfeedPostComponent } from './newsfeed-post/newsfeed-post.component';
 import { MAT_LABEL_GLOBAL_OPTIONS } from '@angular/material';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { MAT_LABEL_GLOBAL_OPTIONS } from '@angular/material';
     GenresComponent,
     GenreRowComponent,
     NewsfeedComponent,
-    NewsfeedPostComponent
+    NewsfeedPostComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
