@@ -18,6 +18,7 @@ import { BookSuggestionComponent } from './book-suggestion/book-suggestion.compo
 import { BookDetailsComponent } from './book-details/book-details.component';
 import { BookAuthorComponent } from './book-author/book-author.component';
 import { SignInComponent } from './sign-in/sign-in.component';
+import { SignUpComponent } from './sign-up/sign-up.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { SignInComponent } from './sign-in/sign-in.component';
     BookDetailsComponent,
     BookAuthorComponent,
     SignInComponent,
+    SignUpComponent,
   ],
   imports: [
     BrowserModule,
