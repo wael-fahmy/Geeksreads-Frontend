@@ -24,6 +24,7 @@ import { GenreComponent } from './genre/genre.component';
 import { GenresComponent } from './genres/genres.component';
 import { GenreRowComponent } from './genre-row/genre-row.component';
 import { NewsfeedComponent } from './newsfeed/newsfeed.component';
+import { NewsfeedPostComponent } from './newsfeed-post/newsfeed-post.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { NewsfeedComponent } from './newsfeed/newsfeed.component';
     GenreComponent,
     GenresComponent,
     GenreRowComponent,
-    NewsfeedComponent
+    NewsfeedComponent,
+    NewsfeedPostComponent
   ],
   imports: [
     BrowserModule,
