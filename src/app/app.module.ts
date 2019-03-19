@@ -11,6 +11,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { ProfileBookEntityComponent } from './profile-book-entity/profile-book-entity.component';
 import { ProfileEntityComponent } from './profile-entity/profile-entity.component';
 import { BookComponent } from './book/book.component';
+import { BookEntityComponent } from './book-entity/book-entity.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { BookComponent } from './book/book.component';
     ProfileBookEntityComponent,
     ProfileEntityComponent,
     BookComponent,
+    BookEntityComponent,
   ],
   imports: [
     BrowserModule,
