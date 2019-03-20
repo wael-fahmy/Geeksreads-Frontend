@@ -37,6 +37,14 @@ body{
 {
     margin:10px 0 0 15px;
 }
+#book_details_and_reviewbutton
+{
+
+    display: flex;
+    vertical-align: top;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
 #Book_info span
 {
     margin:10px 0 0 0;
