@@ -1,3 +1,34 @@
-<p>
-  book-comment-user works!
-</p>
+<p style="margin-left: 10px;">Community Reviews</p>
+    <div id="user_reviews">
+        <img class="reviewer_image" src="http://www.pngonly.com/wp-content/uploads/2017/06/Chibi-PNG.png">
+        <p id="Reviewer_name" style="color:blue;">Kanda Yozo 
+            <span style="color:rgb(88, 88, 88);">rated it</span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star"></span>
+            <span class="fa fa-star"></span>
+        </p>
+        <p id="review_date">5 months ago</p>
+    </div>
+    <div id="review_comment"> 
+    <p>Black Butler (Japanese: 黒執事 Hepburn: Kuroshitsuji) is a Japanese manga 
+        series written and illustrated by Yana Toboso. Since its debut on September 16, 2006, 
+        <span id="dots_user_review">...</span><span id="more_review">it has been serialized in Gangan Comics' shōnen 
+        manga magazine Monthly GFantasy. ... 
+        A live action film adaptation was released in Japan on January 18, 2014</span></p>
+        <button (click)="more_user_preview()" id="myBtn_user_review">Read more</button>
+    </div>
+    <div id="review_like_comment">
+        <p style="color: blue; cursor: pointer;" (click)="like()">Like</p>
+        <p style="margin-left: 5px;">.</p>
+        <p style="color:blue; margin-left: 5px;" >Comment</p>
+        <p style="margin-left: 3px;">.</p>
+        <i class="fa fa-thumbs-up"></i>
+        <p type="text" style="margin-left:5px;" id="show_likes">60</p>
+        <p style="margin-left: 5px;">.</p>
+        <i class="fa fa-comment"></i>
+        <p style="margin-left:5px;">51</p>
+    </div>
+    <hr id="next_review"color="grey" size="1">
+    
