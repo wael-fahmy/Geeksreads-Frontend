@@ -28,7 +28,6 @@
         }
         .drop-down-online-store
         {
-            position: relative;
             display: inline;
         }
         .drop-down-online-store:hover .dropdown-list 

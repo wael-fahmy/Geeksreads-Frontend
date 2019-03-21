@@ -20,10 +20,8 @@
         #user-reviews
         {
             display: flex;
-            vertical-align: top;
             flex-direction: row;
             flex-wrap: nowrap;
-            position: relative;
         }
         .blue-text
         {
@@ -41,8 +39,7 @@
         }
         #review-date
         {
-            position: absolute;
-            margin:25px 0 0 75px;
+            margin:5px 0 0 10px;
             color:rgb(88, 88, 88);
         }
         #myBtn-user-review
