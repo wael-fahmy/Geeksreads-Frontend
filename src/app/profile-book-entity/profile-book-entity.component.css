@@ -1,12 +1,6 @@
 img{
     margin-right: 2rem;
-    margin-bottom: 4rem;
-}
-mat-card{
-    height: 35%;
-    width: 20% ;
-    margin-bottom: 8rem;
-    margin-top: 6rem;
+    margin-bottom: 2.5rem;
 }
 
 mat-list-item{
@@ -16,5 +10,17 @@ mat-list-item{
 mat-divider{
     margin-bottom: 1rem;
     margin-top: 1rem;
+}
+
+pre{
+    font-size:120%;
+}
+button{
+    margin-left: 2rem;
+}
+
+p{
+     margin-left: 20px;
+    color:orange;
 }
 

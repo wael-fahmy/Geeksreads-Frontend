@@ -32,7 +32,7 @@ app.use("/api/list", (req, res, next) => {
     {
       id: 11,
       book_name: "Harry Potter",
-      author_name: "j.R.R",
+      author_name: "J.K Rowling",
      book_cover: "https://orig05.deviantart.net/e78f/f/2008/160/f/a/harry_potter_by_jonathan3333.jpg"
     },
     {
@@ -44,9 +44,9 @@ app.use("/api/list", (req, res, next) => {
     },
     {
       id: 12, 
-      book_name: "Gameeeee of Tes",
-      author_name: "G.R.R Martin",
-     book_cover:  "https://tse2.mm.bing.net/th?id=OIP.FN55nUOxccDTpCPhYOmVfgHaLU&pid=15.1&P=0&w=300&h=300"
+      book_name: "Lord of the Rings",
+      author_name: "J.R.R Tolkien",
+     book_cover:  "https://tse4.mm.bing.net/th?id=OIP.FZz1UZSbw_p_m5hdjUOM3AHaLF&pid=15.1&P=0&w=300&h=300"
 
     }
   ];
@@ -62,7 +62,7 @@ app.use("/api/title", (req, res, next) => {
   const User_Info = {
     user_id:1,
     User_Name: 'Mohamed',
-    User_Photo:'http://thewondrous.com/wp-content/uploads/2015/07/sad-profile-pictures-600x900.jpg'
+    User_Photo:'https://tse1.mm.bing.net/th?id=OIP.JchDxbr-ajB0-wbB1h5BBgAAAA&pid=15.1&P=0&w=300&h=300'
   };
     
   
