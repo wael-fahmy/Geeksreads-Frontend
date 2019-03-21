@@ -10,7 +10,7 @@ body {
 }
 
 #container {
-	padding-bottom: 18px;
+	padding-bottom: 100px;
 	width: 600px;
 }
 
@@ -19,28 +19,6 @@ body {
 	border: 1px solid #fff;
 	border-color: #fff #fff #ababab;
 	padding: 20px;
-}
-
-
-/* !Base Typography
---------------------- */
-a {
-	text-decoration: none;
-	color: #26808c;
-}
-
-a:hover,
-a:focus {
-	text-decoration: underline;
-}
-
-p {
-	margin: 1em 0;
-	padding: 0;
-}
-
-strong {
-	font-weight: bold;
 }
 
 h1 {
@@ -54,39 +32,6 @@ h1 {
 	padding: 0 0 28px;
 }
 
-input,
-textarea,
-select {
-	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-/*
-	-----------------------------------------------
-    Fancy Form Styling
-	-----------------------------------------------
-	+ General Form Styling
-	  - Fieldsets & Legends
-	  - Introduction Text
-	  - Fields
-	  - Validation
-	+ Sign Up Form
-	  - Log In
-	  - Date of Birth
-	  - Submit
-	+ Feedback Form
-	  - Submit
-	+ Privacy Settings
-	  - Submit
-	+ Edit Profile
-	  - Gender
-	  - Submit
-	+ Advanced Search
-	+ JS Enhancements
-	  - Password Strength
-	  - Select Menu
-*/
-
-/* !General Form Styling
---------------------- */
 /* -- !Fieldsets & Legends -- */
 fieldset {
 	border: none;
@@ -130,7 +75,7 @@ fieldset label abbr {
 
 /* -- !Fields -- */
 fieldset div {
-	background: url(images/bg-form-fieldset-div.png) repeat-y 0 0;
+	background: url(images/bg-form-fieldset-div.png);
     margin: 0 0 10px;
     padding: 5px 0 5px 160px;
 }
@@ -241,11 +186,11 @@ fieldset div.controls {
 			background: none;
 			border: none;
 			display: block;
-	    	font-size: 1.16em;
-	        font-weight: bold;
-	        left: 0;
-	        line-height: 1.1;
-	        margin: 9px 20px 0 -155px;
+	    font-size: 1.16em;
+	    font-weight: bold;
+	    left: 0;
+	    line-height: 1.1;
+	    margin: 9px 20px 0 -155px;
 			padding: 0;
 			position: absolute;
 			width: 140px;
@@ -257,11 +202,6 @@ fieldset div.controls {
 			margin: 0 0 0 5px;
 			padding-left: 0;
 		}
-
-	/* Submit */
-	fieldset div.controls {
-		background: none;
-	}
 
 		fieldset div.controls input {
 			float: right;
@@ -307,37 +247,6 @@ fieldset table {
 		padding: 12px 28px;
 	}
 
-	/* General */
-	fieldset table th.private,
-	fieldset table td.private {
-		text-align: left;
-	}
-
-	fieldset table th.contacts,
-	fieldset table td.contacts {
-		text-align: center;
-	}
-
-	fieldset table th.public,
-	fieldset table td.public {
-		text-align: right;
-	}
-
-	fieldset table input {
-		margin: 0;
-		padding: 0;
-	}
-
-	fieldset table td.note {
-		padding: 2px 10px 12px;
-	}
-
-/* -- !Validation -- */
-fieldset div,
-fieldset fieldset.group {
-	position: relative;
-}
-
 	/* List of Messages */
 	#form-messages {
 		background: url(images/bg-form-messages.gif) no-repeat 0 2px;
@@ -373,15 +282,6 @@ fieldset fieldset.group {
 		#form-messages a:focus {
 			text-decoration: none;
 		}
-
-	.valid #form-messages {
-		background-image: url(images/bg-form-messages-success.gif);
-	}
-
-		.valid #form-messages h2 {
-			color: inherit;
-		}
-
 	/* Error Message */
 	fieldset strong.error {
 		clear: left;
@@ -405,26 +305,6 @@ fieldset fieldset.group {
 	}
 
 
-/* !Sign Up Form
---------------------- */
-/* -- Login -- */
-#container {
-	position: relative;
-}
-
-#sign-up .log-in {
-	background: #eaeaea;
-	margin: 0;
-	line-height: 1;
-	padding: 10px 12px;
-	position: absolute;
-	right: 20px;
-	top: 30px;
-}
-
-	#sign-up .log-in a {
-		font-weight: bold;
-	}
 
 /* -- !Date of Birth -- */
 fieldset fieldset#section-dob div label {
@@ -439,34 +319,6 @@ fieldset fieldset#section-dob div select {
 fieldset fieldset#section-dob div select#dob_month {
 	width: 108px;
 }
-
-fieldset fieldset#section-dob em.note {
-	clear: left;
-	display: block;
-	font-style: normal;
-	margin: 0 0 0.5em 5px;
-}
-
-/* -- !Terms of Service Agreement -- */
-#field-agree-tos {
-	background: none;
-}
-
-/* -- !Your Profile Link -- */
-#field-profile-link .profile-link-prefix {
-	display: block;
-	float: left;
-	font-size: 1.16em;
-	line-height: 1.1;
-	margin: 9px 10px 0 0;
-	text-align: right;
-	width: 133px;
-}
-
-#field-profile-link input {
-	width: 145px;
-}
-
 /* -- !Submit -- */
 #sign-up fieldset .controls input#submit {
 	background: url(images/ir-submit-create-profile.png) no-repeat 0 0;
@@ -478,54 +330,6 @@ fieldset fieldset#section-dob em.note {
 	padding: 32px 0 0 136px;
 	width: 136px;
 }
-
-
-/* !Feedback Form
---------------------- */
-/* -- !Submit -- */
-#feedback fieldset .controls input#submit {
-	background: url(images/ir-submit-submit-feedback.png) no-repeat 0 0;
-	border: none;
-	cursor: pointer;
-	height: 32px;
-	margin: 0;
-	overflow: hidden;
-	padding: 32px 0 0 129px;
-	width: 149px;
-}
-
-
-/* !Privacy Settings
---------------------- */
-/* -- !Submit -- */
-#privacy-settings fieldset .controls input#submit {
-	background: url(images/ir-submit-privacy-settings.png) no-repeat 0 0;
-	border: none;
-	cursor: pointer;
-	height: 32px;
-	margin: 0;
-	overflow: hidden;
-	padding: 32px 0 0 144px;
-	width: 144px;
-}
-
-
-/* !Edit Profile
---------------------- */
-/* -- !Gender -- */
-fieldset #field-gender {
-	background: #FFF;
-}
-
-	fieldset #field-gender ul {
-		overflow: hidden;
-	}
-
-		fieldset #field-gender ul li {
-			float: left;
-			margin-right: 38px;
-		}
-
 /* -- !Submit -- */
 #edit-profile fieldset .controls input#submit,
 #edit-profile fieldset .controls input#preview {
@@ -538,7 +342,6 @@ fieldset #field-gender {
 	padding: 32px 0 0 66px;
 	width: 66px;
 }
-
 #edit-profile fieldset .controls input#preview {
 	background-position: 0 0;
 	margin: 0 8px 0 0;
@@ -547,141 +350,3 @@ fieldset #field-gender {
 }
 
 
-/* !Advanced Search
---------------------- */
-/* -- !Keywords -- */
-#field-keywords label {
-	position: absolute;
-	top: -999em;
-}
-
-/* -- !Submit -- */
-#advanced-search fieldset .controls input#submit {
-	background: url(images/ir-submit-search.png) no-repeat 0 0;
-	border: none;
-	cursor: pointer;
-	height: 32px;
-	margin: 0;
-	overflow: hidden;
-	padding: 32px 0 0 91px;
-	width: 91px;
-}
-
-
-/* !Change Password
---------------------- */
-/* -- !Submit -- */
-#change-password fieldset .controls input#submit {
-	background: url(images/ir-submit-submit-save-password.png) no-repeat 0 0;
-	border: none;
-	cursor: pointer;
-	height: 32px;
-	margin: 0;
-	overflow: hidden;
-	padding: 32px 0 0 137px;
-	width: 137px;
-}
-
-
-/* !JS Enhancements
---------------------- */
-
-/* -- !Password Strength -- */
-#psr_score {
-	background: transparent;
-	display: block;
-	margin: 0;
-	padding: 0;
-	width: 200px;
-}
-
-	.psr_Weak,
-	.psr_Medium,
-	.psr_Strong,
-	.psr_Excellent {
-		background: transparent url(images/bg-password-strength.png) no-repeat 0 0;
-		display: block;
-		margin: 0.5em 0 0.2em 5px;
-		padding: 10px 0 0;
-	}
-
-	.psr_Medium {
-		background-position: 0 -50px;
-	}
-
-	.psr_Strong {
-		background-position: 0 -100px;
-	}
-
-	.psr_Excellent {
-		background-position: 0 -150px;
-	}
-
-
-/* -- !Select Menu -- */
-fieldset div.selectbox-wrapper,
-fieldset fieldset#section-dob div.selectbox-wrapper {
-	border:1px solid #ccc;
-	background: #FFF;
-	float: none;
-	margin: 0 0 0 5px;
-	max-height: 150px;
-	overflow: auto;
-	padding: 0;
-	position: absolute;
-	width: auto;
-	z-index: 100;
-}
-
-	fieldset div.selectbox-wrapper ul {
-		background: #FFF;
-		float: none;
-		list-style-type: none;
-		margin: 0px;
-		padding: 0px;
-	}
-
-		fieldset div.selectbox-wrapper ul li.selected {
-			background-color: #EAF2FB;
-		}
-
-		fieldset div.selectbox-wrapper ul li.current {
-			background-color: #CDD8E4;
-		}
-
-		fieldset div.selectbox-wrapper ul li {
-			cursor: pointer;
-			display: block;
-			list-style-type: none;
-			margin: 0;
-			padding: 2px 5px;
-		}
-
-.selectbox-input-wrapper {
-	background: url(images/ui-form-select.png) no-repeat 0 0;
-	display: block;
-	margin: 0 5px 0 0;
-	padding: 0 0 0 10px;
-	width: 293px;
-}
-
-	fieldset div .selectbox {
-		background: url(images/ui-form-select.png) no-repeat 100% 0;
-		border: none;
-		display: block;
-		margin: 0 -5px 0 0;
-		padding: 5px 0;
-		cursor: pointer;
-		width : 288px;
-	}
-
-/* Date of Birth */
-/* Pseodo Select */
-fieldset fieldset#section-dob div input.selectbox {
-	width: 85px;
-}
-
-/* Wrapper for Psuedo Select */
-fieldset fieldset#section-dob div .selectbox-input-wrapper {
-	width: 80px;
-}
