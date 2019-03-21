@@ -1,0 +1,44 @@
+#Author-picture-data
+{
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    margin: 0 0 0 10px;
+}
+#about-this-author
+{   
+    margin-left: 10px;
+}
+#author-image
+{
+    max-width: 80px;
+    max-height: 80px;
+    margin:0 0 0 0;
+}
+#author-name
+{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: bold;
+    margin:5px 0 0 10px;
+}
+#number-followers
+{
+    flex-wrap: nowrap;
+    flex-direction: row;
+    margin:0 0 0 20px;
+}
+#Author-data
+{
+    flex-direction: row;
+    flex-wrap: nowrap;
+    margin:5px 0 0 10px;
+}
+
+#Author-data p {
+    margin: 0;
+}
+
+#Author-data span {
+    margin: 0;
+}

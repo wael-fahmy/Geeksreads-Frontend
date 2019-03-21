@@ -1,7 +1,7 @@
 body{
     background-color: darksalmon;
 }
-.Book_image 
+.Book-image 
 {
     max-width: 150px;
     max-height: 150px;
@@ -9,11 +9,11 @@ body{
     display: block;
     
 }
-#review_book
+#review-book
 {
     margin:0 0 0 15px;
 }
-#Book_Title
+#Book-Title
 {   
     display: inline;
     vertical-align: top;
@@ -21,23 +21,23 @@ body{
     flex-wrap: nowrap;
     margin:5px 0 0 0;
 }
-#Book_info
+#Book-info
 {
     margin: 65px 0 0 10px;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
 }
-#Book_info h3 
+#Book-info h3 
 {
     margin: 0 0 0 15px;
     font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
-#Book_info p
+#Book-info p
 {
     margin:10px 0 0 15px;
 }
-#book_details_and_reviewbutton
+#book-details-and-reviewbutton
 {
 
     display: flex;
@@ -45,19 +45,19 @@ body{
     flex-direction: row;
     flex-wrap: nowrap;
 }
-#Book_info span
+#Book-info span
 {
     margin:10px 0 0 0;
     color:blue;
     text-decoration: underline;
 }
-#book_details
+#book-details
 {
     color: blue;
     margin: 10px 0 0 20px;
     cursor:pointer;
 }
-#want_to_read
+#want-to-read
 {
     margin: 30px 0 0 15px;
     background-color: #4CAF50;
@@ -70,7 +70,7 @@ body{
     font-size: 12px;
     cursor:pointer;
 }
-#By_Author
+#By-Author
 {
     cursor:pointer;
 }
@@ -87,13 +87,20 @@ body{
     font-size: 12px;
     cursor:pointer;
 }
-.book_discription
+.book-discription
 {
     margin:0 0 0 10px;
 }
-#Write_a_review
+#underline-bookk-entity
 {
-    margin: 0 0 0 20px;
+    color:darkgray;
+    background-color: darkgray;
+    size:5;
+    margin-left: 0;
+}
+#Write-a-review
+{
+    margin: 10px 0 0 25px;
     background-color: darkgrey;
     border: none;
     color: white;
@@ -104,7 +111,7 @@ body{
     font-size: 12px;
     cursor:pointer;
 }
-#Write_a_review:hover{
+#Write-a-review:hover{
     background-color: red;
     transition: 1s;
 }
@@ -112,25 +119,25 @@ body{
 {
     color:orange;
 }
-#review_book
+#review-book
 {
     
 }
-#Book_info button:hover
+#Book-info button:hover
 {
     background-color: red;
     transition: 1s;
 }
-#more_book_discription
+#more-book-discription
 {
     display: none;
 }
-#myBtn_book_discription:hover
+#myBtn-book-discription:hover
 {
     background-color: red;
     transition: 1s;
 }
-#myBtn_book_discription
+#myBtn-book-discription
 {
     background-color: darkgrey;
     border: none;
@@ -141,7 +148,7 @@ body{
     font-size: 12px;
     cursor:pointer;
 }
-#dots_book_discription
+#dots-book-discription
 {
     color:blue;
 }
