@@ -1,1 +1,24 @@
+<app-nav-bar></app-nav-bar>
 <app-book-entity></app-book-entity>
+<p style="margin: 15px 0 0 10px">Get a copy</p>
+    <div id="Stores_buttons">
+        <button id="amazon_store" onclick=" window.open('https://www.amazon.com','_blank')"> Amazon</button>
+        <div class="drop_down_online_store">
+            <button id="online_store">Online Stores</button>
+            <div class="dropdown_list">
+                <a onclick=" window.open('https://www.barnesandnoble.com','_blank')">Barnes & Noble</a>
+                <a onclick=" window.open('https://www.kobo.com','_blank')">Rakuten Kobo</a>
+                <a onclick=" window.open('https://itunes.apple.com','_blank')">Apple Store</a>
+                <a onclick=" window.open('https://play.google.com','_blank')">Google Store</a>
+                <a onclick=" window.open('https://www.abebooks.com','_blank')">Abe Books</a>
+                <a onclick=" window.open('https://www.bookdepository.com','_blank')">Book Despository</a>
+                <a onclick=" window.open('https://www.chapters.indigo.ca','_blank')">Indigo</a>
+            </div>
+        </div>
+        <button id="libraries_store" onclick=" window.open('https://www.worldcat.org/title','_blank')"> Libraries</button>
+    </div>
+    <hr id="Stores_underline" color="darkgrey" size="2">
+    <app-book-comment-user></app-book-comment-user>
+    <button id="load_more_community_reviews">Load More Community Reviews</button>
+    <hr color="darkgrey" size="3" style="margin-left: 10px;">
+    <app-book-details></app-book-details>

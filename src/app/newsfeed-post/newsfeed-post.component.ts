@@ -7,6 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewsfeedPostComponent implements OnInit {
 
+  nameOfUser;
+  userImage;
+  bookName;
+
   constructor() { }
 
   ngOnInit() {

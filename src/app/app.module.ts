@@ -28,7 +28,7 @@ import { NewsfeedPostComponent } from './newsfeed-post/newsfeed-post.component';
 import { MAT_LABEL_GLOBAL_OPTIONS } from '@angular/material';
 import { FooterComponent } from './footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
-
+import { ProfileEditComponent } from './profile-edit/profile-edit.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +53,8 @@ import { HttpClientModule } from '@angular/common/http';
     GenreRowComponent,
     NewsfeedComponent,
     NewsfeedPostComponent,
-    FooterComponent
+    FooterComponent,
+    ProfileEditComponent
   ],
   imports: [
     BrowserModule,

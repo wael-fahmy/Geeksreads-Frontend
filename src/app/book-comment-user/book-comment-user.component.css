@@ -1,0 +1,75 @@
+        .checked
+        {
+            color:orange;
+        }
+        #review_book
+        {
+            margin:0 0 0 15px;
+        }
+        .reviewer_image
+        {
+            height: 50px;
+            width: 50px;
+            margin: 0 0 0 10px;
+            border-style: ridge;
+        }
+        #user_reviews
+        {
+            display: flex;
+            vertical-align: top;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            position: relative;
+        }
+        #Reviewer_name
+        {
+            margin: 0 0 0 12px;
+        }
+        #review_date
+        {
+            position: absolute;
+            margin:25px 0 0 75px;
+            color:rgb(88, 88, 88);
+        }
+        #myBtn_user_review
+        {
+            background-color: darkgrey;
+            margin: 0 0 0 10px;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            font-size: 12px;
+            cursor:pointer;
+            margin: 0 0 0 0;
+        }
+        #more_review
+        {
+            display: none;
+        }
+        #review_comment button:hover
+        {
+            background-color: red;
+            transition: 1s;
+        }
+        #review_comment
+        {
+            margin-left: 65px;
+        }
+        #review_like_comment
+        {
+            display: flex;
+            vertical-align: top;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            position: relative;
+            margin-left: 65px;
+            margin-top:5px;
+        }
+        .fa-thumbs-up,.fa-comment
+        {
+            margin-left: 5px;
+            margin-top: 18px;
+            color: green;
+        }

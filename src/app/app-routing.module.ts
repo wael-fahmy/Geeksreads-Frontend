@@ -9,6 +9,7 @@ import { SignOutComponent } from './sign-out/sign-out.component';
 import { GenreComponent } from './genre/genre.component';
 import { GenresComponent } from './genres/genres.component';
 import { NewsfeedComponent } from './newsfeed/newsfeed.component';
+import { ProfileEditComponent } from './profile-edit/profile-edit.component';
 
 const routes: Routes = [
   {
@@ -46,6 +47,10 @@ const routes: Routes = [
   {
     path: 'newsfeed',
     component: NewsfeedComponent
+  },
+  {
+    path: 'profile-edit',
+    component: ProfileEditComponent
   }
 ];
 
