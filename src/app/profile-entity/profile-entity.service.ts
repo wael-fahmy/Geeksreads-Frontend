@@ -18,7 +18,7 @@ export class Titles_Service{
     
 
 
-    get_User_Info()
+    get_User_Info()            //  to get the json response from the mock service and update the user info
     {
        this.http.get<{message:string,User_Info:User}>('http://localhost:3000/api/title').
        subscribe((UserData) => {

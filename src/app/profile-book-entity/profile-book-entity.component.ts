@@ -27,18 +27,18 @@ export class ProfileBookEntityComponent implements OnInit {
    
       constructor(public CountBooksService : CountBooksService )  {}
    
-   OnClick_want_read(){
+   OnClick_want_read(){                   // to increment the number of books want to read on click
        this.CountBooksService.add_count_want_to_read()  
    }
    
-   OnClick_read(){
+   OnClick_read(){                           // to increment the number of books read on click
        this.CountBooksService.add_count_read();
    }
      
    ngOnInit()
    {
    
-      this.CountBooksService.get_List_of_books();
+      this.CountBooksService.get_List_of_books();                    // to get the book info from the service
        this.Sub_list = this.CountBooksService.get_List_of_books_updated().
         subscribe( (List: ListOfBooks[] ) => {
            this.List_of_books=List; 

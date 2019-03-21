@@ -18,15 +18,15 @@ constructor(public CountBooksService : CountBooksService )
 
 }
 ngOnInit()
-{
+{        
 
- this.Sub = this.CountBooksService.get_count_update_read().
-  subscribe( (num_read:number) => {
+ this.Sub = this.CountBooksService.get_count_update_read().      // to observe the update in the number of books read 
+  subscribe( (num_read:number) => {                              // once you finished reading
      this.num_read=num_read;
  });
 
- this.Sub2 = this.CountBooksService.get_count_update_want_to_read().
- subscribe( (num_to_read:number) => {
+ this.Sub2 = this.CountBooksService.get_count_update_want_to_read().   // to observe the update in the number of books 
+ subscribe( (num_to_read:number) => {                                  // want to read once you add a book to want to read
     this.num_to_read=num_to_read;
 });
  

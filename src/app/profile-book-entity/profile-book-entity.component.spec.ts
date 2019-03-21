@@ -23,15 +23,15 @@ describe('ProfileBookEntityComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('mat-card tag should contain Rating',() => {
-   let mat=fixture.debugElement.nativeElement.querySelector('mat-card').textContent
-   expect(mat).toContain('Rating')
-  });
-  
-
-  /*it('User Name should be Mohamed',() => {
+  it('Pre should contain Book Cover',() => {
+    let Pre=fixture.debugElement.nativeElement.querySelector('Pre').textContent
+    expect(Pre).toContain('Book Cover')
+   });
+   
+   it('User Name should be Mohamed',() => {
     fixture.whenStable().then(() => {
-    expect(component.User_info.User_Name).toBe('Mohamed')
+    expect(component.List_of_books.length).toBe(3)
     })  
-  });*/
+  });
+ 
 });

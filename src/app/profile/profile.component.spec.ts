@@ -22,4 +22,9 @@ describe('ProfileComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('a should contain Book Cover',() => {
+    let a=fixture.debugElement.nativeElement.querySelector('a').textContent
+    expect(a).toContain('read')
+   });
 });
