@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component,OnInit} from '@angular/core';
+import {Titles_Service} from './profile-entity.service';
+import {User} from './profile.model';
+import {Subscription} from 'rxjs'
 
 @Component({
   selector: 'app-profile-entity',
@@ -7,9 +10,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileEntityComponent implements OnInit {
 
-  constructor() { }
+  private Sub_profile : Subscription
 
-  ngOnInit() {
-  }
+  User_info:User
+
+constructor(public Titles_Service : Titles_Service )  {}
+
+ngOnInit()
+{
+
+   this.Titles_Service.get_User_Info();
+    this.Sub_profile = this.Titles_Service.get_User_Info_updated().
+     subscribe( (User_Information:User ) => {
+        this.User_info=User_Information; 
+        /*console.log(this.User_info.User_Name)
+        console.log(this.User_info.user_id)
+        console.log(this.User_info.User_Photo)*/
+    }); 
+}
 
 }

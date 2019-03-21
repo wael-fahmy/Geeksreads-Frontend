@@ -1,0 +1,20 @@
+img{
+    margin-right: 2rem;
+    margin-bottom: 4rem;
+}
+mat-card{
+    height: 35%;
+    width: 20% ;
+    margin-bottom: 8rem;
+    margin-top: 6rem;
+}
+
+mat-list-item{
+    margin-bottom: 4rem;
+    margin-top: 4rem;
+}
+mat-divider{
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+}
+

@@ -27,6 +27,8 @@ import { NewsfeedComponent } from './newsfeed/newsfeed.component';
 import { NewsfeedPostComponent } from './newsfeed-post/newsfeed-post.component';
 import { MAT_LABEL_GLOBAL_OPTIONS } from '@angular/material';
 import { FooterComponent } from './footer/footer.component';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -57,7 +59,8 @@ import { FooterComponent } from './footer/footer.component';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    HttpClientModule
   ],
   providers: [
     {

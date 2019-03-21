@@ -1,3 +1,31 @@
-<p>
-  profile-book-entity works!
-</p>
+<mat-list>
+        
+      
+  <mat-list-item   *ngFor="let index of List_of_books">
+
+      <img width="60" height="80" 
+  src={{index.book_cover}} >       
+  {{ index.book_name}} <br> by {{index.author_name}}  
+   <button mat-button [matMenuTriggerFor]="menu">{{state}} ...</button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item (click)=" OnClick_read()">Read</button>
+    <button mat-menu-item (click)="OnClick_want_read()">want to read</button>
+  
+  </mat-menu>
+
+  
+  <mat-card >
+      <mat-card-content>
+          <section>
+                  <label >Rating :</label>
+                  <mat-slider ></mat-slider>
+          </section>
+          
+          </mat-card-content>
+      </mat-card> 
+      <mat-divider></mat-divider>
+  </mat-list-item>
+</mat-list>
+
+  
+
