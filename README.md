@@ -11,8 +11,9 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 4. Run `ng serve --open`
 
 ## Mockup server
-
-Run `npm run start:server`
+1. Run `npm install --save express`
+2. Run `npm install --save-dev nodemon`
+3. Run `npm run start:server`
 
 ## Development server
 
