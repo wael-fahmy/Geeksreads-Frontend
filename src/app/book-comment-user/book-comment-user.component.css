@@ -2,36 +2,47 @@
         {
             color:orange;
         }
-        #review_book
+        #review-book
         {
             margin:0 0 0 15px;
         }
-        .reviewer_image
+        .reviewer-image
         {
             height: 50px;
             width: 50px;
             margin: 0 0 0 10px;
             border-style: ridge;
         }
-        #user_reviews
+        #community-reviews
+        {
+            margin-left: 10px;
+        }
+        #user-reviews
         {
             display: flex;
-            vertical-align: top;
             flex-direction: row;
             flex-wrap: nowrap;
-            position: relative;
         }
-        #Reviewer_name
+        .blue-text
         {
+            color: blue; 
+            cursor: pointer;
+        }
+        .dots
+        {
+            margin-left: 5px;
+        }
+        #Reviewer-name
+        {
+            color:blue;
             margin: 0 0 0 12px;
         }
-        #review_date
+        #review-date
         {
-            position: absolute;
-            margin:25px 0 0 75px;
+            margin:5px 0 0 10px;
             color:rgb(88, 88, 88);
         }
-        #myBtn_user_review
+        #myBtn-user-review
         {
             background-color: darkgrey;
             margin: 0 0 0 10px;
@@ -44,20 +55,30 @@
             cursor:pointer;
             margin: 0 0 0 0;
         }
-        #more_review
+        #more-review
         {
             display: none;
         }
-        #review_comment button:hover
+        #rate-it
+        {
+            color:rgb(88, 88, 88);
+        }
+        #review-comment button:hover
         {
             background-color: red;
             transition: 1s;
         }
-        #review_comment
+        #review-comment
         {
             margin-left: 65px;
         }
-        #review_like_comment
+        #next-review
+        {
+            color: darkgray;
+            size:3px; 
+            margin-left: 10px;
+        }
+        #review-like-comment
         {
             display: flex;
             vertical-align: top;
