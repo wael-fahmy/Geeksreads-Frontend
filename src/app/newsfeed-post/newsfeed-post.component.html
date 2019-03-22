@@ -1,9 +1,18 @@
 <mat-card class="example-card">
   <mat-card-header>
-    <div mat-card-avatar class="example-header-image"></div> 
-    <mat-card-title > Name </mat-card-title>
-   
-    <mat-card-subtitle>about 2 hours ago</mat-card-subtitle>
+    <div mat-card-avatar class="example-header-image"> </div>
+    
+    <mat-card-title >Pirongo Young{{userName}} </mat-card-title> 
+    <p class="activity"> rated a book{{activityLog}} </p>
+    <!-- display the ratigs --> 
+    <span class="fa fa-star checked"></span>
+    <span class="fa fa-star checked"></span>
+    <span class="fa fa-star checked"></span>
+    <span class="fa fa-star"></span>
+    <span class="fa fa-star"></span>
+    
+  
+    <mat-card-subtitle>about 2 hours {{activityDate}}ago</mat-card-subtitle>
     
    
     </mat-card-header> 
@@ -17,6 +26,4 @@
   
   <button mat-button color="accent">LIKE</button>
   <button mat-button color="warn">COMMENT</button>
-  
- 
 </div>
