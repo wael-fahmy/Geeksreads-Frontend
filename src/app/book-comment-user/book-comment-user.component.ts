@@ -26,9 +26,9 @@ like() {
       }
   }
 more_user_preview() {
-    const dots = document.getElementById('dots_user_review');
-    const moreText = document.getElementById('more_review');
-    const btnText = document.getElementById('myBtn_user_review');
+    const dots = document.getElementById('dots-user-review');
+    const moreText = document.getElementById('more-review');
+    const btnText = document.getElementById('myBtn-user-review');
     if (dots.style.display === 'none') {
       dots.style.display = 'inline';
       btnText.innerHTML = 'Read more';

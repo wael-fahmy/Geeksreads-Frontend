@@ -12,9 +12,9 @@ export class BookEntityComponent implements OnInit {
   ngOnInit() {
   }
   more_book_discription() {
-    const dots = document.getElementById('dots_book_discription');
-    const moreText = document.getElementById('more_book_discription');
-    const btnText = document.getElementById('myBtn_book_discription');
+    const dots = document.getElementById('dots-book-discription');
+    const moreText = document.getElementById('more-book-discription');
+    const btnText = document.getElementById('myBtn-book-discription');
     if (dots.style.display === 'none') {
       dots.style.display = 'inline';
       btnText.innerHTML = 'Read more';
