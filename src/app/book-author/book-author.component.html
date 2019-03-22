@@ -1,25 +1,21 @@
 <p id="about-this-author">About this author</p>
 <div id="Author-picture-data">
-    <img id="author-image" src="https://res.cloudinary.com/teepublic/image/private/s--MXaEnIYq--/t_Preview/b_rgb:484849,c_limit,f_jpg,h_630,q_90,w_630/v1465719853/production/designs/541177_1.jpg">
+    <img id="author-image" src={{author_details[author_index].author_image}}>
     <div id="Author-data">
-        <p id="author-name">Wiessman</p>
+        <p id="author-name">{{author_details[author_index].author_name}}</p>
         <div id="author-followers">
-            <p id="number-followers">12,323</p>
+            <p id="number-followers">{{author_details[author_index].author_followers}}</p>
             <span id="followers-word">Followers</span>
         </div>
         <button id="btn-follow-author" class="w3-button w3-lime w3-round">Follow Author</button>
     </div>
 </div>
 <div class="author-discription"> 
-        <p>Melissa de la Cruz is the New York Times and USA Today best-selling author of many critically acclaimed and award-winning novels for teens including The Au Pairs series, the Blue Bloods series, the Ashleys series, the Angels on 
-            Sunset Boulevard series and the semi-autobiographical novel Fresh off the Boat.
-            Her books for adults include the novel Cat’s Meow, the anthology Girls Who Like Boys Who Like Boys and the tongue-in-chic handbooks How to Become Famous in Two Weeks or Less and The 
-            Fashionista Files: Adventures in Four-inch heels and Faux-Pas.    
-            She has worked as a fashion and beauty editor and has written for many publications including The New York Times, Marie Claire, Harper’s Bazaar, Glamour, Cosmopolitan, Allure, The San Francisco
+        <p>{{author_details[author_index].author_details_shown}}
             <span id="dots-author-discription">...</span>
-            <span id="more-author-discription">Chronicle, McSweeney’s, Teen Vogue, CosmoGirl! and Seventeen. She has also appeared as an expert on fashion, trends and fame for CNN, E! and FoxNews.
-            Melissa grew up in Manila and moved to San Francisco with her family, where she graduated high school salutatorian from The Convent of the Sacred Heart. She majored in art history and English at Columbia University and minored in nightclubs and shopping!.
-            She now divides her time between New York and Los Angeles, where she lives in the Hollywood Hills with her husband and daughter.</span></p>
+            <span id="more-author-discription">
+                    {{author_details[author_index].author_details_hidden}}
+           </span></p>
             <button (click)="more_author_details()" id="myBtn-author-discription" class="w3-button w3-khaki w3-round-xlarge">Read more</button>
     </div>
     <hr id="underline-book-author" class="w3-gray">

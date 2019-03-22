@@ -56,6 +56,36 @@ app.use("/api/book",(req,res,next)=> {
     book_details: book_details
     });
   });
+  app.use("/api/authordata",(req,res,next)=> {
+    const author_details=[
+      {
+      author_name:'Meguru Ueno',
+      author_image:'https://i.paigeeworld.com/user-media/1447891200000/55ae8c1544941e41e4a7925a_564e322f05e9bcd58f01dae9_320.jpg',
+      author_followers:'20,334',
+      author_details_shown:'It has been serialized in Kadokawa Shotens shōnen manga magazine Monthly Shōnen Ace since November 2015, and has been collected in seven tankōbon volumes.',
+      author_details_hidden:'A 10-episode anime television series adaptation by NAZ aired from July 12, 2017 to September 13, 2017.'
+      },
+      {
+        author_name:'Yana Toboso',
+        author_image:'https://data.whicdn.com/images/195405628/large.jpg',
+        author_followers:'13,223',
+        author_details_shown:'Yana Toboso (枢 やな, Toboso Yana), born January 24, 1984, and known by her other pen names Yanao Rock and Takaragi Yana, is a Japanese manga artist. Her most significant work is the manga series Kuroshitsuji.',
+        author_details_hidden:'She currently lives in Yokohama, Kanagawa Prefecture. Yana Toboso draws herself as a devil with a black body and horns, a round white head, and a pointed tail. Toboso is now thirty-four years old, and there are currently no known pictures and documents of Tobosos real appearance given to the public'
+      },
+      {
+        author_name:'Loyd',
+        author_image:'https://i.pinimg.com/originals/2b/be/76/2bbe76c039a57c17d1779509dba6ea84.jpg',
+        author_followers:'113,435',
+        author_details_shown:'Loyd de la Cruz is the New York Times and USA Today best-selling author of many critically acclaimed and award-winning novels for teens including The Au Pairs series, the Blue Bloods series, the Ashleys series, the Angels on Sunset Boulevard series and the semi-autobiographical novel Fresh off the Boat. Her books for adults include the novel Cat’s Meow, the anthology Girls Who Like Boys Who Like Boys and the tongue-in-chic handbooks How to Become Famous in Two Weeks or Less and The Fashionista Files: Adventures in Four-inch heels and Faux-Pas. She has worked as a fashion and beauty editor and has written for many publications including The New York Times, Marie Claire, Harper’s Bazaar, Glamour, Cosmopolitan, Allure, The San Francisco',
+        author_details_hidden:'Chronicle, McSweeney’s, Teen Vogue, CosmoGirl! and Seventeen. She has also appeared as an expert on fashion, trends and fame for CNN, E! and FoxNews. Melissa grew up in Manila and moved to San Francisco with her family, where she graduated high school salutatorian from The Convent of the Sacred Heart. She majored in art history and English at Columbia University and minored in nightclubs and shopping!. She now divides her time between New York and Los Angeles, where she lives in the Hollywood Hills with her husband and daughter.'
+      }
+    ];
+      
+    res.status(200).json({
+      message: "User fetched successfully!",
+      author_details: author_details
+      });
+    });
   app.use("/api/bookDetails",(req,res,next)=> {
     const book_details=[
       {
@@ -120,7 +150,69 @@ app.use("/api/list", (req, res, next) => {
   });
 });
 
+app.use("/api/bookDetails",(req,res,next)=> {
+    const book_details=[
+      {
+      book_edition:'Kindle Edition, 372 pages',
+      book_published:'Published December 1st 2016 by Lake Union Publishing',
+      book_ASIN:'B01DF0TM1Y',
+      book_language:'English',
+      book_title:'黒執事',
+      book_awards: 'shōnen manga',
+      book_characters: 'Sebastian, Ceil Phantomhive'
+      },
+      {
+        book_edition:'Prime Edition, 500 pages',
+        book_published:'Published October 14th 2014 by Lake Union Publishing',
+        book_ASIN:'C11DF0TM1Y',
+        book_language:'English',
+        book_title:'黒執事',
+        book_awards: 'Shoujo manga',
+        book_characters: 'Yami, Jun'
+      },
+      {
+        book_edition:'Beta Edition, 200 pages',
+        book_published:'Published Novamber 3rd 2015 by Lake Union Publishing',
+        book_ASIN:'DAB0F0TM1Y',
+        book_language:'English',
+        book_title:'黒執事',
+        book_awards: 'Shoujo manga',
+        book_characters: 'Yuma, Akari'
+      }
+    ];
+    res.status(200).json({
+      message: "User fetched successfully!",
+      book_details: book_details
+      });
+    });
+app.use("/api/list", (req, res, next) => {
+  const Books = [
+    {
+      id: 11,
+      book_name: "Harry Potter",
+      author_name: "J.K Rowling",
+     book_cover: "https://orig05.deviantart.net/e78f/f/2008/160/f/a/harry_potter_by_jonathan3333.jpg"
+    },
+    {
+      id: 12, 
+      book_name: "Game of Thrones",
+      author_name: "G.R.R Martin",
+     book_cover:  "https://tse2.mm.bing.net/th?id=OIP.FN55nUOxccDTpCPhYOmVfgHaLU&pid=15.1&P=0&w=300&h=300"
 
+    },
+    {
+      id: 12, 
+      book_name: "Lord of the Rings",
+      author_name: "J.R.R Tolkien",
+     book_cover:  "https://tse4.mm.bing.net/th?id=OIP.FZz1UZSbw_p_m5hdjUOM3AHaLF&pid=15.1&P=0&w=300&h=300"
+
+    }
+  ];
+  res.status(200).json({
+    message: "Posts fetched successfully!",
+    Books: Books
+  });
+});
 
 app.use("/api/title", (req, res, next) => {
   const User_Info = {
