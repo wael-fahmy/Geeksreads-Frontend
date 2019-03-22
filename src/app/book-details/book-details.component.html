@@ -1,13 +1,13 @@
 
 <a name="book-details-bottom" id="book-details-more">Book details</a>
-<p id="book-edition">Kindle Edition, 372 pages</p>
-<span id="publish-date">Published December 1st 2016 by Lake Union Publishing</span>
+<p id="book-edition">{{book_information[book_index].book_edition}}</p>
+<span id="publish-date">{{book_information[book_index].book_published}}</span>
 <div>
-    <p id="ASIN-number">ASIN<span class="span-color"> B01DF0TM1Y</span></p>
-    <p class="text-shift">Edition language<span class="span-color">English</span></p>
-    <p class="text-shift">Original title<span class="span-color">黒執事</span></p>
-    <p class="text-shift">Literary Awards<span class="span-color">shōnen manga</span></p>
-    <p class="text-shift">Characters<span class="span-color">Sebastian, Ceil Phantomhive</span></p>
+    <p id="ASIN-number">ASIN<span class="span-color"> {{book_information[book_index].book_ASIN}}</span></p>
+    <p class="text-shift">Edition language<span class="span-color">{{book_information[book_index].book_language}}</span></p>
+    <p class="text-shift">Original title<span class="span-color">{{book_information[book_index].book_title}}</span></p>
+    <p class="text-shift">Literary Awards<span class="span-color">{{book_information[book_index].book_awards}}</span></p>
+    <p class="text-shift">Characters<span class="span-color">{{book_information[book_index].book_characters}}</span></p>
 </div>
 <hr id="underline-book-details" class="w3-darkgray">
 

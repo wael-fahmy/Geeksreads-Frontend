@@ -56,6 +56,41 @@ app.use("/api/book",(req,res,next)=> {
     book_details: book_details
     });
   });
+  app.use("/api/bookDetails",(req,res,next)=> {
+    const book_details=[
+      {
+      book_edition:'Kindle Edition, 372 pages',
+      book_published:'Published December 1st 2016 by Lake Union Publishing',
+      book_ASIN:'B01DF0TM1Y',
+      book_language:'English',
+      book_title:'黒執事',
+      book_awards: 'shōnen manga',
+      book_characters: 'Sebastian, Ceil Phantomhive'
+      },
+      {
+        book_edition:'Prime Edition, 500 pages',
+        book_published:'Published October 14th 2014 by Lake Union Publishing',
+        book_ASIN:'C11DF0TM1Y',
+        book_language:'English',
+        book_title:'黒執事',
+        book_awards: 'Shoujo manga',
+        book_characters: 'Yami, Jun'
+      },
+      {
+        book_edition:'Beta Edition, 200 pages',
+        book_published:'Published Novamber 3rd 2015 by Lake Union Publishing',
+        book_ASIN:'DAB0F0TM1Y',
+        book_language:'English',
+        book_title:'黒執事',
+        book_awards: 'Shoujo manga',
+        book_characters: 'Yuma, Akari'
+      }
+    ];
+    res.status(200).json({
+      message: "User fetched successfully!",
+      book_details: book_details
+      });
+    });
 app.use("/api/list", (req, res, next) => {
   const Books = [
     {
