@@ -26,6 +26,64 @@ app.use((req, res, next) => {
     message: 'Post added successfully'
   });
 });*/
+app.use("/api/suggestedbook",(req,res,next)=> {
+  const suggestedbook_details=[
+    {
+    suggestedbook_title:'Blame',
+    suggestedbook_image:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgB_-fjEHUeR3AT1rJNOAP6M_LwD2Lk-YYVAjEO7_1Rg1Y7bdAqw',
+    suggestedbook_author:'Chronous',
+    },
+    {
+    suggestedbook_title:'Bleach',
+    suggestedbook_image:'https://i.pinimg.com/236x/e2/d4/9c/e2d49c2ecbd3c1993b5471b4679c8b4c--list-bleach.jpg',
+    suggestedbook_author:'Badon',
+    },
+    {
+      suggestedbook_title:'Magi',
+      suggestedbook_image:'https://vignette.wikia.nocookie.net/magi/images/1/1d/Volume_27.png/revision/latest?cb=20151103001522',
+      suggestedbook_author:'kuro',
+    },
+    {
+      suggestedbook_title:'HellSing',
+      suggestedbook_image:'https://geekandsundry.com/wp-content/uploads/2015/05/Hellsing-Cover.jpg',
+      suggestedbook_author:'Kohta Hirano',
+    },
+    {
+      suggestedbook_title:'Radiant',
+      suggestedbook_image:'https://www.rightstufanime.com/images/productImages/9781974703814_manga-radiant-1-primary.jpg',
+      suggestedbook_author:'Tony Valente',
+    },
+    {
+      suggestedbook_title:'Bungo Stray Dogs',
+      suggestedbook_image:'https://images.squarespace-cdn.com/content/5a6f4bcb64b05fab1682b0b1/1550247473973-8A54LJPOSCV8F9SFMJ6W/',
+      suggestedbook_author:'Kami',
+    },
+    {
+      suggestedbook_title:'Grand Blue',
+      suggestedbook_image:'https://www.monstersandcritics.com/wp-content/uploads/2018/09/Grand-Blue-Dreaming-Manga-Volume-7-Cover.jpg',
+      suggestedbook_author:'Kenji Inoue',
+    },
+    {
+      suggestedbook_title:'Spice & Wolf',
+      suggestedbook_image:'https://www.anime-contemplation.com/wp-content/uploads/2012/12/Spice-and-Wolf-Manga-Volume-7-Cover.jpg',
+      suggestedbook_author:'Isuna Hasekura',
+    },
+    {
+      suggestedbook_title:'Baka To Test',
+      suggestedbook_image:'https://www.baka-tsuki.org/project/thumb.php?f=BakaTestV1cover.jpg&width=325',
+      suggestedbook_author:'Kenji Inoue',
+    },
+    {
+      suggestedbook_title:'One Punch Man',
+      suggestedbook_image:'https://pre00.deviantart.net/d461/th/pre/i/2016/163/a/f/one_punch_man_cover_by_visionarydaydreamer-da5x72m.jpg',
+      suggestedbook_author:'Hakura',
+    }
+  ];
+  res.status(200).json({
+    message: "User fetched successfully!",
+    suggestedbook_details: suggestedbook_details
+    });
+  });
 app.use("/api/book",(req,res,next)=> {
   const book_details=[
     {
@@ -85,6 +143,64 @@ app.use("/api/book",(req,res,next)=> {
       message: "User fetched successfully!",
       author_details: author_details
       });
+    });
+  app.use("/api/authorbook",(req,res,next)=> {
+      const suggestedauthorbook_details=[
+        {
+        suggestedauthorbook_title:'OverLord',
+        suggestedauthorbook_image:'https://cdn.myanimelist.net/images/manga/3/161407.jpg',
+        suggestedauthorbook_author:'Wiesman',
+        },
+        {
+        suggestedauthorbook_title:'Hero Academia',
+        suggestedauthorbook_image:'https://mangahelpers.com/forum/media/wsj-cover-issue-9-2016.19683/full?d=1454154995',
+        suggestedauthorbook_author:'Wiesman',
+        },
+        {
+          suggestedauthorbook_title:'Sword Art Online',
+          suggestedauthorbook_image:'https://vignette.wikia.nocookie.net/swordartonline/images/1/19/Calibur_Manga_Cover.png/revision/latest?cb=20161009045733',
+          suggestedauthorbook_author:'Wiesman',
+        },
+        {
+          suggestedauthorbook_title:'Tokyo Ghoul',
+          suggestedauthorbook_image:'https://vignette.wikia.nocookie.net/tokyoghoul/images/6/6a/Volume_01.jpg/revision/latest?cb=20161203075330',
+          suggestedauthorbook_author:'Wiesman',
+        },
+        {
+          suggestedauthorbook_title:'Tokyo Ghoul Root',
+          suggestedauthorbook_image:'https://i.redd.it/9fkinvfcum3z.jpg',
+          suggestedauthorbook_author:'Wiesman',
+        },
+        {
+          suggestedauthorbook_title:'Goblin Slayer',
+          suggestedauthorbook_image:'https://vignette.wikia.nocookie.net/goblin-slayer/images/f/f4/LN_Vol_03_cover.jpg/revision/latest?cb=20180219173004',
+          suggestedauthorbook_author:'Wiesman',
+        },
+        {
+          suggestedauthorbook_title:'Danganronpa',
+          suggestedauthorbook_image:'https://d2lzb5v10mb0lj.cloudfront.net/covers/600/29/29259.jpg',
+          suggestedauthorbook_author:'Wiesman',
+        },
+        {
+          suggestedauthorbook_title:'Fuuka',
+          suggestedauthorbook_image:'https://upload.wikimedia.org/wikipedia/en/thumb/6/62/F%C5%ABka_%28manga%29_cover.jpeg/220px-F%C5%ABka_%28manga%29_cover.jpeg',
+          suggestedauthorbook_author:'Wiesman',
+        },
+        {
+          suggestedauthorbook_title:'Gangsta',
+          suggestedauthorbook_image:'https://iwantedwings.files.wordpress.com/2014/03/1.jpg',
+          suggestedauthorbook_author:'Wiesman',
+        },
+        {
+          suggestedauthorbook_title:'Pandora Hearts',
+          suggestedauthorbook_image:'https://qph.fs.quoracdn.net/main-qimg-1478fcfef2d268deee3d437a8dd725f5.webp',
+          suggestedauthorbook_author:'Wiesman',
+        }
+      ];
+      res.status(200).json({
+        message: "User fetched successfully!",
+        suggestedauthorbook_details: suggestedauthorbook_details
+        });
     });
   app.use("/api/bookDetails",(req,res,next)=> {
     const book_details=[
