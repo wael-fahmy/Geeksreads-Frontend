@@ -9,10 +9,6 @@ body{
     display: block;
     
 }
-#review-book
-{
-    margin:0 0 0 15px;
-}
 #Book-Title
 {   
     display: inline;
@@ -35,11 +31,14 @@ body{
 }
 #Book-info p
 {
-    margin:10px 0 0 15px;
+    margin:7px 0 0 15px;
+}
+#review-book
+{
+    margin:0 0 0 28px;
 }
 #book-details-and-reviewbutton
 {
-
     display: flex;
     vertical-align: top;
     flex-direction: row;
@@ -54,12 +53,12 @@ body{
 #book-details
 {
     color: blue;
-    margin: 10px 0 0 20px;
+    margin: 5px 0 0 24px;
     cursor:pointer;
 }
 #want-to-read
 {
-    margin: 30px 0 0 15px;
+    margin: 15px 0 0 15px;
     background-color: #4CAF50;
     border: none;
     color: white;
@@ -76,7 +75,7 @@ body{
 }
 #rate
 {
-    margin: 30px 0 0 5px;
+    margin: 15px 0 0 5px;
     background-color: darkgrey;
     border: none;
     color: white;
@@ -100,7 +99,7 @@ body{
 }
 #Write-a-review
 {
-    margin: 10px 0 0 25px;
+    margin: 10px 0 0 15px;
     background-color: darkgrey;
     border: none;
     color: white;
@@ -118,10 +117,6 @@ body{
 .checked
 {
     color:orange;
-}
-#review-book
-{
-    
 }
 #Book-info button:hover
 {

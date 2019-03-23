@@ -1,9 +1,21 @@
 <p id="about-this-author">About this author</p>
 <div id="Author-picture-data">
-    <img id="author-image" src="https://res.cloudinary.com/teepublic/image/private/s--MXaEnIYq--/t_Preview/b_rgb:484849,c_limit,f_jpg,h_630,q_90,w_630/v1465719853/production/designs/541177_1.jpg">
+    <img id="author-image" src={{author_details[author_index].author_image}}>
     <div id="Author-data">
-        <p id="author-name">Wiessman</p>
-        <span id="number-followers">12,323</span>
-        <p id="followers-number">Followers</p>
+        <p id="author-name">{{author_details[author_index].author_name}}</p>
+        <div id="author-followers">
+            <p id="number-followers">{{author_details[author_index].author_followers}}</p>
+            <span id="followers-word">Followers</span>
+        </div>
+        <button id="btn-follow-author" class="w3-button w3-lime w3-round">Follow Author</button>
     </div>
 </div>
+<div class="author-discription"> 
+        <p>{{author_details[author_index].author_details_shown}}
+            <span id="dots-author-discription">...</span>
+            <span id="more-author-discription">
+                    {{author_details[author_index].author_details_hidden}}
+           </span></p>
+            <button (click)="more_author_details()" id="myBtn-author-discription" class="w3-button w3-khaki w3-round-xlarge">Read more</button>
+    </div>
+    <hr id="underline-book-author" class="w3-gray">

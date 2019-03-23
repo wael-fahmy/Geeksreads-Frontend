@@ -1,7 +1,6 @@
 #Author-picture-data
 {
     display: flex;
-    position: relative;
     flex-direction: row;
     flex-wrap: nowrap;
     margin: 0 0 0 10px;
@@ -9,11 +8,12 @@
 #about-this-author
 {   
     margin-left: 10px;
+    font-weight: bold;
 }
 #author-image
 {
-    max-width: 80px;
-    max-height: 80px;
+    max-width: 85px;
+    max-height:85px;
     margin:0 0 0 0;
 }
 #author-name
@@ -26,13 +26,40 @@
 {
     flex-wrap: nowrap;
     flex-direction: row;
-    margin:0 0 0 20px;
+    margin:10px 0 0 25px;
+}
+.author-discription
+{
+    margin:0 0 0 15px;
+}
+#more-author-discription
+{
+    display: none;
+}
+#myBtn-author-discription:hover
+{
+    background-color: red;
+    transition: 1s;
+}
+#underline-book-author
+{
+    size:3px;
+    margin-left: 10px;
+}
+#myBtn-author-discription
+{
+    background-color: darkgrey;
+    margin-bottom: 10px;
+}
+#dots-author-discription
+{
+    color:blue;
 }
 #Author-data
 {
     flex-direction: row;
     flex-wrap: nowrap;
-    margin:5px 0 0 10px;
+    margin:0 0 0 10px;
 }
 
 #Author-data p {
@@ -40,5 +67,15 @@
 }
 
 #Author-data span {
-    margin: 0;
+    margin: 0 0 0 5px;
+}
+#btn-follow-author
+{
+    margin-top: 2px;
+}
+#author-followers
+{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
 }

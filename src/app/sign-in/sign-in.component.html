@@ -1,38 +1,18 @@
-
-
-
-<form method="post">
-<div class="box">
-<h1 align="center">Geeks Reads</h1>
-
-<button class="btn facebook" data-provider="facebook"><i></i><span>Continue with Facebook</span></button>
-<button class="btn amazon" data-provider="amazon"><i></i><span>Continue with Amazon</span></button>
-
-<hr>
-
-<input  type="email" name="email" placeholder="email" required onFocus="field_focus(this, 'email');" onblur="field_blur(this, 'email');" class="email" />
-
-<input type="password" name="password" placeholder="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required onFocus="field_focus(this, 'password');" onblur="field_blur(this, 'password');" class="email" />
-
-<br>
-<br>
-
-<div class="form-group">
-
-<label>
-<font size="2" >Keep me signed in </font><input type="checkbox" name="keepmesignedin" value="keepmesignedin" class="form-control checkbox-inline">
-</label>
-<label>
-<p class="form-control checkbox-inline"><u style="color:#f1c40f;" >Forgot your password!</u></p>
-</label>
-
+<div class="sign-in">
+    <h1>Geeksreads</h1>
+    <button mat-raised-button color="primary" class="btn facebook"><i></i><span></span>Continue with Facebook</button>
+    <button mat-raised-button color="primary" class="btn amazon"><i></i><span></span>Continue with Amazon</button>
+    <hr>
+    <form class="sign-in-form" (submit)="onSigningIn(signinForm)" #signinForm='ngForm'>
+      <mat-form-field>
+        <input matInput placeholder="Enter your email" [formControl]="email" required name="email" ngModel>
+        <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'" name="password" ngModel>
+        <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </mat-form-field>
+      <button mat-raised-button class="btn" type="submit">Sign In</button>
+      <p>Not a member? <a routerLink="/sign-up">Sign Up</a></p>
+    </form>
 </div>
-<br>
-<button class="btn" ><i></i><span>Sign In</span></button>
-
-<p> Not a member? <u style="color:#f1c40f;">Sign Up</u></p>
-
-
-</div> <!-- End Box -->
-
-</form>

@@ -8,6 +8,7 @@
         #get-a-copy
         {
             margin: 15px 0 0 10px;
+            font-weight: bold;
         }
         #Stores-buttons button:hover
         {
@@ -35,6 +36,24 @@
             display: block;
             cursor: pointer;
         }
+        #genres
+        {
+            color:gray;
+            margin: 0 0 0 15px;
+        }
+        #genres-type
+        {
+            display: inline;
+        }
+        #genres-type button:hover
+        {
+            background-color: red;
+            transition: 1s;
+        }
+        .genres-button
+        {
+            margin: 15px 0 0 10px;
+        }
         #book-details-uppar-line
         {
             background-color: darkgray;
@@ -45,10 +64,7 @@
         .drop-down-online-store:hover .online-store {background-color: #3e8e41;}
         #Stores-underline
         {
-            margin: 25px 0 0 0;
-            color:darkgray;
-            size:5;
-            background-color: darkgray;
+            margin: 25px 0 0 10px;
         }
         #online-store
         {
@@ -94,24 +110,24 @@
         }
         #Stores-underline
         {
-            margin: 25px 0 0 10px;
+            color: black;
+            background-color: black;
         }
         #load-more-community-reviews
         {
             width: 100%;
             height: 40px;
-            background-color: rgb(99, 98, 98);
+            background-color:darkgray;
             border: none;
             color: white;
             padding-bottom: 10px;
-            padding-top: 10px;
+            padding-top: 7px;
             text-align: center;
             text-decoration: none;
-            display: inline-block;
             font-size: 16px;
-            margin: 4px 2px;
             border-radius: 12px;
             cursor: pointer;
+            margin: 0 0 15px 0;
         }
         #load-more-community-reviews:hover
         {

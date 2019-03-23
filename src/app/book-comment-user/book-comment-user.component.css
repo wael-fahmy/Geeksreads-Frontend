@@ -16,6 +16,7 @@
         #community-reviews
         {
             margin-left: 10px;
+            font-weight: bold;
         }
         #user-reviews
         {
@@ -84,7 +85,6 @@
             vertical-align: top;
             flex-direction: row;
             flex-wrap: nowrap;
-            position: relative;
             margin-left: 65px;
             margin-top:5px;
         }

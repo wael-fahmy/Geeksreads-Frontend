@@ -1,27 +1,34 @@
-<app-nav-bar></app-nav-bar>
 <app-book-entity></app-book-entity>
 <p id="get-a-copy">Get a copy</p>
-    <div id="Stores-buttons">
-        <button id="amazon-store" onclick=" window.open('https://www.amazon.com','-blank')"> Amazon</button>
-        <div class="drop-down-online-store">
-            <button id="online-store">Online Stores</button>
-            <div class="dropdown-list">
-                <a onclick=" window.open('https://www.barnesandnoble.com','-blank')">Barnes & Noble</a>
-                <a onclick=" window.open('https://www.kobo.com','-blank')">Rakuten Kobo</a>
-                <a onclick=" window.open('https://itunes.apple.com','-blank')">Apple Store</a>
-                <a onclick=" window.open('https://play.google.com','-blank')">Google Store</a>
-                <a onclick=" window.open('https://www.abebooks.com','-blank')">Abe Books</a>
-                <a onclick=" window.open('https://www.bookdepository.com','-blank')">Book Despository</a>
-                <a onclick=" window.open('https://www.chapters.indigo.ca','-blank')">Indigo</a>
-            </div>
+<div id="Stores-buttons">
+    <button id="amazon-store" onclick=" window.open('https://www.amazon.com','-blank')"> Amazon</button>
+    <div class="drop-down-online-store">
+        <button id="online-store">Online Stores</button>
+        <div class="dropdown-list">
+            <a onclick=" window.open('https://www.barnesandnoble.com','-blank')">Barnes & Noble</a>
+            <a onclick=" window.open('https://www.kobo.com','-blank')">Rakuten Kobo</a>
+            <a onclick=" window.open('https://itunes.apple.com','-blank')">Apple Store</a>
+            <a onclick=" window.open('https://play.google.com','-blank')">Google Store</a>
+            <a onclick=" window.open('https://www.abebooks.com','-blank')">Abe Books</a>
+            <a onclick=" window.open('https://www.bookdepository.com','-blank')">Book Despository</a>
+            <a onclick=" window.open('https://www.chapters.indigo.ca','-blank')">Indigo</a>
         </div>
-        <button id="libraries-store" onclick=" window.open('https://www.worldcat.org/title','-blank')"> Libraries</button>
     </div>
-    <hr id="Stores-underline">
-    <app-book-comment-user></app-book-comment-user>
-    <button id="load-more-community-reviews">Load More Community Reviews</button>
-    <hr id="book-details-uppar-line">
-    <app-book-details></app-book-details>
-    <app-book-author></app-book-author>
-    <app-footer></app-footer>
-    
+    <button id="libraries-store" onclick=" window.open('https://www.worldcat.org/title','-blank')"> Libraries</button>
+</div>
+<hr class="w3-gray" id="Stores-underline">
+<app-book-comment-user></app-book-comment-user>
+<button id="load-more-community-reviews">Load More Community Reviews</button>
+<hr id="book-details-uppar-line" class="w3-gray">
+<app-book-suggestion></app-book-suggestion>
+<app-book-suggestion-other></app-book-suggestion-other>
+<app-book-details></app-book-details>
+<app-book-author></app-book-author>
+<p id="genres">Genres</p>
+<div id="genres-type">
+    <button class="genres-button w3-button w3-teal w3-round-xlarge">Classics</button>
+    <button class="genres-button w3-button w3-teal w3-round-xlarge">Manga</button>
+    <button class="genres-button w3-button w3-teal w3-round-xlarge">Shounen</button>
+    <button class="genres-button w3-button w3-teal w3-round-xlarge">Demons</button>
+</div>
+<hr id="Stores-underline" class="w3-gray">

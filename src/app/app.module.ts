@@ -29,6 +29,8 @@ import { MAT_LABEL_GLOBAL_OPTIONS } from '@angular/material';
 import { FooterComponent } from './footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ProfileEditComponent } from './profile-edit/profile-edit.component';
+import { BookSuggestionOtherComponent } from './book-suggestion-other/book-suggestion-other.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -54,20 +56,19 @@ import { ProfileEditComponent } from './profile-edit/profile-edit.component';
     NewsfeedComponent,
     NewsfeedPostComponent,
     FooterComponent,
-    ProfileEditComponent
+    ProfileEditComponent,
+    BookSuggestionOtherComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
-  providers: [
-    {
-      provide: MAT_LABEL_GLOBAL_OPTIONS, useValue: {float: 'never'}
-    }
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
