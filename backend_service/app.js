@@ -26,6 +26,36 @@ app.use((req, res, next) => {
     message: 'Post added successfully'
   });
 });*/
+app.use("/api/genredetails", (req, res, next) => {
+  const genre_details = [
+    {
+      genre_one:'Romance',
+      genre_two:'Slice Of Life',
+      genre_three:'School',
+      genre_four:'Food',
+      genre_five:'Shojou'
+    },
+    {
+      genre_one:'Demon',
+      genre_two:'Shounen',
+      genre_three:'Slice OF Life',
+      genre_four:'History',
+      genre_five:'War'
+    },
+    {
+      genre_one:'Romance',
+      genre_two:'Slice Of Life',
+      genre_three:'Drama',
+      genre_four:'Comedy',
+      genre_five:'Shojou'
+    }
+  ];
+  res.status(200).json({
+    message: "Posts fetched successfully!",
+    genre_details: genre_details
+  });
+});
+
 app.use("/api/suggestedbook",(req,res,next)=> {
   const suggestedbook_details=[
     {
@@ -205,13 +235,13 @@ app.use("/api/book",(req,res,next)=> {
   app.use("/api/bookDetails",(req,res,next)=> {
     const book_details=[
       {
-      book_edition:'Kindle Edition, 372 pages',
-      book_published:'Published December 1st 2016 by Lake Union Publishing',
-      book_ASIN:'B01DF0TM1Y',
-      book_language:'English',
-      book_title:'黒執事',
-      book_awards: 'shōnen manga',
-      book_characters: 'Sebastian, Ceil Phantomhive'
+        book_edition:'Kindle Edition, 372 pages',
+        book_published:'Published December 1st 2016 by Lake Union Publishing',
+        book_ASIN:'B01DF0TM1Y',
+        book_language:'English',
+        book_title:'黒執事',
+        book_awards: 'shōnen manga',
+        book_characters: 'Sebastian, Ceil Phantomhive'
       },
       {
         book_edition:'Prime Edition, 500 pages',
@@ -237,6 +267,8 @@ app.use("/api/book",(req,res,next)=> {
       book_details: book_details
       });
     });
+    
+
 app.use("/api/list", (req, res, next) => {
   const Books = [
     {
