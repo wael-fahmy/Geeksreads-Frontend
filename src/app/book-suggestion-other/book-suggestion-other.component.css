@@ -32,21 +32,21 @@
   margin-left: 10px;
 }
 div.scroll-menu-other a:hover {
-    background-color:blue;
-    cursor: pointer;
-    margin-left: 30px;
-  }
-  div.scroll-menu-other a {
-    display: inline-block;
-    color: white;
-    text-align: center;
-    padding: 14px;
-    text-decoration: none;
-  }
-  div.scroll-menu-other {
-    overflow: auto;
-    white-space: nowrap;
-  }
+  background-color:blue;
+  cursor: pointer;
+  margin-left: 30px;
+}
+div.scroll-menu-other a {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 14px;
+  text-decoration: none;
+}
+div.scroll-menu-other {
+  overflow: auto;
+  white-space: nowrap;
+}
   #suggested-books-other
   {
     margin:0 0 0 15px;
