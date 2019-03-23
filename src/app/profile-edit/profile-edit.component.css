@@ -3,9 +3,11 @@ html {
 }
 
 body {
-	background: #eee url(images/bg-body.png);
-	color: #333;
-	font: 75%/1.3 "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background: #eee url(images/bg-body.png);
+  border:none;
+  color: #333;
+  font-size: 14px;
+	font-family: Arial, Helvetica, sans-serif;
 	padding: 20px;
 }
 
@@ -15,7 +17,7 @@ body {
 }
 
 #container-inner {
-	background: #fff url(images/bg-form.gif) repeat-x;
+  background: #fff url(images/bg-form.gif) repeat-x;
 	border: 1px solid #fff;
 	border-color: #fff #fff #ababab;
 	padding: 20px;
@@ -25,10 +27,10 @@ h1 {
 	border-bottom: 1px solid #fff;
 	background: url(images/bg-ccc.gif) 0 100% repeat-x;
 	color: #666666;
-	font-size: 2.5em;
+	font-size: 30px;
 	font-weight: normal;
 	line-height: 1;
-	margin: 0 0 0.7em;
+	margin: 0 0 12px;
 	padding: 0 0 28px;
 }
 
@@ -38,50 +40,15 @@ fieldset {
 	position: relative;
 	padding: 0;
 }
-
-/* -- !Introduction Text -- */
-.introduction {
-	font-size: 1.5em;
-	line-height: 1.6;
-	margin: 0 0 2em;
-}
-
-/* Note */
-p.note {
-	font-size: 1.25em;
-	margin: -1.7em 0 1.25em;
-}
-
-/* -- !Required Fields -- */
-fieldset abbr {
-	color: #7b0101;
-	font-size: 20px;
-	font-weight: bold;
-	line-height: 1;
-	padding: 0 1px;
-	vertical-align: middle;
-}
-
-/* Right aligned asterisk */
-fieldset label abbr {
-	display: block;
-	font-size: 23px;
-	right: 60px;
-	padding: 0;
-	position: absolute;
-	top: 10px;
-	width: 16px;
-}
-
 /* -- !Fields -- */
 fieldset div {
 	background: url(images/bg-form-fieldset-div.png);
-    margin: 0 0 10px;
+    margin: 0 0 10px 0;
     padding: 5px 0 5px 160px;
 }
 
 fieldset div.controls {
-	margin: 25px 0 0;
+	margin: 25px 0 0 0;
 	padding: 0;
 }
 
@@ -89,55 +56,40 @@ fieldset div.controls {
     fieldset div label {
     	color: #666;
     	float: left;
-    	display: block;
-    	font-size: 1.16em;
-        font-weight: bold;
-        line-height: 1.1;
-        margin: 7px 0 0 -160px;
-        width: 140px;
+    	font-size: 14px;
+      font-weight: bold;
+      line-height: 1.1;
+      margin: 7px 0 0 -160px;
+      width: 140px;
     }
 
 	/* Input defaults */
 	fieldset div input,
-	fieldset div textarea,
 	fieldset div select {
 		border: 1px solid #a3b4c4;
 		border-color: #636d77 #a3b4c4 #c7d2de;
 		color: #333;
-	    display: block;
-	    font-size: 14px;
-	    font-family: Arial, Helvetica, sans-serif;
-	    line-height: 1;
-	    margin: 0;
+	  display: block;
+	  font-size: 14px;
+	  font-family: Arial, Helvetica, sans-serif;
+	  line-height: 1;
+	  margin: 0;
 	}
 
-	/* Focus */
-	fieldset div input:focus,
-	fieldset div textarea:focus,
-	fieldset div select:focus {
-		border-color: #636d77;
-	}
 
-    /* Text inputs */
-    fieldset div input {
-    	background: #FFF url(images/bg-form-input.gif) repeat-x left top;
+ /* Text inputs */
+  fieldset div input {
+      background: #FFF url(images/bg-form-input.gif) repeat-x left top;
     	padding: 6px 5px;
-        width: 288px;
+      width: 288px;
     }
 
     /* Select menus */
     fieldset div select {
     	padding: 0 0 0 3px;
-        width: 291px;
+      width: 291px;
     }
 
-    /* Textareas */
-    fieldset div textarea {
-    	background: #FFF url(images/bg-form-input.gif) repeat-x left top;
-        height: 89px;
-        padding: 6px 5px;
-        width: 288px;
-    }
 
     /* File Upload */
     fieldset div input[type=file] {
@@ -146,37 +98,10 @@ fieldset div.controls {
     	padding: 0;
     }
 
-    /* Radio buttons + checkboxes */
-    fieldset div ul {
-    	margin: 5px 0 0 0;
-    }
-
-	    fieldset div ul li {
-	        margin: 0 0 5px;
-	        padding: 0;
-	    }
-
-	        fieldset div ul li label {
-	            display: inline;
-	            float: none;
-		    	font-size: 1em;
-	            font-weight: normal;
-	            margin: 0;
-	            padding: 0;
-	        }
-
-	        fieldset div ul li input {
-	        	background: none;
-	            border: none;
-	            display: inline;
-	            margin: 0 5px 0 0;
-	            padding: 0;
-	            width: auto;
-	        }
-
-	/* Groups */
+  /* Groups */
 	fieldset fieldset.group {
-		background: url(images/bg-form-fieldset-div.png) repeat-y -155px 0;
+    background: url(images/bg-form-fieldset-div.png) repeat-y -155px 0;
+    border: none;
 		color: #666;
 		margin: 0 0 10px 155px;
 		padding: 0;
@@ -186,7 +111,7 @@ fieldset div.controls {
 			background: none;
 			border: none;
 			display: block;
-	    font-size: 1.16em;
+	    font-size: 14px;
 	    font-weight: bold;
 	    left: 0;
 	    line-height: 1.1;
@@ -197,7 +122,6 @@ fieldset div.controls {
 		}
 
 		fieldset fieldset.group div {
-			background: none;
 			float: left;
 			margin: 0 0 0 5px;
 			padding-left: 0;
@@ -208,102 +132,22 @@ fieldset div.controls {
 			width: auto;
 		}
 
-/* -- !Table of radio buttons -- */
-fieldset table {
-	border-collapse: collapse;
-	border-spacing: none;
-	width: 465px;
-}
+/* Radio buttons */
 
-	/* Head */
-	fieldset table thead th {
-		color: #0c1155;
-		font-size: 1.16em;
-		padding: 0 14px 8px;
-	}
-
-	/* Body */
-	fieldset table tbody th,
-	fieldset table tbody td {
-		border: 10px solid #FFF;
-		border-width: 0 0 10px;
-		vertical-align: middle;
-	}
-
-	fieldset table tbody tr.with-note td,
-	fieldset table tbody tr.with-note th {
-		border: none;
-	}
-
-	fieldset table tbody th {
-		color: #666666;
-		font-size: 1.16em;
-		font-weight: bold;
-		width: 155px;
-	}
-
-	fieldset table tbody td {
-		background: #f2f2f2;
-		padding: 12px 28px;
-	}
-
-	/* List of Messages */
-	#form-messages {
-		background: url(images/bg-form-messages.gif) no-repeat 0 2px;
-		font-size: 1.16em;
-		margin: 2.5em auto;
-		padding: 0 0 0 23px;
-		width: 280px;
-	}
-
-		#form-messages h2 {
-			color: #630000;
-			font-weight: normal;
-			font-size: 1em;
-			margin: 0;
-		}
-
-		#form-messages ul {
-			color: #633000;
-			padding: 0 0 0 30px;
-		}
-
-			#form-messages ul li {
-				background: url(images/bg-form-messages-li.gif) no-repeat 0 0.55em;
-				padding: 0 0 0 19px;
-			}
-
-		#form-messages a {
-			color: #633000;
-			text-decoration: underline;
-		}
-
-		#form-messages a:hover,
-		#form-messages a:focus {
-			text-decoration: none;
-		}
-	/* Error Message */
-	fieldset strong.error {
-		clear: left;
-		color: #993333;
-		display: block;
-		margin: 0.5em 0 0.2em 5px;
-	}
-
-	/* Field */
-	fieldset div input.error,
-	fieldset div textarea.error,
-	fieldset div select.error {
-		border: 1px solid #993333;
-	}
-
-	/* Icon */
-	fieldset img.icon {
-		right: 60px;
-		position: absolute;
-		top: 10px;
-	}
-
+ fieldset div ul li label {
+            display: inline;
+            float: none;
+           font-size: 12px;
+            font-weight: normal;
+            margin: 0;
+            padding: 0;
+        }
+fieldset div ul li input {
+    display: inline;
+    margin: 0 5px 0 0;
+    padding: 0;
+    width: auto;
+        }
 
 
 /* -- !Date of Birth -- */
@@ -320,33 +164,15 @@ fieldset fieldset#section-dob div select#dob_month {
 	width: 108px;
 }
 /* -- !Submit -- */
-#sign-up fieldset .controls input#submit {
-	background: url(images/ir-submit-create-profile.png) no-repeat 0 0;
-	border: none;
-	cursor: pointer;
-	height: 32px;
-	margin: 0;
-	overflow: hidden;
-	padding: 32px 0 0 136px;
-	width: 136px;
-}
-/* -- !Submit -- */
-#edit-profile fieldset .controls input#submit,
-#edit-profile fieldset .controls input#preview {
+fieldset .controls input#submit {
 	background: url(images/ir-submit-edit-profile.png) no-repeat -140px 0;
 	border: none;
 	cursor: pointer;
 	height: 32px;
 	margin: 0;
-	overflow: hidden;
 	padding: 32px 0 0 66px;
 	width: 66px;
 }
-#edit-profile fieldset .controls input#preview {
-	background-position: 0 0;
-	margin: 0 8px 0 0;
-	padding: 32px 0 0 132px;
-	width: 132px;
-}
+
 
 

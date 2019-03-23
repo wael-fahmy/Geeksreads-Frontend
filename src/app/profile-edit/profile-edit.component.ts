@@ -6,7 +6,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./profile-edit.component.css']
 })
 export class ProfileEditComponent implements OnInit {
-
   constructor() { }
 
   ngOnInit() {
