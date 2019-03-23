@@ -29,7 +29,11 @@ import { MAT_LABEL_GLOBAL_OPTIONS } from '@angular/material';
 import { FooterComponent } from './footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ProfileEditComponent } from './profile-edit/profile-edit.component';
+<<<<<<< HEAD
 import { BookSuggestionOtherComponent } from './book-suggestion-other/book-suggestion-other.component';
+=======
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+>>>>>>> b8cc14e7374867bb887d019ae6c2c37eb50947f5
 
 @NgModule({
   declarations: [
@@ -63,13 +67,11 @@ import { BookSuggestionOtherComponent } from './book-suggestion-other/book-sugge
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
-  providers: [
-    {
-      provide: MAT_LABEL_GLOBAL_OPTIONS, useValue: {float: 'never'}
-    }
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
