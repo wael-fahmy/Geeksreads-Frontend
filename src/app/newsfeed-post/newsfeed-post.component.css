@@ -7,10 +7,13 @@
   background-size: cover;
  
 }
+
+.example-card p{
+  margin: 0;
+}
+
 .name {
-        color: #092c21 ;
-        
-        
+  color: #092c21 ;
 }
 .activity 
 {
@@ -22,11 +25,11 @@
  
  }
 
-.bookImage
+.book-image
 {
-  margin-left: 2em;
-  width: 2cm;
-  height:3.5cm;
+  width: 100px;
+  height: 100px;
+  margin: 0 !important;
 }
 .example-button-row button,
 .example-button-row a {
@@ -36,19 +39,10 @@
 .checked {
   color: orange;
   }
-#parent{
-  max-width: 100%;
-}
- .child {
-   max-width: 50%;
- } 
-  .container
-  {
-    width:3cm ;   
-  }
+
   #wantToRead
   {
-      margin: 15px 0 0 15px;
+      
       background-color: #4CAF50;
       border: none;
       color: white;
@@ -59,7 +53,31 @@
       font-size: 12px;
       cursor:pointer;
   }
-  h5{
+  .author-name-style{
     color:grey;
     font-size:18px ; 
   }
+  .book-name-style{
+  color:black ; 
+  font-size: 22px ; 
+  }
+  .book-details{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+  }
+
+  .book-description{
+    margin: 0 0 0 10px;
+  }
+
+  .card-header{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+  }
+  .stars
+  {
+     margin-left:15px ;
+  }
+  
