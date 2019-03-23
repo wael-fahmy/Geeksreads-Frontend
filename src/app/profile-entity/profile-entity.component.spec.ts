@@ -22,10 +22,16 @@ describe('ProfileEntityComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-  
+
   it('button should contain Edit Profile',() => {
     let button=fixture.debugElement.nativeElement.querySelector('button').textContent
     expect(button).toContain('Edit Profile')
    });
+
+   it('User Name should be Mohamed',() => {
+    fixture.whenStable().then(() => {
+    expect(component.User_info.User_Name).toBe('Mohamed')
+    })  
+  });
  
 });

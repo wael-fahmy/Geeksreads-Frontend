@@ -23,8 +23,13 @@ describe('ProfileComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('a should contain Book Cover',() => {
+  it('a should contain read',() => {
     let a=fixture.debugElement.nativeElement.querySelector('a').textContent
     expect(a).toContain('read')
+   });
+
+   it('a should contain to read',() => {
+    let a=fixture.debugElement.nativeElement.querySelector('a').textContent
+    expect(a).toContain('to read')
    });
 });

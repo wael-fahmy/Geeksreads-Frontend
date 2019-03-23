@@ -8,8 +8,8 @@ mat-list-item{
     margin-top: 4rem;
 }
 mat-divider{
-    margin-bottom: 1rem;
-    margin-top: 1rem;
+    margin-bottom: 3rem;
+    margin-top: 3rem;
 }
 
 pre{
@@ -21,6 +21,13 @@ button{
 
 p{
      margin-left: 20px;
+    
+}
+.checked
+{
     color:orange;
+}
+#book{
+    margin-bottom: 50px;
 }
 

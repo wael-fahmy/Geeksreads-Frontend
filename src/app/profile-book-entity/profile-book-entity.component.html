@@ -6,7 +6,7 @@
   <mat-list-item   *ngFor="let index of List_of_books">
 
       <img width="60" height="80" 
-  src={{index.book_cover}} >       
+  src={{index.book_cover}} >  
   {{ index.book_name}} <br> by {{index.author_name}}  
    <button mat-button [matMenuTriggerFor]="menu">{{state}} ...</button>
   <mat-menu #menu="matMenu">

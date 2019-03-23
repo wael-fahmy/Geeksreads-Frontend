@@ -27,8 +27,17 @@ describe('ProfileBookEntityComponent', () => {
     let Pre=fixture.debugElement.nativeElement.querySelector('Pre').textContent
     expect(Pre).toContain('Book Cover')
    });
-   
-   it('User Name should be Mohamed',() => {
+   it('button should contain Read',() => {
+    let button=fixture.debugElement.nativeElement.querySelector('button').textContent
+    expect(button).toContain('Read')
+   });
+   it('button should contain want to Read',() => {
+    let button=fixture.debugElement.nativeElement.querySelector('button').textContent
+    expect(button).toContain('want to read')
+   });
+
+
+   it('list of books should be 3',() => {
     fixture.whenStable().then(() => {
     expect(component.List_of_books.length).toBe(3)
     })  
