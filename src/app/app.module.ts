@@ -29,6 +29,7 @@ import { MAT_LABEL_GLOBAL_OPTIONS } from '@angular/material';
 import { FooterComponent } from './footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ProfileEditComponent } from './profile-edit/profile-edit.component';
+import { BookSuggestionOtherComponent } from './book-suggestion-other/book-suggestion-other.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import { ProfileEditComponent } from './profile-edit/profile-edit.component';
     NewsfeedComponent,
     NewsfeedPostComponent,
     FooterComponent,
-    ProfileEditComponent
+    ProfileEditComponent,
+    BookSuggestionOtherComponent
   ],
   imports: [
     BrowserModule,
