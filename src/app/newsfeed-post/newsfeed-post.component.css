@@ -7,8 +7,9 @@
   background-size: cover;
  
 }
-.Name {
-        color: #092c21 ; 
+.name {
+        color: #092c21 ;
+        
         
 }
 .activity 
@@ -18,6 +19,7 @@
  padding-top: -2; 
  border-top: 10px; ; 
  color: brown ; 
+ 
  }
 
 .bookImage
@@ -34,6 +36,30 @@
 .checked {
   color: orange;
   }
-
-  
-  
+#parent{
+  max-width: 100%;
+}
+ .child {
+   max-width: 50%;
+ } 
+  .container
+  {
+    width:3cm ;   
+  }
+  #wantToRead
+  {
+      margin: 15px 0 0 15px;
+      background-color: #4CAF50;
+      border: none;
+      color: white;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 12px;
+      cursor:pointer;
+  }
+  h5{
+    color:grey;
+    font-size:18px ; 
+  }
