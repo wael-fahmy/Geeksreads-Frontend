@@ -42,3 +42,20 @@ mat-toolbar {
 #nav-search-bar-icon {
   margin: 0;
 }
+
+.notification-instance {
+  margin: 5px 10px;
+}
+
+.user-menu p {
+  margin: 0 0 5px 0;
+  font-weight: bold;
+}
+
+.user-menu a {
+  margin: 0 0 5px 0;
+}
+
+.user-menu  {
+  margin: 0 0 0 5px;
+}

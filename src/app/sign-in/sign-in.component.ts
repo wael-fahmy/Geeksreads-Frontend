@@ -15,7 +15,7 @@ export class SignInComponent implements OnInit {
     return this.email.hasError('required') ? 'You must enter a value' :
     this.email.hasError('email') ? 'Not a valid email' : '';
   }
-  onSigningIn(form: NgForm){
+  onSigningIn(form: NgForm) {
     if (form.invalid) {
       return;
     }
