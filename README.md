@@ -6,11 +6,12 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 1. Clone the repository
 2. Change to its directory
-> cd Geeksreads-Frontend
+    > cd Geeksreads-Frontend
 3. Run `npm install`
 4. Run `ng serve --open`
 
 ## Mockup server
+
 1. Run `npm install --save express`
 2. Run `npm install --save-dev nodemon`
 3. Run `npm run start:server`
