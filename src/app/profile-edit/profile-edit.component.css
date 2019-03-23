@@ -24,17 +24,16 @@ body {
 }
 
 h1 {
-	border-bottom: 1px solid #fff;
-	background: url(images/bg-ccc.gif) 0 100% repeat-x;
+	background: url(images/bg-ccc.gif) repeat-x;
 	color: #666666;
 	font-size: 30px;
 	font-weight: normal;
-	line-height: 1;
-	margin: 0 0 12px;
-	padding: 0 0 28px;
+	line-height: 1.1;
+	margin: 0 0 12px 0;
+	padding: 0 0 28px 0;
 }
 
-/* -- !Fieldsets & Legends -- */
+/* -- !Fieldsets -- */
 fieldset {
 	border: none;
 	position: relative;
@@ -69,17 +68,16 @@ fieldset div.controls {
 		border: 1px solid #a3b4c4;
 		border-color: #636d77 #a3b4c4 #c7d2de;
 		color: #333;
-	  display: block;
 	  font-size: 14px;
 	  font-family: Arial, Helvetica, sans-serif;
-	  line-height: 1;
+	  line-height: 1.1;
 	  margin: 0;
 	}
 
 
  /* Text inputs */
   fieldset div input {
-      background: #FFF url(images/bg-form-input.gif) repeat-x left top;
+      background: #FFF url(images/bg-form-input.gif) repeat-x;
     	padding: 6px 5px;
       width: 288px;
     }
@@ -94,7 +92,7 @@ fieldset div.controls {
     /* File Upload */
     fieldset div input[type=file] {
     	background: none;
-    	border: inherit;
+    	border: none;
     	padding: 0;
     }
 
@@ -135,13 +133,14 @@ fieldset div.controls {
 /* Radio buttons */
 
  fieldset div ul li label {
-            display: inline;
-            float: none;
-           font-size: 12px;
-            font-weight: normal;
-            margin: 0;
-            padding: 0;
+    display: inline;
+    float: none;
+    font-size: 14px;
+    font-weight: normal;
+    margin: 0;
+    padding: 0;
         }
+
 fieldset div ul li input {
     display: inline;
     margin: 0 5px 0 0;
@@ -150,10 +149,10 @@ fieldset div ul li input {
         }
 
 
-/* -- !Date of Birth -- */
+/* -- Date of Birth -- */
 fieldset fieldset#section-dob div label {
 	position: absolute;
-	top: -999em;
+	top: -99em;
 }
 
 fieldset fieldset#section-dob div select {
@@ -163,7 +162,8 @@ fieldset fieldset#section-dob div select {
 fieldset fieldset#section-dob div select#dob_month {
 	width: 108px;
 }
-/* -- !Submit -- */
+
+/* -- Submit -- */
 fieldset .controls input#submit {
 	background: url(images/ir-submit-edit-profile.png) no-repeat -140px 0;
 	border: none;
