@@ -2,5 +2,6 @@ div.a {
   line-height: normal;
 }
 
-
-
+a p {
+  text-align:center
+}

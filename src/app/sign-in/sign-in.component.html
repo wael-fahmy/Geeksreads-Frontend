@@ -12,7 +12,7 @@
         <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'" name="password" ngModel>
         <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
       </mat-form-field>
-      <button mat-raised-button class="btn" type="submit">Sign In</button>
+      <button mat-raised-button class="btn" type="submit" id="form-submit-btn">Sign In</button>
       <p>Not a member? <a routerLink="/sign-up">Sign Up</a></p>
     </form>
 </div>

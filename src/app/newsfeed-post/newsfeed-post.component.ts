@@ -9,8 +9,8 @@ export class NewsfeedPostComponent implements OnInit {
 
   nameOfUser;
   userImage;
-  bookName;
-  authorName:string='paulo';
+  bookname;
+  authorname;
   userName;
   activityDate;
   activityLog;

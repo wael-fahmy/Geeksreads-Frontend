@@ -16,7 +16,7 @@ export class SignUpComponent implements OnInit {
     return this.email.hasError('required') ? 'You must enter a value' :
     this.email.hasError('email') ? 'Not a valid email' : '';
   }
-  onSigningUp(form: NgForm){
+  onSigningUp(form: NgForm) {
     if (form.invalid) {
       return;
     }

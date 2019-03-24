@@ -22,4 +22,9 @@ describe('NewsfeedPostComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('button should contain want to read',() => {
+    let button=fixture.debugElement.nativeElement.querySelector('button').textContent
+    expect(button).toContain('Want to read')
+   });
 });
