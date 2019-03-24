@@ -101,7 +101,7 @@ app.use("/api/suggestedbook",(req,res,next)=> {
     {
       suggestedbook_title:'Baka To Test',
       suggestedbook_image:'https://www.baka-tsuki.org/project/thumb.php?f=BakaTestV1cover.jpg&width=325',
-      suggestedbook_author:'Kenji Inoue',
+      suggestedbook_author:'Kenji',
     },
     {
       suggestedbook_title:'One Punch Man',
@@ -118,7 +118,7 @@ app.use("/api/book",(req,res,next)=> {
   const book_details=[
     {
     book_title:'Hajimete no Gal',
-    book_image:'https://upload.wikimedia.org/wikipedia/en/thumb/5/52/Hajimeta_no_Gal%2C_Volume_1.jpg/220px-Hajimeta_no_Gal%2C_Volume_1.jpg',
+    book_image:'https://cdna.artstation.com/p/assets/images/images/003/765/026/large/mark-valeri-sao-manga-front-cover.jpg?1477271070',
     book_author:'Sebastian',
     book_details_shown:'Spring. The "season of love" has arrived and it seems that finding himself a girlfriend was harder than Junichi believed. To break the status quo,',
     book_details_hidden:'Junichis friends have forced him into confessing to the gal, Yame Yukana. However, things do not go quite as he expected. A series of "firsts" begins!'
@@ -132,7 +132,7 @@ app.use("/api/book",(req,res,next)=> {
     },
     {
     book_title:'Gal Gohan',
-    book_image:'https://pbs.twimg.com/media/DenR6slUcAA31YT.jpg',
+    book_image:'http://momoandcream.com/wp-content/uploads/2015/03/Nisekoi-volume-1-cover.jpg',
     book_author:'Loyd',
     book_details_shown:'Home Economics Teacher, Shinji Yabe, is asked by the biggest gyaru in school, Miku Okazaki, to help her "bake cookies to give to the teachers". The principal told her to do this, after she flunked every subject and makeup-class they put her in. He gets her to successfully finish a batch of cookies after several mishaps and is touched by his students glee over her success.',
     book_details_hidden:'He decides to start a cooking club after this experience to get more time and connection with his students. Upon hearing this, Miku decides to join, since he was the first teacher that didnt shove her into makeup-lessons after her failings and pushed her to try harder instead.'

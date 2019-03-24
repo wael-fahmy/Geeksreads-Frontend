@@ -16,7 +16,7 @@ export class BookEntityComponent implements OnInit {
   // tslint:disable-next-line:variable-name
   public book_details: BookDetails[] = [];
   // tslint:disable-next-line:variable-name
-  book_index = 2;
+  book_index = 0;
   // tslint:disable-next-line:variable-name
   constructor(public booktitle_service: BookTitle_Service )  {}
   ngOnInit() {

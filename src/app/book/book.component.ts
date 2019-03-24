@@ -16,7 +16,7 @@ export class BookComponent implements OnInit {
   // tslint:disable-next-line:variable-name
   public genre_details: Genredetails[] = [];
   // tslint:disable-next-line:variable-name
-  genre_index = 0;
+  genre_index = 1;
   // tslint:disable-next-line:variable-name
   constructor(public booktitle_service: GenreDetails_Service )  {}
   ngOnInit() {
