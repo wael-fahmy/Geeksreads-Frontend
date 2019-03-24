@@ -1,6 +1,12 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ProfileComponent } from './profile.component';
+import {MatMenuModule, MatDividerModule,MatListModule,MatButtonModule} from '@angular/material';
+import { MaterialModule } from '../material.module';
+import { HttpClientModule } from '@angular/common/http';
+import { ProfileEntityComponent } from '../profile-entity/profile-entity.component';
+import { ProfileBookEntityComponent } from '../profile-book-entity/profile-book-entity.component';
+
 
 describe('ProfileComponent', () => {
   let component: ProfileComponent;
@@ -8,9 +14,17 @@ describe('ProfileComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ProfileComponent ]
+      declarations: [ ProfileComponent ],
+      imports :[MatMenuModule, MatDividerModule,MatListModule,
+        MatButtonModule,MaterialModule,
+        HttpClientModule,ProfileBookEntityComponent,ProfileEntityComponent]
     })
-    .compileComponents();
+    .compileComponents().then(()=>
+    {
+      fixture = TestBed.createComponent(ProfileComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+    });
   }));
 
   beforeEach(() => {
@@ -19,14 +33,14 @@ describe('ProfileComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create',async(() => {
     expect(component).toBeTruthy();
-  });
+  }));
 
-  it('a should contain read',() => {
+  it('a should contain read',async(() => {
     let a=fixture.debugElement.nativeElement.querySelector('a').textContent
     expect(a).toContain('read')
-   });
+   }));
 
    it('a should contain to read',() => {
     let a=fixture.debugElement.nativeElement.querySelector('a').textContent

@@ -13,7 +13,7 @@ mat-divider{
 }
 
 pre{
-    font-size:120%;
+    font-size:110%;
 }
 button{
     margin-left: 2rem;
@@ -27,7 +27,5 @@ p{
 {
     color:orange;
 }
-#book{
-    margin-bottom: 50px;
-}
+
 
