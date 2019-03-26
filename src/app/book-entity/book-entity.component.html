@@ -1,17 +1,16 @@
-
 <div id="Book-info">
     <img class="Book-image" src={{book_details[book_index].book_image}}>
     <div id="Book-Title">
         <h3>{{book_details[book_index].book_title}}</h3>
         <p id="By-Author">by
-        <span id="Author-name">{{book_details[book_index].book_author}}</span></p>
+            <span id="Author-name">{{book_details[book_index].book_author}}</span></p>
         <button id="want-to-read">Want To Read</button>
         <button id="rate">Rate </button>
         <div>
             <button id="Write-a-review">Write a review</button>
         </div>
-    </div> 
-    
+    </div>
+
 </div>
 <div id="review-book">
     <span class="fa fa-star checked"></span>
@@ -21,14 +20,13 @@
     <span class="fa fa-star"></span>
 </div>
 <div id="book-details-and-reviewbutton">
-    <p id="book-details">book details</p> 
+    <p id="book-details">book details</p>
 </div>
 
-<div class="book-discription"> 
+<div class="book-discription">
     <p>{{book_details[book_index].book_details_shown}}
         <span id="dots-book-discription">...</span>
         <span id="more-book-discription">{{book_details[book_index].book_details_hidden}}</span></p>
-        <button (click)="more_book_discription()" id="myBtn-book-discription" class="w3-button w3-khaki w3-round-xlarge">Read more</button>
-        <hr id="underline-bookk-entity" class="w3-gray">
+    <button (click)="more_book_discription()" id="myBtn-book-discription" class="w3-button w3-khaki w3-round-xlarge">Read more</button>
+    <hr id="underline-bookk-entity" class="w3-gray">
 </div>
-

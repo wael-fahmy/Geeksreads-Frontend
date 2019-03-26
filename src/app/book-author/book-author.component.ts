@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {AuthorDetails} from './book-author.model';
-import {Subscription} from 'rxjs';
-import {AuthorDetails_Service} from './book-author.service';
+import { AuthorDetails } from './book-author.model';
+import { Subscription } from 'rxjs';
+import { AuthorDetails_Service } from './book-author.service';
 import { delay } from 'q';
 
 @Component({
@@ -18,15 +18,15 @@ export class BookAuthorComponent implements OnInit {
   // tslint:disable-next-line:variable-name
   author_index = 1;
   // tslint:disable-next-line:variable-name
-  constructor(public authordetails_service: AuthorDetails_Service )  {}
+  constructor(public authordetails_service: AuthorDetails_Service) { }
   ngOnInit() {
     this.authordetails_service.get_author_Info();                                  // to get the user info from the service
     // tslint:disable-next-line:variable-name
-    this.Sub_profile = this.authordetails_service.get_author_details_updated().subscribe( (author_Information: AuthorDetails[]) => {
-        this.author_details = author_Information;
-        /* console.log(this.User_info.User_Name)
-        console.log(this.User_info.user_id)
-        console.log(this.User_info.User_Photo)*/
+    this.Sub_profile = this.authordetails_service.get_author_details_updated().subscribe((author_Information: AuthorDetails[]) => {
+      this.author_details = author_Information;
+      /* console.log(this.User_info.User_Name)
+      console.log(this.User_info.user_id)
+      console.log(this.User_info.User_Photo)*/
     });
   }
   more_author_details() {

@@ -8,9 +8,9 @@ describe('GenreRowComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ GenreRowComponent ]
+      declarations: [GenreRowComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

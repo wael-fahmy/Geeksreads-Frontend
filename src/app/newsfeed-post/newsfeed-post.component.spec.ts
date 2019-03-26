@@ -8,9 +8,9 @@ describe('NewsfeedPostComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ NewsfeedPostComponent ]
+      declarations: [NewsfeedPostComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
@@ -23,8 +23,8 @@ describe('NewsfeedPostComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('button should contain want to read',() => {
-    let button=fixture.debugElement.nativeElement.querySelector('button').textContent
+  it('button should contain want to read', () => {
+    let button = fixture.debugElement.nativeElement.querySelector('button').textContent
     expect(button).toContain('Want to read')
-   });
+  });
 });

@@ -1,63 +1,62 @@
-body{
+body {
     background-color: darksalmon;
 }
-.Book-image 
-{
+
+.Book-image {
     max-width: 150px;
     max-height: 150px;
-    margin:5px 0 0 0;
+    margin: 5px 0 0 0;
     display: block;
-    
 }
-#Book-Title
-{   
+
+#Book-Title {
     display: inline;
     vertical-align: top;
     flex-direction: row;
     flex-wrap: nowrap;
-    margin:5px 0 0 0;
+    margin: 5px 0 0 0;
 }
-#Book-info
-{
+
+#Book-info {
     margin: 65px 0 0 10px;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
 }
-#Book-info h3 
-{
+
+#Book-info h3 {
     margin: 0 0 0 15px;
-    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
-#Book-info p
-{
-    margin:7px 0 0 15px;
+
+#Book-info p {
+    margin: 7px 0 0 15px;
 }
-#review-book
-{
-    margin:0 0 0 28px;
+
+#review-book {
+    margin: 0 0 0 28px;
 }
-#book-details-and-reviewbutton
-{
+
+#book-details-and-reviewbutton {
     display: flex;
     vertical-align: top;
     flex-direction: row;
     flex-wrap: nowrap;
 }
-#Book-info span
-{
-    margin:10px 0 0 0;
-    color:blue;
+
+#Book-info span {
+    margin: 10px 0 0 0;
+    color: blue;
     text-decoration: underline;
 }
-#book-details
-{
+
+#book-details {
     color: blue;
     margin: 5px 0 0 24px;
-    cursor:pointer;
+    cursor: pointer;
 }
-#want-to-read
-{
+
+#want-to-read {
     margin: 15px 0 0 15px;
     background-color: #4CAF50;
     border: none;
@@ -67,14 +66,14 @@ body{
     text-decoration: none;
     display: inline-block;
     font-size: 12px;
-    cursor:pointer;
+    cursor: pointer;
 }
-#By-Author
-{
-    cursor:pointer;
+
+#By-Author {
+    cursor: pointer;
 }
-#rate
-{
+
+#rate {
     margin: 15px 0 0 5px;
     background-color: darkgrey;
     border: none;
@@ -84,21 +83,21 @@ body{
     text-decoration: none;
     display: inline-block;
     font-size: 12px;
-    cursor:pointer;
+    cursor: pointer;
 }
-.book-discription
-{
-    margin:0 0 0 10px;
+
+.book-discription {
+    margin: 0 0 0 10px;
 }
-#underline-bookk-entity
-{
-    color:darkgray;
+
+#underline-bookk-entity {
+    color: darkgray;
     background-color: darkgray;
-    size:5;
+    size: 5;
     margin-left: 0;
 }
-#Write-a-review
-{
+
+#Write-a-review {
     margin: 10px 0 0 15px;
     background-color: darkgrey;
     border: none;
@@ -108,32 +107,33 @@ body{
     text-decoration: none;
     display: inline-block;
     font-size: 12px;
-    cursor:pointer;
+    cursor: pointer;
 }
-#Write-a-review:hover{
+
+#Write-a-review:hover {
     background-color: red;
     transition: 1s;
 }
-.checked
-{
-    color:orange;
+
+.checked {
+    color: orange;
 }
-#Book-info button:hover
-{
+
+#Book-info button:hover {
     background-color: red;
     transition: 1s;
 }
-#more-book-discription
-{
+
+#more-book-discription {
     display: none;
 }
-#myBtn-book-discription:hover
-{
+
+#myBtn-book-discription:hover {
     background-color: red;
     transition: 1s;
 }
-#myBtn-book-discription
-{
+
+#myBtn-book-discription {
     background-color: darkgrey;
     border: none;
     color: white;
@@ -141,9 +141,9 @@ body{
     text-align: center;
     text-decoration: none;
     font-size: 12px;
-    cursor:pointer;
+    cursor: pointer;
 }
-#dots-book-discription
-{
-    color:blue;
+
+#dots-book-discription {
+    color: blue;
 }

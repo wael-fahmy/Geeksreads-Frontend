@@ -1,53 +1,55 @@
-.suggested-book-other-image
-{
-    height:200px;
+.suggested-book-other-image {
+    height: 200px;
     width: 140px;
-    margin:0 0 0 10px;
+    margin: 0 0 0 10px;
 }
-#suggested-books-others
-{
-    margin:10px 0 0 15px;
+
+#suggested-books-others {
+    margin: 10px 0 0 15px;
     font-weight: bold;
 }
-.suggested-book-other-title
-{
-    color:black;
-    margin:0 0 0 15px;
+
+.suggested-book-other-title {
+    color: black;
+    margin: 0 0 0 15px;
     font-size: 20px;
     font-family: 'Times New Roman', Times, serif;
 }
-.author-name
-{
-    margin:0 0 0 5px;
+
+.author-name {
+    margin: 0 0 0 5px;
 }
-.suggested-book-other-author
-{
+
+.suggested-book-other-author {
     font-family: 'Times New Roman', Times, serif;
-    margin:0 0 0 18px;
+    margin: 0 0 0 18px;
     color: gray;
     font-size: 14px;
 }
-#underline-other-suggested-books
-{
-  margin-left: 10px;
+
+#underline-other-suggested-books {
+    margin-left: 10px;
 }
+
 div.scroll-menu-other a:hover {
-  background-color:blue;
-  cursor: pointer;
-  margin-left: 30px;
+    background-color: blue;
+    cursor: pointer;
+    margin-left: 30px;
 }
+
 div.scroll-menu-other a {
-  display: inline-block;
-  color: white;
-  text-align: center;
-  padding: 14px;
-  text-decoration: none;
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px;
+    text-decoration: none;
 }
+
 div.scroll-menu-other {
-  overflow: auto;
-  white-space: nowrap;
+    overflow: auto;
+    white-space: nowrap;
 }
-  #suggested-books-other
-  {
-    margin:0 0 0 15px;
-  }
+
+#suggested-books-other {
+    margin: 0 0 0 15px;
+}

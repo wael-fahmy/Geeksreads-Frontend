@@ -1,31 +1,30 @@
-img{
+img {
     margin-right: 2rem;
     margin-bottom: 2.5rem;
 }
 
-mat-list-item{
+mat-list-item {
     margin-bottom: 4rem;
     margin-top: 4rem;
 }
-mat-divider{
+
+mat-divider {
     margin-bottom: 3rem;
     margin-top: 3rem;
 }
 
-pre{
-    font-size:110%;
+pre {
+    font-size: 110%;
 }
-button{
+
+button {
     margin-left: 2rem;
 }
 
-p{
-     margin-left: 20px;
-    
-}
-.checked
-{
-    color:orange;
+p {
+    margin-left: 20px;
 }
 
-
+.checked {
+    color: orange;
+}

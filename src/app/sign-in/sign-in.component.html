@@ -4,15 +4,15 @@
     <button mat-raised-button color="primary" class="btn amazon"><i></i><span></span>Continue with Amazon</button>
     <hr>
     <form class="sign-in-form" (submit)="onSigningIn(signinForm)" #signinForm='ngForm'>
-      <mat-form-field>
-        <input matInput placeholder="Enter your email" [formControl]="email" required name="email" ngModel>
-        <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
-      </mat-form-field>
-      <mat-form-field>
-        <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'" name="password" ngModel>
-        <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-      </mat-form-field>
-      <button mat-raised-button class="btn" type="submit" id="form-submit-btn">Sign In</button>
-      <p>Not a member? <a routerLink="/sign-up">Sign Up</a></p>
+        <mat-form-field>
+            <input matInput placeholder="Enter your email" [formControl]="email" required name="email" ngModel>
+            <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'" name="password" ngModel>
+            <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </mat-form-field>
+        <button mat-raised-button class="btn" type="submit" id="form-submit-btn">Sign In</button>
+        <p>Not a member? <a routerLink="/sign-up">Sign Up</a></p>
     </form>
 </div>

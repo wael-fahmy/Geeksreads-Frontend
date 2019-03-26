@@ -1,30 +1,29 @@
-#book-details-more
-{
+#book-details-more {
     margin: 20px 0 0 10px;
     font-weight: bold;
 }
-#book-edition
-{
+
+#book-edition {
     margin: 10px 0 0 10px;
 }
-#publish-date
-{
+
+#publish-date {
     margin-left: 10px;
 }
-#ASIN-number
-{
-    margin:20px 0 0 10px;
+
+#ASIN-number {
+    margin: 20px 0 0 10px;
 }
-.text-shift
-{
-  margin:0 0 0 10px;
+
+.text-shift {
+    margin: 0 0 0 10px;
 }
-.span-color
-{
-    margin-left: 10px; 
-    color:grey;
+
+.span-color {
+    margin-left: 10px;
+    color: grey;
 }
-#underline-book-details
-{
+
+#underline-book-details {
     margin-left: 10px;
 }

@@ -14,7 +14,7 @@ export class SignUpComponent implements OnInit {
   userPassword = '';
   getErrorMessage() {
     return this.email.hasError('required') ? 'You must enter a value' :
-    this.email.hasError('email') ? 'Not a valid email' : '';
+      this.email.hasError('email') ? 'Not a valid email' : '';
   }
   onSigningUp(form: NgForm) {
     if (form.invalid) {

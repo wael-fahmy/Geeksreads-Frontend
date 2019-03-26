@@ -8,9 +8,9 @@ describe('BookAuthorComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BookAuthorComponent ]
+      declarations: [BookAuthorComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
