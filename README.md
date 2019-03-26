@@ -18,7 +18,8 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Compodoc
 
-Just run `compodoc -p src/tsconfig.app.json -s`
+1. Run `npm install -g @compodoc/compodoc`
+2. Run `npm run compodoc`
 
 ## Development server
 
