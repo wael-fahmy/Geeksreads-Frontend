@@ -37,8 +37,7 @@
 }
 
 #genres {
-    color: gray;
-    margin: 0 0 0 15px;
+    font-weight: bold;
 }
 
 #genres-type {
@@ -137,4 +136,8 @@
 #load-more-community-reviews:hover {
     background-color: red;
     transition: 1s;
+}
+
+.mat-expansion-panel:not([class*=mat-elevation-z]) {
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0), 0 0 0 0 rgba(0, 0, 0, 0), 0 0 0 0 rgba(0, 0, 0, 0);
 }

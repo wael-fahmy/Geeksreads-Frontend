@@ -24,12 +24,20 @@
 <app-book-suggestion-other></app-book-suggestion-other>
 <app-book-details></app-book-details>
 <app-book-author></app-book-author>
-<p id="genres">Genres</p>
-<div id="genres-type">
-    <button class="genres-button w3-button w3-teal w3-round-xlarge">{{genre_details[genre_index]?.genre_one}}</button>
-    <button class="genres-button w3-button w3-teal w3-round-xlarge">{{genre_details[genre_index]?.genre_two}}</button>
-    <button class="genres-button w3-button w3-teal w3-round-xlarge">{{genre_details[genre_index]?.genre_three}}</button>
-    <button class="genres-button w3-button w3-teal w3-round-xlarge">{{genre_details[genre_index]?.genre_four}}</button>
-    <button class="genres-button w3-button w3-teal w3-round-xlarge">{{genre_details[genre_index]?.genre_five}}</button>
-</div>
+<mat-accordion>
+    <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                <p id="genres">Genres</p>
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div id="genres-type">
+            <button class="genres-button w3-button w3-teal w3-round-xlarge">{{genre_details[genre_index]?.genre_one}}</button>
+            <button class="genres-button w3-button w3-teal w3-round-xlarge">{{genre_details[genre_index]?.genre_two}}</button>
+            <button class="genres-button w3-button w3-teal w3-round-xlarge">{{genre_details[genre_index]?.genre_three}}</button>
+            <button class="genres-button w3-button w3-teal w3-round-xlarge">{{genre_details[genre_index]?.genre_four}}</button>
+            <button class="genres-button w3-button w3-teal w3-round-xlarge">{{genre_details[genre_index]?.genre_five}}</button>
+        </div>
+    </mat-expansion-panel>
+</mat-accordion>
 <hr id="Stores-underline" class="w3-gray">
