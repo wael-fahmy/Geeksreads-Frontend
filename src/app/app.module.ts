@@ -31,6 +31,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ProfileEditComponent } from './profile-edit/profile-edit.component';
 import { BookSuggestionOtherComponent } from './book-suggestion-other/book-suggestion-other.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { AuthorComponent } from './author/author.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,8 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     NewsfeedPostComponent,
     FooterComponent,
     ProfileEditComponent,
-    BookSuggestionOtherComponent
+    BookSuggestionOtherComponent,
+    AuthorComponent
   ],
   imports: [
     BrowserModule,

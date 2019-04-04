@@ -10,6 +10,7 @@ import { GenreComponent } from './genre/genre.component';
 import { GenresComponent } from './genres/genres.component';
 import { NewsfeedComponent } from './newsfeed/newsfeed.component';
 import { ProfileEditComponent } from './profile-edit/profile-edit.component';
+import { AuthorComponent } from './author/author.component';
 
 const routes: Routes = [
   {
@@ -51,6 +52,10 @@ const routes: Routes = [
   {
     path: 'profile-edit',
     component: ProfileEditComponent
+  },
+  {
+    path: 'author',
+    component: AuthorComponent
   }
 ];
 
