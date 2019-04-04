@@ -1,19 +1,11 @@
-<mat-accordion>
-    <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
-        <mat-expansion-panel-header>
-            <mat-panel-title name="book-details-bottom" id="book-details-more">
-                Book details
-            </mat-panel-title>
-        </mat-expansion-panel-header>
-        <p id="book-edition">{{book_information[book_index].book_edition}}</p>
-        <span id="publish-date">{{book_information[book_index].book_published}}</span>
-        <div>
-            <p id="ASIN-number">ASIN<span class="span-color"> {{book_information[book_index].book_ASIN}}</span></p>
-            <p class="text-shift">Edition language<span class="span-color">{{book_information[book_index].book_language}}</span></p>
-            <p class="text-shift">Original title<span class="span-color">{{book_information[book_index].book_title}}</span></p>
-            <p class="text-shift">Literary Awards<span class="span-color">{{book_information[book_index].book_awards}}</span></p>
-            <p class="text-shift">Characters<span class="span-color">{{book_information[book_index].book_characters}}</span></p>
-        </div>
-    </mat-expansion-panel>
-</mat-accordion>
+<a name="book-details-bottom" id="book-details-more">Book details</a>
+<p id="book-edition">{{book_information[book_index].book_edition}}</p>
+<span id="publish-date">{{book_information[book_index].book_published}}</span>
+<div>
+    <p id="ASIN-number">ASIN<span class="span-color"> {{book_information[book_index].book_ASIN}}</span></p>
+    <p class="text-shift">Edition language<span class="span-color">{{book_information[book_index].book_language}}</span></p>
+    <p class="text-shift">Original title<span class="span-color">{{book_information[book_index].book_title}}</span></p>
+    <p class="text-shift">Literary Awards<span class="span-color">{{book_information[book_index].book_awards}}</span></p>
+    <p class="text-shift">Characters<span class="span-color">{{book_information[book_index].book_characters}}</span></p>
+</div>
 <hr id="underline-book-details" class="w3-darkgray">
