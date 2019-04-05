@@ -12,13 +12,41 @@ import { delay } from 'q';
 export class BookAuthorComponent implements OnInit {
 
   // tslint:disable-next-line:variable-name
+  /**
+   *
+   * server subscription
+   * @private
+   * @type {Subscription}
+   * @memberof BookAuthorComponent
+   */
   private Sub_profile: Subscription;
   // tslint:disable-next-line:variable-name
+  /**
+   *
+   * variable to carry recieved author details list from services.ts
+   * @type {AuthorDetails[]}
+   * @memberof BookAuthorComponent
+   */
   public author_details: AuthorDetails[] = [];
   // tslint:disable-next-line:variable-name
+  /**
+   *
+   * index of the current author in the list
+   * @memberof BookAuthorComponent
+   */
   author_index = 1;
   // tslint:disable-next-line:variable-name
+  /**
+   * Creates an instance of BookAuthorComponent.
+   * @param {AuthorDetails_Service} authordetails_service
+   * @memberof BookAuthorComponent
+   */
   constructor(public authordetails_service: AuthorDetails_Service) { }
+  /**
+   *
+   * function used to read author list from services.ts
+   * @memberof BookAuthorComponent
+   */
   ngOnInit() {
     this.authordetails_service.get_author_Info();                                  // to get the user info from the service
     // tslint:disable-next-line:variable-name
@@ -29,6 +57,11 @@ export class BookAuthorComponent implements OnInit {
       console.log(this.User_info.User_Photo)*/
     });
   }
+  /**
+   *
+   * function used to show hidden information of the author details
+   * @memberof BookAuthorComponent
+   */
   more_author_details() {
     const dots = document.getElementById('dots-author-discription');
     const moreText = document.getElementById('more-author-discription');

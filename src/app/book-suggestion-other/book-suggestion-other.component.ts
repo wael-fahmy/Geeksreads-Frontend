@@ -13,12 +13,35 @@ export class BookSuggestionOtherComponent implements OnInit {
 
   // tslint:disable-next-line:one-variable-per-declaration
   // tslint:disable-next-line:variable-name
+  /**
+   *
+   * subscription of the server
+   * @private
+   * @type {Subscription}
+   * @memberof BookSuggestionOtherComponent
+   */
   private Sub_profile: Subscription;
   // tslint:disable-next-line:variable-name
+  /**
+   *
+   * variable used to carru suggested books from services.ts
+   * @type {SuggestedBookDetails[]}
+   * @memberof BookSuggestionOtherComponent
+   */
   public suggestedbook_details: SuggestedBookDetails[] = [];
   // tslint:disable-next-line:no-shadowed-variable tslint:disable-next-line:variable-name
   // tslint:disable-next-line:variable-name
+  /**
+   * Creates an instance of BookSuggestionOtherComponent.
+   * @param {SuggestedBook_Service} suggestedbook_service
+   * @memberof BookSuggestionOtherComponent
+   */
   constructor(public suggestedbook_service: SuggestedBook_Service) { }
+  /**
+   *
+   * function used to read suggested book from services.ts
+   * @memberof BookSuggestionOtherComponent
+   */
   ngOnInit() {
     this.suggestedbook_service.get_suggestedbook_Info();                                  // to get the user info from the service
     // tslint:disable-next-line:variable-name
