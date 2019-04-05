@@ -12,14 +12,41 @@ import { delay } from 'q';
 export class BookDetailsComponent implements OnInit {
 
   // tslint:disable-next-line:variable-name
+  /**
+   *
+   * subscription of services
+   * @private
+   * @type {Subscription}
+   * @memberof BookDetailsComponent
+   */
   private Sub_profile: Subscription;
   // tslint:disable-next-line:variable-name
+  /**
+   *
+   * book datails list vairable to carry from services.ts
+   * @type {Bookinformation[]}
+   * @memberof BookDetailsComponent
+   */
   public book_information: Bookinformation[] = [];
   // tslint:disable-next-line:variable-name
+  /**
+   *
+   * index of the current book from the list
+   * @memberof BookDetailsComponent
+   */
   book_index = 2;
   // tslint:disable-next-line:variable-name
+  /**
+   * Creates an instance of BookDetailsComponent.
+   * @param {BookInformation_Service} bookinformation_service
+   * @memberof BookDetailsComponent
+   */
   constructor(public bookinformation_service: BookInformation_Service) { }
-
+  /**
+   *
+   * function used to read information from services.ts
+   * @memberof BookDetailsComponent
+   */
   ngOnInit() {
     this.bookinformation_service.get_book_Info();                                  // to get the user info from the service
     // tslint:disable-next-line:variable-name

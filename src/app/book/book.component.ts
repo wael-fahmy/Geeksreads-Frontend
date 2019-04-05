@@ -12,13 +12,41 @@ import { delay } from 'q';
 export class BookComponent implements OnInit {
 
   // tslint:disable-next-line:variable-name
+  /**
+   *
+   * service subscription
+   * @private
+   * @type {Subscription}
+   * @memberof BookComponent
+   */
   private Sub_profile: Subscription;
   // tslint:disable-next-line:variable-name
+  /**
+   *
+   * vairable that carries the genre details list
+   * @type {Genredetails[]}
+   * @memberof BookComponent
+   */
   public genre_details: Genredetails[] = [];
   // tslint:disable-next-line:variable-name
+  /**
+   *
+   * index of the genre list  currently showing
+   * @memberof BookComponent
+   */
   genre_index = 1;
   // tslint:disable-next-line:variable-name
+  /**
+   * Creates an instance of BookComponent.
+   * @param {GenreDetails_Service} booktitle_service
+   * @memberof BookComponent
+   */
   constructor(public booktitle_service: GenreDetails_Service) { }
+  /**
+   *
+   * function used to read details recieved from service.ts
+   * @memberof BookComponent
+   */
   ngOnInit() {
     this.booktitle_service.get_genre_Info();                                  // to get the user info from the service
     // tslint:disable-next-line:variable-name
