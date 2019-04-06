@@ -20,6 +20,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 1. Run `npm install -g @compodoc/compodoc`
 2. Run `npm run compodoc`
+3. Open `http://localhost:8080/`
 
 ## Development server
 
