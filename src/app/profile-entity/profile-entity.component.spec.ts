@@ -38,7 +38,9 @@ describe('ProfileEntityComponent', () => {
     expect(button).toContain('Edit Profile')
   }));
 
-  it('User Name should be Mohamed', async(() => {
+
+   it('User Name should be Mohamed',async(() => { 
+
     fixture.whenStable().then(() => {
       expect(component.User_info.User_Name).toBe('Mohamed')
     })

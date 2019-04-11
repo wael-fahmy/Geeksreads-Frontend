@@ -8,27 +8,35 @@ import { Subscription } from 'rxjs'
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-  num_to_read = 0
-  num_read = 0
-  private Sub: Subscription
-  private Sub2: Subscription
+  num_to_read=0;
+  num_read=0;
+  num_raeding=0;
+  private Sub : Subscription
+  private Sub2 : Subscription
+  private Sub3 : Subscription
+constructor(public CountBooksService : CountBooksService )
+{
 
-  constructor(public CountBooksService: CountBooksService) {
+}
+ngOnInit()
+{        
 
-  }
-  ngOnInit() {
+ this.Sub = this.CountBooksService.get_count_update_read().      // to observe the update in the number of books read 
+  subscribe( (num_read:number) => {                              // once you finished reading
+     this.num_read=num_read;
+ });
 
-    this.Sub = this.CountBooksService.get_count_update_read().      // to observe the update in the number of books read 
-      subscribe((num_read: number) => {                              // once you finished reading
-        this.num_read = num_read;
-      });
+ this.Sub2 = this.CountBooksService.get_count_update_want_to_read().   // to observe the update in the number of books 
+ subscribe( (num_to_read:number) => {                                  // want to read once you add a book to want to read
+    this.num_to_read=num_to_read;
+});
 
-    this.Sub2 = this.CountBooksService.get_count_update_want_to_read().   // to observe the update in the number of books 
-      subscribe((num_to_read: number) => {                                  // want to read once you add a book to want to read
-        this.num_to_read = num_to_read;
-      });
-
-  }
+this.Sub3 = this.CountBooksService.get_count_update_reading().      // to observe the update in the number of books read 
+  subscribe( (num_raeding:number) => {                              // once you finished reading
+     this.num_raeding=num_raeding;
+ });
+}
+ 
 
   ngOnDestroy() {
     this.Sub.unsubscribe();

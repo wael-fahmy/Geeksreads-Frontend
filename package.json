@@ -9,7 +9,7 @@
         "lint": "ng lint",
         "e2e": "ng e2e",
         "start:server": "nodemon server.js",
-		    "compodoc": "npx compodoc -p src/tsconfig.app.json"
+        "compodoc": "npx compodoc -p src/tsconfig.app.json -s -o"
     },
     "private": true,
     "dependencies": {
@@ -24,6 +24,7 @@
         "@angular/platform-browser-dynamic": "~7.2.0",
         "@angular/router": "~7.2.0",
         "angular-font-awesome": "^3.1.2",
+        "body-parser": "^1.18.3",
         "core-js": "^2.5.4",
         "eslint": "^5.15.3",
         "express": "^4.16.4",

@@ -6,8 +6,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./book-comment-user.component.css']
 })
 export class BookCommentUserComponent implements OnInit {
-
+  /**
+   * @ignore
+   * @memberof BookCommentUserComponent
+   */
   constructor() { }
+  /**
+   *
+   * function used to count number of likes and update interface
+   * @memberof BookCommentUserComponent
+   */
   like() {
     let likes = 60;
     // tslint:disable-next-line:variable-name
@@ -25,6 +33,11 @@ export class BookCommentUserComponent implements OnInit {
       }
     }
   }
+  /**
+   *
+   * function used to see more reviews by other users
+   * @memberof BookCommentUserComponent
+   */
   more_user_preview() {
     const dots = document.getElementById('dots-user-review');
     const moreText = document.getElementById('more-review');
@@ -39,6 +52,11 @@ export class BookCommentUserComponent implements OnInit {
       moreText.style.display = 'inline';
     }
   }
+  /**
+   *
+   * @ignore
+   * @memberof BookCommentUserComponent
+   */
   ngOnInit() {
   }
 

@@ -1,0 +1,20 @@
+<div class="author-page">
+    <div class="nav-bar-margin"></div>
+    <div class="author-header">
+        <div class="author-stats">
+            <div class="author-image">
+                <img src={{authorPicture}} alt="Author {{authorName}}'s Picture">
+            </div>
+            <div class="author-info-details">
+                <h1 id="author-name">{{authorName}}</h1>
+                <button *ngIf=!authorIsFollowing id="author-follow" class="author-following-button" (click)="followAuthor()">Follow Author</button>
+                <button *ngIf=authorIsFollowing id="author-unfollow" class="author-following-button" (click)="unfollowAuthor()">Unollow Author</button>
+                <p><span id="author-followers">{{authorNumberOfFollowers}}</span> Followers</p>
+            </div>
+        </div>
+        <div class="author-about">
+            <p id="author-details">{{authorDetails}}<span><a href="#"> More</a></span></p>
+        </div>
+    </div>
+    <hr>
+</div>

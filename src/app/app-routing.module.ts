@@ -10,6 +10,8 @@ import { GenreComponent } from './genre/genre.component';
 import { GenresComponent } from './genres/genres.component';
 import { NewsfeedComponent } from './newsfeed/newsfeed.component';
 import { ProfileEditComponent } from './profile-edit/profile-edit.component';
+import { AuthorComponent } from './author/author.component';
+import {ProfileReadShelfComponent} from './profile-read-shelf/profile-read-shelf.component';
 
 const routes: Routes = [
   {
@@ -19,6 +21,10 @@ const routes: Routes = [
   {
     path: 'profile',
     component: ProfileComponent
+  },
+  {
+    path: 'profile-read-shelf',
+    component:ProfileReadShelfComponent
   },
   {
     path: 'book',
@@ -51,6 +57,10 @@ const routes: Routes = [
   {
     path: 'profile-edit',
     component: ProfileEditComponent
+  },
+  {
+    path: 'author',
+    component: AuthorComponent
   }
 ];
 

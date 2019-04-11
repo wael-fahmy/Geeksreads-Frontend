@@ -10,7 +10,7 @@ import { Subscription } from 'rxjs'
 })
 export class ProfileEntityComponent implements OnInit {
 
-  private Sub_profile: Subscription
+  private Sub_profile: Subscription;
 
   User_info: User;            // user object contains user info
 

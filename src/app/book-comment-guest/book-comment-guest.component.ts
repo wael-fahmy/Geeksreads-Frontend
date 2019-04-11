@@ -7,8 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BookCommentGuestComponent implements OnInit {
 
+  /**
+   * @ignore
+   * @memberof BookCommentGuestComponent
+   */
   constructor() { }
 
+  /**
+   *
+   * @ignore
+   * @memberof BookCommentGuestComponent
+   */
   ngOnInit() {
   }
 

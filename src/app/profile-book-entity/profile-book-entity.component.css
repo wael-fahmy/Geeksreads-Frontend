@@ -1,6 +1,7 @@
 img {
     margin-right: 2rem;
-    margin-bottom: 2.5rem;
+    margin-bottom: 2.5em;
+    
 }
 
 mat-list-item {
@@ -16,9 +17,9 @@ mat-divider {
 pre {
     font-size: 110%;
 }
-
-button {
+#MENU{
     margin-left: 2rem;
+    color:primary;
 }
 
 p {
@@ -28,3 +29,4 @@ p {
 .checked {
     color: orange;
 }
+
