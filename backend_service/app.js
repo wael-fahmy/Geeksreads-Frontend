@@ -26,6 +26,29 @@ app.post("/api/posts", (req, res, next) => {
     message: 'Post added successfully'
   });
 });
+app.use("/api/reviewerdata", (req, res, next) => {
+    const reviewer_details = [{
+        book_title: 'Kuroshitsuji Black Bulter',
+        book_image: 'https://cdn.myanimelist.net/images/manga/3/161407.jpg',
+        book_author: 'Yuno Mashiro',
+        book_read_date: 'january 2019',
+        book_id: '1233',
+        reviewer_id: '3424',
+        reviewer_name: 'Meguru Ueno',
+        reviewer_image: 'https://i.paigeeworld.com/user-media/1447891200000/55ae8c1544941e41e4a7925a_564e322f05e9bcd58f01dae9_320.jpg',
+        reviewer_date: '5 months',
+        reviewer_rate: '3',
+        reviewer_likes: '80',
+        reviewer_comments: '50',
+        reviewer_body: 'It has been serialized in Kadokawa Shotens shōnen manga magazine Monthly Shōnen Ace since November 2015 and has been collected in seven tankōbon volumes, A 10-episode anime television series adaptation by NAZ aired from July 12/ 2017 to September 13/ 2017.'
+        }
+    ];
+
+    res.status(200).json({
+        message: "User fetched successfully!",
+        reviewer_details: reviewer_details
+    });
+});
 app.use("/api/reviewdata", (req, res, next) => {
     const review_details = [{
             reviewer_name: 'Meguru Ueno',
