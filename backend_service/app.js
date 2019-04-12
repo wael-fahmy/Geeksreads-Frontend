@@ -26,6 +26,91 @@ app.post("/api/posts", (req, res, next) => {
     message: 'Post added successfully'
   });
 });
+app.use("/api/reviewerdata", (req, res, next) => {
+    const reviewer_details = [{
+        book_title: 'Kuroshitsuji Black Bulter',
+        book_image: 'https://cdn.myanimelist.net/images/manga/3/161407.jpg',
+        book_author: 'Yuno Mashiro',
+        book_read_date: 'january 2019',
+        book_id: '1233',
+        reviewer_id: '3424',
+        reviewer_name: 'Meguru Ueno',
+        reviewer_image: 'https://i.paigeeworld.com/user-media/1447891200000/55ae8c1544941e41e4a7925a_564e322f05e9bcd58f01dae9_320.jpg',
+        reviewer_date: '5 months',
+        reviewer_rate: '3',
+        reviewer_likes: '80',
+        reviewer_comments: '50',
+        reviewer_body: 'It has been serialized in Kadokawa Shotens shōnen manga magazine Monthly Shōnen Ace since November 2015 and has been collected in seven tankōbon volumes, A 10-episode anime television series adaptation by NAZ aired from July 12/ 2017 to September 13/ 2017.'
+        }
+    ];
+
+    res.status(200).json({
+        message: "User fetched successfully!",
+        reviewer_details: reviewer_details
+    });
+});
+app.use("/api/reviewdata", (req, res, next) => {
+    const review_details = [{
+            reviewer_name: 'Meguru Ueno',
+            reviewer_image: 'https://i.paigeeworld.com/user-media/1447891200000/55ae8c1544941e41e4a7925a_564e322f05e9bcd58f01dae9_320.jpg',
+            reviewer_date: '5 months',
+            reviewer_rate: '3',
+            reviewer_likes: '80',
+            reviewer_comments: '50',
+            reviewer_body: 'It has been serialized in Kadokawa Shotens shōnen manga magazine Monthly Shōnen Ace since November 2015 and has been collected in seven tankōbon volumes, A 10-episode anime television series adaptation by NAZ aired from July 12/ 2017 to September 13/ 2017.'
+        },
+        {
+            reviewer_name: 'Yana Toboso',
+            reviewer_image: 'https://data.whicdn.com/images/195405628/large.jpg',
+            reviewer_date: '6 months',
+            reviewer_rate: '5',
+            reviewer_likes: '70',
+            reviewer_comments: '63',
+            reviewer_body: 'Yana Toboso (枢 やな. Toboso Yana) born January 24/ 1984. and known by her other pen names Yanao Rock and Takaragi Yana is a Japanese manga artist. Her most significant work is the manga series Kuroshitsuji, She currently lives in Yokohama Kanagawa Prefecture. Yana Toboso draws herself as a devil with a black body and horns a round white head and a pointed tail Toboso is now thirty-four years old and there are currently no known pictures and documents of Tobosos real appearance given to the public'
+        },
+        {
+            reviewer_name: 'FLoyd',
+            reviewer_image: 'https://i.pinimg.com/originals/ef/f4/44/eff444400850867dd1ea4acb53b68992.jpg',
+            reviewer_date: '10 months',
+            reviewer_rate: '1',
+            reviewer_likes: '100',
+            reviewer_comments: '60',
+            reviewer_body: 'FLoyd de la Cruz is the New York Times and USA Today best-selling author of many critically acclaimed and award-winning novels for teens including The Au Pairs series. the Blue Bloods series. the Ashleys series. the Angels on Sunset Boulevard series and the semi-autobiographical novel Fresh off the Boat. Her books for adults include the novel Cat’s Meow the anthology Girls Who Like Boys Who Like Boys and the tongue-in-chic handbooks How to Become Famous in Two Weeks or Less and The Fashionista Files: Adventures in Four-inch heels and Faux-Pas. She has worked as a fashion and beauty editor and has written for many publications including The New York Times. Marie Claire. Harper’s Bazaar. Glamour. Cosmopolitan. Allure, The San Francisco. Chronicle. McSweeney’s. Teen Vogue. CosmoGirl! and Seventeen. She has also appeared as an expert on fashion, trends and fame for CNN. E! and FoxNews. Melissa grew up in Manila and moved to San Francisco with her family. where she graduated high school salutatorian from The Convent of the Sacred Heart. She majored in art history and English at Columbia University and minored in nightclubs and shopping!. She now divides her time between New York and Los Angeles where she lives in the Hollywood Hills with her husband and daughter.'
+        },
+        {
+            reviewer_name: 'Cloud',
+            reviewer_image: 'https://data.whicdn.com/images/191743106/large.png',
+            reviewer_date: '2 months',
+            reviewer_rate: '5',
+            reviewer_likes: '20',
+            reviewer_comments: '34',
+            reviewer_body: 'Cloud de la Cruz. It has been serialized in Kadokawa Shotens shōnen manga magazine Monthly Shōnen Ace since November 2015 and has been collected in seven tankōbon volumes, A 10-episode anime television series adaptation by NAZ aired from July 12/ 2017 to September 13/ 2017.'
+        },
+        {
+            reviewer_name: 'Slothe',
+            reviewer_image: 'https://data.whicdn.com/images/137995561/superthumb.jpg?t=1411225482',
+            reviewer_date: '3 months',
+            reviewer_rate: '4',
+            reviewer_likes: '60',
+            reviewer_comments: '120',
+            reviewer_body: 'Slothe de la Cruz. It has been serialized in Kadokawa Shotens shōnen manga magazine Monthly Shōnen Ace since November 2015 and has been collected in seven tankōbon volumes, A 10-episode anime television series adaptation by NAZ aired from July 12/ 2017 to September 13/ 2017.'
+        },
+        {
+            reviewer_name: 'Sharl',
+            reviewer_image: 'https://simg.nicepng.com/png/small/162-1622259_cute-anime-girl-chibi.png',
+            reviewer_date: '7 months',
+            reviewer_rate: '5',
+            reviewer_likes: '10',
+            reviewer_comments: '9',
+            reviewer_body: 'Sharl de la Cruz. It has been serialized in Kadokawa Shotens shōnen manga magazine Monthly Shōnen Ace since November 2015 and has been collected in seven tankōbon volumes, A 10-episode anime television series adaptation by NAZ aired from July 12/ 2017 to September 13/ 2017.'
+        }
+    ];
+
+    res.status(200).json({
+        message: "User fetched successfully!",
+        review_details: review_details
+    });
+});
 app.use("/api/genredetails", (req, res, next) => {
     const genre_details = [{
             genre_one: 'Romance',

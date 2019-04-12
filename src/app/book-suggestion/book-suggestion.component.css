@@ -1,12 +1,18 @@
 .suggested-book-image {
     height: 200px;
     width: 140px;
-    margin: 0 0 0 10px;
+}
+
+#suggested-book h4 {
+    margin: 0;
+}
+
+#suggested-book p {
+    margin: 0;
 }
 
 .suggested-book-title {
     color: black;
-    margin: 0 0 0 15px;
     font-size: 20px;
     font-family: 'Times New Roman', Times, serif;
 }
@@ -22,15 +28,8 @@
 
 .suggested-book-author {
     font-family: 'Times New Roman', Times, serif;
-    margin: 0 0 0 18px;
     color: gray;
     font-size: 14px;
-}
-
-div.scroll-menu a:hover {
-    background-color: green;
-    cursor: pointer;
-    margin-left: 30px;
 }
 
 div.scroll-menu a {

@@ -34,7 +34,7 @@ export class BookDetailsComponent implements OnInit {
    * index of the current book from the list
    * @memberof BookDetailsComponent
    */
-  book_index = 2;
+  book_index = 0;
   // tslint:disable-next-line:variable-name
   /**
    * Creates an instance of BookDetailsComponent.
