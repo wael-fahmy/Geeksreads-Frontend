@@ -43,12 +43,15 @@
 #genres-type {
     display: inline;
 }
-
-#genres-type button:hover {
-    background-color: red;
-    transition: 1s;
+#genre-color
+{
+    background-color:#eee;
+    margin-left: 10px;
 }
-
+#genre-color1
+{
+    background-color:#eee;
+}
 .genres-button {
     margin: 15px 0 0 10px;
 }

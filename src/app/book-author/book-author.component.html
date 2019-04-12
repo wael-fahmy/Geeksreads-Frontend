@@ -13,16 +13,15 @@
                     <p id="number-followers">{{author_details[author_index].author_followers}}</p>
                     <span id="followers-word">Followers</span>
                 </div>
-                <button id="btn-follow-author" class="w3-button w3-lime w3-round">Follow Author</button>
+                <button id="btn-follow-author" mat-flat-button>Follow Author</button>
             </div>
         </div>
         <div class="author-discription">
             <p>{{author_details[author_index].author_details_shown}}
                 <span id="dots-author-discription">...</span>
                 <span id="more-author-discription">
-                                {{author_details[author_index].author_details_hidden}}
-                       </span></p>
-            <button (click)="more_author_details()" id="myBtn-author-discription" class="w3-button w3-khaki w3-round-xlarge">Read more</button>
+                {{author_details[author_index].author_details_hidden}}</span>
+            <button (click)="more_author_details()" mat-button id="myBtn-author-discription">Read more</button></p>
         </div>
     </mat-expansion-panel>
 </mat-accordion>
