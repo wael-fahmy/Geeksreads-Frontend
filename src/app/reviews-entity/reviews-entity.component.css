@@ -10,7 +10,42 @@
 .checked {
     color: orange;
 }
-
+.Book-image {
+    max-width: 120px;
+    max-height: 120px;
+    margin: 5px 0 0 0;
+    display: block;
+}
+#Book-info {
+    margin-top: 15px;
+    margin-left: 5px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+#book_title_font {
+    font-family: 'Times New Roman', Times, serif;
+    margin:0 0 0 0 ;
+}
+#Book-Title {
+    margin: 5px 0 0 10px;
+}
+#By-Author {
+    margin: 0 0 15px 0;
+    cursor: pointer;
+    color:gray;
+}
+#date_read_book
+{
+    color:gray;
+}
+#want-to-read {
+    background-color: green;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 1px;
+    padding-bottom: 1px; 
+}
 .reviewer-image {
     height: 50px;
     width: 50px;
@@ -28,21 +63,9 @@
     margin: 5px 0 0 10px;
     color: rgb(88, 88, 88);
 }
-#review-comment button:hover {
-    background-color: red;
-    transition: 1s;
-}
-#myBtn-user-review {
-    background-color: darkgrey;
-    margin: 0 0 0 10px;
-    border: none;
-    color: white;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    font-size: 12px;
-    cursor: pointer;
-    margin: 0 0 0 0;
+#myBtn-user-review
+{
+    color:green;
 }
 #review-comment {
     margin-left: 65px;
@@ -62,11 +85,12 @@
     color: blue;
     cursor: pointer;
 }
-.fa-thumbs-up,
-.fa-comment {
+.thumbs-up,
+.comment {
     margin-left: 5px;
-    margin-top: 18px;
+    margin-top: 10px;
     color: green;
+    cursor: pointer;
 }
 #next-review {
     color: darkgray;
