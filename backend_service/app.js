@@ -26,6 +26,56 @@ app.post("/api/posts", (req, res, next) => {
     message: 'Post added successfully'
   });
 });
+app.use("/api/reviewcomments", (req, res, next) => {
+    const comments_details = [{
+        user_image: 'http://olegif.com/bin/gifs/00/28/96.gif',
+        user_name: 'Vladimaier',
+        user_id: '1231',
+        user_date: '8 years ago',
+        user_body: 'It has been serialized in Kadokawa Shotens shōnen manga magazine Monthly Shōnen Ace since November 2015 and has been collected in seven tankōbon volumes, A 10-episode anime television series adaptation by NAZ aired from July 12/ 2017 to September 13/ 2017.'
+        },
+        {
+        user_image: 'https://image.shutterstock.com/image-vector/cute-vector-illustration-beautiful-chibi-450w-1143687146.jpg',
+        user_name: 'Kurolucifer',
+        user_id: '12564',
+        user_date: '7 years ago',
+        user_body: 'I so agree with your review, im ready to punch something also if I hear one more description of their designer clothing.'
+        },
+        {
+        user_image: 'https://cdn.conceptartempire.com/images/03/4789/04-howto-draw-chibi-eyes.jpg',
+        user_name: 'Bandie',
+        user_id: '5342',
+        user_date: '1 years ago',
+        user_body: 'Ok so I agree with some of the stuff u mentioned. I honestly thought all the designer references were stupid. I also think that Mellisa de la Cruz dragged out the begining a bit too long. I started to lose intrest until I finally got farther in. Other than those two things I disagree with u. So first of all I happen to love the name schyler. And the fact that shes gothic and pretty is not a thing we see often. Usually its a girl that everyone likes (twilight) or the popular girl ( vampire diaries) no one even notices her until shes identified as a blue blood. The story was a refreshing take on vampires. Ive read all four books and the story really develops into something a lot more satisfying.'
+        },
+        {
+        user_image: 'https://i.redd.it/78xux2ti42c11.png',
+        user_name: 'Morningstar',
+        user_id: '23123',
+        user_date: '2 years ago',
+        user_body: 'i dont know y everyone hates this book so much. I have to say i really enjoyed it. I didnt think there was much resemblance at all to twilight and the fact that mellisa de la cruz introduced some new and interesting things about vampires like silver bloods is really refreshing.'
+        },
+        {
+        user_image: 'https://pm1.narvii.com/6518/bc8f0c3f7486d92c6054be6221a019bd7eea52f2_hq.jpg',
+        user_name: 'Onmyuji',
+        user_id: '5646',
+        user_date: '5 years ago',
+        user_body: 'I get what your saying, Amanda. I have read the book so I know theyre rich kids but really?? Half the book simply DESCRIBED what they were wearing. Ive read books about rich kids before but this is ridiculous and I never said having designer clothes was bad. But besides that, I didnt like the book for a HANDFUL of other reasons.'
+        },
+        {
+        user_image: 'https://cdn.shopify.com/s/files/1/1158/2192/products/Hatsune-Miku-Chibi-Mic-Vocaloid-Decal_1024x1024.jpg?v=1455440701',
+        user_name: 'karl',
+        user_id: '4242',
+        user_date: '6 years ago',
+        user_body: 'Agree 100% with this review!'
+        },
+    ];
+
+    res.status(200).json({
+        message: "User fetched successfully!",
+        comments_details: comments_details
+    });
+});
 app.use("/api/reviewerdata", (req, res, next) => {
     const reviewer_details = [{
         book_title: 'Kuroshitsuji Black Bulter',

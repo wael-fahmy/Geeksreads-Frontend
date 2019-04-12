@@ -13,8 +13,10 @@
 }
 #user-name
 {
-    color:blue;
+    color:rgb(40, 97, 83);
     margin: 0 0 0 0px;
+    font-weight: bold;
+    text-decoration: none;
 }
 #user-body
 {
@@ -33,7 +35,7 @@
 }
 #user-underline
 {
-    color:gray;
+    color:blue;
     margin-left: 10px;
 }
 
