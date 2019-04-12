@@ -1,0 +1,67 @@
+#user-reviews {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+.reviewer-image {
+    height: 50px;
+    width: 50px;
+    margin: 0 0 0 10px;
+    border-style: ridge;
+}
+#Reviewer-name {
+    color: blue;
+    margin: 0 0 0 12px;
+}
+.dots {
+    margin-left: 5px;
+}
+#review-date {
+    margin: 5px 0 0 10px;
+    color: rgb(88, 88, 88);
+}
+#review-comment button:hover {
+    background-color: red;
+    transition: 1s;
+}
+#myBtn-user-review {
+    background-color: darkgrey;
+    margin: 0 0 0 10px;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 12px;
+    cursor: pointer;
+    margin: 0 0 0 0;
+}
+#review-comment {
+    margin-left: 65px;
+}
+#more-review {
+    display: none;
+}
+#review-like-comment {
+    display: flex;
+    vertical-align: top;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    margin-left: 65px;
+    margin-top: 5px;
+}
+.blue-text {
+    color: blue;
+    cursor: pointer;
+}
+.fa-thumbs-up,
+.fa-comment {
+    margin-left: 5px;
+    margin-top: 18px;
+    color: green;
+}
+#next-review {
+    color: darkgray;
+    size: 3px;
+    margin-left: 10px;
+}
