@@ -1,5 +1,4 @@
 #book-details-more {
-    margin: 20px 0 0 10px;
     font-weight: bold;
 }
 
@@ -26,4 +25,8 @@
 
 #underline-book-details {
     margin-left: 10px;
+}
+
+.mat-expansion-panel:not([class*=mat-elevation-z]) {
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0), 0 0 0 0 rgba(0, 0, 0, 0), 0 0 0 0 rgba(0, 0, 0, 0);
 }

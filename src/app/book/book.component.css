@@ -37,8 +37,7 @@
 }
 
 #genres {
-    color: gray;
-    margin: 0 0 0 15px;
+    font-weight: bold;
 }
 
 #genres-type {
@@ -116,4 +115,8 @@
 #Stores-underline {
     color: black;
     background-color: black;
+}
+
+.mat-expansion-panel:not([class*=mat-elevation-z]) {
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0), 0 0 0 0 rgba(0, 0, 0, 0), 0 0 0 0 rgba(0, 0, 0, 0);
 }
