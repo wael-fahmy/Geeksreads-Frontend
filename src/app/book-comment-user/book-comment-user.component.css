@@ -43,7 +43,41 @@
     color: rgb(88, 88, 88);
 }
 
-#myBtn-user-review {
+#myBtn-user-review1 {
+    background-color: darkgrey;
+    margin: 0 0 0 10px;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 12px;
+    cursor: pointer;
+    margin: 0 0 0 0;
+}
+#load-more-community-reviews {
+    width: 100%;
+    height: 40px;
+    background-color: darkgray;
+    border: none;
+    color: white;
+    padding-bottom: 10px;
+    padding-top: 7px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 12px;
+    cursor: pointer;
+    margin: 0 0 15px 0;
+}
+#load-more-community-reviews:hover {
+    background-color: red;
+    transition: 1s;
+}
+#more-review1 {
+    display: none;
+}
+#myBtn-user-review2 {
     background-color: darkgrey;
     margin: 0 0 0 10px;
     border: none;
@@ -56,10 +90,76 @@
     margin: 0 0 0 0;
 }
 
-#more-review {
+#more-review2 {
     display: none;
 }
+#myBtn-user-review3 {
+    background-color: darkgrey;
+    margin: 0 0 0 10px;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 12px;
+    cursor: pointer;
+    margin: 0 0 0 0;
+}
 
+#more-review3 {
+    display: none;
+}
+#myBtn-user-review4 {
+    background-color: darkgrey;
+    margin: 0 0 0 10px;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 12px;
+    cursor: pointer;
+    margin: 0 0 0 0;
+}
+
+#more-review4 {
+    display: none;
+}
+#myBtn-user-review5 {
+    background-color: darkgrey;
+    margin: 0 0 0 10px;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 12px;
+    cursor: pointer;
+    margin: 0 0 0 0;
+}
+
+#more-review5 {
+    display: none;
+}
+#myBtn-user-review6 {
+    background-color: darkgrey;
+    margin: 0 0 0 10px;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 12px;
+    cursor: pointer;
+    margin: 0 0 0 0;
+}
+#more_user_reviews
+{
+    display: none;
+}
+#more-review6 {
+    display: none;
+}
 #rate-it {
     color: rgb(88, 88, 88);
 }

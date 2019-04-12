@@ -1,8 +1,8 @@
 <p id="community-reviews">Community Reviews</p>
 <div id="user-reviews">
-    <img class="reviewer-image" src="http://www.pngonly.com/wp-content/uploads/2017/06/Chibi-PNG.png">
+    <img class="reviewer-image" src="{{review_information[0].reviewer_image}}">
     <div>
-        <p id="Reviewer-name">Kanda Yozo
+        <p id="Reviewer-name">{{review_information[0].reviewer_name}}
             <span id="rate-it">rated it</span>
             <span class="fa fa-star checked" class="dots"></span>
             <span class="fa fa-star checked"></span>
@@ -10,15 +10,12 @@
             <span class="fa fa-star"></span>
             <span class="fa fa-star"></span>
         </p>
-        <p id="review-date">5 months ago</p>
+        <p id="review-date">{{review_information[0].reviewer_date}}</p>
     </div>
 </div>
 <div id="review-comment">
-    <p>Black Butler (Japanese: 黒執事 Hepburn: Kuroshitsuji) is a Japanese manga series written and illustrated by Yana Toboso. Since its debut on September 16, 2006,
-        <span id="dots-user-review">...</span><span id="more-review">it has been serialized in Gangan Comics' shōnen 
-        manga magazine Monthly GFantasy. ... 
-        A live action film adaptation was released in Japan on January 18, 2014</span></p>
-    <button (click)="more_user_preview()" id="myBtn-user-review" class="w3-button w3-khaki w3-round-xlarge">Read more</button>
+    <p>{{befor_dots[0]}}<span id="dots-user-review1">...</span><span id="more-review1">{{after_dots[0]}}</span></p>
+    <button (click)="more_user_preview(1)" id="myBtn-user-review1" class="w3-button w3-khaki w3-round-xlarge">Read more</button>
 </div>
 <div id="review-like-comment">
     <p class="blue-text" (click)="like()">Like</p>
@@ -26,16 +23,16 @@
     <p class="blue-text">Comment</p>
     <p class="dots">.</p>
     <i class="fa fa-thumbs-up"></i>
-    <p type="text" class="dots" id="show-likes">60</p>
+    <p type="text" class="dots" id="show-likes">{{review_information[0].reviewer_likes}}</p>
     <p class="dots">.</p>
     <i class="fa fa-comment"></i>
-    <p class="dots">51</p>
+    <p class="dots">{{review_information[0].reviewer_comments}}</p>
 </div>
 <hr id="next-review" class="w3-gray">
 <div id="user-reviews">
-    <img class="reviewer-image" src="https://s1.zerochan.net/Chibi.600.1095185.jpg">
+    <img class="reviewer-image" src="{{review_information[1].reviewer_image}}">
     <div>
-        <p id="Reviewer-name">Haruka
+        <p id="Reviewer-name">{{review_information[1].reviewer_name}}
             <span id="rate-it">rated it</span>
             <span class="fa fa-star checked" class="dots"></span>
             <span class="fa fa-star checked"></span>
@@ -43,15 +40,12 @@
             <span class="fa fa-star checked"></span>
             <span class="fa fa-star"></span>
         </p>
-        <p id="review-date">7 months ago</p>
+        <p id="review-date">{{review_information[1].reviewer_date}}</p>
     </div>
 </div>
 <div id="review-comment">
-    <p>Black Butler (Japanese: 黒執事 Hepburn: Kuroshitsuji) is a Japanese manga series written and illustrated by Yana Toboso. Since its debut on September 16, 2006,
-        <span id="dots-user-review">...</span><span id="more-review">it has been serialized in Gangan Comics' shōnen 
-        manga magazine Monthly GFantasy. ... 
-        A live action film adaptation was released in Japan on January 18, 2014</span></p>
-    <button (click)="more_user_preview()" id="myBtn-user-review" class="w3-button w3-khaki w3-round-xlarge">Read more</button>
+    <p>{{befor_dots[1]}}<span id="dots-user-review2">...</span><span id="more-review2">{{after_dots[1]}}</span></p>
+    <button (click)="more_user_preview(2)" id="myBtn-user-review2" class="w3-button w3-khaki w3-round-xlarge">Read more</button>
 </div>
 <div id="review-like-comment">
     <p class="blue-text" (click)="like()">Like</p>
@@ -59,9 +53,132 @@
     <p class="blue-text">Comment</p>
     <p class="dots">.</p>
     <i class="fa fa-thumbs-up"></i>
-    <p type="text" class="dots" id="show-likes">60</p>
+    <p type="text" class="dots" id="show-likes">{{review_information[1].reviewer_likes}}</p>
     <p class="dots">.</p>
     <i class="fa fa-comment"></i>
-    <p class="dots">51</p>
+    <p class="dots">{{review_information[1].reviewer_comments}}</p>
 </div>
 <hr id="next-review" class="w3-gray">
+<div id="more_user_reviews">
+    <div id="user-reviews">
+        <img class="reviewer-image" src="{{review_information[2].reviewer_image}}">
+        <div>
+            <p id="Reviewer-name">{{review_information[2].reviewer_name}}
+                <span id="rate-it">rated it</span>
+                <span class="fa fa-star checked" class="dots"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star"></span>
+            </p>
+            <p id="review-date">{{review_information[2].reviewer_date}}</p>
+        </div>
+    </div>
+    <div id="review-comment">
+        <p>{{befor_dots[2]}}<span id="dots-user-review3">...</span><span id="more-review3">{{after_dots[2]}}</span></p>
+        <button (click)="more_user_preview(3)" id="myBtn-user-review3" class="w3-button w3-khaki w3-round-xlarge">Read more</button>
+    </div>
+    <div id="review-like-comment">
+        <p class="blue-text" (click)="like()">Like</p>
+        <p class="dots">.</p>
+        <p class="blue-text">Comment</p>
+        <p class="dots">.</p>
+        <i class="fa fa-thumbs-up"></i>
+        <p type="text" class="dots" id="show-likes">{{review_information[2].reviewer_likes}}</p>
+        <p class="dots">.</p>
+        <i class="fa fa-comment"></i>
+        <p class="dots">{{review_information[2].reviewer_comments}}</p>
+    </div>
+    <hr id="next-review" class="w3-gray">
+    <div id="user-reviews">
+        <img class="reviewer-image" src="{{review_information[3].reviewer_image}}">
+        <div>
+            <p id="Reviewer-name">{{review_information[3].reviewer_name}}
+                <span id="rate-it">rated it</span>
+                <span class="fa fa-star checked" class="dots"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star"></span>
+            </p>
+            <p id="review-date">{{review_information[3].reviewer_date}}</p>
+        </div>
+    </div>
+    <div id="review-comment">
+        <p>{{befor_dots[3]}}<span id="dots-user-review4">...</span><span id="more-review4">{{after_dots[3]}}</span></p>
+        <button (click)="more_user_preview(4)" id="myBtn-user-review4" class="w3-button w3-khaki w3-round-xlarge">Read more</button>
+    </div>
+    <div id="review-like-comment">
+        <p class="blue-text" (click)="like()">Like</p>
+        <p class="dots">.</p>
+        <p class="blue-text">Comment</p>
+        <p class="dots">.</p>
+        <i class="fa fa-thumbs-up"></i>
+        <p type="text" class="dots" id="show-likes">{{review_information[3].reviewer_likes}}</p>
+        <p class="dots">.</p>
+        <i class="fa fa-comment"></i>
+        <p class="dots">{{review_information[3].reviewer_comments}}</p>
+    </div>
+    <hr id="next-review" class="w3-gray">
+    <div id="user-reviews">
+        <img class="reviewer-image" src="{{review_information[4].reviewer_image}}">
+        <div>
+            <p id="Reviewer-name">{{review_information[4].reviewer_name}}
+                <span id="rate-it">rated it</span>
+                <span class="fa fa-star checked" class="dots"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star"></span>
+            </p>
+            <p id="review-date">{{review_information[4].reviewer_date}}</p>
+        </div>
+    </div>
+    <div id="review-comment">
+        <p>{{befor_dots[4]}}<span id="dots-user-review5">...</span><span id="more-review5">{{after_dots[4]}}</span></p>
+        <button (click)="more_user_preview(5)" id="myBtn-user-review5" class="w3-button w3-khaki w3-round-xlarge">Read more</button>
+    </div>
+    <div id="review-like-comment">
+        <p class="blue-text" (click)="like()">Like</p>
+        <p class="dots">.</p>
+        <p class="blue-text">Comment</p>
+        <p class="dots">.</p>
+        <i class="fa fa-thumbs-up"></i>
+        <p type="text" class="dots" id="show-likes">{{review_information[4].reviewer_likes}}</p>
+        <p class="dots">.</p>
+        <i class="fa fa-comment"></i>
+        <p class="dots">{{review_information[4].reviewer_comments}}</p>
+    </div>
+    <hr id="next-review" class="w3-gray">
+    <div id="user-reviews">
+        <img class="reviewer-image" src="{{review_information[5].reviewer_image}}">
+        <div>
+            <p id="Reviewer-name">{{review_information[5].reviewer_name}}
+                <span id="rate-it">rated it</span>
+                <span class="fa fa-star checked" class="dots"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star"></span>
+            </p>
+            <p id="review-date">{{review_information[5].reviewer_date}}</p>
+        </div>
+    </div>
+    <div id="review-comment">
+        <p>{{befor_dots[5]}}<span id="dots-user-review6">...</span><span id="more-review6">{{after_dots[5]}}</span></p>
+        <button (click)="more_user_preview(6)" id="myBtn-user-review6" class="w3-button w3-khaki w3-round-xlarge">Read more</button>
+    </div>
+    <div id="review-like-comment">
+        <p class="blue-text" (click)="like()">Like</p>
+        <p class="dots">.</p>
+        <p class="blue-text">Comment</p>
+        <p class="dots">.</p>
+        <i class="fa fa-thumbs-up"></i>
+        <p type="text" class="dots" id="show-likes">{{review_information[5].reviewer_likes}}</p>
+        <p class="dots">.</p>
+        <i class="fa fa-comment"></i>
+        <p class="dots">{{review_information[5].reviewer_comments}}</p>
+    </div>
+    <hr id="next-review" class="w3-gray">
+</div>
+<button (click)="load_more_user_preview()" id="load-more-community-reviews">Load More Community Reviews</button>

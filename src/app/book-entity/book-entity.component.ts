@@ -34,7 +34,7 @@ export class BookEntityComponent implements OnInit {
    * carries the index of the book 
    * @memberof BookEntityComponent
    */
-  book_index = 0;
+  book_index = 1;
   // tslint:disable-next-line:variable-name
   /**
    * Creates an instance of BookEntityComponent.

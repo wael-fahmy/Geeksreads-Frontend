@@ -34,7 +34,7 @@ export class BookComponent implements OnInit {
    * index of the genre list  currently showing
    * @memberof BookComponent
    */
-  genre_index = 1;
+  genre_index = 2;
   // tslint:disable-next-line:variable-name
   /**
    * Creates an instance of BookComponent.
