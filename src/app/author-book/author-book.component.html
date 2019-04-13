@@ -6,15 +6,13 @@
             </div>
             <div class="author-book-info-details">
                 <h1 id="author-book-name">{{authorBookName}}</h1>
-                <!--<button *ngIf=!authorIsFollowing id="author-follow" class="author-following-button" (click)="bookShelf()">Follow Author</button>-->
-                <button mat-button id="author-book-shelf-button" [matMenuTriggerFor]="bookShelf">Add to Shelf</button>
+                <button mat-button id="author-book-shelf-button" [matMenuTriggerFor]="bookShelf">{{shelfAction}}</button>
                 <mat-menu #bookShelf="matMenu">
                     <button mat-menu-item (click)="wantToRead()" id="want-to-read">Want to Read</button>
                     <button mat-menu-item (click)="currentlyReading()" id="currently-reading">Currently Reading</button>
                     <button mat-menu-item (click)="read()" id="read">Read</button>
-                    <button *ngIf=!authorBookIsInAShelf mat-menu-item (click)="read()" id="read">Remove from shelf</button>
+                    <button *ngIf=authorBookIsInAShelf mat-menu-item (click)="removeFromShelf()" id="remove-from-shelf">Remove from shelf</button>
                 </mat-menu>
-                <!--<button *ngIf=authorIsFollowing id="author-unfollow" class="author-following-button" (click)="bookShelf()">Unollow Author</button>-->
             </div>
         </div>
     </div>

@@ -8,7 +8,6 @@ import { Component, OnInit } from '@angular/core';
  * @ignore
  */
 import { FormControl, Validators, NgForm } from '@angular/forms';
-import { URLSearchParams } from '@angular/http';
 import {HttpClient } from '@angular/common/http';
 
  /**
