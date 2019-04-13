@@ -26,6 +26,20 @@ app.post("/api/posts", (req, res, next) => {
     message: "Post added successfully"
   });
 });
+app.post("/api/suggestedbook",(req,res,next)=>{
+  const post = req.body;
+  console.log(post.suggestedbook_id);
+  res.status(201).json({
+    message:'post added succesfully'
+  });
+});
+app.post("/api/authorbook",(req,res,next)=>{
+  const post = req.body;
+  console.log(post.suggestedauthorbook_id);
+  res.status(201).json({
+    message:'post added succesfully'
+  });
+});
 app.use("/api/reviewcomments", (req, res, next) => {
     const comments_details = [{
         user_image: 'http://olegif.com/bin/gifs/00/28/96.gif',
@@ -362,60 +376,80 @@ app.use("/api/authorbook", (req, res, next) => {
       suggestedauthorbook_title: "OverLord",
       suggestedauthorbook_image:
         "https://cdn.myanimelist.net/images/manga/3/161407.jpg",
-      suggestedauthorbook_author: "Wiesman"
+      suggestedauthorbook_author: "Wiesman",
+      suggestedauthorbook_id: "21231",
+      suggestedauthorbook_authorid: "2313"
     },
     {
       suggestedauthorbook_title: "Hero Academia",
       suggestedauthorbook_image:
         "https://mangahelpers.com/forum/media/wsj-cover-issue-9-2016.19683/full?d=1454154995",
-      suggestedauthorbook_author: "Wiesman"
+      suggestedauthorbook_author: "Wiesman",
+      suggestedauthorbook_id: "545",
+      suggestedauthorbook_authorid: "2313"
     },
     {
       suggestedauthorbook_title: "Sword Art Online",
       suggestedauthorbook_image:
         "https://vignette.wikia.nocookie.net/swordartonline/images/1/19/Calibur_Manga_Cover.png/revision/latest?cb=20161009045733",
-      suggestedauthorbook_author: "Wiesman"
+      suggestedauthorbook_author: "Wiesman",
+      suggestedauthorbook_id: "454",
+      suggestedauthorbook_authorid: "2313"
     },
     {
       suggestedauthorbook_title: "Tokyo Ghoul",
       suggestedauthorbook_image:
         "https://vignette.wikia.nocookie.net/tokyoghoul/images/6/6a/Volume_01.jpg/revision/latest?cb=20161203075330",
-      suggestedauthorbook_author: "Wiesman"
+      suggestedauthorbook_author: "Wiesman",
+      suggestedauthorbook_id: "5656",
+      suggestedauthorbook_authorid: "2313"
     },
     {
       suggestedauthorbook_title: "Tokyo Ghoul Root",
       suggestedauthorbook_image: "https://i.redd.it/9fkinvfcum3z.jpg",
-      suggestedauthorbook_author: "Wiesman"
+      suggestedauthorbook_author: "Wiesman",
+      suggestedauthorbook_id: "231",
+      suggestedauthorbook_authorid: "2313"
     },
     {
       suggestedauthorbook_title: "Goblin Slayer",
       suggestedauthorbook_image:
         "https://vignette.wikia.nocookie.net/goblin-slayer/images/f/f4/LN_Vol_03_cover.jpg/revision/latest?cb=20180219173004",
-      suggestedauthorbook_author: "Wiesman"
+      suggestedauthorbook_author: "Wiesman",
+      suggestedauthorbook_id: "656",
+      suggestedauthorbook_authorid: "2313"
     },
     {
       suggestedauthorbook_title: "Danganronpa",
       suggestedauthorbook_image:
         "https://d2lzb5v10mb0lj.cloudfront.net/covers/600/29/29259.jpg",
-      suggestedauthorbook_author: "Wiesman"
+      suggestedauthorbook_author: "Wiesman",
+      suggestedauthorbook_id: "665",
+      suggestedauthorbook_authorid: "2313"
     },
     {
       suggestedauthorbook_title: "Fuuka",
       suggestedauthorbook_image:
         "https://upload.wikimedia.org/wikipedia/en/thumb/6/62/F%C5%ABka_%28manga%29_cover.jpeg/220px-F%C5%ABka_%28manga%29_cover.jpeg",
-      suggestedauthorbook_author: "Wiesman"
+      suggestedauthorbook_author: "Wiesman",
+      suggestedauthorbook_id: "545",
+      suggestedauthorbook_authorid: "2313"
     },
     {
       suggestedauthorbook_title: "Gangsta",
       suggestedauthorbook_image:
         "https://iwantedwings.files.wordpress.com/2014/03/1.jpg",
-      suggestedauthorbook_author: "Wiesman"
+      suggestedauthorbook_author: "Wiesman",
+      suggestedauthorbook_id: "6767",
+      suggestedauthorbook_authorid: "2313"
     },
     {
       suggestedauthorbook_title: "Pandora Hearts",
       suggestedauthorbook_image:
         "https://qph.fs.quoracdn.net/main-qimg-1478fcfef2d268deee3d437a8dd725f5.webp",
-      suggestedauthorbook_author: "Wiesman"
+      suggestedauthorbook_author: "Wiesman",
+      suggestedauthorbook_id: "87785",
+      suggestedauthorbook_authorid: "2313"
     }
   ];
   res.status(200).json({

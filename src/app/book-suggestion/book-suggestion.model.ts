@@ -26,4 +26,18 @@ export interface SuggestedAuthorBookDetails {
      * @memberof SuggestedAuthorBookDetails
      */
     suggestedauthorbook_author: string;
+    /**
+     *
+     * variable to carry book id
+     * @type {string}
+     * @memberof SuggestedAuthorBookDetails
+     */
+    suggestedauthorbook_id: string;
+    /**
+     *
+     * varibale to author id
+     * @type {string}
+     * @memberof SuggestedAuthorBookDetails
+     */
+    suggestedauthorbook_authorid: string;
 }

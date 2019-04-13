@@ -48,11 +48,13 @@ export class BookSuggestionOtherComponent implements OnInit {
     // tslint:disable-next-line:max-line-length
     this.Sub_profile = this.suggestedbook_service.get_suggestedbook_Info_updated().subscribe((suggestedbookinformation: SuggestedBookDetails[]) => {
       this.suggestedbook_details = suggestedbookinformation;
-      console.log(this.suggestedbook_details[0].suggestedbook_id);
       /* console.log(this.User_info.User_Name)
       console.log(this.User_info.user_id)
       console.log(this.User_info.User_Photo)*/
     });
+  }
+  OnClick_getbook(index: SuggestedBookDetails) {
+    this.suggestedbook_service.post_book_wanted(index.suggestedbook_id, index.suggestedbook_author);
   }
 
 }
