@@ -14,13 +14,13 @@ export class ProfileEntityComponent implements OnInit {
 
   User_info: User;            // user object contains user info
 
-  constructor(public Titles_Service: Titles_Service) { }
+  constructor(public Titles_Service: Titles_Service) { }  // constructor of that class
 
-  ngOnInit() {
+  ngOnInit() {                    // on initializing that class implement this function 
 
     this.Titles_Service.get_User_Info();                                  // to get the user info from the service
-    this.Sub_profile = this.Titles_Service.get_User_Info_updated().
-      subscribe((User_Information: User) => {
+    this.Sub_profile = this.Titles_Service.get_User_Info_updated().       // once the class is initialized 
+      subscribe((User_Information: User) => {                            //  supscripe the value recieved
         this.User_info = User_Information;
         /* console.log(this.User_info.User_Name)
          console.log(this.User_info.user_id)
