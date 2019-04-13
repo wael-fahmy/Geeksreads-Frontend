@@ -34,6 +34,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { AuthorComponent } from './author/author.component';
 import { AuthorBookComponent } from './author-book/author-book.component';
 import { ProfileReadShelfComponent } from './profile-read-shelf/profile-read-shelf.component';
+import { NewsfeedCommentPostComponent } from './newsfeed-comment-post/newsfeed-comment-post.component';
 
 @NgModule({
   declarations: [
@@ -63,7 +64,8 @@ import { ProfileReadShelfComponent } from './profile-read-shelf/profile-read-she
     BookSuggestionOtherComponent,
     AuthorComponent,
     AuthorBookComponent,
-    ProfileReadShelfComponent
+    ProfileReadShelfComponent,
+    NewsfeedCommentPostComponent
   ],
   imports: [
     BrowserModule,

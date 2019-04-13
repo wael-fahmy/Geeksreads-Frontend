@@ -1,0 +1,10 @@
+.navbar-margin {
+    margin: 64px 0 0 0;
+}
+
+.newsfeed-posts-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+}
