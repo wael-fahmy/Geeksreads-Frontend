@@ -22,6 +22,14 @@ export interface Post {
      * @type {string}
      * @memberof Post
      */
+    bookimage: string;
+
+    /**
+     *
+     *
+     * @type {string}
+     * @memberof Post
+     */
     authorname: string;
 
 

@@ -20,8 +20,8 @@ export class PostsServices {
  * @memberof PostsServices
  */
 constructor(private http: HttpClient) {}
-private Posts: Post[] = [];
-private PostsUpdated = new Subject<Post[]>();
+private post: Post;
+private postUpdated = new Subject<Post>();
 
 
 
@@ -30,11 +30,11 @@ private PostsUpdated = new Subject<Post[]>();
  * this functions gets the data required ftom the backend
  * @memberof PostsServices
  */
-getposts() {
-    this.http.get<{message: string, Post: Post[]}>('http://localhost:3000/api/list')
+getpost() {
+    this.http.get<{message: string, Post: Post}>('http://localhost:3000/api/newsfeed')
     .subscribe((PostData) => {
-       this.Posts = PostData.Post;
-      // this.PostsUpdated.next([...this.Posts]);
+       this.post = PostData.Post;
+       this.postUpdated.next(this.post);
       
     } );
 }
@@ -48,7 +48,7 @@ getposts() {
  * @returns
  * @memberof PostsServices
  */
-get_posts_updated() {
-    return this.PostsUpdated.asObservable();
+get_post_updated() {
+    return this.postUpdated.asObservable();
 }
 }
