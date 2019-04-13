@@ -32,15 +32,6 @@ describe('ProfileBookEntityComponent', () => {
   }));
 
   
-  it('button should contain Read', async(() => {
-    let button = fixture.debugElement.nativeElement.querySelector('MENU').textContent;
-    expect(button).toContain('Read');
-  }));
-  it('button should contain want to Read', async(() => {
-    let button = fixture.debugElement.nativeElement.querySelector('button').textContent;
-    expect(button).toContain('want to read')
-  }));
-  
   it('list of books should be 3', () => {
     fixture.whenStable().then(() => {
       expect(component.List_of_books.length).toBe(3);
@@ -48,17 +39,17 @@ describe('ProfileBookEntityComponent', () => {
   });
   it('list of books should contain lord of the rings', () => {
     fixture.whenStable().then(() => {
-      expect(component.List_of_books.lastIndexOf).toContain('Lord of the Rings');
+      expect(component.List_of_books.indexOf).toContain('Lord of the Rings');
     });
   });
   it('list of books should contain Harry Potter', () => {
     fixture.whenStable().then(() => {
-      expect(component.List_of_books.lastIndexOf).toContain('Harry Potter');
+      expect(component.List_of_books.indexOf).toContain('Harry Potter');
     });
   });
   it('list of books should contain Game of thrones', () => {
     fixture.whenStable().then(() => {
-      expect(component.List_of_books.lastIndexOf).toContain('Game of thrones');
+      expect(component.List_of_books.indexOf).toContain('Game of thrones');
     });
   });
 

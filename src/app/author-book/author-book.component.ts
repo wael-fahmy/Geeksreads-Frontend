@@ -37,7 +37,17 @@ export class AuthorBookComponent implements OnInit {
    */
   authorBookRating = 3.81;
 
-  authorBookIsInAShelf = 'false';
+
+  /**
+   *  Is this book in a shelf?
+   */
+  authorBookIsInAShelf = false;
+
+
+  /**
+   *  Where is the book now
+   */
+  shelfAction = 'Add to Shelf';
 
   /**
    *  Add book to a shelf
@@ -61,19 +71,46 @@ export class AuthorBookComponent implements OnInit {
    */
   wantToRead() {
     // TODO: Send request
-    this.authorBookIsInAShelf = 'true';
+    this.authorBookIsInAShelf = true;
+    this.shelfAction = 'Want to Read';
+    document.getElementById('author-book-shelf-button').style.backgroundColor = '#f2f2f2';
+    document.getElementById('author-book-shelf-button').style.color = '#000000';
     console.log('Adding to Want to Read Shelf');
   }
 
+  /**
+   *  Adds book to Currently Reading Shelf
+   */
   currentlyReading() {
     // TODO: Send request
-    this.authorBookIsInAShelf = 'true';
+    this.authorBookIsInAShelf = true;
+    this.shelfAction = 'Currently Reading';
+    document.getElementById('author-book-shelf-button').style.backgroundColor = '#f2f2f2';
+    document.getElementById('author-book-shelf-button').style.color = '#000000';
     console.log('Adding to Reading Shelf');
   }
 
+  /**
+   *  Adds book to Read Shelf
+   */
   read() {
     // TODO: Send request
-    this.authorBookIsInAShelf = 'true';
+    this.authorBookIsInAShelf = true;
+    this.shelfAction = 'Read';
+    document.getElementById('author-book-shelf-button').style.backgroundColor = '#f2f2f2';
+    document.getElementById('author-book-shelf-button').style.color = '#000000';
+    console.log('Adding to Read Shelf');
+  }
+
+  /**
+   *  Removes book from its current shelf
+   */
+  removeFromShelf() {
+    // TODO: Send request
+    this.authorBookIsInAShelf = false;
+    this.shelfAction = 'Add to Shelf';
+    document.getElementById('author-book-shelf-button').style.backgroundColor = '#409D69';
+    document.getElementById('author-book-shelf-button').style.color = '#ffffff';
     console.log('Adding to Read Shelf');
   }
 

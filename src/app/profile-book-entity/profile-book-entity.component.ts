@@ -42,10 +42,6 @@ export class ProfileBookEntityComponent implements OnInit {
            this.List_of_books=List;                              // and put it in the list of books to display them
        }); 
 
-
-
-
-
    }
    
    

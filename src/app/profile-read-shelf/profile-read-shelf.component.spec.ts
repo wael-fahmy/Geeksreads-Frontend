@@ -5,7 +5,7 @@ import { MatMenuModule, MatDividerModule, MatListModule, } from '@angular/materi
 import { MaterialModule } from '../material.module';
 import { HttpClientModule } from '@angular/common/http';
 
-describe('MyBooksReadComponent', () => {
+describe('ProfileReadShelfComponent', () => {
   let component: ProfileReadShelfComponent;
   let fixture: ComponentFixture<ProfileReadShelfComponent>;
 
@@ -32,19 +32,15 @@ describe('MyBooksReadComponent', () => {
       expect(component.List_of_books_read.length).toBe(2);
     });
   });
-  it('list of books should contain lord of the rings', () => {
+  
+  it('list of books read should contain Harry Potter', () => {
     fixture.whenStable().then(() => {
-      expect(component.List_of_books_read.lastIndexOf).toContain('Lord of the Rings');
+      expect(component.List_of_books_read.indexOf).toContain('Harry Potter');
     });
   });
-  it('list of books should contain Harry Potter', () => {
+  it('list of books read should contain Game of thrones', () => {
     fixture.whenStable().then(() => {
-      expect(component.List_of_books_read.lastIndexOf).toContain('Harry Potter');
-    });
-  });
-  it('list of books should contain Game of thrones', () => {
-    fixture.whenStable().then(() => {
-      expect(component.List_of_books_read.lastIndexOf).toContain('Game of thrones');
+      expect(component.List_of_books_read.indexOf).toContain('Game of thrones');
     });
   });
 

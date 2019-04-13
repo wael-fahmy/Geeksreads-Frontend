@@ -37,30 +37,27 @@ export class CountBooksService{
 
 
 
-    get_count_read(){
+    /*get_count_read(){
         this.http.get<{ message: string, num_read: number }>('http://localhost:3000/api/NumRead').
             subscribe((Data) => {          //  subscribe the no. of books recieved 
                 this.New_num_read = Data.num_read;    // assign them to the num read to display them 
                
             });
-    }
+    }*/
 
 
     
-    add_count_read(index:ListOfBooks)          
+    add_count_read(index:ListOfBooks)
     {
         this.New_num_read = this.New_num_read + 1;         // to inc number of books read 
         this.num_read_Updated.next(this.New_num_read);     // to update the number of books read 
-
         this.http
-        .post<{message: string}>("http://localhost:3000/api/posts", index)   // to send request with the book info 
-        .subscribe(responsedata =>{                                    // to add a book to a shelf
+        .post<{message: string}>("http://localhost:3000/api/posts", index)   // to send request with the book info
+        .subscribe(responsedata =>{                                    // to add a book to a read shelf
             console.log(responsedata.message);                   // to check that the request sent successfuly
         });
 
            //console.log(index.book_name);
-
-
     }
 
     get_count_update_read()        // to be observable on update

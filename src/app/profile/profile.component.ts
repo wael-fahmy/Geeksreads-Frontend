@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CountBooksService } from '../profile-book-entity/book.service';
-import { Subscription } from 'rxjs'
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-profile',
@@ -20,7 +20,7 @@ constructor(public CountBooksService : CountBooksService ) {}   //class construc
 ngOnInit()               // on initializing that class implement this function 
 {        
 
-  this.CountBooksService.get_count_read();
+  //this.CountBooksService.get_count_read();
   this.Sub = this.CountBooksService.get_count_update_read().      // to observe the update in the number of books read 
   subscribe( (num_read:number) => {                              // once you finished reading
      this.num_read=num_read;
