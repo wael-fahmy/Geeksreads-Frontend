@@ -538,7 +538,7 @@ app.post("/api/sign-in", (req, res, next) => {
         });
     else
         res.status(200).json({
-            message: "you entered the wrong data"
+            message: "You entered the wrong data"
         });
 });
 app.post("/api/sign-up", (req, res, next) => {
@@ -554,11 +554,11 @@ app.post("/api/sign-up", (req, res, next) => {
 
     if ((req.body.email == email) & (pass == req.body.pass) & (req.body.Name == Name))
         res.status(200).json({
-            message: "you entered the data correctly"
+            message: "You entered the data correctly"
         });
     else
         res.status(200).json({
-            message: "you entered the wrong data"
+            message: "You entered the wrong data"
         });
 });
 
