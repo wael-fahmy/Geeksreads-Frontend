@@ -11,29 +11,72 @@ import { CountBooksService } from './book.service'
 })
 export class ProfileBookEntityComponent implements OnInit {
 
-          
-        
+    
+     /**
+      *
+      *
+      * @private to subscribe the list of books recieved
+      * @type {Subscription}
+      * @memberof ProfileBookEntityComponent
+      */
      private Sub_list : Subscription
    
-     List_of_books: ListOfBooks[] = [];     // the list of books owned by the user info
+     /**
+      *
+      * // the list of books owned by the user info
+      * @type {ListOfBooks[]}
+      * @memberof ProfileBookEntityComponent
+      */
+     List_of_books: ListOfBooks[] = [];    
     
-      constructor(public CountBooksService : CountBooksService )  {}  // the class constructor
+      /**
+       *Creates an instance of ProfileBookEntityComponent. 
+       * @param {CountBooksService} CountBooksService
+       * @memberof ProfileBookEntityComponent
+       */
+      constructor(public CountBooksService : CountBooksService )  {}  
    
-   OnClick_want_read(index:ListOfBooks){                   // to increment the number of books want to read on click
+   /**
+    *
+    * // to increment the number of books want to read on click
+    * @param {ListOfBooks} index   index of the book selected
+    * @memberof ProfileBookEntityComponent
+    */
+   OnClick_want_read(index:ListOfBooks){                  
        this.CountBooksService.add_count_want_to_read(index) ;
    }
    
-   OnClick_read(index:ListOfBooks){                           // to increment the number of books read on click
+   /**
+    *
+    * // to increment the number of books read on click
+    * @param {ListOfBooks} index   index of the book selected
+    * @memberof ProfileBookEntityComponent
+    */
+   OnClick_read(index:ListOfBooks){             
        this.CountBooksService.add_count_read(index);
       // index.state = 'read';
       
    }
 
-   OnClick_reading(index:ListOfBooks){                           // to increment the number of books currently reading on click
+   /**
+    *
+    *  // to increment the number of books currently reading on click
+    * @param {ListOfBooks} index  index of the book selected
+    * @memberof ProfileBookEntityComponent
+    */
+   OnClick_reading(index:ListOfBooks){                         
     this.CountBooksService.add_count_reading(index);
    // console.log(index.author_name);
 }
-   ngOnInit()   // on initializing that class implement this function 
+
+   /**
+    * on initializing that class implement this function 
+    * to get the book info from the service
+    * subscribe the list of books recived 
+    * and put it in the list of books to display them
+    * @memberof ProfileBookEntityComponent
+    */
+   ngOnInit()   
    {
    
       this.CountBooksService.get_List_of_books();                    // to get the book info from the service
@@ -43,11 +86,5 @@ export class ProfileBookEntityComponent implements OnInit {
        }); 
 
    }
-   
-   
-   
-     
-     
-   
    }
 
