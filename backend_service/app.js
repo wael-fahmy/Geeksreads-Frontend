@@ -197,61 +197,81 @@ app.use("/api/suggestedbook", (req, res, next) => {
       suggestedbook_title: "Blame",
       suggestedbook_image:
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgB_-fjEHUeR3AT1rJNOAP6M_LwD2Lk-YYVAjEO7_1Rg1Y7bdAqw",
-      suggestedbook_author: "Chronous"
+      suggestedbook_author: "Chronous",
+      suggestedbook_id: "231312",
+      suggestedbook_authorid: "231231"
     },
     {
       suggestedbook_title: "Bleach",
       suggestedbook_image:
         "https://i.pinimg.com/236x/e2/d4/9c/e2d49c2ecbd3c1993b5471b4679c8b4c--list-bleach.jpg",
-      suggestedbook_author: "Badon"
+      suggestedbook_author: "Badon",
+      suggestedbook_id: "343",
+      suggestedbook_authorid: "34"
     },
     {
       suggestedbook_title: "Magi",
       suggestedbook_image:
         "https://vignette.wikia.nocookie.net/magi/images/1/1d/Volume_27.png/revision/latest?cb=20151103001522",
-      suggestedbook_author: "kuro"
+      suggestedbook_author: "kuro",
+      suggestedbook_id: "776",
+      suggestedbook_authorid: "54"
     },
     {
       suggestedbook_title: "HellSing",
       suggestedbook_image:
         "https://geekandsundry.com/wp-content/uploads/2015/05/Hellsing-Cover.jpg",
-      suggestedbook_author: "Kohta Hirano"
+      suggestedbook_author: "Kohta Hirano",
+      suggestedbook_id: "775",
+      suggestedbook_authorid: "87"
     },
     {
       suggestedbook_title: "Radiant",
       suggestedbook_image:
         "https://www.rightstufanime.com/images/productImages/9781974703814_manga-radiant-1-primary.jpg",
-      suggestedbook_author: "Tony Valente"
+      suggestedbook_author: "Tony Valente",
+      suggestedbook_id: "989",
+      suggestedbook_authorid: "2313"
     },
     {
       suggestedbook_title: "Bungo Stray Dogs",
       suggestedbook_image:
         "https://images.squarespace-cdn.com/content/5a6f4bcb64b05fab1682b0b1/1550247473973-8A54LJPOSCV8F9SFMJ6W/",
-      suggestedbook_author: "Kami"
+      suggestedbook_author: "Kami",
+      suggestedbook_id: "121",
+      suggestedbook_authorid: "4241"
     },
     {
       suggestedbook_title: "Grand Blue",
       suggestedbook_image:
         "https://www.monstersandcritics.com/wp-content/uploads/2018/09/Grand-Blue-Dreaming-Manga-Volume-7-Cover.jpg",
-      suggestedbook_author: "Kenji Inoue"
+      suggestedbook_author: "Kenji Inoue",
+      suggestedbook_id: "453",
+      suggestedbook_authorid: "132"
     },
     {
       suggestedbook_title: "Spice & Wolf",
       suggestedbook_image:
         "https://www.anime-contemplation.com/wp-content/uploads/2012/12/Spice-and-Wolf-Manga-Volume-7-Cover.jpg",
-      suggestedbook_author: "Isuna Hasekura"
+      suggestedbook_author: "Isuna Hasekura",
+      suggestedbook_id: "563",
+      suggestedbook_authorid: "342"
     },
     {
       suggestedbook_title: "Baka To Test",
       suggestedbook_image:
         "https://www.baka-tsuki.org/project/thumb.php?f=BakaTestV1cover.jpg&width=325",
-      suggestedbook_author: "Kenji"
+      suggestedbook_author: "Kenji",
+      suggestedbook_id: "545",
+      suggestedbook_authorid: "242"
     },
     {
       suggestedbook_title: "One Punch Man",
       suggestedbook_image:
         "https://pre00.deviantart.net/d461/th/pre/i/2016/163/a/f/one_punch_man_cover_by_visionarydaydreamer-da5x72m.jpg",
-      suggestedbook_author: "Hakura"
+      suggestedbook_author: "Hakura",
+      suggestedbook_id: "23",
+      suggestedbook_authorid: "3434"
     }
   ];
   res.status(200).json({
@@ -543,7 +563,7 @@ app.post("/api/sign-up", (req, res, next) => {
 
   console.log('data' , req.body)
 
-<<<<<<< HEAD
+
   if ((req.body.email == email) & (pass == req.body.pass) & (req.body.Name == Name))
     res.status(200).json({
       message: "you entered the data correctly"
@@ -554,9 +574,9 @@ app.post("/api/sign-up", (req, res, next) => {
     });
 });
 
-port = 3000
+port = 3001
 app.listen(port, () => console.log('Example app listening on port ${port}!'))
 module.exports = app;
-=======
+
 module.exports = app;
->>>>>>> 721ae172f00457c2e52913ce5c83479d3556fa4f
+
