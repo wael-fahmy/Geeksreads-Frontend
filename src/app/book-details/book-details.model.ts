@@ -54,4 +54,11 @@ export interface Bookinformation {
      * @memberof Bookinformation
      */
     book_characters: string;
+    /**
+     *
+     * variable to carry book id
+     * @type {string}
+     * @memberof Bookinformation
+     */
+    book_id: string;
 }

@@ -11,6 +11,14 @@ import { delay } from 'q';
 })
 export class BookDetailsComponent implements OnInit {
 
+  bookedition: string [] = [];
+  bookpublished: string [] = [];
+  bookASIN: string [] = [];
+  booklang: string [] = [];
+  booktitle: string [] = [];
+  bookawards: string [] = [];
+  bookchara: string [] = [];
+  bookid: string [] = [];
   // tslint:disable-next-line:variable-name
   /**
    *
@@ -34,7 +42,7 @@ export class BookDetailsComponent implements OnInit {
    * index of the current book from the list
    * @memberof BookDetailsComponent
    */
-  book_index = 0;
+  book_index = 1;
   // tslint:disable-next-line:variable-name
   /**
    * Creates an instance of BookDetailsComponent.
@@ -52,10 +60,23 @@ export class BookDetailsComponent implements OnInit {
     // tslint:disable-next-line:variable-name
     this.Sub_profile = this.bookinformation_service.get_book_Info_updated().subscribe((book_Information: Bookinformation[]) => {
       this.book_information = book_Information;
+      this.SetElements();
       /* console.log(this.User_info.User_Name)
       console.log(this.User_info.user_id)
       console.log(this.User_info.User_Photo)*/
     });
   }
-
+  SetElements() {
+    // tslint:disable-next-line: prefer-for-of
+    for (let x = 0; x < this.book_information.length; x++) {
+      this.bookedition[x] = this.book_information[x].book_edition;
+      this.bookid[x] = this.book_information[x].book_id;
+      this.bookpublished[x] = this.book_information[x].book_published;
+      this.bookASIN[x] = this.book_information[x].book_ASIN;
+      this.booklang[x] = this.book_information[x].book_language;
+      this.booktitle[x] = this.book_information[x].book_title;
+      this.bookawards[x] = this.book_information[x].book_awards;
+      this.bookchara[x] = this.book_information[x].book_characters;
+    }
+  }
 }

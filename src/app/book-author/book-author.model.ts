@@ -32,12 +32,19 @@ export interface AuthorDetails {
      * @type {string}
      * @memberof AuthorDetails
      */
-    author_details_shown: string;
+    author_body: string;
     /**
      *
-     * hidden details of the author
+     * variable to carry author id
      * @type {string}
      * @memberof AuthorDetails
      */
-    author_details_hidden: string;
+    author_id: string;
+    /**
+     *
+     * variable to book id
+     * @type {string}
+     * @memberof AuthorDetails
+     */
+    book_id: string;
 }
