@@ -7,7 +7,7 @@
         <img width="60" height="80" 
     src= "{{index.book_cover}}" alt="book">  
   
-    {{ index.book_name}} <br> by {{index.author_name}}  
+   <a routerLink="/book">{{ index.book_name}} <br> by {{index.author_name}}  </a>  
      <button id="MENU"  [matMenuTriggerFor]="menu">{{index.state}} ...</button>
      
     <mat-menu #menu="matMenu">
