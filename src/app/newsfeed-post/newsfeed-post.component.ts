@@ -18,13 +18,6 @@ import { Subscription } from 'rxjs';
 
 export class NewsfeedPostComponent implements OnInit {
 
-  /**
-   *
-   * instant of posts array
-   * @type {Post[]}
-   * @memberof NewsfeedPostComponent
-   */
-  public Posts: Post[] = [];
 
   /**
    *
@@ -33,16 +26,23 @@ export class NewsfeedPostComponent implements OnInit {
    * @type {Subscription}
    * @memberof NewsfeedPostComponent
    */
-  private subprofile: Subscription; // hal this is to use function subscribe ??
-
+  private subprofile: Subscription;
+  PostObj: Post;
+  username: string = "Yara";
+  activitydate: string = "about 2 hours ago ";
+  bookname: string = "Eat Pray Love";
+  authorname: string = "Paulo";
+  review: string = "It was really nice";
+  activity: string = "rated a book";
+  bookimage: string = "https://via.placeholder.com/120x120";
 
   /**
    *Creates an instance of NewsfeedPostComponent.
    * @param {PostsServices} PostsServicesObj
    * @memberof NewsfeedPostComponent
    */
-  constructor( public PostsServicesObj: PostsServices) { }
-    
+  constructor(public PostsServicesObj: PostsServices) { }
+
 
   /**
    * The  functions created in the service are implemented here 
@@ -50,10 +50,19 @@ export class NewsfeedPostComponent implements OnInit {
    * @memberof NewsfeedPostComponent
    */
   ngOnInit() {
-    this.PostsServicesObj.getposts();
-   this.subprofile = this.PostsServicesObj.get_posts_updated().subscribe( (PostsInfo: Post[]) => {
-    this.Posts = PostsInfo; });
+    this.PostsServicesObj.getpost();
+    this.subprofile = this.PostsServicesObj.get_post_updated().subscribe((PostInfo: Post) => {
+      this.PostObj = PostInfo;
+      this.activity = this.PostObj.activitylog;
+      this.activitydate = this.PostObj.activitydate;
+      this.authorname = this.PostObj.authorname;
+      this.bookimage = this.PostObj.bookimage;
+      this.bookname = this.PostObj.bookname;
+      this.review = this.PostObj.review;
+      this.username = this.PostObj.username;
+      
+    });
     //console.log(this.Posts[0].username);
-   
-   }
+
   }
+}

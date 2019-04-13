@@ -9,6 +9,7 @@ import { Component, OnInit } from '@angular/core';
  */
 import { FormControl, Validators, NgForm } from '@angular/forms';
 import {HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
  /**
   *
@@ -70,7 +71,7 @@ export class SignInComponent implements OnInit {
    * http client module used to make requests to server
    * @memberof SignInComponent
    */
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private route: Router) {
 
   }
 
@@ -102,19 +103,21 @@ export class SignInComponent implements OnInit {
     // data.append('email', this.userEmail);
     // data.append('pass', this.userPassword);
 
-    let data = {
+    const data = {
       email: this.userEmail ,
       pass: this.userPassword
     };
     console.log('2abl ma ab3at ' , data);
     this.http
-      .post('http://localhost:3000/api/sign-in', data)
+      .post('http://localhost:3001/api/sign-in', data)
    // tslint:disable-nextline: variable-name
         .subscribe((serverResponse) => {
           console.log(serverResponse);
-
-          alert('ok ' + serverResponse['message']);
-
+        // alert('ok ' + serverResponse['message']);
+     // tslint:disable-next-line: triple-equals
+          if (serverResponse['message'] == 'You entered the data correctly') {
+          this.route.navigate(['/homepage']);
+        }
         }, (error: { json: () => void; }) => {
             console.log(error.json());
         });
@@ -132,14 +135,9 @@ onSigningIn(form: NgForm) {
     console.log('Signing In...');
   }
 
-
-
-
-
-
 /**
  *
- *function called on initiallization
+ * function called on initiallization
  * @memberof SignInComponent
  */
 ngOnInit() {}

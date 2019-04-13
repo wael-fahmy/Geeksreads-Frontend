@@ -553,25 +553,18 @@ app.use("/api/title", (req, res, next) => {
 app.use("/api/newsfeed", (req, res, next) => {
     const Post = {
         userid: '1',
+        bookimage:'https://via.placeholder.com/86x120',
         username: 'Mohamed',
-        bookname: 'Eat Pray Love',
+        bookname: 'A Tale of Two Cities',
         authorname: 'Craulo',
-        activitydate: 'about 2 hours ',
+        activitydate: 'about 7 hours ago',
         activitylog: 'rated a book',
-        review: 'i enjoyed reading this book very much.',
+        review: 'I enjoyed reading this book very much.',
         userphoto: 'https://tse1.mm.bing.net/th?id=OIP.JchDxbr-ajB0-wbB1h5BBgAAAA&pid=15.1&P=0&w=300&h=300'
     };
     res.status(200).json({
         message: "User fetched successfully!",
         Post: Post
-    });
-});
-//adding newsfeed post at backend point
-app.post("/api/posts", (req, res, next) => {
-    const post = req.body;
-    console.log(post);
-    res.status(201).json({
-        message: 'Post added successfully'
     });
 });
 

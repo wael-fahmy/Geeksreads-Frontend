@@ -11,6 +11,8 @@ export class GenresComponent implements OnInit {
    *Creates an instance of GenresComponent.
    * @memberof GenresComponent
    */
+
+   
   constructor() { }
 
 
