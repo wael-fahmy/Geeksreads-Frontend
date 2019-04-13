@@ -543,7 +543,7 @@ app.post("/api/sign-up", (req, res, next) => {
 
   console.log('data' , req.body)
 
-<<<<<<< HEAD
+
   if ((req.body.email == email) & (pass == req.body.pass) & (req.body.Name == Name))
     res.status(200).json({
       message: "you entered the data correctly"
@@ -557,6 +557,4 @@ app.post("/api/sign-up", (req, res, next) => {
 port = 3000
 app.listen(port, () => console.log('Example app listening on port ${port}!'))
 module.exports = app;
-=======
-module.exports = app;
->>>>>>> 721ae172f00457c2e52913ce5c83479d3556fa4f
+
