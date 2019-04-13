@@ -6,7 +6,7 @@
             </div>
             <div class="author-book-info-details">
                 <h1 id="author-book-name">{{authorBookName}}</h1>
-                <button mat-button id="author-book-shelf-button" [matMenuTriggerFor]="bookShelf">{{shelfAction}}</button>
+                <button mat-button id="author-book-shelf-button" [matMenuTriggerFor]="bookShelf" #addToShelf>{{shelfAction}}</button>
                 <mat-menu #bookShelf="matMenu">
                     <button mat-menu-item (click)="wantToRead()" id="want-to-read">Want to Read</button>
                     <button mat-menu-item (click)="currentlyReading()" id="currently-reading">Currently Reading</button>
