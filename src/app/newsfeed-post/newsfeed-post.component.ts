@@ -3,6 +3,13 @@ import { Post } from './newsfeed-post.model';
 import { PostsServices } from './newsfeed-post.service';
 import { Subscription } from 'rxjs';
 
+/**
+ *
+ *
+ * @export
+ * @class NewsfeedPostComponent
+ * @implements {OnInit}
+ */
 @Component({
   selector: 'app-newsfeed-post',
   templateUrl: './newsfeed-post.component.html',
@@ -11,6 +18,12 @@ import { Subscription } from 'rxjs';
 
 export class NewsfeedPostComponent implements OnInit {
 
+  /**
+   *
+   * instant of posts array
+   * @type {Post[]}
+   * @memberof NewsfeedPostComponent
+   */
   public Posts: Post[] = [];
 
   /**
@@ -21,6 +34,13 @@ export class NewsfeedPostComponent implements OnInit {
    * @memberof NewsfeedPostComponent
    */
   private subprofile: Subscription; // hal this is to use function subscribe ??
+
+
+  /**
+   *Creates an instance of NewsfeedPostComponent.
+   * @param {PostsServices} PostsServicesObj
+   * @memberof NewsfeedPostComponent
+   */
   constructor( public PostsServicesObj: PostsServices) { }
     
 
