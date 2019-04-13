@@ -48,12 +48,12 @@ app.post("/api/authorbook", (req, res, next) => {
         message: 'post added succesfully'
     });
 });
-app.post("/api/reviewdata",(req,res,next)=>{
-  const post = req.body;
-  console.log(post.reviewer_likes);
-  res.status(201).json({
-    message:'post added succesfully'
-  });
+app.post("/api/reviewdata", (req, res, next) => {
+    const post = req.body;
+    console.log(post.reviewer_likes);
+    res.status(201).json({
+        message: 'post added succesfully'
+    });
 });
 app.use("/api/reviewcomments", (req, res, next) => {
     const comments_details = [{
@@ -553,7 +553,7 @@ app.use("/api/title", (req, res, next) => {
 app.use("/api/newsfeed", (req, res, next) => {
     const Post = {
         userid: '1',
-        bookimage:'https://via.placeholder.com/86x120',
+        bookimage: 'https://via.placeholder.com/86x120',
         username: 'Mohamed',
         bookname: 'A Tale of Two Cities',
         authorname: 'Craulo',
@@ -608,9 +608,10 @@ app.use("/api/author", (req, res, next) => {
     const authorInfo = {
         authorId: 1152114,
         authorName: 'Mark Twain',
-        authorPicture: '',
+        authorPicture: 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/authors/1322103868i/1244._UX87_.jpg',
         authorIsFollowing: false,
-        authorNumberOfFollowers: 7,
+        authorNumberOfFollowers: 14031,
+        authorDetails: 'Samuel Langhorne Clemens, better known by his pen name Mark Twain, was an American author and humorist. He is noted for his novels Adventures of Huckleberry Finn (1885), called "the Great American Novel", and The Adventures of Tom Sawyer (1876).\nTwain grew up in Hannibal, Missouri, which would later provide the setting for Huckleberry Finn and Tom Sawyer. He apprenticed with a printer. He also worked as a typesetter and contributed articles to his older brother Orion\'s newspaper. After toiling as a printer in various cities, he became a master riverboat pilot on the Mississippi River, before heading west to join Orion. He was a failure at gold mining, so he next turned to journalism. While a reporter, he wrote a humorous story, "The Celebrated Jumping Frog of Calaveras County," which proved to be very popular and brought him nationwide attention. His travelogues were also well-received. Twain had found his calling.',
     };
 
     res.status(200).json({
