@@ -4,7 +4,7 @@
 }
 
 .activity-header-image {
-    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-image: url('https://tse1.mm.bing.net/th?id=OIP.JchDxbr-ajB0-wbB1h5BBgAAAA&pid=15.1&P=0&w=300&h=300');
     background-size: cover;
 }
 
@@ -21,7 +21,6 @@
     position: relative;
     padding-top: -2;
     border-top: 10px;
-    ;
     color: brown;
 }
 
@@ -80,4 +79,7 @@
 
 .stars {
     margin-left: 15px;
+}
+.subtitle{
+    margin-left: 10px ; 
 }
