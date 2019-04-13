@@ -1,3 +1,20 @@
-<p>
-  author-book works!
-</p>
+<div class="author-book">
+    <div class="author-book-header">
+        <div class="author-book-stats">
+            <div class="author-book-image">
+                <img src={{authorBookPicture}} alt="{{authorBookName}}'s Book Cover">
+            </div>
+            <div class="author-book-info-details">
+                <h1 id="author-book-name">{{authorBookName}}</h1>
+                <button mat-button id="author-book-shelf-button" [matMenuTriggerFor]="bookShelf">{{shelfAction}}</button>
+                <mat-menu #bookShelf="matMenu">
+                    <button mat-menu-item (click)="wantToRead()" id="want-to-read">Want to Read</button>
+                    <button mat-menu-item (click)="currentlyReading()" id="currently-reading">Currently Reading</button>
+                    <button mat-menu-item (click)="read()" id="read">Read</button>
+                    <button *ngIf=authorBookIsInAShelf mat-menu-item (click)="removeFromShelf()" id="remove-from-shelf">Remove from shelf</button>
+                </mat-menu>
+            </div>
+        </div>
+    </div>
+    <hr>
+</div>

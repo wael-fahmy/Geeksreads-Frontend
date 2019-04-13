@@ -1,3 +1,7 @@
+hr {
+    margin: 5px 0;
+}
+
 .nav-bar-margin {
     height: 65px;
 }
@@ -49,4 +53,24 @@
     padding: 8px 8px;
     margin: 10px 0;
     width: 140px;
+}
+
+#author-more-details {
+    color: #00635D;
+    text-decoration: none;
+    margin: 0 0 0 2px;
+    cursor: pointer;
+}
+
+#author-more-details:hover {
+    text-decoration: underline;
+}
+
+.author-books-header {
+    padding: 10px 10px;
+    margin: 0;
+    color: #333333;
+    font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
+    font-weight: normal;
+    font-size: 16px;
 }
