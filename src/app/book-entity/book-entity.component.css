@@ -59,7 +59,7 @@ body {
     cursor: pointer;
 }
 
-#want-to-read {
+.want-to-read {
     margin: 15px 0 0 15px;
     background-color: #F4F1EA;
     border: none;

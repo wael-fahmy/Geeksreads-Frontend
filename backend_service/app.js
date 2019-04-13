@@ -26,6 +26,14 @@ app.post("/api/posts", (req, res, next) => {
         message: "Post added successfully"
     });
 });
+app.post("/api/book", (req, res, next) => {
+    const post = req.body;
+    console.log(post.book_id);
+    console.log(post.book_status);
+    res.status(201).json({
+        message: "Post added successfully"
+    });
+});
 app.post("/api/suggestedbook", (req, res, next) => {
     const post = req.body;
     console.log(post.suggestedbook_id);
@@ -295,25 +303,28 @@ app.use("/api/suggestedbook", (req, res, next) => {
 });
 app.use("/api/book", (req, res, next) => {
     const book_details = [{
+            book_id: "4324",
             book_title: "Hajimete no Gal",
             book_image: "https://cdna.artstation.com/p/assets/images/images/003/765/026/large/mark-valeri-sao-manga-front-cover.jpg?1477271070",
             book_author: "Sebastian",
-            book_details_shown: 'Spring. The "season of love" has arrived and it seems that finding himself a girlfriend was harder than Junichi believed. To break the status quo,',
-            book_details_hidden: 'Junichis friends have forced him into confessing to the gal, Yame Yukana. However, things do not go quite as he expected. A series of "firsts" begins!'
+            book_status: "Want To Read",
+            book_body: 'Spring. The "season of love" has arrived and it seems that finding himself a girlfriend was harder than Junichi believed. To break the status quo,Junichis friends have forced him into confessing to the gal. Yame Yukana. However. things do not go quite as he expected. A series of "firsts" begins!'
         },
         {
+            book_id: "2123",
             book_title: "Black Butler",
             book_image: "https://i.pinimg.com/236x/d6/b0/7b/d6b07b9d0ee3df0168945910e2142bf5--black-butler-kuroshitsuji-shinigami.jpg",
             book_author: "WiessMan",
-            book_details_shown: "Black Butler (Japanese: 黒執事 Hepburn: Kuroshitsuji) is a Japanese manga series written and illustrated by Yana Toboso. Since its debut on September 16, 2006,",
-            book_details_hidden: " it has been serialized in Gangan Comics sshōnen manga magazine Monthly GFantasy. ... A live action film adaptation was released in Japan on January 18, 2014"
+            book_status: "Currently Reading",
+            book_body: "Black Butler (Japanese: 黒執事 Hepburn: Kuroshitsuji) is a Japanese manga series written and illustrated by Yana Toboso. Since its debut on September 16/ 2006, it has been serialized in Gangan Comics sshōnen manga magazine Monthly GFantasy. ... A live action film adaptation was released in Japan on January 18/ 2014"
         },
         {
+            book_id: "213",
             book_title: "Gal Gohan",
             book_image: "http://momoandcream.com/wp-content/uploads/2015/03/Nisekoi-volume-1-cover.jpg",
             book_author: "Loyd",
-            book_details_shown: 'Home Economics Teacher, Shinji Yabe, is asked by the biggest gyaru in school, Miku Okazaki, to help her "bake cookies to give to the teachers". The principal told her to do this, after she flunked every subject and makeup-class they put her in. He gets her to successfully finish a batch of cookies after several mishaps and is touched by his students glee over her success.',
-            book_details_hidden: "He decides to start a cooking club after this experience to get more time and connection with his students. Upon hearing this, Miku decides to join, since he was the first teacher that didnt shove her into makeup-lessons after her failings and pushed her to try harder instead."
+            book_status: "Read",
+            book_details_shown: 'Home Economics Teacher; Shinji Yabe; is asked by the biggest gyaru in school. Miku Okazaki. to help her "bake cookies to give to the teachers". The principal told her to do this; after she flunked every subject and makeup-class they put her in. He gets her to successfully finish a batch of cookies after several mishaps and is touched by his students glee over her success, He decides to start a cooking club after this experience to get more time and connection with his students. Upon hearing this: Miku decides to join. since he was the first teacher that didnt shove her into makeup-lessons after her failings and pushed her to try harder instead.'
         }
     ];
 

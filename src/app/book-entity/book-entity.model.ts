@@ -32,12 +32,19 @@ export interface BookDetails {
      * @type {string}
      * @memberof BookDetails
      */
-    book_details_shown: string;
+    book_body: string;
     /**
      *
-     * book_details_hidden: carries book details recieved from server hidden
+     * variable that carry book id
      * @type {string}
      * @memberof BookDetails
      */
-    book_details_hidden: string;
+    book_id: string;
+    /**
+     *
+     * variable that carry book status
+     * @type {string}
+     * @memberof BookDetails
+     */
+    book_status: string;
 }

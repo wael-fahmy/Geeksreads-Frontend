@@ -11,6 +11,13 @@ import { delay } from 'q';
 })
 export class BookEntityComponent implements OnInit {
 
+// tslint:disable-next-line: prefer-const
+  type1: string;
+  type2: string;
+  // tslint:disable-next-line: variable-name
+  public befor_dots: string [] = [];
+// tslint:disable-next-line: variable-name
+  public after_dots: string [] = [];
   // tslint:disable-next-line:variable-name
   /**
    *
@@ -41,28 +48,41 @@ export class BookEntityComponent implements OnInit {
    * @param {BookTitle_Service} booktitle_service
    * @memberof BookEntityComponent
    */
-  constructor(public booktitle_service: BookTitle_Service) { }
+constructor(public booktitle_service: BookTitle_Service) { }
   /**
    *
    * function used to recieve information from services.tss
    * @memberof BookEntityComponent
    */
-  ngOnInit() {
+ngOnInit() {
     this.booktitle_service.get_book_Info();                                  // to get the user info from the service
     // tslint:disable-next-line:variable-name 
     this.Sub_profile = this.booktitle_service.get_book_Info_updated().subscribe((book_Information: BookDetails[]) => {
       this.book_details = book_Information;
+      console.log(this.book_details[0].book_id);
+      this.assign_status(this.book_details[this.book_index].book_status);
+      this.SplitString();
       /* console.log(this.User_info.User_Name)
       console.log(this.User_info.user_id)
       console.log(this.User_info.User_Photo)*/
     });
+  }
+  SplitString() {
+    let starting_indext = 0;
+// tslint:disable-next-line: prefer-for-of
+    for (let i = 0; i < this.book_details.length; i ++) {
+      let word = this.book_details[i].book_body.split(',');
+      this.befor_dots[starting_indext] = word[0];
+      this.after_dots[starting_indext] = word[1];
+      starting_indext++;
+    }
   }
   /**
    *
    * button function to show hidden information
    * @memberof BookEntityComponent
    */
-  more_book_discription() {
+more_book_discription() {
     const dots = document.getElementById('dots-book-discription');
     const moreText = document.getElementById('more-book-discription');
     const btnText = document.getElementById('myBtn-book-discription');
@@ -76,5 +96,24 @@ export class BookEntityComponent implements OnInit {
       moreText.style.display = 'inline';
     }
   }
-
+book_status(index: string) {
+    const first = document.getElementById(index);
+    const second = document.getElementById('first-option');
+    let x = first.innerHTML.toString();
+    first.innerHTML = second.innerHTML.toString();
+    second.innerHTML = x;
+    this.booktitle_service.post_book_status(this.book_details[this.book_index].book_id, second.textContent );
+  }
+assign_status(index: string) {
+  if (index === 'Want To Read') {
+    this.type1 = 'Currently Reading';
+    this.type2 = 'Read';
+  } else if (index === 'Read') {
+    this.type1 = 'Currently Reading';
+    this.type2 = 'Want To Read';
+  } else if (index === 'Currently Reading') {
+    this.type1 = 'Read';
+    this.type2 = 'Want To Read';
+  }
+}
 }

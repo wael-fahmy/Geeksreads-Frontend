@@ -4,7 +4,11 @@
         <h3 id="title">{{book_details[book_index].book_title}}</h3>
         <p id="By-Author">by
             <span id="Author-name">{{book_details[book_index].book_author}}</span></p>
-        <button mat-stroked-button id="want-to-read">Want To Read</button>
+            <button mat-button [matMenuTriggerFor]="menu" class="want-to-read" id='first-option'>{{book_details[book_index].book_status}}</button>
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item (click)="book_status('second-option')" id='second-option'>{{type1}}</button>
+            <button mat-menu-item (click)="book_status('third-option')" id='third-option'>{{type2}}</button>
+        </mat-menu>
         <button mat-stroked-button id="rate">Rate </button>
         <div>
             <button mat-stroked-button id="Write-a-review">Write a review</button>
@@ -24,9 +28,9 @@
 </div>
 
 <div class="book-discription">
-    <p>{{book_details[book_index].book_details_shown}}
+    <p>{{befor_dots[book_index]}}
         <span id="dots-book-discription">...</span>
-        <span id="more-book-discription">{{book_details[book_index].book_details_hidden}}</span>
+        <span id="more-book-discription">{{after_dots[book_index]}}</span>
     <button (click)="more_book_discription()" mat-button id="myBtn-book-discription">Read more</button></p>
     <hr id="underline-bookk-entity" class="w3-gray">
 </div>
