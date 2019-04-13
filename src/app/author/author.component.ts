@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Author } from './author.model';
+import { Subscription } from 'rxjs';
+import { AuthorService } from './author.service';
+import { delay } from 'q';
 
 /**
  * Author page component
