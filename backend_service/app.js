@@ -577,6 +577,3 @@ app.post("/api/sign-up", (req, res, next) => {
 port = 3001
 app.listen(port, () => console.log('Example app listening on port ${port}!'))
 module.exports = app;
-
-module.exports = app;
-
