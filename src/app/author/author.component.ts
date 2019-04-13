@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 
 /**
  * Author page component
- *
  * @export
  */
 @Component({
@@ -11,12 +10,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./author.component.css']
 })
 export class AuthorComponent implements OnInit {
-
-  /**
-   * Creates an instance of AuthorComponent.
-   */
-  constructor() { }
-
 
   /**
    *  Author's Id
@@ -45,10 +38,15 @@ export class AuthorComponent implements OnInit {
 
 
   /**
-   *
    *  More details about this author
    */
   authorDetails = 'More details about this author';
+
+
+  /**
+   *  More or Less details
+   */
+  authorDetailsLength = 'More';
 
   /**
    *
@@ -62,7 +60,6 @@ export class AuthorComponent implements OnInit {
   }
 
   /**
-   *
    *  Unfollows an author
    */
   unfollowAuthor() {
@@ -74,16 +71,31 @@ export class AuthorComponent implements OnInit {
 
 
   /**
-   *
-   *  Request author's info
+   *  Load more or less details
    */
-  getAuthorInfo(authorID) {
-    console.log('Component Created ' + authorID);
+  authorLoadDetails() {
+    if (this.authorDetailsLength === 'More') {
+      this.authorDetailsLength = 'Less';
+    } else if (this.authorDetailsLength === 'Less') {
+      this.authorDetailsLength = 'More';
+    }
   }
 
   /**
    *
-   * Angular component initialization
+   *  Request author's info
+   */
+  getAuthorInfo(authorID: string | number) {
+    console.log('Component Created ' + authorID);
+  }
+
+  /**
+   * Creates an instance of AuthorComponent.
+   */
+  constructor() { }
+
+  /**
+   *  Author component initialization
    */
   ngOnInit() {
     this.getAuthorInfo(this.authorId);

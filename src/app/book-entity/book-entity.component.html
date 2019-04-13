@@ -1,13 +1,13 @@
 <div id="Book-info">
-    <img class="Book-image" src={{book_details[book_index].book_image}}>
+    <img class="Book-image" src="{{book_details[book_index].book_image}}">
     <div id="Book-Title">
-        <h3>{{book_details[book_index].book_title}}</h3>
+        <h3 id="title">{{book_details[book_index].book_title}}</h3>
         <p id="By-Author">by
             <span id="Author-name">{{book_details[book_index].book_author}}</span></p>
-        <button id="want-to-read">Want To Read</button>
-        <button id="rate">Rate </button>
+        <button mat-stroked-button id="want-to-read">Want To Read</button>
+        <button mat-stroked-button id="rate">Rate </button>
         <div>
-            <button id="Write-a-review">Write a review</button>
+            <button mat-stroked-button id="Write-a-review">Write a review</button>
         </div>
     </div>
 
@@ -26,7 +26,7 @@
 <div class="book-discription">
     <p>{{book_details[book_index].book_details_shown}}
         <span id="dots-book-discription">...</span>
-        <span id="more-book-discription">{{book_details[book_index].book_details_hidden}}</span></p>
-    <button (click)="more_book_discription()" id="myBtn-book-discription" class="w3-button w3-khaki w3-round-xlarge">Read more</button>
+        <span id="more-book-discription">{{book_details[book_index].book_details_hidden}}</span>
+    <button (click)="more_book_discription()" mat-button id="myBtn-book-discription">Read more</button></p>
     <hr id="underline-bookk-entity" class="w3-gray">
 </div>

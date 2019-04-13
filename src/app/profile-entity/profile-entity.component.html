@@ -5,8 +5,8 @@
 <div>
 
 
-  <img width="80" height="80" src={{User_info.User_Photo}} />
-  <h3>{{User_info.User_Name}}</h3>
+  <img width="80" height="80" [src]="user_cover_photo" >
+  <h3>{{user_name}}</h3>
   <button  routerLink="/profile-edit">Edit Profile</button>
 
 </div>

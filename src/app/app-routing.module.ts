@@ -12,6 +12,7 @@ import { NewsfeedComponent } from './newsfeed/newsfeed.component';
 import { ProfileEditComponent } from './profile-edit/profile-edit.component';
 import { AuthorComponent } from './author/author.component';
 import {ProfileReadShelfComponent} from './profile-read-shelf/profile-read-shelf.component';
+import {ReviewsComponent} from './reviews/reviews.component';
 
 const routes: Routes = [
   {
@@ -29,6 +30,10 @@ const routes: Routes = [
   {
     path: 'book',
     component: BookComponent
+  },
+  {
+    path: 'reviews',
+    component: ReviewsComponent
   },
   {
     path: 'sign-in',

@@ -6,7 +6,6 @@
 }
 
 #about-this-author {
-    margin-left: 10px;
     font-weight: bold;
 }
 
@@ -36,19 +35,13 @@
     display: none;
 }
 
-#myBtn-author-discription:hover {
-    background-color: red;
-    transition: 1s;
-}
-
 #underline-book-author {
     size: 3px;
     margin-left: 10px;
 }
 
 #myBtn-author-discription {
-    background-color: darkgrey;
-    margin-bottom: 10px;
+    color: #00635D;
 }
 
 #dots-author-discription {
@@ -71,10 +64,16 @@
 
 #btn-follow-author {
     margin-top: 2px;
+    color:black;
+    background-color: #F4F1EA;
 }
 
 #author-followers {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
+}
+
+.mat-expansion-panel:not([class*=mat-elevation-z]) {
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0), 0 0 0 0 rgba(0, 0, 0, 0), 0 0 0 0 rgba(0, 0, 0, 0);
 }

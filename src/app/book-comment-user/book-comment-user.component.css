@@ -25,7 +25,7 @@
 }
 
 .blue-text {
-    color: blue;
+    color: #00635D;
     cursor: pointer;
 }
 
@@ -34,39 +34,71 @@
 }
 
 #Reviewer-name {
-    color: blue;
+    color: #00635D;
     margin: 0 0 0 12px;
 }
 
 #review-date {
     margin: 5px 0 0 10px;
-    color: rgb(88, 88, 88);
+    color: #999999;
 }
-
-#myBtn-user-review {
-    background-color: darkgrey;
-    margin: 0 0 0 10px;
-    border: none;
-    color: white;
-    padding: 10px 20px;
+#load-more-community-reviews {
+    width: 100%;
+    height: 50px;
+    background-color: #F4F1EA;
+    color: black;
     text-align: center;
-    text-decoration: none;
-    font-size: 12px;
+    font-size: 16px;
+    border-radius: 14px;
     cursor: pointer;
-    margin: 0 0 0 0;
+    margin: 0 0 15px 0;
 }
-
-#more-review {
+#myBtn-user-review1 {
+    color:#00635D;
+ }
+#more-review1 {
     display: none;
 }
+#myBtn-user-review2 {
+    color:#00635D;
+ }
 
+#more-review2 {
+    display: none;
+}
+#myBtn-user-review3 {
+    color:#00635D;
+ }
+
+#more-review3 {
+    display: none;
+}
+#myBtn-user-review4 {
+    color:#00635D;
+ }
+
+#more-review4 {
+    display: none;
+}
+#myBtn-user-review5 {
+    color:#00635D;
+ }
+
+#more-review5 {
+    display: none;
+}
+#myBtn-user-review6 {
+    color:#00635D;
+ }
+#more_user_reviews
+{
+    display: none;
+}
+#more-review6 {
+    display: none;
+}
 #rate-it {
     color: rgb(88, 88, 88);
-}
-
-#review-comment button:hover {
-    background-color: red;
-    transition: 1s;
 }
 
 #review-comment {
@@ -87,10 +119,23 @@
     margin-left: 65px;
     margin-top: 5px;
 }
-
-.fa-thumbs-up,
-.fa-comment {
+#review-comment button :hover
+{
+    text-decoration: underline;
+    background: red;
+}
+.thumbs-up
+{
     margin-left: 5px;
-    margin-top: 18px;
-    color: green;
+    margin-top: 12px;
+    color: rgba(0, 99, 92, 0.274);
+}
+.comment {
+    margin-left: 5px;
+    margin-top: 12px;
+    color: rgba(0, 99, 92, 0.274);
+}
+#show-likes
+{
+    color: #00635D;
 }

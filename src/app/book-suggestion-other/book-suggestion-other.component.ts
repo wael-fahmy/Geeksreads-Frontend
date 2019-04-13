@@ -53,5 +53,8 @@ export class BookSuggestionOtherComponent implements OnInit {
       console.log(this.User_info.User_Photo)*/
     });
   }
+  OnClick_getbook(index: SuggestedBookDetails) {
+    this.suggestedbook_service.post_book_wanted(index.suggestedbook_id, index.suggestedbook_author);
+  }
 
 }

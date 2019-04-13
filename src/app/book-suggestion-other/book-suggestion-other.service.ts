@@ -53,4 +53,13 @@ get_suggestedbook_Info() {
     get_suggestedbook_Info_updated() {
         return this.suggestedbook_detailsUpdated.asObservable();
     }
+// tslint:disable-next-line: variable-name
+    post_book_wanted(book_id: string, author_id: string) {
+// tslint:disable-next-line: max-line-length
+        const suggestedbook: SuggestedBookDetails = {suggestedbook_image: null, suggestedbook_title: null, suggestedbook_id: book_id, suggestedbook_author: null, suggestedbook_authorid: author_id};
+        this.http.post<{message: string}>('http://localhost:3000/api/suggestedbook', suggestedbook)
+        .subscribe ((responseData) => {
+            console.log(responseData.message);
+        });
+    }
 }

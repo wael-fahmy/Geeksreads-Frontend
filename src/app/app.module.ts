@@ -35,6 +35,9 @@ import { AuthorComponent } from './author/author.component';
 import { AuthorBookComponent } from './author-book/author-book.component';
 import { ProfileReadShelfComponent } from './profile-read-shelf/profile-read-shelf.component';
 import { NewsfeedCommentPostComponent } from './newsfeed-comment-post/newsfeed-comment-post.component';
+import { ReviewsComponent } from './reviews/reviews.component';
+import { ReviewsEntityComponent } from './reviews-entity/reviews-entity.component';
+import { ReviewsCommentsComponent } from './reviews-comments/reviews-comments.component';
 
 @NgModule({
   declarations: [
@@ -65,7 +68,11 @@ import { NewsfeedCommentPostComponent } from './newsfeed-comment-post/newsfeed-c
     AuthorComponent,
     AuthorBookComponent,
     ProfileReadShelfComponent,
-    NewsfeedCommentPostComponent
+    NewsfeedCommentPostComponent,
+    ProfileReadShelfComponent,
+    ReviewsComponent,
+    ReviewsEntityComponent,
+    ReviewsCommentsComponent
   ],
   imports: [
     BrowserModule,
