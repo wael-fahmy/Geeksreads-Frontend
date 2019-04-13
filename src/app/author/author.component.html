@@ -13,8 +13,11 @@
             </div>
         </div>
         <div class="author-about">
-            <p id="author-details">{{authorDetails}}<span><a href="#"> More</a></span></p>
+            <p id="author-details">{{authorDetails}}<span><a id="author-more-details" (click)="authorLoadDetails()">{{authorDetailsLength}}</a></span></p>
         </div>
     </div>
     <hr>
+    <h2 class="author-books-header">{{authorName}}’s Books</h2>
+    <app-author-book></app-author-book>
+    <app-author-book></app-author-book>
 </div>
