@@ -6,21 +6,21 @@
             </mat-panel-title>
         </mat-expansion-panel-header>
         <div id="Author-picture-data">
-            <img id="author-image" src={{author_details[author_index].author_image}}>
+            <img id="author-image" src={{authorimage[author_index]}}>
             <div id="Author-data">
-                <p id="author-name">{{author_details[author_index].author_name}}</p>
+                <p id="author-name">{{authorname[author_index]}}</p>
                 <div id="author-followers">
-                    <p id="number-followers">{{author_details[author_index].author_followers}}</p>
+                    <p id="number-followers">{{authorfollowers[author_index]}}</p>
                     <span id="followers-word">Followers</span>
                 </div>
                 <button id="btn-follow-author" mat-flat-button>Follow Author</button>
             </div>
         </div>
         <div class="author-discription">
-            <p>{{author_details[author_index].author_details_shown}}
+            <p>{{befor_dots[author_index]}}
                 <span id="dots-author-discription">...</span>
                 <span id="more-author-discription">
-                {{author_details[author_index].author_details_hidden}}</span>
+                {{after_dots[author_index]}}</span>
             <button (click)="more_author_details()" mat-button id="myBtn-author-discription">Read more</button></p>
         </div>
     </mat-expansion-panel>

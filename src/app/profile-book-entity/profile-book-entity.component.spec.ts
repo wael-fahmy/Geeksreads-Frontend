@@ -30,8 +30,6 @@ describe('ProfileBookEntityComponent', () => {
   it('should create', async(() => {
     expect(component).toBeTruthy();
   }));
-
-  
   it('list of books should be 3', () => {
     fixture.whenStable().then(() => {
       expect(component.List_of_books.length).toBe(3);

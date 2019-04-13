@@ -1,10 +1,10 @@
 <div id="Book-info">
-    <img class="Book-image" src="{{book_details[book_index].book_image}}">
+    <img class="Book-image" src="{{bookimage[book_index]}}">
     <div id="Book-Title">
-        <h3 id="title">{{book_details[book_index].book_title}}</h3>
+        <h3 id="title">{{booktitle[book_index]}}</h3>
         <p id="By-Author">by
-            <span id="Author-name">{{book_details[book_index].book_author}}</span></p>
-            <button mat-button [matMenuTriggerFor]="menu" class="want-to-read" id='first-option'>{{book_details[book_index].book_status}}</button>
+            <span id="Author-name">{{bookauthor[book_index]}}</span></p>
+            <button mat-button [matMenuTriggerFor]="menu" class="want-to-read" id='first-option'>{{bookstatus[book_index]}}</button>
         <mat-menu #menu="matMenu">
             <button mat-menu-item (click)="book_status('second-option')" id='second-option'>{{type1}}</button>
             <button mat-menu-item (click)="book_status('third-option')" id='third-option'>{{type2}}</button>

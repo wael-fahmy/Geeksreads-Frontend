@@ -10,10 +10,16 @@ import { delay } from 'q';
   styleUrls: ['./book-comment-user.component.css']
 })
 export class BookCommentUserComponent implements OnInit {
-  
 // tslint:disable-next-line: variable-name
   private Sub_profile: Subscription;
-  
+  reviewerid: string [] = [];
+  reviewername: string [] = [];
+  reviewerimage: string [] = [];
+  reviewerdate: string [] = [];
+  reviewerbody: string [] = [];
+  reviewerrate: string [] = [];
+  reviewerlikes: string [] = [];
+  reviewercomments: string [] = [];
 // tslint:disable-next-line: variable-name
   public review_information: Bookreviews[] = [];
 // tslint:disable-next-line: variable-name
@@ -89,17 +95,31 @@ export class BookCommentUserComponent implements OnInit {
     this.Sub_profile = this.bookreviews_service.get_review_Info_updated().subscribe((review_Information: Bookreviews[]) => {
       this.review_information = review_Information;
       this.SplitString();
-      console.log(this.review_information[0].reviewer_id);
+      this.SetElements();
+      console.log(this.review_information[1].reviewer_id);
       /* console.log(this.User_info.User_Name)
       console.log(this.User_info.user_id)
       console.log(this.User_info.User_Photo)*/
     });
   }
+  SetElements() {
+// tslint:disable-next-line: prefer-for-of
+    for (let x = 0; x < this.review_information.length; x++) {
+      this.reviewerid[x] = this.review_information[x].reviewer_id;
+      this.reviewername[x] = this.review_information[x].reviewer_name;
+      this.reviewerlikes[x] = this.review_information[x].reviewer_likes;
+      this.reviewercomments[x] = this.review_information[x].reviewer_comments;
+      this.reviewerimage[x] = this.review_information[x].reviewer_image;
+      this.reviewerdate[x] = this.review_information[x].reviewer_date;
+      this.reviewerbody[x] = this.review_information[x].reviewer_body;
+      this.reviewerrate[x] = this.review_information[x].reviewer_rate;
+    }
+  }
   SplitString() {
     let starting_indext = 0;
 // tslint:disable-next-line: prefer-for-of
     for (let i = 0; i < this.review_information.length; i ++) {
-      let word = this.review_information[i].reviewer_body.split(',');
+      const word = this.review_information[i].reviewer_body.split(',');
       this.befor_dots[starting_indext] = word[0];
       this.after_dots[starting_indext] = word[1];
       starting_indext++;

@@ -40,4 +40,46 @@ export interface Genredetails {
      * @memberof Genredetails
      */
     genre_five: string;
+    /**
+     *
+     * varibale to carry book id
+     * @type {string}
+     * @memberof Genredetails
+     */
+    book_id: string;
+    /**
+     *
+     * variable to carry genre id
+     * @type {string}
+     * @memberof Genredetails
+     */
+    genereone_id: string;
+    /**
+     *
+     * variable to carry genre id
+     * @type {string}
+     * @memberof Genredetails
+     */
+    generetwo_id: string;
+    /**
+     *
+     * variable to carry genre id
+     * @type {string}
+     * @memberof Genredetails
+     */
+    generethree_id: string;
+    /**
+     *
+     * variable to carry genre id
+     * @type {string}
+     * @memberof Genredetails
+     */
+    generefour_id: string;
+    /**
+     *
+     * variable to carry genre id
+     * @type {string}
+     * @memberof Genredetails
+     */
+    generefive_id: string;
 }

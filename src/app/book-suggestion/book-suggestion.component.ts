@@ -12,6 +12,11 @@ import { delay } from 'q';
 export class BookSuggestionComponent implements OnInit {
 
   // tslint:disable-next-line:one-variable-per-declaration
+  bookimage: string [] = [];
+  bookauthor: string [] = [];
+  booktitle: string [] = [];
+  bookid: string [] = [];
+  authorid: string [] = [];
   // tslint:disable-next-line:variable-name
   /**
    *
@@ -49,11 +54,21 @@ export class BookSuggestionComponent implements OnInit {
     // tslint:disable-next-line:max-line-length
     this.Sub_profile = this.suggestedauthorsook_service.get_suggestedauthorbook_Info_updated().subscribe((suggestedauthorbookinformation: SuggestedAuthorBookDetails[]) => {
       this.suggestedauthorbook_details = suggestedauthorbookinformation;
-      console.log(this.suggestedauthorbook_details[0].suggestedauthorbook_authorid);
+      this.SetElements();
       /* console.log(this.User_info.User_Name)
       console.log(this.User_info.user_id)
       console.log(this.User_info.User_Photo)*/
     });
+  }
+  SetElements() {
+    // tslint:disable-next-line: prefer-for-of
+    for (let x = 0; x < this.suggestedauthorbook_details.length; x++) {
+      this.bookimage[x] = this.suggestedauthorbook_details[x].suggestedauthorbook_image;
+      this.bookid[x] = this.suggestedauthorbook_details[x].suggestedauthorbook_id;
+      this.booktitle[x] = this.suggestedauthorbook_details[x].suggestedauthorbook_title;
+      this.bookauthor[x] = this.suggestedauthorbook_details[x].suggestedauthorbook_author;
+      this.authorid[x] = this.suggestedauthorbook_details[x].suggestedauthorbook_authorid;
+    }
   }
   send_author_book(author: SuggestedAuthorBookDetails) {
     this.suggestedauthorsook_service.post_authorbook_wanted(author.suggestedauthorbook_authorid, author.suggestedauthorbook_id);
