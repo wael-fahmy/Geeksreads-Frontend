@@ -11,7 +11,7 @@
      <button id="MENU"  [matMenuTriggerFor]="menu">{{index.state}} ...</button>
      
     <mat-menu #menu="matMenu">
-        <button mat-menu-item (click)=" OnClick_read(index)">currently reading</button>
+        <button mat-menu-item (click)=" OnClick_reading(index)">currently reading</button>
         <button mat-menu-item (click)="OnClick_want_read(index)">want to read</button>
     </mat-menu>
     <p>
@@ -21,7 +21,7 @@
       <span class="fa fa-star"></span>
       <span class="fa fa-star"></span>
   </p>
-        <mat-divider></mat-divider>
+        
   
     </mat-list-item>
   </mat-list>

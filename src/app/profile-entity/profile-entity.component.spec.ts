@@ -34,15 +34,15 @@ describe('ProfileEntityComponent', () => {
   }));
 
   it('button should contain Edit Profile', async(() => {
-    let button = fixture.debugElement.nativeElement.querySelector('button').textContent
+    let button = fixture.debugElement.nativeElement.querySelector('button').textContent;
     expect(button).toContain('Edit Profile')
   }));
 
 
-   it('User Name should be Mohamed',async(() => { 
+   it('User Name should be Mohamed Medhat',async(() => { 
 
     fixture.whenStable().then(() => {
-      expect(component.User_info.User_Name).toBe('Mohamed')
+      expect(component.User_info.User_Name).toBe('Mohamed Medhat')
     })
   }));
 

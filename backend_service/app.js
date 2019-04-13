@@ -468,8 +468,8 @@ app.use("/api/list", (req, res, next) => {
 app.use("/api/title", (req, res, next) => {
     const User_Info = {
         user_id: 1,
-        User_Name: 'Mohamed',
-        User_Photo: 'https://tse1.mm.bing.net/th?id=OIP.JchDxbr-ajB0-wbB1h5BBgAAAA&pid=15.1&P=0&w=300&h=300'
+        User_Name: 'Mohamed Medhat',
+        User_Photo: 'https://tse4.mm.bing.net/th?id=OIP.FZz1UZSbw_p_m5hdjUOM3AHaLF&pid=15.1&P=0&w=300&h=300'
     };
 
 
