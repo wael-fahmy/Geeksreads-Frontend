@@ -7,8 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GenreRowComponent implements OnInit {
 
+  /**
+   *Creates an instance of GenreRowComponent.
+   * @memberof GenreRowComponent
+   */
   constructor() { }
 
+  /**
+   *conatins all the function in service class
+   *
+   * @memberof GenreRowComponent
+   */
   ngOnInit() {
   }
 
