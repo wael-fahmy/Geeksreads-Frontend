@@ -13,6 +13,21 @@ export class ProfileReadShelfComponent implements OnInit {
   List_of_books_read: ListOfBooks[] = [];
    constructor(public CountBooksService : CountBooksService )  {} // constructor for this class
 
+
+   OnClick_want_read(index:ListOfBooks){                   // to increment the number of books want to read on click
+    this.CountBooksService.add_count_want_to_read(index) ;
+    //index.state = 'want to read';
+}
+
+
+OnClick_reading(index:ListOfBooks){                           // to increment the number of books currently reading on click
+ this.CountBooksService.add_count_reading(index);
+// console.log(index.author_name);
+}
+
+
+
+
    ngOnInit()                  // on initializing that class implement this function 
    {
       this.CountBooksService.get_List_of_books();                    // to get the book info from the service

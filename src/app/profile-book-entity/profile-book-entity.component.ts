@@ -26,7 +26,7 @@ export class ProfileBookEntityComponent implements OnInit {
    OnClick_read(index:ListOfBooks){                           // to increment the number of books read on click
        this.CountBooksService.add_count_read(index);
       // index.state = 'read';
-      console.log(index);
+      
    }
 
    OnClick_reading(index:ListOfBooks){                           // to increment the number of books currently reading on click

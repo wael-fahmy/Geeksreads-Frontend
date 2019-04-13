@@ -21,7 +21,7 @@ app.use((req, res, next) => {
 
 app.post("/api/posts", (req, res, next) => {
   const post = req.body;
-  console.log(post);
+  console.log(post.book_id);
   res.status(201).json({
     message: 'Post added successfully'
   });
@@ -428,7 +428,6 @@ app.use("/api/title", (req, res, next) => {
         User_Info: User_Info
     });
 });
-
 
 
 module.exports = app;

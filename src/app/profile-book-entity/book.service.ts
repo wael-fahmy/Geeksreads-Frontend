@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs'
+import { Subject } from 'rxjs';
 import { ListOfBooks } from './book.model';
 import { HttpClient } from '@angular/common/http';
 
@@ -21,9 +21,7 @@ export class CountBooksService{
     private List: ListOfBooks[] = [];
     private List_Updated = new Subject<ListOfBooks[]>()
 
-
-
-
+    
     get_List_of_books()           //  to get the json response from the mock service and update the book info
     {
         this.http.get<{ message: string, Books: ListOfBooks[] }>('http://localhost:3000/api/list').
@@ -39,7 +37,13 @@ export class CountBooksService{
 
 
 
-
+    get_count_read(){
+        this.http.get<{ message: string, num_read: number }>('http://localhost:3000/api/NumRead').
+            subscribe((Data) => {          //  subscribe the no. of books recieved 
+                this.New_num_read = Data.num_read;    // assign them to the num read to display them 
+               
+            });
+    }
 
 
     
