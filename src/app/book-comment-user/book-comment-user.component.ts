@@ -26,24 +26,6 @@ export class BookCommentUserComponent implements OnInit {
   review_index = 0;
 // tslint:disable-next-line: variable-name
   constructor(public bookreviews_service: Bookreviews_Service) { }
-  
-  like() {
-    let likes = 60;
-    // tslint:disable-next-line:variable-name
-    let user_liked = 0;
-    document.getElementById('show_likes').innerHTML = likes.toString();
-    if (user_liked === 0) {
-      likes = likes + 1;
-      user_liked = 1;
-    } else {
-      if (likes === 0) {
-        likes = 0;
-      } else {
-        likes = likes - 1;
-        user_liked = 0;
-      }
-    }
-  }
   /**
    *
    * function used to see more reviews by other users
@@ -128,10 +110,21 @@ export class BookCommentUserComponent implements OnInit {
   }
   OnclickLike(index: Bookreviews, cond: string) {
     const Liked = document.getElementById('liked'+cond);
+    const liking = document.getElementById('show-likes'+cond);
     if(Liked.innerHTML === 'Like') {
       Liked.innerHTML = 'Liked';
+      let x = liking.innerHTML.toString();
+      let y = parseInt(x);
+      y = y + 1;
+      x = y.toString();
+      liking.innerHTML = x;
     } else {
       Liked.innerHTML = 'Like';
+      let x = liking.innerHTML.toString();
+      let y = parseInt(x);
+      y = y - 1;
+      x = y.toString();
+      liking.innerHTML = x;
     }
     this.bookreviews_service.request_reviewer_like(index.reviewer_id, index.reviewer_likes);
   }
