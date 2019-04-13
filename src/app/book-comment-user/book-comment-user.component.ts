@@ -107,6 +107,7 @@ export class BookCommentUserComponent implements OnInit {
     this.Sub_profile = this.bookreviews_service.get_review_Info_updated().subscribe((review_Information: Bookreviews[]) => {
       this.review_information = review_Information;
       this.SplitString();
+      console.log(this.review_information[0].reviewer_id);
       /* console.log(this.User_info.User_Name)
       console.log(this.User_info.user_id)
       console.log(this.User_info.User_Photo)*/
@@ -122,5 +123,16 @@ export class BookCommentUserComponent implements OnInit {
       starting_indext++;
     }
   }
-
+  OnclickComment(index: Bookreviews) {
+    this.bookreviews_service.request_reviewer_comment(index.reviewer_id);
+  }
+  OnclickLike(index: Bookreviews, cond: string) {
+    const Liked = document.getElementById('liked'+cond);
+    if(Liked.innerHTML === 'Like') {
+      Liked.innerHTML = 'Liked';
+    } else {
+      Liked.innerHTML = 'Like';
+    }
+    this.bookreviews_service.request_reviewer_like(index.reviewer_id, index.reviewer_likes);
+  }
 }

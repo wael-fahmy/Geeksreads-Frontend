@@ -5,11 +5,11 @@
             <!--image -->
             <div mat-card-avatar class="activity-header-image"> </div>
             <!--name -->
-            <mat-card-title class="name">Pirongo {{userName}} </mat-card-title>
-
+            <mat-card-title class="name"> Yara Mohamed {{username}} </mat-card-title>
+           
             <!--activiy status-->
             <div class="activity">
-                <p>rated a book{{activityLog}} </p>
+                <p> rated a book </p>
             </div>
             <!-- display the ratigs -->
             <div class="stars">
@@ -25,7 +25,7 @@
     </div>
     <!--ending of the class "card header"-->
     <mat-card-subtitle>
-        <p class="subtitle"> about 2 hours {{activityDate}}ago</p>
+        <p class="subtitle"> about 2 hours {{activitydate}}ago</p>
     </mat-card-subtitle>
 
 
@@ -41,8 +41,8 @@
 
         <div class="book-description">
             <!--right part starts here-->
-            <p class="book-name-style">Book Name{{bookname}}</p>
-            <p class="author-name-style">by Yara{{authorname}}</p>
+            <p class="book-name-style">Book name {{bookname}}</p>
+            <p class="author-name-style">Author name {{authorname}}</p>
             <button id="wantToRead">Want to read</button>
         </div>
     </div>
@@ -51,6 +51,6 @@
     <!--review status bar-->
     <mat-card-content>
         <br>
-        <p>It was a relly nice book and i enjoyed reading it</p>
+        <p>It was a relly nice book and i enjoyed reading it{{review}}</p>
     </mat-card-content>
 </mat-card>

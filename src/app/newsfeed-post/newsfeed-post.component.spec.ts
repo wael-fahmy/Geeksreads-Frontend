@@ -1,4 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { MatMenuModule, MatDividerModule, MatListModule, } from '@angular/material';
+import { MaterialModule } from '../material.module';
+import { HttpClientModule } from '@angular/common/http';
 
 import { NewsfeedPostComponent } from './newsfeed-post.component';
 

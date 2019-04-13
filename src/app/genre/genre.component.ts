@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GenreComponent implements OnInit {
 
+  specificgenre;
+
   constructor() { }
 
   ngOnInit() {
