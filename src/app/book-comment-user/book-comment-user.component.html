@@ -1,8 +1,8 @@
 <p id="community-reviews">Community Reviews</p>
 <div id="user-reviews">
-    <img class="reviewer-image" src="{{review_information[0].reviewer_image}}">
+    <img class="reviewer-image" src="{{reviewerimage[0]}}">
     <div>
-        <p id="Reviewer-name">{{review_information[0].reviewer_name}}
+        <p id="Reviewer-name">{{reviewername[0]}}
             <span id="rate-it">rated it</span>
             <span class="fa fa-star checked" class="dots"></span>
             <span class="fa fa-star checked"></span>
@@ -10,7 +10,7 @@
             <span class="fa fa-star"></span>
             <span class="fa fa-star"></span>
         </p>
-        <p id="review-date">{{review_information[0].reviewer_date}}</p>
+        <p id="review-date">{{reviewerdate[0]}}</p>
     </div>
 </div>
 <div id="review-comment">
@@ -23,16 +23,16 @@
     <p (click)="OnclickComment(review_information[0])" routerLink="/reviews" class="blue-text">Comment</p>
     <p class="dots">.</p>
     <i class="thumbs-up"><mat-icon>thumb_up_alt</mat-icon></i>
-    <p type="text" class="dots" id="show-likes0">{{review_information[0].reviewer_likes}}</p>
+    <p type="text" class="dots" id="show-likes0">{{reviewerlikes[0]}}</p>
     <p class="dots">.</p>
     <i class="comment">	<mat-icon> mode_comment</mat-icon></i>
-    <p class="dots" id="show-comments">{{review_information[0].reviewer_comments}}</p>
+    <p class="dots" id="show-comments">{{reviewercomments[0]}}</p>
 </div>
 <hr id="next-review" class="w3-gray">
 <div id="user-reviews">
-    <img class="reviewer-image" src="{{review_information[1].reviewer_image}}">
+    <img class="reviewer-image" src="{{reviewerimage[1]}}">
     <div>
-        <p id="Reviewer-name">{{review_information[1].reviewer_name}}
+        <p id="Reviewer-name">{{reviewername[1]}}
             <span id="rate-it">rated it</span>
             <span class="fa fa-star checked" class="dots"></span>
             <span class="fa fa-star checked"></span>
@@ -40,7 +40,7 @@
             <span class="fa fa-star checked"></span>
             <span class="fa fa-star"></span>
         </p>
-        <p id="review-date">{{review_information[1].reviewer_date}}</p>
+        <p id="review-date">{{reviewerdate[1]}}</p>
     </div>
 </div>
 <div id="review-comment">
@@ -53,17 +53,17 @@
     <p (click)="OnclickComment(review_information[1])" routerLink="/reviews" class="blue-text">Comment</p>
     <p class="dots">.</p>
     <i class="thumbs-up"><mat-icon>thumb_up_alt</mat-icon></i>
-    <p type="text" class="dots" id="show-likes1">{{review_information[1].reviewer_likes}}</p>
+    <p type="text" class="dots" id="show-likes1">{{reviewerlikes[1]}}</p>
     <p class="dots">.</p>
     <i class="comment">	<mat-icon> mode_comment</mat-icon></i>
-    <p class="dots" id="show-comments">{{review_information[1].reviewer_comments}}</p>
+    <p class="dots" id="show-comments">{{reviewercomments[1]}}</p>
 </div>
 <hr id="next-review" class="w3-gray">
 <div id="more_user_reviews">
     <div id="user-reviews">
-        <img class="reviewer-image" src="{{review_information[2].reviewer_image}}">
+        <img class="reviewer-image" src="{{reviewerimage[2]}}">
         <div>
-            <p id="Reviewer-name">{{review_information[2].reviewer_name}}
+            <p id="Reviewer-name">{{reviewername[2]}}
                 <span id="rate-it">rated it</span>
                 <span class="fa fa-star checked" class="dots"></span>
                 <span class="fa fa-star checked"></span>
@@ -71,7 +71,7 @@
                 <span class="fa fa-star checked"></span>
                 <span class="fa fa-star"></span>
             </p>
-            <p id="review-date">{{review_information[2].reviewer_date}}</p>
+            <p id="review-date">{{reviewerdate[2]}}</p>
         </div>
     </div>
     <div id="review-comment">
@@ -84,16 +84,16 @@
         <p (click)="OnclickComment(review_information[2])" routerLink="/reviews" class="blue-text">Comment</p>
         <p class="dots">.</p>
         <i class="thumbs-up"><mat-icon>thumb_up_alt</mat-icon></i>
-        <p type="text" class="dots" id="show-likes2">{{review_information[2].reviewer_likes}}</p>
+        <p type="text" class="dots" id="show-likes2">{{reviewerlikes[2]}}</p>
         <p class="dots">.</p>
         <i class="comment">	<mat-icon> mode_comment</mat-icon></i>
-        <p class="dots" id="show-comments">{{review_information[2].reviewer_comments}}</p>
+        <p class="dots" id="show-comments">{{reviewercomments[2]}}</p>
     </div>
     <hr id="next-review" class="w3-gray">
     <div id="user-reviews">
-        <img class="reviewer-image" src="{{review_information[3].reviewer_image}}">
+        <img class="reviewer-image" src="{{reviewerimage[3]}}">
         <div>
-            <p id="Reviewer-name">{{review_information[3].reviewer_name}}
+            <p id="Reviewer-name">{{reviewername[3]}}
                 <span id="rate-it">rated it</span>
                 <span class="fa fa-star checked" class="dots"></span>
                 <span class="fa fa-star checked"></span>
@@ -101,7 +101,7 @@
                 <span class="fa fa-star checked"></span>
                 <span class="fa fa-star"></span>
             </p>
-            <p id="review-date">{{review_information[3].reviewer_date}}</p>
+            <p id="review-date">{{reviewerdate[3]}}</p>
         </div>
     </div>
     <div id="review-comment">
@@ -114,16 +114,16 @@
         <p (click)="OnclickComment(review_information[3])" routerLink="/reviews" class="blue-text">Comment</p>
         <p class="dots">.</p>
         <i class="thumbs-up"><mat-icon>thumb_up_alt</mat-icon></i>
-        <p type="text" class="dots" id="show-likes3">{{review_information[3].reviewer_likes}}</p>
+        <p type="text" class="dots" id="show-likes3">{{reviewerlikes[3]}}</p>
         <p class="dots">.</p>
         <i class="comment">	<mat-icon> mode_comment</mat-icon></i>
-        <p class="dots" id="show-comments">{{review_information[3].reviewer_comments}}</p>
+        <p class="dots" id="show-comments">{{reviewercomments[3]}}</p>
     </div>
     <hr id="next-review" class="w3-gray">
     <div id="user-reviews">
-        <img class="reviewer-image" src="{{review_information[4].reviewer_image}}">
+        <img class="reviewer-image" src="{{reviewerimage[4]}}">
         <div>
-            <p id="Reviewer-name">{{review_information[4].reviewer_name}}
+            <p id="Reviewer-name">{{reviewername[4]}}
                 <span id="rate-it">rated it</span>
                 <span class="fa fa-star checked" class="dots"></span>
                 <span class="fa fa-star checked"></span>
@@ -131,7 +131,7 @@
                 <span class="fa fa-star checked"></span>
                 <span class="fa fa-star"></span>
             </p>
-            <p id="review-date">{{review_information[4].reviewer_date}}</p>
+            <p id="review-date">{{reviewerdate[4]}}</p>
         </div>
     </div>
     <div id="review-comment">
@@ -144,16 +144,16 @@
         <p (click)="OnclickComment(review_information[4])" routerLink="/reviews" class="blue-text">Comment</p>
         <p class="dots">.</p>
         <i class="thumbs-up"><mat-icon>thumb_up_alt</mat-icon></i>
-        <p type="text" class="dots" id="show-likes4">{{review_information[4].reviewer_likes}}</p>
+        <p type="text" class="dots" id="show-likes4">{{reviewerlikes[4]}}</p>
         <p class="dots">.</p>
         <i class="comment"><mat-icon> mode_comment</mat-icon></i>
-        <p class="dots" id="show-comments">{{review_information[4].reviewer_comments}}</p>
+        <p class="dots" id="show-comments">{{reviewercomments[4]}}</p>
     </div>
     <hr id="next-review" class="w3-gray">
     <div id="user-reviews">
-        <img class="reviewer-image" src="{{review_information[5].reviewer_image}}">
+        <img class="reviewer-image" src="{{reviewerimage[5]}}">
         <div>
-            <p id="Reviewer-name">{{review_information[5].reviewer_name}}
+            <p id="Reviewer-name">{{reviewername[5]}}
                 <span id="rate-it">rated it</span>
                 <span class="fa fa-star checked" class="dots"></span>
                 <span class="fa fa-star checked"></span>
@@ -161,7 +161,7 @@
                 <span class="fa fa-star checked"></span>
                 <span class="fa fa-star"></span>
             </p>
-            <p id="review-date">{{review_information[5].reviewer_date}}</p>
+            <p id="review-date">{{reviewerdate[5]}}</p>
         </div>
     </div>
     <div id="review-comment">
@@ -174,10 +174,10 @@
         <p (click)="OnclickComment(review_information[5])" routerLink="/reviews" class="blue-text">Comment</p>
         <p class="dots">.</p>
         <i class="thumbs-up"><mat-icon>thumb_up_alt</mat-icon></i>
-        <p type="text" class="dots" id="show-likes5">{{review_information[5].reviewer_likes}}</p>
+        <p type="text" class="dots" id="show-likes5">{{reviewerlikes[5]}}</p>
         <p class="dots">.</p>
         <i class="comment">	<mat-icon> mode_comment</mat-icon></i>
-        <p class="dots" id="show-comments">{{review_information[5].reviewer_comments}}</p>
+        <p class="dots" id="show-comments">{{reviewercomments[5]}}</p>
     </div>
     <hr id="next-review" class="w3-gray">
 </div>

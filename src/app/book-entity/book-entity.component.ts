@@ -14,6 +14,12 @@ export class BookEntityComponent implements OnInit {
 // tslint:disable-next-line: prefer-const
   type1: string;
   type2: string;
+  bookimage: string [] = [];
+  booktitle: string [] = [];
+  bookauthor: string [] = [];
+  bookstatus: string [] = [];
+  bookbody: string [] = [];
+  bookid: string [] = [];
   // tslint:disable-next-line: variable-name
   public befor_dots: string [] = [];
 // tslint:disable-next-line: variable-name
@@ -41,7 +47,7 @@ export class BookEntityComponent implements OnInit {
    * carries the index of the book 
    * @memberof BookEntityComponent
    */
-  book_index = 1;
+  book_index = 2;
   // tslint:disable-next-line:variable-name
   /**
    * Creates an instance of BookEntityComponent.
@@ -59,23 +65,29 @@ ngOnInit() {
     // tslint:disable-next-line:variable-name 
     this.Sub_profile = this.booktitle_service.get_book_Info_updated().subscribe((book_Information: BookDetails[]) => {
       this.book_details = book_Information;
-      console.log(this.book_details[0].book_id);
+      this.SetInfo();
       this.assign_status(this.book_details[this.book_index].book_status);
-      this.SplitString();
       /* console.log(this.User_info.User_Name)
       console.log(this.User_info.user_id)
       console.log(this.User_info.User_Photo)*/
     });
   }
-  SplitString() {
-    let starting_indext = 0;
+  SetInfo() {
 // tslint:disable-next-line: prefer-for-of
-    for (let i = 0; i < this.book_details.length; i ++) {
-      let word = this.book_details[i].book_body.split(',');
-      this.befor_dots[starting_indext] = word[0];
-      this.after_dots[starting_indext] = word[1];
-      starting_indext++;
+    for (let x = 0; x < this.book_details.length; x++) {
+      this.bookimage[x] = this.book_details[x].book_image;
+      this.booktitle[x] = this.book_details[x].book_title;
+      this.bookauthor[x] = this.book_details[x].book_author;
+      this.bookstatus[x] = this.book_details[x].book_status;
+      this.bookbody[x] = this.book_details[x].book_body;
+      this.bookid[x] = this.book_details[x].book_id;
+      this.SplitString(this.bookbody[x], x);
     }
+  }
+  SplitString(index: string, x) {
+      const word = this.book_details[x].book_body.split(',');
+      this.befor_dots[x] = word[0];
+      this.after_dots[x] = word[1];
   }
   /**
    *
