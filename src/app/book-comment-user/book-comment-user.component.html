@@ -18,9 +18,9 @@
     <button (click)="more_user_preview(1)" mat-button id="myBtn-user-review1">Read more</button></p>
 </div>
 <div id="review-like-comment">
-    <p class="blue-text" (click)="like()">Like</p>
+    <p class="blue-text" id="liked0" (click)="OnclickLike(review_information[0],0)">Like</p>
     <p class="dots">.</p>
-    <p class="blue-text">Comment</p>
+    <p (click)="OnclickComment(review_information[0])" routerLink="/reviews" class="blue-text">Comment</p>
     <p class="dots">.</p>
     <i class="thumbs-up"><mat-icon>thumb_up_alt</mat-icon></i>
     <p type="text" class="dots" id="show-likes">{{review_information[0].reviewer_likes}}</p>
@@ -48,9 +48,9 @@
     <button (click)="more_user_preview(2)" mat-button id="myBtn-user-review2">Read more</button></p>
 </div>
 <div id="review-like-comment">
-    <p class="blue-text" (click)="like()">Like</p>
+    <p class="blue-text" id="liked1" (click)="OnclickLike(review_information[1],1)">Like</p>
     <p class="dots">.</p>
-    <p class="blue-text">Comment</p>
+    <p (click)="OnclickComment(review_information[1])" routerLink="/reviews" class="blue-text">Comment</p>
     <p class="dots">.</p>
     <i class="thumbs-up"><mat-icon>thumb_up_alt</mat-icon></i>
     <p type="text" class="dots" id="show-likes">{{review_information[1].reviewer_likes}}</p>
@@ -79,9 +79,9 @@
         <button (click)="more_user_preview(3)" mat-button id="myBtn-user-review3">Read more</button></p>
     </div>
     <div id="review-like-comment">
-        <p class="blue-text" (click)="like()">Like</p>
+        <p class="blue-text" id="liked2" (click)="OnclickLike(review_information[2],2)">Like</p>
         <p class="dots">.</p>
-        <p class="blue-text">Comment</p>
+        <p (click)="OnclickComment(review_information[2])" routerLink="/reviews" class="blue-text">Comment</p>
         <p class="dots">.</p>
         <i class="thumbs-up"><mat-icon>thumb_up_alt</mat-icon></i>
         <p type="text" class="dots" id="show-likes">{{review_information[2].reviewer_likes}}</p>
@@ -109,9 +109,9 @@
         <button (click)="more_user_preview(4)" mat-button id="myBtn-user-review4">Read more</button></p>
     </div>
     <div id="review-like-comment">
-        <p class="blue-text" (click)="like()">Like</p>
+        <p class="blue-text" id="liked3" (click)="OnclickLike(review_information[3],3)">Like</p>
         <p class="dots">.</p>
-        <p class="blue-text">Comment</p>
+        <p (click)="OnclickComment(review_information[3])" routerLink="/reviews" class="blue-text">Comment</p>
         <p class="dots">.</p>
         <i class="thumbs-up"><mat-icon>thumb_up_alt</mat-icon></i>
         <p type="text" class="dots" id="show-likes">{{review_information[3].reviewer_likes}}</p>
@@ -139,14 +139,14 @@
         <button (click)="more_user_preview(5)" mat-button id="myBtn-user-review5">Read more</button></p>
     </div>
     <div id="review-like-comment">
-        <p class="blue-text" (click)="like()">Like</p>
+        <p class="blue-text" id="liked4" (click)="OnclickLike(review_information[4],4)">Like</p>
         <p class="dots">.</p>
-        <p class="blue-text">Comment</p>
+        <p (click)="OnclickComment(review_information[4])" routerLink="/reviews" class="blue-text">Comment</p>
         <p class="dots">.</p>
         <i class="thumbs-up"><mat-icon>thumb_up_alt</mat-icon></i>
         <p type="text" class="dots" id="show-likes">{{review_information[4].reviewer_likes}}</p>
         <p class="dots">.</p>
-        <i class="comment" id="show-likes">	<mat-icon> mode_comment</mat-icon></i>
+        <i class="comment"><mat-icon> mode_comment</mat-icon></i>
         <p class="dots" id="show-likes">{{review_information[4].reviewer_comments}}</p>
     </div>
     <hr id="next-review" class="w3-gray">
@@ -169,9 +169,9 @@
         <button (click)="more_user_preview(6)" mat-button id="myBtn-user-review6">Read more</button></p>
     </div>
     <div id="review-like-comment">
-        <p class="blue-text" (click)="like()">Like</p>
+        <p class="blue-text" id="liked5" (click)="OnclickLike(review_information[5],5)">Like</p>
         <p class="dots">.</p>
-        <p class="blue-text">Comment</p>
+        <p (click)="OnclickComment(review_information[5])" routerLink="/reviews" class="blue-text">Comment</p>
         <p class="dots">.</p>
         <i class="thumbs-up"><mat-icon>thumb_up_alt</mat-icon></i>
         <p type="text" class="dots" id="show-likes">{{review_information[5].reviewer_likes}}</p>

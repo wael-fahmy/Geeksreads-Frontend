@@ -55,4 +55,11 @@ export interface Bookreviews {
      * @memberof Bookreviews
      */
     reviewer_comments: string;
+    /**
+     *
+     * variable to carry reviewer id
+     * @type {string}
+     * @memberof Bookreviews
+     */
+    reviewer_id: string;
 }
