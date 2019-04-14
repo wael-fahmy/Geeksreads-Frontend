@@ -9,7 +9,41 @@ import { delay } from 'q';
   styleUrls: ['./reviews-comments.component.css']
 })
 export class ReviewsCommentsComponent implements OnInit {
-
+/**
+ *
+ * variable list used to carry user image
+ * @type {string []}
+ * @memberof ReviewsCommentsComponent
+ */
+userimage: string [] = [];
+/**
+ *
+ * variable list used to carry user name
+ * @type {string []}
+ * @memberof ReviewsCommentsComponent
+ */
+username: string [] = [];
+/**
+ *
+ * variable list used to carry user id
+ * @type {string []}
+ * @memberof ReviewsCommentsComponent
+ */
+userid: string [] = [];
+/**
+ *
+ * variable list used to carry user body
+ * @type {string []}
+ * @memberof ReviewsCommentsComponent
+ */
+userbody: string [] = [];
+/**
+ *
+ * variable list used to carry user date
+ * @type {string []}
+ * @memberof ReviewsCommentsComponent
+ */
+userdate: string [] = [];
 // tslint:disable-next-line: variable-name
 /**
  *
@@ -44,11 +78,27 @@ public comment_details: CommentsDetails[] = [];
     // tslint:disable-next-line:variable-name
     this.Sub_profile = this.comments_service.get_comments_Info_updated().subscribe((comments_Information: CommentsDetails[]) => {
       this.comment_details = comments_Information;
+      this.SetElements();
       console.log(this.comment_details[0].user_name);
       /* console.log(this.User_info.User_Name)
       console.log(this.User_info.user_id)
       console.log(this.User_info.User_Photo)*/
     });
+  }
+  /**
+   *
+   * function used to set elements of lists
+   * @memberof ReviewsCommentsComponent
+   */
+  SetElements() {
+    // tslint:disable-next-line: prefer-for-of
+    for (let x = 0; x < this.comment_details.length; x++) {
+      this.userimage[x] = this.comment_details[x].user_image;
+      this.username[x] = this.comment_details[x].user_name;
+      this.userid[x] = this.comment_details[x].user_id;
+      this.userbody[x] = this.comment_details[x].user_body;
+      this.userdate[x] = this.comment_details[x].user_date;
+    }
   }
 
 }
