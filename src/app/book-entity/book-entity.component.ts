@@ -12,18 +12,78 @@ import { delay } from 'q';
 export class BookEntityComponent implements OnInit {
 
 // tslint:disable-next-line: prefer-const
-  type1: string;
-  type2: string;
-  bookimage: string [] = [];
-  booktitle: string [] = [];
-  bookauthor: string [] = [];
-  bookstatus: string [] = [];
-  bookbody: string [] = [];
-  bookid: string [] = [];
+/**
+ *
+ * vairbale used to store available option of read button
+ * @type {string}
+ * @memberof BookEntityComponent
+ */
+type1: string;
+/**
+ *
+ * vairbale used to store available option of read button
+ * @type {string}
+ * @memberof BookEntityComponent
+ */
+type2: string;
+/**
+ *
+ * variable list used to store list of book images
+ * @type {string []}
+ * @memberof BookEntityComponent
+ */
+bookimage: string [] = [];
+/**
+ *
+ * variable list used to store list of book titles
+ * @type {string []}
+ * @memberof BookEntityComponent
+ */
+booktitle: string [] = [];
+/**
+ *
+ * variable list used to store list of book authors
+ * @type {string []}
+ * @memberof BookEntityComponent
+ */
+bookauthor: string [] = [];
+/**
+ *
+ * variable list used to store list of book status
+ * @type {string []}
+ * @memberof BookEntityComponent
+ */
+bookstatus: string [] = [];
+/**
+ *
+ * variable list used to store list of book bodys
+ * @type {string []}
+ * @memberof BookEntityComponent
+ */
+bookbody: string [] = [];
+/**
+ *
+ * variable list used to store list of book id
+ * @type {string []}
+ * @memberof BookEntityComponent
+ */
+bookid: string [] = [];
   // tslint:disable-next-line: variable-name
+  /**
+   *
+   * variable list used to store list of half of book bodys
+   * @type {string []}
+   * @memberof BookEntityComponent
+   */
   public befor_dots: string [] = [];
 // tslint:disable-next-line: variable-name
-  public after_dots: string [] = [];
+/**
+ *
+ * variable list used to store list of half of book bodys
+ * @type {string []}
+ * @memberof BookEntityComponent
+ */
+public after_dots: string [] = [];
   // tslint:disable-next-line:variable-name
   /**
    *
@@ -72,6 +132,11 @@ ngOnInit() {
       console.log(this.User_info.User_Photo)*/
     });
   }
+  /**
+   *
+   * function used to set elements of lists
+   * @memberof BookEntityComponent
+   */
   SetInfo() {
 // tslint:disable-next-line: prefer-for-of
     for (let x = 0; x < this.book_details.length; x++) {
@@ -84,6 +149,13 @@ ngOnInit() {
       this.SplitString(this.bookbody[x], x);
     }
   }
+  /**
+   *
+   * function used to split book body
+   * @param {string} index
+   * @param {*} x
+   * @memberof BookEntityComponent
+   */
   SplitString(index: string, x) {
       const word = this.book_details[x].book_body.split(',');
       this.befor_dots[x] = word[0];
@@ -108,6 +180,12 @@ more_book_discription() {
       moreText.style.display = 'inline';
     }
   }
+/**
+ *
+ * function used to post request of book status
+ * @param {string} index
+ * @memberof BookEntityComponent
+ */
 book_status(index: string) {
     const first = document.getElementById(index);
     const second = document.getElementById('first-option');
@@ -116,6 +194,12 @@ book_status(index: string) {
     second.innerHTML = x;
     this.booktitle_service.post_book_status(this.book_details[this.book_index].book_id, second.textContent );
   }
+/**
+ *
+ * function used to assign status of book on intilize
+ * @param {string} index
+ * @memberof BookEntityComponent
+ */
 assign_status(index: string) {
   if (index === 'Want To Read') {
     this.type1 = 'Currently Reading';

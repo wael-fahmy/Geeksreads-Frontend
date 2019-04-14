@@ -12,10 +12,40 @@ import { delay } from 'q';
 export class BookSuggestionOtherComponent implements OnInit {
 
   // tslint:disable-next-line:one-variable-per-declaration
+  /**
+   *
+   * variable used to store book image
+   * @type {string []}
+   * @memberof BookSuggestionOtherComponent
+   */
   bookimage: string [] = [];
+  /**
+   *
+   * variable used to store book author
+   * @type {string []}
+   * @memberof BookSuggestionOtherComponent
+   */
   bookauthor: string [] = [];
+  /**
+   *
+   * variable used to store book title
+   * @type {string []}
+   * @memberof BookSuggestionOtherComponent
+   */
   booktitle: string [] = [];
+  /**
+   *
+   * variable used to store book id
+   * @type {string []}
+   * @memberof BookSuggestionOtherComponent
+   */
   bookid: string [] = [];
+  /**
+   *
+   * variable used to store book author id
+   * @type {string []}
+   * @memberof BookSuggestionOtherComponent
+   */
   authorid: string [] = [];
   // tslint:disable-next-line:variable-name
   /**
@@ -59,6 +89,11 @@ export class BookSuggestionOtherComponent implements OnInit {
       console.log(this.User_info.User_Photo)*/
     });
   }
+  /**
+   *
+   * function used to set elements of the lists
+   * @memberof BookSuggestionOtherComponent
+   */
   SetElements() {
     // tslint:disable-next-line: prefer-for-of
     for (let x = 0; x < this.suggestedbook_details.length; x++) {
@@ -69,6 +104,12 @@ export class BookSuggestionOtherComponent implements OnInit {
       this.authorid[x] = this.suggestedbook_details[x].suggestedbook_authorid;
     }
   }
+  /**
+   *
+   * functions uset to post requests of other book suggestions
+   * @param {SuggestedBookDetails} index
+   * @memberof BookSuggestionOtherComponent
+   */
   OnClick_getbook(index: SuggestedBookDetails) {
     this.suggestedbook_service.post_book_wanted(index.suggestedbook_id, index.suggestedbook_author);
   }

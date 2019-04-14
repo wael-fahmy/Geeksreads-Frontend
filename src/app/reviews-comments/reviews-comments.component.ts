@@ -11,11 +11,34 @@ import { delay } from 'q';
 export class ReviewsCommentsComponent implements OnInit {
 
 // tslint:disable-next-line: variable-name
-  private Sub_profile: Subscription;
+/**
+ *
+ * variable used to carry subscription
+ * @private
+ * @type {Subscription}
+ * @memberof ReviewsCommentsComponent
+ */
+private Sub_profile: Subscription;
 // tslint:disable-next-line: variable-name
-  public comment_details: CommentsDetails[] = [];
+/**
+ *
+ * variable list used to carry comments list
+ * @type {CommentsDetails[]}
+ * @memberof ReviewsCommentsComponent
+ */
+public comment_details: CommentsDetails[] = [];
   // tslint:disable-next-line:variable-name
+  /**
+   * Creates an instance of ReviewsCommentsComponent.
+   * @param {CommentsDetails_Service} comments_service
+   * @memberof ReviewsCommentsComponent
+   */
   constructor(public comments_service: CommentsDetails_Service) { }
+  /**
+   *
+   * function used to intilize page and set elements
+   * @memberof ReviewsCommentsComponent
+   */
   ngOnInit() {
     this.comments_service.get_comments_Info();                                  // to get the user info from the service
     // tslint:disable-next-line:variable-name

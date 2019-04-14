@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class BookCommentGuestComponent implements OnInit {
 
   /**
-   * @ignore
+   * Creates an instance of BookCommentGuestComponent.
    * @memberof BookCommentGuestComponent
    */
   constructor() { }

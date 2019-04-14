@@ -54,7 +54,14 @@ export class BookTitle_Service {
         return this.book_detailsUpdated.asObservable();
     }
 // tslint:disable-next-line: variable-name
-    post_book_status(bookc_id: string, bookc_status: string) {
+/**
+ *
+ * function used to post request of book statue
+ * @param {string} bookc_id
+ * @param {string} bookc_status
+ * @memberof BookTitle_Service
+ */
+post_book_status(bookc_id: string, bookc_status: string) {
 // tslint:disable-next-line: max-line-length
         const book: BookDetails = {book_id: bookc_id, book_status: bookc_status, book_author: null, book_body: null, book_image: null, book_title: null};
         this.http.post<{message: string}>('http://localhost:3000/api/book', book)

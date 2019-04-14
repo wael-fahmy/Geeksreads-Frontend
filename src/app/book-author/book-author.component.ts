@@ -10,17 +10,63 @@ import { delay } from 'q';
   styleUrls: ['./book-author.component.css']
 })
 export class BookAuthorComponent implements OnInit {
-
+  /**
+   *
+   * variable to carry author name list
+   * @type {string []}
+   * @memberof BookAuthorComponent
+   */
   authorname: string [] = [];
+  /**
+   *
+   * variable to carry author id list
+   * @type {string []}
+   * @memberof BookAuthorComponent
+   */
   authorid: string [] = [];
+  /**
+   *
+   * variable to carry author body list
+   * @type {string []}
+   * @memberof BookAuthorComponent
+   */
   authorbody: string [] = [];
+  /**
+   *
+   * variable to carry author followers number list
+   * @type {string []}
+   * @memberof BookAuthorComponent
+   */
   authorfollowers: string [] = [];
+  /**
+   *
+   * variable to carry author book id list
+   * @type {string []}
+   * @memberof BookAuthorComponent
+   */
   bookid: string [] = [];
+  /**
+   *
+   * variable to carry author image list
+   * @type {string []}
+   * @memberof BookAuthorComponent
+   */
   authorimage: string [] = [];
-  // tslint:disable-next-line:variable-name
+  /**
+   *
+   * variable to carry half author body list
+   * @type {string []}
+   * @memberof BookAuthorComponent
+   */
   public befor_dots: string [] = [];
 // tslint:disable-next-line: variable-name
-  public after_dots: string [] = [];
+/**
+ *
+ * variable to carry half author body list
+ * @type {string []}
+ * @memberof BookAuthorComponent
+ */
+public after_dots: string [] = [];
 // tslint:disable-next-line: variable-na
   /**
    *
@@ -69,6 +115,11 @@ export class BookAuthorComponent implements OnInit {
       console.log(this.User_info.User_Photo)*/
     });
   }
+  /**
+   *
+   * function used for spliting author body
+   * @memberof BookAuthorComponent
+   */
   SplitString() {
     let starting_indext = 0;
 // tslint:disable-next-line: prefer-for-of
@@ -79,6 +130,11 @@ export class BookAuthorComponent implements OnInit {
       starting_indext++;
     }
   }
+  /**
+   *
+   * function used to set list elements
+   * @memberof BookAuthorComponent
+   */
   SetElements() {
     // tslint:disable-next-line: prefer-for-of
         for (let x = 0; x < this.author_details.length; x++) {

@@ -7,8 +7,12 @@ import { HttpClient } from '@angular/common/http';
 
 // tslint:disable-next-line:class-name
 export class Bookreviews_Service {
-
-    liked = 1;
+/**
+ *
+ * variable used to set likes
+ * @memberof Bookreviews_Service
+ */
+liked = 1;
     /**
      * Creates an instance of Bookreviews_Service.
      * @param {HttpClient} http
@@ -57,7 +61,13 @@ export class Bookreviews_Service {
         return this.review_informationUpdated.asObservable();
     }
 // tslint:disable-next-line: variable-name
-    request_reviewer_comment(review_id: string) {
+/**
+ *
+ * variable used to post request of reviewer comments
+ * @param {string} review_id
+ * @memberof Bookreviews_Service
+ */
+request_reviewer_comment(review_id: string) {
 // tslint:disable-next-line: max-line-length
 // tslint:disable-next-line: object-literal-shorthand
 // tslint:disable-next-line: max-line-length
@@ -68,7 +78,14 @@ export class Bookreviews_Service {
         });
     }
 // tslint:disable-next-line: variable-name
-    request_reviewer_like(review_id: string, review_like: string) {
+/**
+ *
+ * function used to post request of review likes
+ * @param {string} review_id
+ * @param {string} review_like
+ * @memberof Bookreviews_Service
+ */
+request_reviewer_like(review_id: string, review_like: string) {
 // tslint:disable-next-line: radix
         let x = parseInt(review_like);
         if (this.liked === 0) {

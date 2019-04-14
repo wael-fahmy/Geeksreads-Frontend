@@ -10,14 +10,61 @@ import { delay } from 'q';
   styleUrls: ['./book-details.component.css']
 })
 export class BookDetailsComponent implements OnInit {
-
+  /**
+   *
+   * variable list used to store book edtion
+   * @type {string []}
+   * @memberof BookDetailsComponent
+   */
   bookedition: string [] = [];
+  /**
+   *
+   * variable list used to store book publish
+   * @type {string []}
+   * @memberof BookDetailsComponent
+   */
   bookpublished: string [] = [];
+  /**
+   *
+   * variable list used to store book ASIN
+   * @type {string []}
+   * @memberof BookDetailsComponent
+   */
   bookASIN: string [] = [];
+  /**
+   *
+   * variable list used to store book language
+   * @type {string []}
+   * @memberof BookDetailsComponent
+   */
   booklang: string [] = [];
+  /**
+   *
+   * variable list used to store book title
+   * @type {string []}
+   * @memberof BookDetailsComponent
+   */
   booktitle: string [] = [];
+  /**
+   *
+   *  variable list used to store book awards
+   * @type {string []}
+   * @memberof BookDetailsComponent
+   */
   bookawards: string [] = [];
+  /**
+   *
+   * variable list used to store book characters
+   * @type {string []}
+   * @memberof BookDetailsComponent
+   */
   bookchara: string [] = [];
+  /**
+   *
+   * variable list used to store book id
+   * @type {string []}
+   * @memberof BookDetailsComponent
+   */
   bookid: string [] = [];
   // tslint:disable-next-line:variable-name
   /**
@@ -67,6 +114,11 @@ export class BookDetailsComponent implements OnInit {
       console.log(this.User_info.User_Photo)*/
     });
   }
+  /**
+   *
+   * function used to set elements of lists
+   * @memberof BookDetailsComponent
+   */
   SetElements() {
     // tslint:disable-next-line: prefer-for-of
     for (let x = 0; x < this.book_information.length; x++) {
