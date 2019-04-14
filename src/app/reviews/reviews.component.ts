@@ -6,10 +6,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./reviews.component.css']
 })
 export class ReviewsComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
+/**
+ * Creates an instance of ReviewsComponent.
+ * @memberof ReviewsComponent
+ */
+constructor() { }
+/**
+ *
+ * @ignore
+ * @memberof ReviewsComponent
+ */
+ngOnInit() {
   }
 
 }

@@ -11,27 +11,108 @@ import { delay } from 'q';
 })
 export class BookCommentUserComponent implements OnInit {
 // tslint:disable-next-line: variable-name
-  private Sub_profile: Subscription;
-  reviewerid: string [] = [];
-  reviewername: string [] = [];
-  reviewerimage: string [] = [];
-  reviewerdate: string [] = [];
-  reviewerbody: string [] = [];
-  reviewerrate: string [] = [];
-  reviewerlikes: string [] = [];
-  reviewercomments: string [] = [];
+/**
+ *
+ * vairbale used to take subscription
+ * @private
+ * @type {Subscription}
+ * @memberof BookCommentUserComponent
+ */
+private Sub_profile: Subscription;
+/**
+ *
+ * variable list used to store reviewers id
+ * @type {string []}
+ * @memberof BookCommentUserComponent
+ */
+reviewerid: string [] = [];
+/**
+ *
+ * variable list used to store reviewers name
+ * @type {string []}
+ * @memberof BookCommentUserComponent
+ */
+reviewername: string [] = [];
+/**
+ *
+ * variable list used to store reviewers image
+ * @type {string []}
+ * @memberof BookCommentUserComponent
+ */
+reviewerimage: string [] = [];
+/**
+ *
+ * variable list used to store reviewers date
+ * @type {string []}
+ * @memberof BookCommentUserComponent
+ */
+reviewerdate: string [] = [];
+/**
+ *
+ * variable list used to store reviewers body
+ * @type {string []}
+ * @memberof BookCommentUserComponent
+ */
+reviewerbody: string [] = [];
+/**
+ *
+ * variable list used to store reviewers rate
+ * @type {string []}
+ * @memberof BookCommentUserComponent
+ */
+reviewerrate: string [] = [];
+/**
+ *
+ * variable list used to store reviewers likes
+ * @type {string []}
+ * @memberof BookCommentUserComponent
+ */
+reviewerlikes: string [] = [];
+/**
+ *
+ * variable list used to store reviewers comments
+ * @type {string []}
+ * @memberof BookCommentUserComponent
+ */
+reviewercomments: string [] = [];
 // tslint:disable-next-line: variable-name
-  public review_information: Bookreviews[] = [];
+/**
+ *
+ * variable list used to store reviewers list
+ * @type {Bookreviews[]}
+ * @memberof BookCommentUserComponent
+ */
+public review_information: Bookreviews[] = [];
 // tslint:disable-next-line: variable-name
-  public befor_dots: string [] = [];
+/**
+ *
+ * variable list used to store reviewers half body
+ * @type {string []}
+ * @memberof BookCommentUserComponent
+ */
+public befor_dots: string [] = [];
 // tslint:disable-next-line: variable-name
-  public after_dots: string [] = [];
+/**
+ *
+ * variable list used to store reviewers half body
+ * @type {string []}
+ * @memberof BookCommentUserComponent
+ */
+public after_dots: string [] = [];
 // tslint:disable-next-line: variable-name
-  public load_more_reviews = 0;
+/**
+ *
+ * variable used to expande list or not
+ * @memberof BookCommentUserComponent
+ */
+public load_more_reviews = 0;
 // tslint:disable-next-line: variable-name
-  review_index = 0;
-// tslint:disable-next-line: variable-name
-  constructor(public bookreviews_service: Bookreviews_Service) { }
+/**
+ * Creates an instance of BookCommentUserComponent.
+ * @param {Bookreviews_Service} bookreviews_service
+ * @memberof BookCommentUserComponent
+ */
+constructor(public bookreviews_service: Bookreviews_Service) { }
   /**
    *
    * function used to see more reviews by other users
@@ -76,6 +157,11 @@ export class BookCommentUserComponent implements OnInit {
       moreText.style.display = 'inline';
     }
   }
+  /**
+   *
+   * function used to expande the reviews list
+   * @memberof BookCommentUserComponent
+   */
   load_more_user_preview() {
     const moreText = document.getElementById('more_user_reviews');
     const btnText = document.getElementById('load-more-community-reviews');
@@ -89,7 +175,12 @@ export class BookCommentUserComponent implements OnInit {
       this.load_more_reviews = 0;
   }
 }
-  ngOnInit() {
+/**
+ *
+ * function used for intilization of page and get request
+ * @memberof BookCommentUserComponent
+ */
+ngOnInit() {
     this.bookreviews_service.get_review_Info();                                  // to get the user info from the service
     // tslint:disable-next-line:variable-name
     this.Sub_profile = this.bookreviews_service.get_review_Info_updated().subscribe((review_Information: Bookreviews[]) => {
@@ -102,6 +193,11 @@ export class BookCommentUserComponent implements OnInit {
       console.log(this.User_info.User_Photo)*/
     });
   }
+  /**
+   *
+   * function used to set elements of lists
+   * @memberof BookCommentUserComponent
+   */
   SetElements() {
 // tslint:disable-next-line: prefer-for-of
     for (let x = 0; x < this.review_information.length; x++) {
@@ -115,7 +211,13 @@ export class BookCommentUserComponent implements OnInit {
       this.reviewerrate[x] = this.review_information[x].reviewer_rate;
     }
   }
+  /**
+   *
+   * function used for spliting reviews body into parts
+   * @memberof BookCommentUserComponent
+   */
   SplitString() {
+// tslint:disable-next-line: variable-name
     let starting_indext = 0;
 // tslint:disable-next-line: prefer-for-of
     for (let i = 0; i < this.review_information.length; i ++) {
@@ -125,15 +227,29 @@ export class BookCommentUserComponent implements OnInit {
       starting_indext++;
     }
   }
+  /**
+   *
+   * function used for post request of new comment
+   * @param {Bookreviews} index
+   * @memberof BookCommentUserComponent
+   */
   OnclickComment(index: Bookreviews) {
     this.bookreviews_service.request_reviewer_comment(index.reviewer_id);
   }
+  /**
+   *
+   * function used for post request of likes
+   * @param {Bookreviews} index
+   * @param {string} cond
+   * @memberof BookCommentUserComponent
+   */
   OnclickLike(index: Bookreviews, cond: string) {
     const Liked = document.getElementById('liked'+cond);
     const liking = document.getElementById('show-likes'+cond);
     if(Liked.innerHTML === 'Like') {
       Liked.innerHTML = 'Liked';
       let x = liking.innerHTML.toString();
+// tslint:disable-next-line: radix
       let y = parseInt(x);
       y = y + 1;
       x = y.toString();
@@ -141,6 +257,7 @@ export class BookCommentUserComponent implements OnInit {
     } else {
       Liked.innerHTML = 'Like';
       let x = liking.innerHTML.toString();
+// tslint:disable-next-line: radix
       let y = parseInt(x);
       y = y - 1;
       x = y.toString();

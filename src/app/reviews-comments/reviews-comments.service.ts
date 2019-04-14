@@ -15,11 +15,29 @@ export class CommentsDetails_Service {
     constructor(private http: HttpClient) { }
 
 // tslint:disable-next-line: variable-name
-    private comments_details: CommentsDetails[] = [];
+/**
+ *
+ * vairable list used to carry comments list
+ * @private
+ * @type {CommentsDetails[]}
+ * @memberof CommentsDetails_Service
+ */
+private comments_details: CommentsDetails[] = [];
 
 // tslint:disable-next-line: variable-name
-    private comments_detailsUpdated = new Subject<CommentsDetails[]>();
-    get_comments_Info() {
+/**
+ *
+ * variable used to get comments updated
+ * @private
+ * @memberof CommentsDetails_Service
+ */
+private comments_detailsUpdated = new Subject<CommentsDetails[]>();
+/**
+ *
+ * function used to get request of the comments
+ * @memberof CommentsDetails_Service
+ */
+get_comments_Info() {
         this.http.get<{ message: string, comments_details: CommentsDetails[] }>('http://localhost:3000/api/reviewcomments').
             // tslint:disable-next-line:variable-name
             subscribe((commentsdata) => {
@@ -27,6 +45,12 @@ export class CommentsDetails_Service {
                 this.comments_detailsUpdated.next([...this.comments_details]);
             });
     }
+    /**
+     *
+     * function used to get updated comments
+     * @returns
+     * @memberof CommentsDetails_Service
+     */
     get_comments_Info_updated() {
         return this.comments_detailsUpdated.asObservable();
     }

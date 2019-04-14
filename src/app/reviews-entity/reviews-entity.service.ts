@@ -7,13 +7,35 @@ import { HttpClient } from '@angular/common/http';
 
 // tslint:disable-next-line:class-name
 export class ReviewerDetails_Service {
-
-    constructor(private http: HttpClient) { }
+/**
+ * Creates an instance of ReviewerDetails_Service.
+ * @param {HttpClient} http
+ * @memberof ReviewerDetails_Service
+ */
+constructor(private http: HttpClient) { }
 // tslint:disable-next-line: variable-name
-    private reviewer_details: ReviewDetails[] = [];
+/**
+ *
+ * variable list used to carry reviews list
+ * @private
+ * @type {ReviewDetails[]}
+ * @memberof ReviewerDetails_Service
+ */
+private reviewer_details: ReviewDetails[] = [];
 // tslint:disable-next-line: variable-name
-    private reviewer_detailsUpdated = new Subject<ReviewDetails[]>();
-    get_Review_Info() {
+/**
+ *
+ * vairable used to carry list updates
+ * @private
+ * @memberof ReviewerDetails_Service
+ */
+private reviewer_detailsUpdated = new Subject<ReviewDetails[]>();
+/**
+ *
+ * fucntion used to get information recieved from server
+ * @memberof ReviewerDetails_Service
+ */
+get_Review_Info() {
         this.http.get<{ message: string, reviewer_details: ReviewDetails[] }>('http://localhost:3000/api/reviewerdata').
             // tslint:disable-next-line:variable-name
             subscribe((reviewdata) => {
@@ -23,9 +45,9 @@ export class ReviewerDetails_Service {
     }
     /**
      *
-     * get genre information updated
+     * function used to get updated reviews
      * @returns
-     * @memberof GenreDetails_Service
+     * @memberof ReviewerDetails_Service
      */
     get_review_Info_updated() {
         return this.reviewer_detailsUpdated.asObservable();
