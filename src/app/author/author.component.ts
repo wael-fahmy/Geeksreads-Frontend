@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Author } from './author.model';
+import { AuthorModel } from './author.model';
 import { Subscription } from 'rxjs';
 import { AuthorService } from './author.service';
-import { delay } from 'q';
 
 /**
  * Author page component
@@ -14,6 +13,22 @@ import { delay } from 'q';
   styleUrls: ['./author.component.css']
 })
 export class AuthorComponent implements OnInit {
+
+
+  /**
+   * @private
+   * @type {Subscription}
+   * @memberof AuthorComponent
+   */
+  private authorSubscription: Subscription;
+
+
+  /**
+   *  An object to fill with the JSON response
+   *  @type {AuthorModel}
+   *  @memberof AuthorComponent
+   */
+  authorInfo: AuthorModel;
 
   /**
    *  Author's Id
@@ -28,7 +43,7 @@ export class AuthorComponent implements OnInit {
   /**
    *  Link to the author's picture
    */
-  authorPicture = 'https://via.placeholder.com/86x120 ';
+  authorPicture = 'https://via.placeholder.com/86x120';
 
   /**
    *  Is the currently signed in user following this author or not
@@ -46,11 +61,6 @@ export class AuthorComponent implements OnInit {
    */
   authorDetails = 'More details about this author';
 
-
-  /**
-   *  More or Less details
-   */
-  authorDetailsLength = 'More';
 
   /**
    *
@@ -73,18 +83,6 @@ export class AuthorComponent implements OnInit {
     console.log('Unfollowing this author');
   }
 
-
-  /**
-   *  Load more or less details
-   */
-  authorLoadDetails() {
-    if (this.authorDetailsLength === 'More') {
-      this.authorDetailsLength = 'Less';
-    } else if (this.authorDetailsLength === 'Less') {
-      this.authorDetailsLength = 'More';
-    }
-  }
-
   /**
    *
    *  Request author's info
@@ -93,16 +91,30 @@ export class AuthorComponent implements OnInit {
     console.log('Component Created ' + authorID);
   }
 
+
   /**
-   * Creates an instance of AuthorComponent.
+   *  Creates an instance of AuthorComponent.
+   *  @param {AuthorService} authorService
+   *  @memberof AuthorComponent
    */
-  constructor() { }
+  constructor(public authorService: AuthorService) { }
 
   /**
    *  Author component initialization
    */
   ngOnInit() {
-    this.getAuthorInfo(this.authorId);
+    this.authorService.getAuthorInfo();
+
+    this.authorSubscription = this.authorService.getAuthorInfoUpdated().
+      subscribe((authorInformation: AuthorModel) => {
+        this.authorInfo = authorInformation;
+        this.authorName = this.authorInfo.authorName;
+        this.authorDetails = this.authorInfo.authorDetails;
+        this.authorId = this.authorInfo.authorId;
+        this.authorIsFollowing = this.authorInfo.authorIsFollowing;
+        this.authorNumberOfFollowers = this.authorInfo.authorNumberOfFollowers;
+        this.authorPicture = this.authorInfo.authorPicture;
+      });
   }
 
 }

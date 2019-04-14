@@ -1,4 +1,4 @@
-export interface Author {
+export interface AuthorModel {
   /**
    *  Author's Id
    */
@@ -23,4 +23,9 @@ export interface Author {
    *  Number of users following this author
    */
   authorNumberOfFollowers: number;
+
+  /**
+   *  A brief information about the author
+   */
+  authorDetails: string;
 }

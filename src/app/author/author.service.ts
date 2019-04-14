@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
-import { Author } from './author.model';
+import { AuthorModel } from './author.model';
 import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
@@ -21,14 +21,14 @@ export class AuthorService {
    *  @type {Author}
    *  @memberof AuthorService
    */
-  private author: Author;
+  private author: AuthorModel;
 
 
   /**
    *  @private
    *  @memberof AuthorService
    */
-  private authorUpdated = new Subject<Author>();
+  private authorUpdated = new Subject<AuthorModel>();
 
 
   /**
@@ -37,7 +37,7 @@ export class AuthorService {
    *  @memberof AuthorService
    */
   getAuthorInfo() {
-    this.http.get<{ message: string, authorInfo: Author }>('http://localhost:3000/api/author').
+    this.http.get<{ message: string, authorInfo: AuthorModel }>('http://localhost:3000/api/author').
       subscribe((AuthorData) => {       // subscribe the recived data
         // and put it in the user object to display it
         this.author = AuthorData.authorInfo;
