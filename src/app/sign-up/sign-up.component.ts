@@ -120,12 +120,12 @@ export class SignUpComponent implements OnInit {
         // data.append('userPassword', this.userPassword);
 
         let data = {
-          Name : this.userName,
-          email: this.userEmail,
-          pass: this.userPassword
+          UserName : this.userName,
+          UserEmail: this.userEmail,
+          UserPassword: this.userPassword
         };
         this.http
-          .post('http://localhost:3000/api/sign-up', data)
+          .post('https://geeksreads.herokuapp.com/api/users/signup', data)
        // tslint:disable-next-line: variable-name
             .subscribe((serverResponse) => {
                   console.log(serverResponse);
