@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthorBookModel } from './author-book.model';
+import { Subscription } from 'rxjs';
+import { AuthorBookService } from './author-book.service';
 
 @Component({
   selector: 'app-author-book',
@@ -7,13 +10,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AuthorBookComponent implements OnInit {
 
+
+  /**
+   * @private
+   * @type {Subscription}
+   * @memberof AuthorBookComponent
+   */
+  private authorBookSubscription: Subscription;
+
+  /**
+   * @type {AuthorBookModel}
+   * @memberof AuthorBookComponent
+   */
+  authorBookInfo: AuthorBookModel;
+
   /**
    *  Author's Id
    */
   authorId = 12345;
 
   /**
-   *  Author's Id
+   *  Book's Id
    */
   authorBookId = 12345;
 
@@ -25,7 +42,7 @@ export class AuthorBookComponent implements OnInit {
   /**
    *  Link to the book's picture
    */
-  authorBookPicture = 'https://via.placeholder.com/86x120 ';
+  authorBookPicture = 'https://via.placeholder.com/86x120';
 
   /**
    *  Current shelf assigned to the book
@@ -39,10 +56,14 @@ export class AuthorBookComponent implements OnInit {
 
 
   /**
+   *  Book link
+   */
+  authorBookLink = 'https://www.goodreads.com/';
+
+  /**
    *  Is this book in a shelf?
    */
   authorBookIsInAShelf = false;
-
 
   /**
    *  Where is the book now
@@ -117,13 +138,25 @@ export class AuthorBookComponent implements OnInit {
   /**
    * Creates an instance of AuthorComponent.
    */
-  constructor() { }
+  constructor(public authorBookService: AuthorBookService) { }
 
   /**
    *  Author component initialization
    */
   ngOnInit() {
-    this.getAuthorBookInfo(this.authorBookId);
+    this.authorBookService.getAuthorBookInfo();
+
+    this.authorBookSubscription = this.authorBookService.getAuthorBookInfoUpdated().
+      subscribe((authorBookInformation: AuthorBookModel) => {
+        this.authorBookInfo = authorBookInformation;
+        this.authorBookId = this.authorBookInfo.authorBookId;
+        this.authorBookLink = this.authorBookInfo.authorBookLink;
+        this.authorBookName = this.authorBookInfo.authorBookName;
+        this.authorBookPicture = this.authorBookInfo.authorBookPicture;
+        this.authorBookRating = this.authorBookInfo.authorBookRating;
+        this.authorBookShelf = this.authorBookInfo.authorBookShelf;
+        this.authorId = this.authorBookInfo.authorId;
+      });
   }
 
 }

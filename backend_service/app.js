@@ -609,6 +609,23 @@ app.use("/api/author", (req, res, next) => {
     });
 });
 
+app.use("/api/author-book", (req, res, next) => {
+    const authorBookInfo = {
+        authorBookId: 105030,
+        authorBookLink: 'https://std.eng.cu.edu.eg/login.aspx',
+        authorBookName: 'The Prince and the Pauper',
+        authorBookPicture: 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1376406798i/62446._UX75_.jpg',
+        authorBookRating: 5.0,
+        authorBookShelf: 'Read',
+        authorId: 1152114,
+    };
+
+    res.status(200).json({
+        message: "Author Book fetched successfully!",
+        authorBookInfo: authorBookInfo
+    });
+});
+
 port = 3001
 app.listen(port, () => console.log('Server listening on port ' + port))
 module.exports = app;
