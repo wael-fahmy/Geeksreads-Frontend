@@ -61,6 +61,7 @@ export class BookDetailsComponent implements OnInit {
     this.Sub_profile = this.bookinformation_service.get_book_Info_updated().subscribe((book_Information: Bookinformation[]) => {
       this.book_information = book_Information;
       this.SetElements();
+      console.log(this.book_information.length);
       /* console.log(this.User_info.User_Name)
       console.log(this.User_info.user_id)
       console.log(this.User_info.User_Photo)*/

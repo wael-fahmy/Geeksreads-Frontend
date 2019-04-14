@@ -19,6 +19,11 @@
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-weight: bold;
     margin: 5px 0 0 10px;
+    cursor: pointer;
+}
+#author-name:hover {
+    text-decoration: underline;
+    text-decoration: black;
 }
 
 #number-followers {

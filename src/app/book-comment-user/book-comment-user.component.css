@@ -11,6 +11,7 @@
     width: 50px;
     margin: 0 0 0 10px;
     border-style: ridge;
+    cursor: pointer;
 }
 
 #community-reviews {
