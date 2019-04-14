@@ -11,6 +11,10 @@ import { delay } from 'q';
 })
 export class BookAuthorComponent implements OnInit {
   /**
+   *  Panel open state boolean
+   */
+   public panelOpenState: boolean;
+  /**
    *
    * variable to carry author name list
    * @type {string []}

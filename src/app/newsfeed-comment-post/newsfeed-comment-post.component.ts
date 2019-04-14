@@ -14,7 +14,19 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class NewsfeedCommentPostComponent implements OnInit {
-
+	
+   /**
+    *  User name
+    */
+   userName: string;
+   /**
+    *  User name
+    */
+   activityDate: string;
+   /**
+    *  User name
+    */
+   comment: string;
   /**
    *Creates an instance of NewsfeedCommentPostComponent.
    * @memberof NewsfeedCommentPostComponent

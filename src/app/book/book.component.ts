@@ -10,7 +10,12 @@ import { delay } from 'q';
   styleUrls: ['./book.component.css']
 })
 export class BookComponent implements OnInit {
-
+	
+   /**
+   *  Panel open state boolean
+   */
+   public panelOpenState: boolean;
+   
   // tslint:disable-next-line:variable-name
   /**
    *

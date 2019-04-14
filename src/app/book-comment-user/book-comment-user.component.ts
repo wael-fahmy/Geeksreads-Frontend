@@ -240,10 +240,10 @@ ngOnInit() {
    *
    * function used for post request of likes
    * @param {Bookreviews} index
-   * @param {string} cond
+   * @param {number} cond
    * @memberof BookCommentUserComponent
    */
-  OnclickLike(index: Bookreviews, cond: string) {
+  OnclickLike(index: Bookreviews, cond: number) {
     const Liked = document.getElementById('liked'+cond);
     const liking = document.getElementById('show-likes'+cond);
     if(Liked.innerHTML === 'Like') {

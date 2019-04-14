@@ -25,7 +25,7 @@ export interface Genredetails {
      * @type {string}
      * @memberof Genredetails
      */
-    genrethree: string;
+    genre_three: string;
     /**
      *
      * genre four
