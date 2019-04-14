@@ -9,7 +9,7 @@
         "lint": "ng lint",
         "e2e": "ng e2e",
         "start:server": "nodemon server.js",
-        "compodoc": "npx compodoc -p src/tsconfig.app.json -s -o"
+        "compodoc": "npx compodoc -p src/tsconfig.app.json -s -o -w"
     },
     "private": true,
     "dependencies": {
