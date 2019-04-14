@@ -3,6 +3,12 @@ import { AuthorBookModel } from './author-book.model';
 import { Subscription } from 'rxjs';
 import { AuthorBookService } from './author-book.service';
 
+/**
+ *  Author Book Component
+ * @export
+ * @class AuthorBookComponent
+ * @implements {OnInit}
+ */
 @Component({
   selector: 'app-author-book',
   templateUrl: './author-book.component.html',

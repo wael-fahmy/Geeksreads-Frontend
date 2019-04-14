@@ -16,6 +16,7 @@ export class AuthorComponent implements OnInit {
 
 
   /**
+   * Author Subscription
    * @private
    * @type {Subscription}
    * @memberof AuthorComponent
@@ -63,7 +64,6 @@ export class AuthorComponent implements OnInit {
 
 
   /**
-   *
    *  Follows an author
    */
   followAuthor() {
@@ -84,7 +84,6 @@ export class AuthorComponent implements OnInit {
   }
 
   /**
-   *
    *  Request author's info
    */
   getAuthorInfo(authorID: string | number) {
@@ -116,5 +115,4 @@ export class AuthorComponent implements OnInit {
         this.authorPicture = this.authorInfo.authorPicture;
       });
   }
-
 }

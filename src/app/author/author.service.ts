@@ -17,6 +17,7 @@ export class AuthorService {
 
 
   /**
+   *  Object to fill
    *  @private
    *  @type {Author}
    *  @memberof AuthorService
@@ -25,6 +26,7 @@ export class AuthorService {
 
 
   /**
+   *  Subject object
    *  @private
    *  @memberof AuthorService
    */

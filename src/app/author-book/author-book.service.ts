@@ -3,6 +3,11 @@ import { Subject } from 'rxjs';
 import { AuthorBookModel } from './author-book.model';
 import { HttpClient } from '@angular/common/http';
 
+/**
+ *  Author Book Injectable
+ *  @export
+ *  @class AuthorBookService
+ */
 @Injectable({
   providedIn: 'root'
 })
