@@ -1,12 +1,4 @@
-/**
- *
- * @ignore
- *
- */
 import { Component, OnInit } from '@angular/core';
-/**
- * @ignore
- */
 import { FormControl, Validators, NgForm } from '@angular/forms';
 import {HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
@@ -23,16 +15,6 @@ import { Router } from '@angular/router';
   templateUrl: './sign-in.component.html',
   styleUrls: ['./sign-in.component.css']
 })
-
-/**
- *
- * Sign in component
- *
- * @class SignInComponent
- *
- * @implements {OnInit}
- */
-
 export class SignInComponent implements OnInit {
 
   /**
@@ -64,7 +46,6 @@ export class SignInComponent implements OnInit {
    */
   userPassword = '';
 
-
   /**
    * Creates an instance of SignInComponent.
    * @param {HttpClient} http
@@ -74,7 +55,6 @@ export class SignInComponent implements OnInit {
   constructor(private http: HttpClient, private route: Router) {
 
   }
-
 
   /**
    *
@@ -89,10 +69,6 @@ export class SignInComponent implements OnInit {
       : '';
   }
 
-
-
-
-
   /**
    * test request for sign in
    * @memberof SignInComponent
@@ -104,8 +80,8 @@ export class SignInComponent implements OnInit {
     // data.append('pass', this.userPassword);
 
     const data = {
-      email: this.userEmail ,
-      pass: this.userPassword
+      UserEmail: this.userEmail ,
+      UserPassword: this.userPassword
     };
     console.log('2abl ma ab3at ' , data);
     this.http
