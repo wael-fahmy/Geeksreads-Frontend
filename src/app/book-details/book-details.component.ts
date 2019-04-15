@@ -10,7 +10,6 @@ import { delay } from 'q';
   styleUrls: ['./book-details.component.css']
 })
 export class BookDetailsComponent implements OnInit {
-  
   /**
    *  Panel open state boolean
    */

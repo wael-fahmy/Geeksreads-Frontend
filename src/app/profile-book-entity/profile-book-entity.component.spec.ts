@@ -32,38 +32,38 @@ describe('ProfileBookEntityComponent', () => {
   }));
   it('list of books should be 3', () => {
     fixture.whenStable().then(() => {
-      expect(component.List_of_books.length).toBe(3);
-    })
+      expect(component.listOfBooks.length).toBe(3);
+    });
   });
   it('list of books should contain lord of the rings', () => {
     fixture.whenStable().then(() => {
-      expect(component.List_of_books.indexOf).toContain('Lord of the Rings');
+      expect(component.listOfBooks.indexOf).toContain('Lord of the Rings');
     });
   });
   it('list of books should contain Harry Potter', () => {
     fixture.whenStable().then(() => {
-      expect(component.List_of_books.indexOf).toContain('Harry Potter');
+      expect(component.listOfBooks.indexOf).toContain('Harry Potter');
     });
   });
   it('list of books should contain Game of thrones', () => {
     fixture.whenStable().then(() => {
-      expect(component.List_of_books.indexOf).toContain('Game of thrones');
+      expect(component.listOfBooks.indexOf).toContain('Game of thrones');
     });
   });
 
   it('list of books should contain book with id = 11', () => {
     fixture.whenStable().then(() => {
-      expect(component.List_of_books.lastIndexOf).toContain('11');
+      expect(component.listOfBooks.lastIndexOf).toContain('11');
     });
   });
   it('list of books should contain book with id = 12', () => {
     fixture.whenStable().then(() => {
-      expect(component.List_of_books.lastIndexOf).toContain('12');
+      expect(component.listOfBooks.lastIndexOf).toContain('12');
     });
   });
   it('list of books should contain book with id = 13', () => {
     fixture.whenStable().then(() => {
-      expect(component.List_of_books.lastIndexOf).toContain('13');
+      expect(component.listOfBooks.lastIndexOf).toContain('13');
     });
   });
 });

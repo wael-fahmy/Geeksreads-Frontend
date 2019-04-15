@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
-
-
 /**
  *
- * 
+ * Genre Component
  * @export
  * @class GenreComponent
  * @implements {OnInit}
@@ -19,18 +17,22 @@ import { Component, OnInit } from '@angular/core';
 
 export class GenreComponent implements OnInit {
 
+  /**
+   *
+   * Specific Genre
+   * @memberof GenreComponent
+   */
   specificgenre;
 
   /**
-   *Creates an instance of GenreComponent.
-   * @memberof GenreComponent
+   *  Creates an instance of GenreComponent.
+   *  @memberof GenreComponent
    */
   constructor() { }
 
-
   /**
    *
-   * contains all function in service class
+   * Angular Init
    * @memberof GenreComponent
    */
   ngOnInit() {

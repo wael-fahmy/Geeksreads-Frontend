@@ -2,6 +2,13 @@ import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import { AuthorModel } from './author.model';
 import { HttpClient } from '@angular/common/http';
+
+/**
+ *
+ *  Inject
+ *  @export
+ *  @class AuthorService
+ */
 @Injectable({
   providedIn: 'root'
 })

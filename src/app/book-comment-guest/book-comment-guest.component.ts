@@ -1,5 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
+/**
+ * Book guest comment component
+ * @export
+ * @class BookCommentGuestComponent
+ * @implements {OnInit}
+ */
 @Component({
   selector: 'app-book-comment-guest',
   templateUrl: './book-comment-guest.component.html',
@@ -14,11 +20,9 @@ export class BookCommentGuestComponent implements OnInit {
   constructor() { }
 
   /**
-   *
-   * @ignore
+   * Angular Init
    * @memberof BookCommentGuestComponent
    */
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
 }

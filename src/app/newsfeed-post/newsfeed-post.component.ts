@@ -4,11 +4,10 @@ import { PostsServices } from './newsfeed-post.service';
 import { Subscription } from 'rxjs';
 
 /**
- *
- *
- * @export
- * @class NewsfeedPostComponent
- * @implements {OnInit}
+ *  Newsfeed post component
+ *  @export
+ *  @class NewsfeedPostComponent
+ *  @implements {OnInit}
  */
 @Component({
   selector: 'app-newsfeed-post',
@@ -20,32 +19,80 @@ export class NewsfeedPostComponent implements OnInit {
 
 
   /**
-   *
-   * this is the constructor of the component class, it makes an instance of the posts service class
-   * @private
-   * @type {Subscription}
-   * @memberof NewsfeedPostComponent
+   *  This is the constructor of the component class, it makes an instance of the posts service class
+   *  @private
+   *  @type {Subscription}
+   *  @memberof NewsfeedPostComponent
    */
   private subprofile: Subscription;
-  PostObj: Post;
-  username: string = "Yara";
-  activitydate: string = "about 2 hours ago ";
-  bookname: string = "Eat Pray Love";
-  authorname: string = "Paulo";
-  review: string = "It was really nice";
-  activity: string = "rated a book";
-  bookimage: string = "https://via.placeholder.com/120x120";
 
   /**
-   *Creates an instance of NewsfeedPostComponent.
-   * @param {PostsServices} PostsServicesObj
+   *
+   * Post object to fill data
+   * @type {Post}
    * @memberof NewsfeedPostComponent
+   */
+  PostObj: Post;
+
+  /**
+   *
+   * User name
+   * @memberof NewsfeedPostComponent
+   */
+  username = 'Yara';
+
+  /**
+   *
+   * Activity date
+   * @memberof NewsfeedPostComponent
+   */
+  activitydate = 'about 2 hours ago';
+
+  /**
+   *
+   * Book name
+   * @memberof NewsfeedPostComponent
+   */
+  bookname = 'Eat Pray Love';
+
+  /**
+   *
+   * Author Name
+   * @memberof NewsfeedPostComponent
+   */
+  authorname = 'Paulo';
+
+  /**
+   *
+   * Review
+   * @memberof NewsfeedPostComponent
+   */
+  review = 'It was really nice';
+
+  /**
+   *
+   * Activity
+   * @memberof NewsfeedPostComponent
+   */
+  activity = 'rated a book';
+
+  /**
+   *
+   * Book Image
+   * @memberof NewsfeedPostComponent
+   */
+  bookimage = 'https://via.placeholder.com/120x120';
+
+  /**
+   *  Creates an instance of NewsfeedPostComponent.
+   *  @param {PostsServices} PostsServicesObj
+   *  @memberof NewsfeedPostComponent
    */
   constructor(public PostsServicesObj: PostsServices) { }
 
 
   /**
-   * The  functions created in the service are implemented here 
+   * The  functions created in the service are implemented here
    *
    * @memberof NewsfeedPostComponent
    */
@@ -60,9 +107,7 @@ export class NewsfeedPostComponent implements OnInit {
       this.bookname = this.PostObj.bookname;
       this.review = this.PostObj.review;
       this.username = this.PostObj.username;
-      
-    });
-    //console.log(this.Posts[0].username);
 
+    });
   }
 }

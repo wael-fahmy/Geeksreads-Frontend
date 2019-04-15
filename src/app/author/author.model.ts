@@ -1,3 +1,9 @@
+
+/**
+ *  Author Model
+ *  @export
+ *  @interface AuthorModel
+ */
 export interface AuthorModel {
   /**
    *  Author's Id

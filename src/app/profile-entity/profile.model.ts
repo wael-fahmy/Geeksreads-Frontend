@@ -1,3 +1,10 @@
+
+/**
+ *
+ * Profile Model
+ * @export
+ * @interface User
+ */
 export interface User {
 
     /**
@@ -6,15 +13,15 @@ export interface User {
      * @type {number}
      * @memberof User
      */
-    user_id: number;  // user id
+    userId: number;  // user id
 
     /**
      *
-     * user name 
+     * user name
      * @type {string}
      * @memberof User
      */
-    User_Name: string;  // user name
+    userName: string;  // user name
 
     /**
      *
@@ -22,5 +29,5 @@ export interface User {
      * @type {string}
      * @memberof User
      */
-    User_Photo: string;  // user profile photo
-} 
+    userPhoto: string;  // user profile photo
+}

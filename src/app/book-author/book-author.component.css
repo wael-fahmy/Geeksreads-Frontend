@@ -21,6 +21,7 @@
     margin: 5px 0 0 10px;
     cursor: pointer;
 }
+
 #author-name:hover {
     text-decoration: underline;
     text-decoration: black;
@@ -69,7 +70,7 @@
 
 #btn-follow-author {
     margin-top: 2px;
-    color:black;
+    color: black;
     background-color: #F4F1EA;
 }
 

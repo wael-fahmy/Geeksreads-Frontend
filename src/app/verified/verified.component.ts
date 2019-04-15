@@ -20,7 +20,7 @@ export class VerifiedComponent implements OnInit {
   constructor() { }
 
   /**
-   *  Angualr ngOnInit
+   *  Angular ngOnInit
    *  @memberof VerifiedComponent
    */
   ngOnInit() {

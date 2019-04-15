@@ -5,9 +5,9 @@ import { AuthorBookService } from './author-book.service';
 
 /**
  *  Author Book Component
- * @export
- * @class AuthorBookComponent
- * @implements {OnInit}
+ *  @export
+ *  @class AuthorBookComponent
+ *  @implements {OnInit}
  */
 @Component({
   selector: 'app-author-book',
@@ -16,68 +16,79 @@ import { AuthorBookService } from './author-book.service';
 })
 export class AuthorBookComponent implements OnInit {
 
-
   /**
-   * @private
-   * @type {Subscription}
-   * @memberof AuthorBookComponent
+   *  Author Book Subscription
+   *  @private
+   *  @type {Subscription}
+   *  @memberof AuthorBookComponent
    */
   private authorBookSubscription: Subscription;
 
   /**
-   * @type {AuthorBookModel}
-   * @memberof AuthorBookComponent
+   *  Model Object
+   *  @type {AuthorBookModel}
+   *  @memberof AuthorBookComponent
    */
   authorBookInfo: AuthorBookModel;
 
   /**
    *  Author's Id
+   *  @memberof AuthorBookComponent
    */
   authorId = 12345;
 
   /**
    *  Book's Id
+   *  @memberof AuthorBookComponent
    */
   authorBookId = 12345;
 
   /**
    *  Name of the book
+   *  @memberof AuthorBookComponent
    */
   authorBookName = 'Name of the Book';
 
   /**
    *  Link to the book's picture
+   *  @memberof AuthorBookComponent
    */
   authorBookPicture = 'https://via.placeholder.com/86x120';
 
   /**
    *  Current shelf assigned to the book
+   *  @memberof AuthorBookComponent
    */
   authorBookShelf = 'Want to Read';
 
   /**
    *  Book rating
+   *  @memberof AuthorBookComponent
    */
   authorBookRating = 3.81;
 
-
   /**
    *  Book link
+   *  @memberof AuthorBookComponent
    */
   authorBookLink = 'https://www.goodreads.com/';
 
   /**
    *  Is this book in a shelf?
+   *  @memberof AuthorBookComponent
    */
   authorBookIsInAShelf = false;
 
   /**
    *  Where is the book now
+   *  @memberof AuthorBookComponent
    */
   shelfAction = 'Add to Shelf';
 
   /**
    *  Add book to a shelf
+   *  @param {string} bookShelf
+   *  @memberof AuthorBookComponent
    */
   bookShelf(bookShelf: string) {
     // TODO: Send request
@@ -85,8 +96,9 @@ export class AuthorBookComponent implements OnInit {
   }
 
   /**
-   *
    *  Request book's info
+   *  @param {(string | number)} authorBookID
+   *  @memberof AuthorBookComponent
    */
   getAuthorBookInfo(authorBookID: string | number) {
     console.log('Component Created ' + authorBookID);
@@ -141,13 +153,17 @@ export class AuthorBookComponent implements OnInit {
     console.log('Adding to Read Shelf');
   }
 
+
   /**
-   * Creates an instance of AuthorComponent.
+   *  Creates an instance of AuthorBookComponent.
+   *  @param {AuthorBookService} authorBookService
+   *  @memberof AuthorBookComponent
    */
   constructor(public authorBookService: AuthorBookService) { }
 
   /**
    *  Author component initialization
+   *  @memberof AuthorBookComponent
    */
   ngOnInit() {
     this.authorBookService.getAuthorBookInfo();
@@ -164,5 +180,4 @@ export class AuthorBookComponent implements OnInit {
         this.authorId = this.authorBookInfo.authorId;
       });
   }
-
 }

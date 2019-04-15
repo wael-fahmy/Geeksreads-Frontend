@@ -29,18 +29,18 @@ describe('ProfileReadShelfComponent', () => {
 
   it('list of books should be 2', () => {
     fixture.whenStable().then(() => {
-      expect(component.List_of_books_read.length).toBe(2);
+      expect(component.listOfBooksRead.length).toBe(2);
     });
   });
-  
+
   it('list of books read should contain Harry Potter', () => {
     fixture.whenStable().then(() => {
-      expect(component.List_of_books_read.indexOf).toContain('Harry Potter');
+      expect(component.listOfBooksRead.indexOf).toContain('Harry Potter');
     });
   });
   it('list of books read should contain Game of thrones', () => {
     fixture.whenStable().then(() => {
-      expect(component.List_of_books_read.indexOf).toContain('Game of thrones');
+      expect(component.listOfBooksRead.indexOf).toContain('Game of thrones');
     });
   });
 

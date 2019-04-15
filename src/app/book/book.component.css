@@ -43,15 +43,16 @@
 #genres-type {
     display: inline;
 }
-#genre-color
-{
-    background-color:#eee;
+
+#genre-color {
+    background-color: #eee;
     margin-left: 10px;
 }
-#genre-color1
-{
-    background-color:#eee;
+
+#genre-color1 {
+    background-color: #eee;
 }
+
 .genres-button {
     margin: 15px 0 0 10px;
 }

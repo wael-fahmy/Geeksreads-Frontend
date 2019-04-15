@@ -1,22 +1,28 @@
 import { Component, OnInit } from '@angular/core';
-import { Genredetails } from './book.model';
+import { GenreDetails } from './book.model';
 import { Subscription } from 'rxjs';
-import { GenreDetails_Service } from './book.service';
+import { GenreDetailsService } from './book.service';
 import { delay } from 'q';
 
+/**
+ *
+ * Book Component
+ * @export
+ * @class BookComponent
+ * @implements {OnInit}
+ */
 @Component({
   selector: 'app-book',
   templateUrl: './book.component.html',
   styleUrls: ['./book.component.css']
 })
 export class BookComponent implements OnInit {
-	
-   /**
+
+  /**
    *  Panel open state boolean
    */
-   public panelOpenState: boolean;
-   
-  // tslint:disable-next-line:variable-name
+  public panelOpenState: boolean;
+
   /**
    *
    * service subscription
@@ -24,43 +30,43 @@ export class BookComponent implements OnInit {
    * @type {Subscription}
    * @memberof BookComponent
    */
-  private Sub_profile: Subscription;
-  // tslint:disable-next-line:variable-name
+  private subProfile: Subscription;
+
   /**
    *
    * vairable that carries the genre details list
    * @type {Genredetails[]}
    * @memberof BookComponent
    */
-  public genre_details: Genredetails[] = [];
-  // tslint:disable-next-line:variable-name
+  public genreDetails: GenreDetails[] = [];
+
   /**
    *
    * index of the genre list  currently showing
    * @memberof BookComponent
    */
-  genre_index = 2;
-  // tslint:disable-next-line:variable-name
+  genreIndex = 2;
+
   /**
    * Creates an instance of BookComponent.
-   * @param {GenreDetails_Service} booktitle_service
+   * @param {GenreDetailsService} bookTitleService
    * @memberof BookComponent
    */
-  constructor(public booktitle_service: GenreDetails_Service) { }
+  constructor(public bookTitleService: GenreDetailsService) { }
+
   /**
    *
    * function used to read details recieved from service.ts
    * @memberof BookComponent
    */
   ngOnInit() {
-    this.booktitle_service.get_genre_Info();                                  // to get the user info from the service
+    this.bookTitleService.get_genre_Info();                                  // to get the user info from the service
     // tslint:disable-next-line:variable-name
-    this.Sub_profile = this.booktitle_service.get_genre_Info_updated().subscribe((book_Information: Genredetails[]) => {
-      this.genre_details = book_Information;
+    this.subProfile = this.bookTitleService.get_genre_Info_updated().subscribe((bookInformation: GenreDetails[]) => {
+      this.genreDetails = bookInformation;
       /* console.log(this.User_info.User_Name)
       console.log(this.User_info.user_id)
       console.log(this.User_info.User_Photo)*/
     });
   }
-
 }

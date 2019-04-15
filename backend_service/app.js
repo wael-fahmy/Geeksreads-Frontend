@@ -196,49 +196,49 @@ app.use("/api/reviewdata", (req, res, next) => {
     });
 });
 app.use("/api/genredetails", (req, res, next) => {
-    const genre_details = [{
-            book_id: "123",
-            genereone_id: "311",
-            generetwo_id: "131",
-            generethree_id: "43",
-            generefour_id: "56",
-            generefive_id: "3",
-            genre_one: "Romance",
-            genre_two: "Slice Of Life",
-            genre_three: "School",
-            genre_four: "Food",
-            genre_five: "Shojou"
+    const genreDetails = [{
+            bookId: "123",
+            genereOneId: "311",
+            genereTwoId: "131",
+            genereThreeId: "43",
+            genereFourId: "56",
+            genereFiveId: "3",
+            genreOne: "Romance",
+            genreTwo: "Slice Of Life",
+            genreThree: "School",
+            genreFour: "Food",
+            genreFive: "Shojou"
         },
         {
-            book_id: "43",
-            genereone_id: "454",
-            generetwo_id: "54",
-            generethree_id: "23",
-            generefour_id: "43",
-            generefive_id: "5",
-            genre_one: "Demon",
-            genre_two: "Shounen",
-            genre_three: "Slice OF Life",
-            genre_four: "History",
-            genre_five: "War"
+            bookId: "43",
+            genereOneId: "454",
+            genereTwoId: "54",
+            genereThreeId: "23",
+            genereFourId: "43",
+            genereFiveId: "5",
+            genreOne: "Demon",
+            genreTwo: "Shounen",
+            genreThree: "Slice OF Life",
+            genreFour: "History",
+            genreFive: "War"
         },
         {
-            book_id: "234",
-            genereone_id: "4",
-            generetwo_id: "53",
-            generethree_id: "52",
-            generefour_id: "24",
-            generefive_id: "76",
-            genre_one: "Romance",
-            genre_two: "Slice Of Life",
-            genre_three: "Drama",
-            genre_four: "Comedy",
-            genre_five: "Shojou"
+            bookId: "234",
+            genereOneId: "4",
+            genereTwoId: "53",
+            genereThreeId: "52",
+            genereFourId: "24",
+            genereFiveId: "76",
+            genreOne: "Romance",
+            genreTwo: "Slice Of Life",
+            genreThree: "Drama",
+            genreFour: "Comedy",
+            genreFive: "Shojou"
         }
     ];
     res.status(200).json({
         message: "Posts fetched successfully!",
-        genre_details: genre_details
+        genreDetails: genreDetails
     });
 });
 
@@ -499,24 +499,24 @@ app.use("/api/bookDetails", (req, res, next) => {
 });
 app.use("/api/list", (req, res, next) => {
     const Books = [{
-            book_id: 11,
-            book_name: "Harry Potter",
-            author_name: "J.K Rowling",
-            book_cover: "https://orig05.deviantart.net/e78f/f/2008/160/f/a/harry_potter_by_jonathan3333.jpg",
+            bookId: 11,
+            bookName: "Harry Potter",
+            authorName: "J.K Rowling",
+            bookCover: "https://orig05.deviantart.net/e78f/f/2008/160/f/a/harry_potter_by_jonathan3333.jpg",
             state: "read"
         },
         {
-            book_id: 12,
-            book_name: "Game of Thrones",
-            author_name: "G.R.R Martin",
-            book_cover: "https://tse2.mm.bing.net/th?id=OIP.FN55nUOxccDTpCPhYOmVfgHaLU&pid=15.1&P=0&w=300&h=300",
+            bookId: 12,
+            bookName: "Game of Thrones",
+            authorName: "G.R.R Martin",
+            bookCover: "https://tse2.mm.bing.net/th?id=OIP.FN55nUOxccDTpCPhYOmVfgHaLU&pid=15.1&P=0&w=300&h=300",
             state: "read"
         },
         {
-            book_id: 13,
-            book_name: "Lord of the Rings",
-            author_name: "J.R.R Tolkien",
-            book_cover: "https://tse4.mm.bing.net/th?id=OIP.FZz1UZSbw_p_m5hdjUOM3AHaLF&pid=15.1&P=0&w=300&h=300",
+            bookId: 13,
+            bookName: "Lord of the Rings",
+            authorName: "J.R.R Tolkien",
+            bookCover: "https://tse4.mm.bing.net/th?id=OIP.FZz1UZSbw_p_m5hdjUOM3AHaLF&pid=15.1&P=0&w=300&h=300",
             state: "want to read"
         }
     ];
@@ -528,9 +528,9 @@ app.use("/api/list", (req, res, next) => {
 
 app.use("/api/title", (req, res, next) => {
     const User_Info = {
-        user_id: 1,
-        User_Name: 'Mohamed Medhat',
-        User_Photo: 'https://tse4.mm.bing.net/th?id=OIP.FZz1UZSbw_p_m5hdjUOM3AHaLF&pid=15.1&P=0&w=300&h=300'
+        userId: 1,
+        userName: 'Mohamed Medhat',
+        userPhoto: 'https://tse4.mm.bing.net/th?id=OIP.FZz1UZSbw_p_m5hdjUOM3AHaLF&pid=15.1&P=0&w=300&h=300'
     };
 
     res.status(200).json({

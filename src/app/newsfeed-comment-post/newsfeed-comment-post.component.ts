@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
 /**
- *
- *
- * @export
- * @class NewsfeedCommentPostComponent
- * @implements {OnInit}
+ *  Newsfeed Comment Component
+ *  @export
+ *  @class NewsfeedCommentPostComponent
+ *  @implements {OnInit}
  */
 @Component({
   selector: 'app-newsfeed-comment-post',
@@ -14,26 +13,32 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class NewsfeedCommentPostComponent implements OnInit {
-	
-   /**
-    *  User name
-    */
-   userName: string;
-   /**
-    *  User name
-    */
-   activityDate: string;
-   /**
-    *  User name
-    */
-   comment: string;
+
   /**
-   *Creates an instance of NewsfeedCommentPostComponent.
-   * @memberof NewsfeedCommentPostComponent
+   *  User name
+   */
+  userName: string;
+
+  /**
+   *  User name
+   */
+  activityDate: string;
+
+  /**
+   *  User name
+   */
+  comment: string;
+
+  /**
+   *  Creates an instance of NewsfeedCommentPostComponent.
+   *  @memberof NewsfeedCommentPostComponent
    */
   constructor() { }
 
+  /**
+   *  Angular Init
+   * @memberof NewsfeedCommentPostComponent
+   */
   ngOnInit() {
   }
-
 }

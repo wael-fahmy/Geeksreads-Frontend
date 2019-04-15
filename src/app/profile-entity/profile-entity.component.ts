@@ -1,9 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { Titles_Service } from './profile-entity.service';
+import { TitlesService } from './profile-entity.service';
 import { User } from './profile.model';
 import { Subscription } from 'rxjs';
 import { CdkOverlayOrigin } from '@angular/cdk/overlay';
 
+/**
+ *
+ * Profile Entity Component
+ * @export
+ * @class ProfileEntityComponent
+ * @implements {OnInit}
+ */
 @Component({
   selector: 'app-profile-entity',
   templateUrl: './profile-entity.component.html',
@@ -18,15 +25,15 @@ export class ProfileEntityComponent implements OnInit {
    * @type {Subscription}
    * @memberof ProfileEntityComponent
    */
-  private Sub_profile: Subscription;
+  private subProfile: Subscription;
 
   /**
    *
-   * to store user info 
+   * to store user info
    * @type {User}
    * @memberof ProfileEntityComponent
    */
-  User_info: User;            // user object contains user info
+  userInfo: User;            // user object contains user info
 
   /**
    *
@@ -34,7 +41,7 @@ export class ProfileEntityComponent implements OnInit {
    * @type {string}
    * @memberof ProfileEntityComponent
    */
-  user_cover_photo : string ;
+  userCoverPhoto: string ;
 
   /**
    *
@@ -42,34 +49,33 @@ export class ProfileEntityComponent implements OnInit {
    * @type {string}
    * @memberof ProfileEntityComponent
    */
-  user_name :string;
+  userName: string;
 
   /**
-   *Creates an instance of ProfileEntityComponent.
-   * @param {Titles_Service} Titles_Service
+   * Creates an instance of ProfileEntityComponent.
+   * @param {TitlesService} titlesService
    * @memberof ProfileEntityComponent
    */
-  constructor(public Titles_Service: Titles_Service) { }  // constructor of that class
+  constructor(public titlesService: TitlesService) { }  // constructor of that class
 
   /**
    *
-   * on initializing that class implement this function 
+   * on initializing that class implement this function
    * to get the user info from the service
-   *  once the class is initialized 
+   *  once the class is initialized
    * supscripe the value recieved
    * @memberof ProfileEntityComponent
    */
-  ngOnInit() {                    // on initializing that class implement this function 
-
-    this.Titles_Service.get_User_Info();                                  // to get the user info from the service
-    this.Sub_profile = this.Titles_Service.get_User_Info_updated().       // once the class is initialized 
-      subscribe((User_Information: User) => {                            //  supscripe the value recieved
-        this.User_info = User_Information;
-        this.user_cover_photo = this.User_info.User_Photo;
-        this.user_name=this.User_info.User_Name;
-         /*console.log(this.User_info.User_Name)
-         console.log(this.User_info.user_id)
-         console.log(this.User_info.User_Photo)*/
+  ngOnInit() {
+    this.titlesService.get_User_Info();                                  // to get the user info from the service
+    this.subProfile = this.titlesService.get_User_Info_updated().       // once the class is initialized
+      subscribe((userInformation: User) => {                            //  supscripe the value recieved
+        this.userInfo = userInformation;
+        this.userCoverPhoto = this.userInfo.userPhoto;
+        this.userName = this.userInfo.userName;
+         /*console.log(this.userInfo.userName)
+         console.log(this.userInfo.user_id)
+         console.log(this.userInfo.User_Photo)*/
       });
   }
 

@@ -1,85 +1,55 @@
-
 /**
- * this an interface that contains all the elements of a post
- *
- * @export
- * @interface Post
+ *  Newsfeed post Model
+ *  @export
+ *  @interface Post
  */
 export interface Post {
 
-    
-    /**
-     *
-     *
-     * @type {string}
-     * @memberof Post
-     */
-    bookname: string;
-    
-    /**
-     *
-     *
-     * @type {string}
-     * @memberof Post
-     */
-    bookimage: string;
+  /**
+   *  Book Name
+   */
+  bookname: string;
 
-    /**
-     *
-     *
-     * @type {string}
-     * @memberof Post
-     */
-    authorname: string;
+  /**
+   *  Book Image
+   */
+  bookimage: string;
+
+  /**
+   *  Author Name
+   */
+  authorname: string;
 
 
-    /**
-     *
-     *
-     * @type {string}
-     * @memberof Post
-     */
-    activitydate: string;
-
-    
-    /**
-     *
-     *
-     * @type {string}
-     * @memberof Post
-     */
-    activitylog: string;
+  /**
+   *  Activity Date
+   */
+  activitydate: string;
 
 
-    /**
-     *
-     *
-     * @type {string}
-     * @memberof Post
-     */
-    review: string;
-    
-    /**
-     *
-     *
-     * @memberof Post
-     */
-    id;
-
-    /**
-     *
-     *
-     * @type {string}
-     * @memberof Post
-     */
-    username: string;
+  /**
+   *  Activity Log
+   */
+  activitylog: string;
 
 
-   /**
-    *
-    *
-    * @type {string}
-    * @memberof Post
-    */
-   userimage: string;
-    }
+  /**
+   *  Review
+   */
+  review: string;
+
+  /**
+   *  Id
+   */
+  id: number;
+
+  /**
+   *  User Name
+   */
+  username: string;
+
+  /**
+   *  User Image
+   */
+  userimage: string;
+}

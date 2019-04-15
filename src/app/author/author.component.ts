@@ -4,8 +4,10 @@ import { Subscription } from 'rxjs';
 import { AuthorService } from './author.service';
 
 /**
- * Author page component
- * @export
+ *  Author page component
+ *  @export
+ *  @class AuthorComponent
+ *  @implements {OnInit}
  */
 @Component({
   selector: 'app-author',
@@ -14,7 +16,6 @@ import { AuthorService } from './author.service';
 })
 export class AuthorComponent implements OnInit {
 
-
   /**
    * Author Subscription
    * @private
@@ -22,7 +23,6 @@ export class AuthorComponent implements OnInit {
    * @memberof AuthorComponent
    */
   private authorSubscription: Subscription;
-
 
   /**
    *  An object to fill with the JSON response
@@ -56,15 +56,14 @@ export class AuthorComponent implements OnInit {
    */
   authorNumberOfFollowers = 400;
 
-
   /**
    *  More details about this author
    */
   authorDetails = 'More details about this author';
 
-
   /**
    *  Follows an author
+   *  @memberof AuthorComponent
    */
   followAuthor() {
     // TODO: Send request
@@ -75,6 +74,7 @@ export class AuthorComponent implements OnInit {
 
   /**
    *  Unfollows an author
+   *  @memberof AuthorComponent
    */
   unfollowAuthor() {
     // TODO: Send request
@@ -85,6 +85,8 @@ export class AuthorComponent implements OnInit {
 
   /**
    *  Request author's info
+   *  @param {(string | number)} authorID
+   *  @memberof AuthorComponent
    */
   getAuthorInfo(authorID: string | number) {
     console.log('Component Created ' + authorID);
@@ -100,6 +102,7 @@ export class AuthorComponent implements OnInit {
 
   /**
    *  Author component initialization
+   *  @memberof AuthorComponent
    */
   ngOnInit() {
     this.authorService.getAuthorInfo();

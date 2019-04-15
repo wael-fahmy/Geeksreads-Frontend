@@ -3,64 +3,62 @@ import { Subject } from 'rxjs';
 import { User } from './profile.model';
 import { HttpClient } from '@angular/common/http';
 
-
+/**
+ *
+ * Injectable
+ * @export
+ * @class TitlesService
+ */
 @Injectable({ providedIn: 'root' })
 
 
-export class Titles_Service {
-
+export class TitlesService {
   /**
-   *Creates an instance of Titles_Service.
+   * Creates an instance of TitlesService.
    * @param {HttpClient} http
-   * @memberof Titles_Service
+   * @memberof TitlesService
    */
   constructor(private http: HttpClient) { }
 
   /**
-   *
-   *
-   * @private user data member to put user info inside
+   * User data member to put user info inside
+   * @private
    * @type {User}
-   * @memberof Titles_Service
+   * @memberof TitlesService
    */
-  private User: User   // user data member to put user info inside
+  private User: User;
 
   /**
    * to update the user info on demand
    *
    * @private
-   * @memberof Titles_Service
+   * @memberof TitlesService
    */
-  private User_Updated = new Subject<User>()
-
-
-
+  private userUpdated = new Subject<User>();
 
   /**
    *
    * to get the json response from the mock service and update the user info
    * get response from this URL
-   * subscribe the recived data 
+   * subscribe the recived data
    * and put it in the user object to display it
-   * @memberof Titles_Service
+   * @memberof TitlesService
    */
-  get_User_Info()            //  to get the json response from the mock service and update the user info
-  {
+  get_User_Info() {
     this.http.get<{ message: string, User_Info: User }>('http://localhost:3000/api/title').    // get response from this URL
-      subscribe((UserData) => {       // subscribe the recived data 
+      subscribe((UserData) => {       // subscribe the recived data
         this.User = UserData.User_Info;       // and put it in the user object to display it
-        this.User_Updated.next(this.User);
+        this.userUpdated.next(this.User);
       });
   }
 
   /**
-   *
-   * to update the user info as observed 
+   * to update the user info as observed
    * @returns
-   * @memberof Titles_Service
+   * @memberof TitlesService
    */
-  get_User_Info_updated() {            // to update the user info as observed 
-    return this.User_Updated.asObservable();
+  get_User_Info_updated() {            // to update the user info as observed
+    return this.userUpdated.asObservable();
   }
 
 }

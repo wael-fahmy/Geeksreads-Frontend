@@ -1,45 +1,38 @@
 export interface Post {
 
-    /**
-     *
-     *
-     * @memberof Post
-     */
-    activitydate;
-     
+  /**
+   *  Activity Date
+   *  @memberof Post
+   */
+  activitydate;
 
-    /**
-     *
-     *
-     * @memberof Post
-     */
-    activitylog;
+  /**
+   *  Activity Log
+   *  @memberof Post
+   */
+  activitylog;
 
-    /**
-     *
-     *
-     * @memberof Post
-     */
-    comment;
-    
-    /**
-     *
-     *
-     * @memberof Post
-     */
-    id;
+  /**
+   *  Comment
+   *  @memberof Post
+   */
+  comment;
 
-    /**
-     *
-     *
-     * @memberof Post
-     */
-    username;
+  /**
+   *  Id
+   *  @memberof Post
+   */
+  id;
 
-    /**
-     *
-     *
-     * @memberof Post
-     */
-    userimage;
-    }
+  /**
+   *  Usename
+   *  @memberof Post
+   */
+  username;
+
+  /**
+   *  User Image
+   *  @memberof Post
+   */
+  userimage;
+}
