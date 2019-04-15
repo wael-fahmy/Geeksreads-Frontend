@@ -38,6 +38,7 @@ import { NewsfeedCommentPostComponent } from './newsfeed-comment-post/newsfeed-c
 import { ReviewsComponent } from './reviews/reviews.component';
 import { ReviewsEntityComponent } from './reviews-entity/reviews-entity.component';
 import { ReviewsCommentsComponent } from './reviews-comments/reviews-comments.component';
+import { VerifiedComponent } from './verified/verified.component';
 
 @NgModule({
   declarations: [
@@ -72,7 +73,8 @@ import { ReviewsCommentsComponent } from './reviews-comments/reviews-comments.co
     ProfileReadShelfComponent,
     ReviewsComponent,
     ReviewsEntityComponent,
-    ReviewsCommentsComponent
+    ReviewsCommentsComponent,
+    VerifiedComponent
   ],
   imports: [
     BrowserModule,
