@@ -16,7 +16,7 @@ import {ReviewsComponent} from './reviews/reviews.component';
 
 const routes: Routes = [
   {
-    path: '/',
+    path: '',
     component: HomepageComponent
   },
   {
