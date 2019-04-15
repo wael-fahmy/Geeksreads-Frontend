@@ -1,5 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
+/**
+ *  Verified Component
+ *  @export
+ *  @class VerifiedComponent
+ *  @implements {OnInit}
+ */
 @Component({
   selector: 'app-verified',
   templateUrl: './verified.component.html',
@@ -7,8 +13,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VerifiedComponent implements OnInit {
 
+  /**
+   *  Creates an instance of VerifiedComponent.
+   *  @memberof VerifiedComponent
+   */
   constructor() { }
 
+  /**
+   *  Angualr ngOnInit
+   *  @memberof VerifiedComponent
+   */
   ngOnInit() {
   }
 

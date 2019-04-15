@@ -1,0 +1,17 @@
+.verified {
+    margin: 64px 0;
+    text-align: center;
+}
+
+.verified-logo-div {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    margin: 10px 0;
+    padding: 10px 0 0 0;
+}
+
+.verified-logo {
+    width: 100px;
+    margin: 0 auto;
+}
