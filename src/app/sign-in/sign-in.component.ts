@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators, NgForm } from '@angular/forms';
-import {HttpClient } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 
- /**
-  *
-  * This is sign in component
-  * @export
-  * @class SignInComponent
-  * @implements {OnInit}
-  */
+/**
+ *
+ * This is sign in component
+ * @export
+ * @class SignInComponent
+ * @implements {OnInit}
+ */
 @Component({
   selector: 'app-sign-in',
   templateUrl: './sign-in.component.html',
@@ -47,16 +47,6 @@ export class SignInComponent implements OnInit {
   userPassword = '';
 
   /**
-   * Creates an instance of SignInComponent.
-   * @param {HttpClient} http
-   * http client module used to make requests to server
-   * @memberof SignInComponent
-   */
-  constructor(private http: HttpClient, private route: Router) {
-
-  }
-
-  /**
    *
    * Checks email
    * @memberof SignInComponent
@@ -65,8 +55,8 @@ export class SignInComponent implements OnInit {
     return this.email.hasError('required')
       ? 'You must enter a value'
       : this.email.hasError('email')
-      ? 'Not a valid email'
-      : '';
+        ? 'Not a valid email'
+        : '';
   }
 
   /**
@@ -74,50 +64,42 @@ export class SignInComponent implements OnInit {
    * @memberof SignInComponent
    */
   testRequest() {
-// tslint:disable-next-line: deprecation
+    // tslint:disable-next-line: deprecation
     // const data = new URLSearchParams();
     // data.append('email', this.userEmail);
     // data.append('pass', this.userPassword);
-
     const data = {
-      UserEmail: this.userEmail ,
+      UserEmail: this.userEmail,
       UserPassword: this.userPassword
     };
-    console.log('2abl ma ab3at ' , data);
+    console.log('Before sending ', data);
     this.http
       .post('https://geeksreads.herokuapp.com/api/auth/signin', data)
-   // tslint:disable-nextline: variable-name
-        .subscribe((serverResponse) => {
-          console.log(serverResponse);
-        // alert('ok ' + serverResponse['message']);
-     // tslint:disable-next-line: triple-equals
-          if (serverResponse['message'] == 'You entered the data correctly') {
-          this.route.navigate(['/homepage']);
+      // tslint:disable-nextline: variable-name
+      .subscribe((serverResponse) => {
+        console.log(serverResponse);
+        if (serverResponse === 'You entered the data correctly') {
+          this.route.navigate(['/newsfeed']);
         }
-        }, (error: { json: () => void; }) => {
-            console.log(error.json());
-        });
+      }, (error: { json: () => void; }) => {
+        console.log(error.json);
+      });
   }
+
 
   /**
-   * This function handles user signing in request
-   * @param {NgForm} form
+   * Creates an instance of SignInComponent.
+   * @param {HttpClient} http
+   * http client module used to make requests to server
    * @memberof SignInComponent
    */
-onSigningIn(form: NgForm) {
-    if (form.invalid) {
-      return;
-    }
-    console.log('Signing In...');
-  }
+  constructor(private http: HttpClient, private route: Router) { }
 
-/**
- *
- * function called on initiallization
- * @memberof SignInComponent
- */
-ngOnInit() {}
+  /**
+   *
+   * function called on initiallization
+   * @memberof SignInComponent
+   */
+  ngOnInit() { }
 
 }
-
-

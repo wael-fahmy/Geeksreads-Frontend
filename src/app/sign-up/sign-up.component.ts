@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators, NgForm } from '@angular/forms';
-import {HttpClient } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 
 
 
@@ -15,32 +15,23 @@ import {HttpClient } from '@angular/common/http';
   templateUrl: './sign-up.component.html',
   styleUrls: ['./sign-up.component.css']
 })
-
-
-
-
 export class SignUpComponent implements OnInit {
 
-
-
   /**
-   * Later
+   * Hide password field and show on eye icon click
    * @type {boolean}
    * @memberof SignUpComponent
    */
   hide = true;
 
-
   /**
-   * user email
+   * User Email
    * @type {FormControl}
    * object used for validation
    * @memberof SignUpComponent
    *
    */
   email = new FormControl('', [Validators.required, Validators.email]);
-
-
 
   /**
    * User name entered in the form
@@ -49,9 +40,6 @@ export class SignUpComponent implements OnInit {
    *
    */
   userName = '';
-
-
-
 
   /**
    * takes userEmail
@@ -62,22 +50,48 @@ export class SignUpComponent implements OnInit {
    */
   userEmail = '';
 
-
-
   /**
-   *
-   * user's password hashed
+   * User's password hashed
    * @type {String}
    * @memberof SignUpComponent
-   *
    */
   userPassword = '';
 
+  /**
+   * Checks Email
+   * @returns
+   * returns text message to user
+   * @memberof SignUpComponent
+   */
+  getErrorMessage() {
+    return this.email.hasError('required') ? 'You must enter a value' :
+      this.email.hasError('email') ? 'Not a valid email' : '';
+  }
 
+  /**
+   * Tests the sign up component
+   * @memberof SignUpComponent
+   */
+  testRequest() {
+    // tslint:disable-next-line: deprecation
+    // const data = new URLSearchParams();
+    // data.append('userName', this.userName);
+    // data.append('userEmail', this.userEmail);
+    // data.append('userPassword', this.userPassword);
+    const data = {
+      UserName: this.userName,
+      UserEmail: this.userEmail,
+      UserPassword: this.userPassword
+    };
 
-
-
-
+    this.http
+      .post('https://geeksreads.herokuapp.com/api/users/signup', data)
+      .subscribe((serverResponse) => {
+        console.log(serverResponse);
+      }, error => {
+        console.log(error);
+      });
+  }
 
 
   /**
@@ -85,83 +99,12 @@ export class SignUpComponent implements OnInit {
    * @param {HttpClient} http
    * @memberof SignUpComponent
    */
-  constructor(private http: HttpClient) {
-
-   }
-
-
-
-
-
-  /**
-   *
-   * Checks Email
-   * @returns
-   * returns text message to user
-   * @memberof SignUpComponent
-   *
-   *
-   */
-  getErrorMessage() {
-    return this.email.hasError('required') ? 'You must enter a value' :
-      this.email.hasError('email') ? 'Not a valid email' : '';
-  }
-
-
-  /**
-   * tests the sign up component
-   * @memberof SignUpComponent
-   */
-  testRequest() {
-    // tslint:disable-next-line: deprecation
-        // const data = new URLSearchParams();
-        // data.append('userName', this.userName);
-        // data.append('userEmail', this.userEmail);
-        // data.append('userPassword', this.userPassword);
-
-        let data = {
-          UserName : this.userName,
-          UserEmail: this.userEmail,
-          UserPassword: this.userPassword
-        };
-        this.http
-          .post('https://geeksreads.herokuapp.com/api/users/signup', data)
-       // tslint:disable-next-line: variable-name
-            .subscribe((serverResponse) => {
-                  console.log(serverResponse);
-                  alert('ok' + serverResponse['message']);
-
-            }, error => {
-              console.log(error)
-            });
-      }
-
-
-
-  /**
-   * check if user signed up or not
-   * @param {NgForm} form
-   * form that user enters data
-   * @returns
-   * nothing
-   * @memberof SignUpComponent
-   *
-   *
-   */
-  onSigningUp(form: NgForm) {
-
-    if (form.invalid) {
-      return;
-    }
-    console.log('Signing Up...');
-  }
-
+  constructor(private http: HttpClient) { }
 
   /**
    * function called on initiallization
    * @memberof SignUpComponent
    */
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
 }

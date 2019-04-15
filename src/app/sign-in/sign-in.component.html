@@ -1,15 +1,14 @@
 <div class="sign-in">
-    <h1>Geeksreads</h1>
-    <button mat-raised-button color="primary" class="btn facebook"><i></i><span></span>Continue with Facebook</button>
-    <button mat-raised-button color="primary" class="btn amazon"><i></i><span></span>Continue with Amazon</button>
-    <hr>
+    <div class="sign-in-logo-div">
+        <img src="../../assets/logos/logo.png" alt="Geeksreads Logo" class="sign-in-logo">
+    </div>
     <form class="sign-in-form" (submit)="testRequest()" #signinForm='ngForm'>
         <mat-form-field>
-            <input matInput placeholder="Enter your email" [formControl]="email" required name="email" [(ngModel)] ="userEmail">
+            <input matInput placeholder="Enter your email" [formControl]="email" required name="email" [(ngModel)]="userEmail">
             <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
         </mat-form-field>
-        <mat-form-field>
-            <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'" name="password" [(ngModel)]="userPassword">
+        <mat-form-field id="password-field">
+            <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'" required name="password" [(ngModel)]="userPassword">
             <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
         </mat-form-field>
         <button mat-raised-button class="btn" type="submit" id="form-submit-btn">Sign In</button>
