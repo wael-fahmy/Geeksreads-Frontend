@@ -556,6 +556,20 @@ app.use("/api/newsfeed", (req, res, next) => {
         Post: Post
     });
 });
+// this function gets book images to fill the genres page 
+app.use("/api/genres",(req,res,next)=>
+{
+    const Row = {
+        genretype: 'Romance',
+        bookimage1:'https://via.placeholder.com/86x120',
+        bookimage2:'https://via.placeholder.com/86x120',
+        bookimage3:'https://via.placeholder.com/86x120'
+    };
+    res.status(200).json({
+        message: "user fetched successfully.",
+        Row:Row
+    });
+});
 
 app.post("/api/sign-in", (req, res, next) => {
     email = "omar@gmail.com";
