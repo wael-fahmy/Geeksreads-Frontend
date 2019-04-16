@@ -3,7 +3,6 @@ import { Subscription } from 'rxjs';
 import { Row } from './genre-row.model';
 import { RowServices } from './genre-row.service';
 
-
 /**
  * Genre row component
  * @export
@@ -18,13 +17,13 @@ import { RowServices } from './genre-row.service';
 export class GenreRowComponent implements OnInit {
 
   /**
-   *initialization of genre type
+   * initialization of genre type
    * @memberof GenreRowComponent
    */
-  genretype ='Romance';
+  genretype = 'Romance';
 
   /**
-   *book image 1
+   * book image 1
    * @memberof GenreRowComponent
    */
   bookimage1 = 'https://via.placeholder.com/120x120';
@@ -37,7 +36,7 @@ export class GenreRowComponent implements OnInit {
 
   /**
    *
-   *book image 3
+   * book image 3
    * @memberof GenreRowComponent
    */
   bookimage3 = 'https://via.placeholder.com/120x120';
@@ -46,20 +45,26 @@ export class GenreRowComponent implements OnInit {
    * @memberof GenreRowComponent
    */
 
-   /**
-    * Row object created to fill data
-    * @type {Row}
-    * @memberof GenreRowComponent
-    */
-   RowObj: Row;
+  /**
+   * Row object created to fill data
+   * @type {Row}
+   * @memberof GenreRowComponent
+   */
+  RowObj: Row;
 
-   /**
-    *
-    * @private
-    * @type {Subscription}
-    * @memberof GenreRowComponent
-    */
-   private subprofile: Subscription ;
+  /**
+   *
+   * @private
+   * @type {Subscription}
+   * @memberof GenreRowComponent
+   */
+  private subprofile: Subscription;
+
+  /**
+   * Creates an instance of GenreRowComponent.
+   * @param {RowServices} rowServicesObj
+   * @memberof GenreRowComponent
+   */
   constructor(private rowServicesObj: RowServices) { }
 
   /**
@@ -69,14 +74,12 @@ export class GenreRowComponent implements OnInit {
    */
   ngOnInit() {
     this.rowServicesObj.get_row();
-    this.subprofile = this.rowServicesObj.get_row_updated().subscribe(( RowData: Row ) =>
-    {
-         this.RowObj = RowData;
-         this.genretype = this.RowObj.genretype;
-         this.bookimage1 = this.RowObj.bookimage1;
-         this.bookimage2 = this.RowObj.bookimage2 ;
-         this.bookimage3 = this.RowObj.bookimage3;
+    this.subprofile = this.rowServicesObj.get_row_updated().subscribe((RowData: Row) => {
+      this.RowObj = RowData;
+      this.genretype = this.RowObj.genretype;
+      this.bookimage1 = this.RowObj.bookimage1;
+      this.bookimage2 = this.RowObj.bookimage2;
+      this.bookimage3 = this.RowObj.bookimage3;
     });
   }
-
 }
