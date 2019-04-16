@@ -560,7 +560,7 @@ app.use("/api/newsfeed", (req, res, next) => {
 app.use("/api/genres",(req,res,next)=>
 {
     const Row = {
-        genretype: 'Romance',
+        genretype: 'Action',
         bookimage1:'https://via.placeholder.com/86x120',
         bookimage2:'https://via.placeholder.com/86x120',
         bookimage3:'https://via.placeholder.com/86x120'
