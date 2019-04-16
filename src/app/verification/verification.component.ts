@@ -1,5 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 
+/**
+ *
+ * Verification Constructor
+ * @export
+ * @class VerificationComponent
+ * @implements {OnInit}
+ */
 @Component({
   selector: 'app-verification',
   templateUrl: './verification.component.html',
@@ -7,8 +14,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VerificationComponent implements OnInit {
 
+  /**
+   * Creates an instance of VerificationComponent.
+   * @memberof VerificationComponent
+   */
   constructor() { }
 
+  /**
+   * Angular Init
+   * @memberof VerificationComponent
+   */
   ngOnInit() {
   }
 
