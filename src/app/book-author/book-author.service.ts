@@ -53,6 +53,37 @@ export class AuthorDetails_Service {
     get_author_details_updated() {
         return this.author_detailsUpdated.asObservable();
     }
+    /**
+     *
+     * unfollow post request
+     * @param {string} author_id
+     * @param {string} user_id
+     * @memberof AuthorDetails_Service
+     */
+    post_author_unfollow(authorid: string, userid: string) {
+        const author: AuthorDetails = {user_id: userid, author_id: authorid, author_body: null,
+            author_followers: null, author_image: null, author_name: null, book_id: null};
+        this.http.post<{message: string}>('http://localhost:3000/api/authordata', author)
+        .subscribe ((responseData) => {
+            console.log(responseData.message);
+        });
+    }
+    post_author_follow(authorid: string, userid: string) {
+        const author: AuthorDetails = {user_id: userid, author_id: authorid, author_body: null,
+            author_followers: null, author_image: null, author_name: null, book_id: null};
+        this.http.post<{message: string}>('http://localhost:3000/api/authordata', author)
+        .subscribe ((responseData) => {
+            console.log(responseData.message);
+        });
+    }
+    post_author_id(authorid: string) {
+        const author: AuthorDetails = {user_id: null, author_id: authorid, author_body: null,
+            author_followers: null, author_image: null, author_name: null, book_id: null};
+        this.http.post<{message: string}>('http://localhost:3000/api/authordata', author)
+        .subscribe ((responseData) => {
+            console.log(responseData.message);
+        });
+    }
 }
 
 
