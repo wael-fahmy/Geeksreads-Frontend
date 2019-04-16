@@ -72,12 +72,11 @@ export class SignInComponent implements OnInit {
       UserEmail: this.userEmail,
       UserPassword: this.userPassword
     };
-    console.log('Before sending ', data);
     this.http
       .post('https://geeksreads.herokuapp.com/api/auth/signin', data)
-      // tslint:disable-nextline: variable-name
-      .subscribe((serverResponse) => {
-        console.log(serverResponse);
+      .subscribe((serverResponse: any) => {
+        localStorage.setItem('token', serverResponse.Token);
+        localStorage.setItem('userId', serverResponse.UserId);
         this.router.navigate(['/newsfeed']);
       }, (error: { json: () => void; }) => {
         console.log(error.json);
@@ -87,8 +86,8 @@ export class SignInComponent implements OnInit {
 
   /**
    * Creates an instance of SignInComponent.
-   * @param {HttpClient} http
    * http client module used to make requests to server
+   * @param {HttpClient} http
    * @memberof SignInComponent
    */
   constructor(private http: HttpClient, private router: Router) { }
