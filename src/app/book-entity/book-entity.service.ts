@@ -52,7 +52,7 @@ export class BookTitle_Service {
      * @memberof BookTitle_Service
      */
     get_book_Info() {
-        this.http.get<{ message: string, book_details: BookDetails[] }>('http://localhost:3000/api/book').
+        this.http.get<{ message: string, book_details: BookDetails[] }>('http://localhost:3000/api/book/byid/?book_id=Value').
             // tslint:disable-next-line:variable-name
             subscribe((bookdata) => {
                 this.book_details = bookdata.book_details;
@@ -74,7 +74,7 @@ export class BookTitle_Service {
      * @memberof BookTitle_Service
      */
     get_author_Info() {
-        this.http.get<{ message: string, author_details: AuthorDetails[] }>('http://localhost:3000/api/book').
+        this.http.get<{ message: string, author_details: AuthorDetails[] }>('http://localhost:3000/api/Author/byid/?auth_id=Value').
             // tslint:disable-next-line:variable-name
             subscribe((authordata) => {
                 this.author_details = authordata.author_details;
@@ -101,7 +101,7 @@ export class BookTitle_Service {
 post_book_status(bookc_id: string, bookc_status: string) {
 // tslint:disable-next-line: max-line-length
         const book: BookDetails = {BookId: bookc_id, ReadStatus: bookc_status, AuthorId: null, Description: null, Cover: null, Title: null, BookRating: null};
-        this.http.post<{message: string}>('http://localhost:/api/book/byid/?book_id=Value', book)
+        this.http.post<{message: string}>('http://localhost:/api/book/byid/?book_id={{bookc_id}}', book)
         .subscribe ((responseData) => {
             console.log(responseData.message);
         });
