@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators, NgForm } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
-
+import { Router } from '@angular/router';
 
 
 /**
@@ -87,7 +87,7 @@ export class SignUpComponent implements OnInit {
     this.http
       .post('https://geeksreads.herokuapp.com/api/users/signup', data)
       .subscribe((serverResponse) => {
-        console.log(serverResponse);
+        this.router.navigate(['verification']);
       }, error => {
         console.log(error);
       });
@@ -99,7 +99,7 @@ export class SignUpComponent implements OnInit {
    * @param {HttpClient} http
    * @memberof SignUpComponent
    */
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, public router: Router) { }
 
   /**
    * function called on initiallization
