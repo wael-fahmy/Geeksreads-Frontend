@@ -125,6 +125,7 @@ ngOnInit() {
     // tslint:disable-next-line:variable-name 
     this.Sub_profile = this.booktitle_service.get_book_Info_updated().subscribe((book_Information: BookDetails[]) => {
       this.book_details = book_Information;
+      localStorage.setItem("authorID",this.book_details[0].book_id);
       this.SetInfo();
       this.assign_status(this.book_details[this.book_index].book_status);
       /* console.log(this.User_info.User_Name)

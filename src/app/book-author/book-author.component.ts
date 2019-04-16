@@ -80,6 +80,7 @@ public after_dots: string [] = [];
    * @memberof BookAuthorComponent
    */
   private Sub_profile: Subscription;
+  authorIsFollowing = false;
   // tslint:disable-next-line:variable-name
   /**
    *
@@ -108,6 +109,8 @@ public after_dots: string [] = [];
    * @memberof BookAuthorComponent
    */
   ngOnInit() {
+    let author=localStorage.getItem("authorID");
+    console.log(author);
     this.authordetails_service.get_author_Info();                                  // to get the user info from the service
     // tslint:disable-next-line:variable-name
     this.Sub_profile = this.authordetails_service.get_author_details_updated().subscribe((author_Information: AuthorDetails[]) => {
@@ -118,6 +121,18 @@ public after_dots: string [] = [];
       console.log(this.User_info.user_id)
       console.log(this.User_info.User_Photo)*/
     });
+  }
+  followAuthor() {
+    // TODO: Send request
+    this.authorIsFollowing = true;
+    //this.authorNumberOfFollowers += 1;
+    console.log('Following this author');
+  }
+  unfollowAuthor() {
+    // TODO: Send request
+    this.authorIsFollowing = false;
+    //this.authorNumberOfFollowers -= 1;
+    console.log('Unfollowing this author');
   }
   /**
    *
