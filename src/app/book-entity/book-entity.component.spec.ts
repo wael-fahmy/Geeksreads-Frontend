@@ -13,10 +13,11 @@ describe('BookEntityComponent', () => {
       declarations: [BookEntityComponent],
       imports: [MatMenuModule, MatDividerModule, MatListModule, MaterialModule, HttpClientModule]
     })
-      .compileComponents();
-    fixture = TestBed.createComponent(BookEntityComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+      .compileComponents().then(() => {
+        fixture = TestBed.createComponent(BookEntityComponent);
+        component = fixture.componentInstance;
+        fixture.detectChanges();
+      });
   }));
 
   beforeEach(() => {

@@ -30,6 +30,15 @@ app.post("/api/book", (req, res, next) => {
     const post = req.body;
     console.log(post.book_id);
     console.log(post.book_status);
+    console.log(post.AuthorId);
+    res.status(201).json({
+        message: "Post added successfully"
+    });
+});
+app.post("/api/authordata", (req, res, next) => {
+    const post = req.body;
+    console.log(post.author_id);
+    console.log(post.user_id);
     res.status(201).json({
         message: "Post added successfully"
     });
@@ -321,28 +330,31 @@ app.use("/api/suggestedbook", (req, res, next) => {
 });
 app.use("/api/book", (req, res, next) => {
     const book_details = [{
-            book_id: "4324",
-            book_title: "Hajimete no Gal",
-            book_image: "https://cdna.artstation.com/p/assets/images/images/003/765/026/large/mark-valeri-sao-manga-front-cover.jpg?1477271070",
-            book_author: "Sebastian",
-            book_status: "Want To Read",
-            book_body: 'Spring. The "season of love" has arrived and it seems that finding himself a girlfriend was harder than Junichi believed. To break the status quo,Junichis friends have forced him into confessing to the gal. Yame Yukana. However. things do not go quite as he expected. A series of "firsts" begins!'
+            BookId: "4324",
+            Title: "Hajimete no Gal",
+            Cover: "https://cdna.artstation.com/p/assets/images/images/003/765/026/large/mark-valeri-sao-manga-front-cover.jpg?1477271070",
+            Author: "Sebastian",
+            AuthorId: "45",
+            ReadStatus: "Want To Read",
+            Description: 'Spring. The "season of love" has arrived and it seems that finding himself a girlfriend was harder than Junichi believed. To break the status quo,Junichis friends have forced him into confessing to the gal. Yame Yukana. However. things do not go quite as he expected. A series of "firsts" begins!'
         },
         {
-            book_id: "2123",
-            book_title: "Black Butler",
-            book_image: "https://i.pinimg.com/236x/d6/b0/7b/d6b07b9d0ee3df0168945910e2142bf5--black-butler-kuroshitsuji-shinigami.jpg",
-            book_author: "WiessMan",
-            book_status: "Currently Reading",
-            book_body: "Black Butler (Japanese: 黒執事 Hepburn: Kuroshitsuji) is a Japanese manga series written and illustrated by Yana Toboso. Since its debut on September 16/ 2006, it has been serialized in Gangan Comics sshōnen manga magazine Monthly GFantasy. ... A live action film adaptation was released in Japan on January 18/ 2014"
+            BookId: "2123",
+            Title: "Black Butler",
+            Cover: "https://i.pinimg.com/236x/d6/b0/7b/d6b07b9d0ee3df0168945910e2142bf5--black-butler-kuroshitsuji-shinigami.jpg",
+            Author: "WiessMan",
+            AuthorId: "34",
+            ReadStatus: "Currently Reading",
+            Description: "Black Butler (Japanese: 黒執事 Hepburn: Kuroshitsuji) is a Japanese manga series written and illustrated by Yana Toboso. Since its debut on September 16/ 2006, it has been serialized in Gangan Comics sshōnen manga magazine Monthly GFantasy. ... A live action film adaptation was released in Japan on January 18/ 2014"
         },
         {
-            book_id: "213",
-            book_title: "Gal Gohan",
-            book_image: "http://momoandcream.com/wp-content/uploads/2015/03/Nisekoi-volume-1-cover.jpg",
-            book_author: "Loyd",
-            book_status: "Read",
-            book_body: 'Home Economics Teacher Shinji Yabe is asked by the biggest gyaru in school. Miku Okazaki. to help her "bake cookies to give to the teachers". The principal told her to do this; after she flunked every subject and makeup-class they put her in. He gets her to successfully finish a batch of cookies after several mishaps and is touched by his students glee over her success, He decides to start a cooking club after this experience to get more time and connection with his students. Upon hearing this: Miku decides to join. since he was the first teacher that didnt shove her into makeup-lessons after her failings and pushed her to try harder instead.'
+            BookId: "213",
+            Title: "Gal Gohan",
+            Cover: "http://momoandcream.com/wp-content/uploads/2015/03/Nisekoi-volume-1-cover.jpg",
+            Author: "Loyd",
+            AuthorId: "212",
+            ReadStatus: "Read",
+            Description: 'Home Economics Teacher Shinji Yabe is asked by the biggest gyaru in school. Miku Okazaki. to help her "bake cookies to give to the teachers". The principal told her to do this; after she flunked every subject and makeup-class they put her in. He gets her to successfully finish a batch of cookies after several mishaps and is touched by his students glee over her success, He decides to start a cooking club after this experience to get more time and connection with his students. Upon hearing this: Miku decides to join. since he was the first teacher that didnt shove her into makeup-lessons after her failings and pushed her to try harder instead.'
         }
     ];
 
@@ -355,25 +367,28 @@ app.use("/api/authordata", (req, res, next) => {
     const author_details = [{
             author_name: "Meguru Ueno",
             author_image: "https://i.paigeeworld.com/user-media/1447891200000/55ae8c1544941e41e4a7925a_564e322f05e9bcd58f01dae9_320.jpg",
-            author_followers: "20,334",
+            author_followers: "150",
             author_id: "211",
             book_id: "121",
+            user_id: "1213123",
             author_body: "It has been serialized in Kadokawa Shotens shōnen manga magazine Monthly Shōnen Ace since November 2015. and has been collected in seven tankōbon volumes, A 10-episode anime television series adaptation by NAZ aired from July 12/ 2017 to September 13/ 2017."
         },
         {
             author_name: "Yana Toboso",
             author_image: "https://data.whicdn.com/images/195405628/large.jpg",
-            author_followers: "13,223",
+            author_followers: "200",
             author_id: "343",
             book_id: "23",
+            user_id: "8778",
             author_body: "Yana Toboso (枢 やな. Toboso Yana). born January 24/ 1984. and known by her other pen names Yanao Rock and Takaragi Yana. is a Japanese manga artist. Her most significant work is the manga series Kuroshitsuji.She currently lives in Yokohama. Kanagawa Prefecture. Yana Toboso draws herself as a devil with a black body and horns. a round white head. and a pointed tail, Toboso is now thirty-four years old. and there are currently no known pictures and documents of Tobosos real appearance given to the public"
         },
         {
             author_name: "Loyd",
             author_image: "https://i.pinimg.com/originals/2b/be/76/2bbe76c039a57c17d1779509dba6ea84.jpg",
-            author_followers: "113,435",
+            author_followers: "113",
             author_id: "12",
             book_id: "4",
+            user_id: "9877",
             author_body: "Loyd de la Cruz is the New York Times and USA Today best-selling author of many critically acclaimed and award-winning novels for teens including The Au Pairs series. the Blue Bloods series. the Ashleys series. the Angels on Sunset Boulevard series and the semi-autobiographical novel Fresh off the Boat. Her books for adults include the novel Cat’s Meow, the anthology Girls Who Like Boys Who Like Boys and the tongue-in-chic handbooks How to Become Famous in Two Weeks or Less and The Fashionista Files: Adventures in Four-inch heels and Faux-Pas. She has worked as a fashion and beauty editor and has written for many publications including The New York Times. Marie Claire. Harper’s Bazaar. Glamour. Cosmopolitan. Allure. The San Francisco"
         }
     ];

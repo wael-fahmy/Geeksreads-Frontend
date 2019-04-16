@@ -4,6 +4,7 @@ import { BookDetails } from './book-entity.model';
 import { HttpClient } from '@angular/common/http';
 import {AuthorDetails} from './book-entity.model';
 
+
 @Injectable({ providedIn: 'root' })
 
 // tslint:disable-next-line:class-name
@@ -52,7 +53,7 @@ export class BookTitle_Service {
      * @memberof BookTitle_Service
      */
     get_book_Info() {
-        this.http.get<{ message: string, book_details: BookDetails[] }>('http://localhost:3000/api/book/byid/?book_id=Value').
+        this.http.get<{ message: string, book_details: BookDetails[] }>('http://localhost:3000/api/book').
             // tslint:disable-next-line:variable-name
             subscribe((bookdata) => {
                 this.book_details = bookdata.book_details;
@@ -74,7 +75,7 @@ export class BookTitle_Service {
      * @memberof BookTitle_Service
      */
     get_author_Info() {
-        this.http.get<{ message: string, author_details: AuthorDetails[] }>('http://localhost:3000/api/Author/byid/?auth_id=Value').
+        this.http.get<{ message: string, author_details: AuthorDetails[] }>('http://localhost:3000/api/book').
             // tslint:disable-next-line:variable-name
             subscribe((authordata) => {
                 this.author_details = authordata.author_details;
@@ -100,8 +101,9 @@ export class BookTitle_Service {
  */
 post_book_status(bookc_id: string, bookc_status: string) {
 // tslint:disable-next-line: max-line-length
-        const book: BookDetails = {BookId: bookc_id, ReadStatus: bookc_status, AuthorId: null, Description: null, Cover: null, Title: null, BookRating: null};
-        this.http.post<{message: string}>('http://localhost:/api/book/byid/?book_id={{bookc_id}}', book)
+        const book: BookDetails = {BookId: bookc_id, ReadStatus: bookc_status, AuthorId: null,
+             Description: null, Cover: null, Title: null, BookRating: null, Author: null};
+        this.http.post<{message: string}>('http://localhost:3000/api/book', book)
         .subscribe ((responseData) => {
             console.log(responseData.message);
         });
@@ -109,15 +111,22 @@ post_book_status(bookc_id: string, bookc_status: string) {
 post_book_id(bookc_id: string) {
 // tslint:disable-next-line: max-line-length
         const book: BookDetails = {BookId: bookc_id, ReadStatus: null, AuthorId: null, Description: null
-            , Cover: null, Title: null, BookRating: null};
-        this.http.post<{message: string}>('http://localhost:/api/book/byid/?book_id=Value', book)
+            , Cover: null, Title: null, BookRating: null, Author: null};
+        this.http.post<{message: string}>('http://localhost:3000/api/book', book)
+        .subscribe ((responseData) => {
+            console.log(responseData.message);
+        });
+    }
+    post_getauthor_id(author_id: string) {
+        const author: AuthorDetails = {_id: null, AuthorId: author_id, AuthorName: null};
+        this.http.post<{message: string}>('http://localhost:3000/api/book', author)
         .subscribe ((responseData) => {
             console.log(responseData.message);
         });
     }
     post_author_id(author_id: string) {
         const author: AuthorDetails = {_id: null, AuthorId: author_id, AuthorName: null};
-        this.http.post<{message: string}>('/api/Author/byid/?auth_id=Value', author)
+        this.http.post<{message: string}>('http://localhost:3000/api/book', author)
         .subscribe ((responseData) => {
             console.log(responseData.message);
         });

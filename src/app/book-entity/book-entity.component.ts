@@ -130,7 +130,7 @@ constructor(public booktitle_service: BookTitle_Service) { }
    * @memberof BookEntityComponent
    */
 ngOnInit() {
-    this.booktitle_service.post_book_id('12');
+    //this.booktitle_service.post_book_id('12');
     this.booktitle_service.get_book_Info();                                  // to get the user info from the service
     // tslint:disable-next-line:variable-name
     this.Sub_profile = this.booktitle_service.get_book_Info_updated().subscribe((book_Information: BookDetails[]) => {
@@ -143,16 +143,24 @@ ngOnInit() {
       console.log(this.User_info.user_id)
       console.log(this.User_info.User_Photo)*/
     });
-    this.booktitle_service.post_author_id(this.bookauthorid[0]);
-    this.booktitle_service.get_author_Info();                                  // to get the user info from the service
+    //this.booktitle_service.post_author_id(this.bookauthorid[0]);
+    //this.booktitle_service.get_author_Info();                                  // to get the user info from the service
     // tslint:disable-next-line:variable-name
-    this.Sub_profile = this.booktitle_service.get_author_Info_updated().subscribe((author_Information: AuthorDetails[]) => {
-      this.author_details = author_Information;
-      this.SetAuthorInfo();
+    //this.Sub_profile = this.booktitle_service.get_author_Info_updated().subscribe((author_Information: AuthorDetails[]) => {
+     // this.author_details = author_Information;
+     // this.SetAuthorInfo();
       /* console.log(this.User_info.User_Name)
       console.log(this.User_info.user_id)
       console.log(this.User_info.User_Photo)*/
-    });
+   // });
+  }
+  /**
+   *
+   * get author by author id
+   * @memberof BookEntityComponent
+   */
+  GetAuthorByID() {
+    this.booktitle_service.post_author_id(this.bookauthorid[this.book_index]);
   }
   /**
    *
@@ -166,6 +174,7 @@ ngOnInit() {
       this.booktitle[x] = this.book_details[x].Title;
       this.bookauthorid[x] = this.book_details[x].AuthorId;
       this.bookstatus[x] = this.book_details[x].ReadStatus;
+      this.bookauthor[x] = this.book_details[x].Author;
       this.bookbody[x] = this.book_details[x].Description;
       this.bookid[x] = this.book_details[x].BookId;
       this.SplitString(this.bookbody[x], x);

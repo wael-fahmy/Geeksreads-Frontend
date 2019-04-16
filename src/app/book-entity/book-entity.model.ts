@@ -54,6 +54,13 @@ export interface BookDetails {
      * @memberof BookDetails
      */
     BookRating: number;
+    /**
+     *
+     * vairble to carry author name
+     * @type {string}
+     * @memberof BookDetails
+     */
+    Author: string;
 }
 export interface AuthorDetails {
     _id: string;
