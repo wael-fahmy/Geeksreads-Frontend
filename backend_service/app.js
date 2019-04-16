@@ -556,18 +556,17 @@ app.use("/api/newsfeed", (req, res, next) => {
         Post: Post
     });
 });
-// this function gets book images to fill the genres page 
-app.use("/api/genres",(req,res,next)=>
-{
+// this function gets book images to fill the genres page
+app.use("/api/genres", (req, res, next) => {
     const Row = {
         genretype: 'Action',
-        bookimage1:'https://via.placeholder.com/86x120',
-        bookimage2:'https://via.placeholder.com/86x120',
-        bookimage3:'https://via.placeholder.com/86x120'
+        bookimage1: 'https://via.placeholder.com/86x120',
+        bookimage2: 'https://via.placeholder.com/86x120',
+        bookimage3: 'https://via.placeholder.com/86x120'
     };
     res.status(200).json({
         message: "user fetched successfully.",
-        Row:Row
+        Row: Row
     });
 });
 
@@ -609,11 +608,11 @@ app.post("/api/sign-up", (req, res, next) => {
 
 app.use("/api/author", (req, res, next) => {
     const authorInfo = {
-        authorId: 1152114,
+        authorId: '1152114',
         authorName: 'Mark Twain',
         authorPicture: 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/authors/1322103868i/1244._UX87_.jpg',
         authorIsFollowing: false,
-        authorNumberOfFollowers: 14031,
+        authorNumberOfFollowers: '14031',
         authorDetails: 'Samuel Langhorne Clemens, better known by his pen name Mark Twain, was an American author and humorist. He is noted for his novels Adventures of Huckleberry Finn (1885), called "the Great American Novel", and The Adventures of Tom Sawyer (1876).\nTwain grew up in Hannibal, Missouri, which would later provide the setting for Huckleberry Finn and Tom Sawyer. He apprenticed with a printer. He also worked as a typesetter and contributed articles to his older brother Orion\'s newspaper. After toiling as a printer in various cities, he became a master riverboat pilot on the Mississippi River, before heading west to join Orion. He was a failure at gold mining, so he next turned to journalism. While a reporter, he wrote a humorous story, "The Celebrated Jumping Frog of Calaveras County," which proved to be very popular and brought him nationwide attention. His travelogues were also well-received. Twain had found his calling.',
     };
 
@@ -625,13 +624,13 @@ app.use("/api/author", (req, res, next) => {
 
 app.use("/api/author-book", (req, res, next) => {
     const authorBookInfo = {
-        authorBookId: 105030,
+        authorBookId: '105030',
         authorBookLink: 'https://std.eng.cu.edu.eg/login.aspx',
         authorBookName: 'The Prince and the Pauper',
         authorBookPicture: 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1376406798i/62446._UX75_.jpg',
-        authorBookRating: 5.0,
+        authorBookRating: '5.0',
         authorBookShelf: 'Read',
-        authorId: 1152114,
+        authorId: '1152114',
     };
 
     res.status(200).json({

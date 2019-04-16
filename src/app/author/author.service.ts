@@ -46,12 +46,30 @@ export class AuthorService {
    *  @memberof AuthorService
    */
   getAuthorInfo() {
-    this.http.get<{ message: string, authorInfo: AuthorModel }>('http://localhost:3000/api/author').
-      subscribe((AuthorData) => {       // subscribe the recived data
-        // and put it in the user object to display it
-        this.author = AuthorData.authorInfo;
+    // tslint:disable-next-line: deprecation
+    // const data = new URLSearchParams();
+    // data.append('email', this.userEmail);
+    // data.append('pass', this.userPassword);
+    this.http
+      .post('https://geeksreads.herokuapp.com/api/Author/?auth_name=Deena Craig', '')
+      .subscribe((serverResponse: any) => {
+        console.log(serverResponse);
+        this.author.authorId = serverResponse.AuthorId;
+        this.author.authorName = serverResponse.AuthorName;
+        this.author.authorPicture = serverResponse.Photo;
+        this.author.authorBookIds = serverResponse.BookId;
+        this.author.authorFollowingUserIds = serverResponse.FollowingUserId;
+        this.author.authorNumberOfFollowers = serverResponse.FollowingUserId.length();
         this.authorUpdated.next(this.author);
+      }, (error: { json: () => void; }) => {
+        console.log(error.json);
       });
+    // this.http.get<{ message: string, authorInfo: AuthorModel }>('http://localhost:3000/api/author').
+    //   subscribe((serverResponse) => {       // subscribe the recived data
+    //     // and put it in the user object to display it
+    //     this.author = serverResponse.authorInfo;
+    //     this.authorUpdated.next(this.author);
+    //   });
   }
 
 

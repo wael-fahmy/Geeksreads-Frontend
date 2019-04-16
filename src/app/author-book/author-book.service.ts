@@ -41,8 +41,7 @@ export class AuthorBookService {
    */
   getAuthorBookInfo() {
     this.http.get<{ message: string, authorBookInfo: AuthorBookModel }>('http://localhost:3000/api/author-book').
-      subscribe((AuthorBookData) => {       // subscribe the recived data
-        // and put it in the user object to display it
+      subscribe((AuthorBookData) => {
         this.authorBook = AuthorBookData.authorBookInfo;
         this.authorBookUpdated.next(this.authorBook);
       });

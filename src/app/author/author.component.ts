@@ -84,16 +84,6 @@ export class AuthorComponent implements OnInit {
   }
 
   /**
-   *  Request author's info
-   *  @param {(string | number)} authorID
-   *  @memberof AuthorComponent
-   */
-  getAuthorInfo(authorID: string | number) {
-    console.log('Component Created ' + authorID);
-  }
-
-
-  /**
    *  Creates an instance of AuthorComponent.
    *  @param {AuthorService} authorService
    *  @memberof AuthorComponent
@@ -110,12 +100,13 @@ export class AuthorComponent implements OnInit {
     this.authorSubscription = this.authorService.getAuthorInfoUpdated().
       subscribe((authorInformation: AuthorModel) => {
         this.authorInfo = authorInformation;
-        this.authorName = this.authorInfo.authorName;
-        this.authorDetails = this.authorInfo.authorDetails;
+
         this.authorId = this.authorInfo.authorId;
-        this.authorIsFollowing = this.authorInfo.authorIsFollowing;
-        this.authorNumberOfFollowers = this.authorInfo.authorNumberOfFollowers;
+        this.authorName = this.authorInfo.authorName;
         this.authorPicture = this.authorInfo.authorPicture;
+        this.authorNumberOfFollowers = this.authorInfo.authorNumberOfFollowers;
+        // this.authorDetails = this.authorInfo.authorDetails;
+        // this.authorIsFollowing = this.authorInfo.authorIsFollowing;
       });
   }
 }

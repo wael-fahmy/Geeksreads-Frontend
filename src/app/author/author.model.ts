@@ -34,4 +34,18 @@ export interface AuthorModel {
    *  A brief information about the author
    */
   authorDetails: string;
+
+  /**
+   * Array of user ids following this author
+   * @type {string[]}
+   * @memberof AuthorModel
+   */
+  authorFollowingUserIds: string[];
+
+  /**
+   * Books written by this author
+   * @type {string[]}
+   * @memberof AuthorModel
+   */
+  authorBookIds: string[];
 }
