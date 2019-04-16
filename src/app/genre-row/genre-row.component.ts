@@ -14,6 +14,30 @@ import { Component, OnInit } from '@angular/core';
 export class GenreRowComponent implements OnInit {
 
   /**
+   * Genre Type
+   * @memberof GenreRowComponent
+   */
+  genretype = '';
+
+  /**
+   * First book image
+   * @memberof GenreRowComponent
+   */
+  bookimage1 = '';
+
+  /**
+   * Second Book Image
+   * @memberof GenreRowComponent
+   */
+  bookimage2 = '';
+
+  /**
+   * Third book Image
+   * @memberof GenreRowComponent
+   */
+  bookimage3 = '';
+
+  /**
    * Creates an instance of GenreRowComponent.
    * @memberof GenreRowComponent
    */
