@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BookDetails } from './book-entity.model';
 import { Subscription } from 'rxjs';
 import { BookTitle_Service } from './book-entity.service';
+import { AuthorDetails } from './book-entity.model';
 import { delay } from 'q';
 
 @Component({
@@ -43,6 +44,13 @@ booktitle: string [] = [];
 /**
  *
  * variable list used to store list of book authors
+ * @type {string []}
+ * @memberof BookEntityComponent
+ */
+bookauthorid: string [] = [];
+/**
+ *
+ * vairbale to carry author details
  * @type {string []}
  * @memberof BookEntityComponent
  */
@@ -101,13 +109,14 @@ public after_dots: string [] = [];
    * @memberof BookEntityComponent
    */
   public book_details: BookDetails[] = [];
+  public author_details: AuthorDetails[] = [];
   // tslint:disable-next-line:variable-name
   /**
    *
-   * carries the index of the book 
+   * carries the index of the book
    * @memberof BookEntityComponent
    */
-  book_index = 2;
+  book_index = 0;
   // tslint:disable-next-line:variable-name
   /**
    * Creates an instance of BookEntityComponent.
@@ -121,13 +130,25 @@ constructor(public booktitle_service: BookTitle_Service) { }
    * @memberof BookEntityComponent
    */
 ngOnInit() {
+    this.booktitle_service.post_book_id('12');
     this.booktitle_service.get_book_Info();                                  // to get the user info from the service
-    // tslint:disable-next-line:variable-name 
+    // tslint:disable-next-line:variable-name
     this.Sub_profile = this.booktitle_service.get_book_Info_updated().subscribe((book_Information: BookDetails[]) => {
       this.book_details = book_Information;
-      localStorage.setItem("authorID",this.book_details[0].book_id);
+      localStorage.setItem('authorID', this.book_details[0].AuthorId);
+      localStorage.setItem('bookID', this.book_details[0].BookId);
       this.SetInfo();
-      this.assign_status(this.book_details[this.book_index].book_status);
+      this.assign_status(this.book_details[this.book_index].ReadStatus);
+      /* console.log(this.User_info.User_Name)
+      console.log(this.User_info.user_id)
+      console.log(this.User_info.User_Photo)*/
+    });
+    this.booktitle_service.post_author_id(this.bookauthorid[0]);
+    this.booktitle_service.get_author_Info();                                  // to get the user info from the service
+    // tslint:disable-next-line:variable-name
+    this.Sub_profile = this.booktitle_service.get_author_Info_updated().subscribe((author_Information: AuthorDetails[]) => {
+      this.author_details = author_Information;
+      this.SetAuthorInfo();
       /* console.log(this.User_info.User_Name)
       console.log(this.User_info.user_id)
       console.log(this.User_info.User_Photo)*/
@@ -141,14 +162,17 @@ ngOnInit() {
   SetInfo() {
 // tslint:disable-next-line: prefer-for-of
     for (let x = 0; x < this.book_details.length; x++) {
-      this.bookimage[x] = this.book_details[x].book_image;
-      this.booktitle[x] = this.book_details[x].book_title;
-      this.bookauthor[x] = this.book_details[x].book_author;
-      this.bookstatus[x] = this.book_details[x].book_status;
-      this.bookbody[x] = this.book_details[x].book_body;
-      this.bookid[x] = this.book_details[x].book_id;
+      this.bookimage[x] = this.book_details[x].Cover;
+      this.booktitle[x] = this.book_details[x].Title;
+      this.bookauthorid[x] = this.book_details[x].AuthorId;
+      this.bookstatus[x] = this.book_details[x].ReadStatus;
+      this.bookbody[x] = this.book_details[x].Description;
+      this.bookid[x] = this.book_details[x].BookId;
       this.SplitString(this.bookbody[x], x);
     }
+  }
+  SetAuthorInfo() {
+    this.bookauthor[0] = this.author_details[0].AuthorName;
   }
   /**
    *
@@ -158,7 +182,7 @@ ngOnInit() {
    * @memberof BookEntityComponent
    */
   SplitString(index: string, x) {
-      const word = this.book_details[x].book_body.split(',');
+      const word = this.book_details[x].Description.split(',');
       this.befor_dots[x] = word[0];
       this.after_dots[x] = word[1];
   }
@@ -193,7 +217,7 @@ book_status(index: string) {
     let x = first.innerHTML.toString();
     first.innerHTML = second.innerHTML.toString();
     second.innerHTML = x;
-    this.booktitle_service.post_book_status(this.book_details[this.book_index].book_id, second.textContent );
+    this.booktitle_service.post_book_status(this.book_details[this.book_index].BookId, second.textContent );
   }
 /**
  *
