@@ -51,7 +51,7 @@ export class GenreRowComponent implements OnInit {
     * @type {Row}
     * @memberof GenreRowComponent
     */
-   RowObj : Row;
+   RowObj: Row;
 
    /**
     *
@@ -59,8 +59,8 @@ export class GenreRowComponent implements OnInit {
     * @type {Subscription}
     * @memberof GenreRowComponent
     */
-   private subprofile :Subscription ;
-  constructor(private rowServicesObj : RowServices) { }
+   private subprofile: Subscription ;
+  constructor(private rowServicesObj: RowServices) { }
 
   /**
    * conatins all the function in service class
@@ -69,7 +69,7 @@ export class GenreRowComponent implements OnInit {
    */
   ngOnInit() {
     this.rowServicesObj.get_row();
-    this.subprofile =this.rowServicesObj.get_row_updated().subscribe(( RowData:Row)=>
+    this.subprofile = this.rowServicesObj.get_row_updated().subscribe(( RowData: Row ) =>
     {
          this.RowObj = RowData;
          this.genretype = this.RowObj.genretype;

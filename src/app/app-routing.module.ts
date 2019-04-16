@@ -14,6 +14,7 @@ import { AuthorComponent } from './author/author.component';
 import {ProfileReadShelfComponent} from './profile-read-shelf/profile-read-shelf.component';
 import {ReviewsComponent} from './reviews/reviews.component';
 import { VerifiedComponent } from './verified/verified.component';
+import { VerificationComponent } from './verification/verification.component';
 
 const routes: Routes = [
   {
@@ -71,6 +72,10 @@ const routes: Routes = [
   {
     path: 'verified',
     component: VerifiedComponent
+  },
+  {
+    path: 'verification',
+    component: VerificationComponent
   }
 ];
 

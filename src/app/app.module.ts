@@ -39,6 +39,7 @@ import { ReviewsComponent } from './reviews/reviews.component';
 import { ReviewsEntityComponent } from './reviews-entity/reviews-entity.component';
 import { ReviewsCommentsComponent } from './reviews-comments/reviews-comments.component';
 import { VerifiedComponent } from './verified/verified.component';
+import { VerificationComponent } from './verification/verification.component';
 
 @NgModule({
   declarations: [
@@ -74,7 +75,8 @@ import { VerifiedComponent } from './verified/verified.component';
     ReviewsComponent,
     ReviewsEntityComponent,
     ReviewsCommentsComponent,
-    VerifiedComponent
+    VerifiedComponent,
+    VerificationComponent
   ],
   imports: [
     BrowserModule,
