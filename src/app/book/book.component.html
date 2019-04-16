@@ -19,10 +19,15 @@
 <hr class="w3-gray" id="Stores-underline">
 <app-book-comment-user></app-book-comment-user>
 <hr id="book-details-uppar-line" class="w3-gray">
+
 <app-book-suggestion></app-book-suggestion>
+
 <app-book-suggestion-other></app-book-suggestion-other>
+
 <app-book-details></app-book-details>
+
 <app-book-author></app-book-author>
+
 <mat-accordion>
     <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
         <mat-expansion-panel-header>
@@ -31,11 +36,11 @@
             </mat-panel-title>
         </mat-expansion-panel-header>
         <div id="genres-type">
-            <button class="genres-button w3-button w3-teal w3-round-xlarge">{{genre_details[genre_index]?.genre_one}}</button>
-            <button class="genres-button w3-button w3-teal w3-round-xlarge">{{genre_details[genre_index]?.genre_two}}</button>
-            <button class="genres-button w3-button w3-teal w3-round-xlarge">{{genre_details[genre_index]?.genre_three}}</button>
-            <button class="genres-button w3-button w3-teal w3-round-xlarge">{{genre_details[genre_index]?.genre_four}}</button>
-            <button class="genres-button w3-button w3-teal w3-round-xlarge">{{genre_details[genre_index]?.genre_five}}</button>
+            <button routerLink="/genres" id="genre-color1" mat-flat-button>{{genreDetails[genreIndex]?.genreOne}}</button>
+            <button routerLink="/genres" id="genre-color" mat-flat-button>{{genreDetails[genreIndex]?.genreTwo}}</button>
+            <button routerLink="/genres" id="genre-color" mat-flat-button>{{genreDetails[genreIndex]?.genreThree}}</button>
+            <button routerLink="/genres" id="genre-color" mat-flat-button>{{genreDetails[genreIndex]?.genreFour}}</button>
+            <button routerLink="/genres" id="genre-color" mat-flat-button>{{genreDetails[genreIndex]?.genreFive}}</button>
         </div>
     </mat-expansion-panel>
 </mat-accordion>

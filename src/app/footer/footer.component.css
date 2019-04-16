@@ -6,6 +6,7 @@
     font-size: 14px;
     padding: 32px 0 32px 32px;
     z-index: 999 !important;
+    margin: 64px 0 0 0;
 }
 
 .footer h6 {

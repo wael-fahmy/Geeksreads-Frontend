@@ -1,19 +1,18 @@
 <div class="sign-up">
-    <h1>Geeksreads</h1>
-    <button mat-raised-button color="primary" class="btn facebook"><i></i><span></span>Continue with Facebook</button>
-    <button mat-raised-button color="primary" class="btn amazon"><i></i><span></span>Continue with Amazon</button>
-    <hr>
-    <form class="sign-up-form" (submit)="onSigningUp(signupForm)" #signupForm='ngForm'>
-        <mat-form-field hintLabel="Max 20 characters">
-            <input matInput #input maxlength="20" placeholder="Enter your name" required name="name" ngModel>
-            <mat-hint align="end">{{input.value?.length || 0}}/20</mat-hint>
+    <div class="sign-up-logo-div">
+        <img src="../../assets/logos/logo.png" alt="Geeksreads Logo" class="sign-up-logo">
+    </div>
+    <form class="sign-up-form" (submit)="testRequest()" #signupForm='ngForm'>
+        <mat-form-field>
+            <input matInput placeholder="Enter your username" required name="userName" [(ngModel)]="userName">
         </mat-form-field>
         <mat-form-field>
-            <input matInput placeholder="Enter your email" [formControl]="email" required name="email" ngModel>
+            <input matInput placeholder="Enter your email" [formControl]="email" required name="email" [(ngModel)]="userEmail">
             <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
         </mat-form-field>
-        <mat-form-field>
-            <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'" name="password" ngModel>
+        <mat-form-field hintLabel="Min 6 characters">
+            <input matInput #input minlength="6" required placeholder="Enter your password" [type]="hide ? 'password' : 'text'" name="password" [(ngModel)]="userPassword">
+            <mat-hint align="end">6/{{input.value?.length || 0}}</mat-hint>
             <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
         </mat-form-field>
         <button mat-raised-button class="btn">Sign Up</button>

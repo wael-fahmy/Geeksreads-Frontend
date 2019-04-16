@@ -8,7 +8,10 @@ body {
     margin: 5px 0 0 0;
     display: block;
 }
-
+#title
+{
+    font-weight: bold;
+}
 #Book-Title {
     display: inline;
     vertical-align: top;
@@ -51,36 +54,44 @@ body {
 }
 
 #book-details {
-    color: blue;
+    color: #00635D;
     margin: 5px 0 0 24px;
     cursor: pointer;
 }
 
-#want-to-read {
+.want-to-read {
     margin: 15px 0 0 15px;
-    background-color: #4CAF50;
+    background-color: #F4F1EA;
     border: none;
-    color: white;
-    padding: 10px 20px;
+    border:1px solid #D6D0C4;
+    font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
+    color: #181818;
+    font-size: 20px;
+    font-weight: bold;
     text-align: center;
-    text-decoration: none;
     display: inline-block;
     font-size: 12px;
     cursor: pointer;
 }
-
+#Author-name
+{
+    color: #00635D;
+    text-decoration: none;
+}
 #By-Author {
     cursor: pointer;
 }
 
 #rate {
     margin: 15px 0 0 5px;
-    background-color: darkgrey;
+    background-color: #F4F1EA;
     border: none;
-    color: white;
-    padding: 10px 20px;
+    border:1px solid #D6D0C4;
+    font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
+    color: #181818;
+    font-size: 20px;
+    font-weight: bold;
     text-align: center;
-    text-decoration: none;
     display: inline-block;
     font-size: 12px;
     cursor: pointer;
@@ -99,49 +110,29 @@ body {
 
 #Write-a-review {
     margin: 10px 0 0 15px;
-    background-color: darkgrey;
+    background-color: #F4F1EA;
     border: none;
-    color: white;
-    padding: 10px 20px;
+    border:1px solid #D6D0C4;
+    font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
+    color: #181818;
+    font-size: 20px;
+    font-weight: bold;
     text-align: center;
-    text-decoration: none;
     display: inline-block;
     font-size: 12px;
     cursor: pointer;
-}
-
-#Write-a-review:hover {
-    background-color: red;
-    transition: 1s;
 }
 
 .checked {
     color: orange;
 }
 
-#Book-info button:hover {
-    background-color: red;
-    transition: 1s;
-}
-
 #more-book-discription {
     display: none;
 }
 
-#myBtn-book-discription:hover {
-    background-color: red;
-    transition: 1s;
-}
-
 #myBtn-book-discription {
-    background-color: darkgrey;
-    border: none;
-    color: white;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    font-size: 12px;
-    cursor: pointer;
+    color:#00635D;
 }
 
 #dots-book-discription {

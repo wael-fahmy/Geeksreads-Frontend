@@ -1,8 +1,8 @@
 <p id="community-reviews">Community Reviews</p>
 <div id="user-reviews">
-    <img class="reviewer-image" src="{{review_information[0].reviewer_image}}">
+    <img routerLink="/profile" class="reviewer-image" src="{{reviewerimage[0]}}">
     <div>
-        <p id="Reviewer-name">{{review_information[0].reviewer_name}}
+        <p id="Reviewer-name">{{reviewername[0]}}
             <span id="rate-it">rated it</span>
             <span class="fa fa-star checked" class="dots"></span>
             <span class="fa fa-star checked"></span>
@@ -10,29 +10,29 @@
             <span class="fa fa-star"></span>
             <span class="fa fa-star"></span>
         </p>
-        <p id="review-date">{{review_information[0].reviewer_date}}</p>
+        <p id="review-date">{{reviewerdate[0]}}</p>
     </div>
 </div>
 <div id="review-comment">
-    <p>{{befor_dots[0]}}<span id="dots-user-review1">...</span><span id="more-review1">{{after_dots[0]}}</span></p>
-    <button (click)="more_user_preview(1)" id="myBtn-user-review1" class="w3-button w3-khaki w3-round-xlarge">Read more</button>
+    <p>{{befor_dots[0]}}<span id="dots-user-review1">...</span><span id="more-review1">{{after_dots[0]}}</span>
+    <button (click)="more_user_preview(1)" mat-button id="myBtn-user-review1">Read more</button></p>
 </div>
 <div id="review-like-comment">
-    <p class="blue-text" (click)="like()">Like</p>
+    <p class="blue-text" id="liked0" (click)="OnclickLike(review_information[0],0)">Like</p>
     <p class="dots">.</p>
-    <p class="blue-text">Comment</p>
+    <p (click)="OnclickComment(review_information[0])" routerLink="/reviews" class="blue-text">Comment</p>
     <p class="dots">.</p>
-    <i class="fa fa-thumbs-up"></i>
-    <p type="text" class="dots" id="show-likes">{{review_information[0].reviewer_likes}}</p>
+    <i class="thumbs-up"><mat-icon>thumb_up_alt</mat-icon></i>
+    <p type="text" class="dots" id="show-likes0">{{reviewerlikes[0]}}</p>
     <p class="dots">.</p>
-    <i class="fa fa-comment"></i>
-    <p class="dots">{{review_information[0].reviewer_comments}}</p>
+    <i class="comment">	<mat-icon> mode_comment</mat-icon></i>
+    <p class="dots" id="show-comments">{{reviewercomments[0]}}</p>
 </div>
 <hr id="next-review" class="w3-gray">
 <div id="user-reviews">
-    <img class="reviewer-image" src="{{review_information[1].reviewer_image}}">
+    <img routerLink="/profile" class="reviewer-image" src="{{reviewerimage[1]}}">
     <div>
-        <p id="Reviewer-name">{{review_information[1].reviewer_name}}
+        <p id="Reviewer-name">{{reviewername[1]}}
             <span id="rate-it">rated it</span>
             <span class="fa fa-star checked" class="dots"></span>
             <span class="fa fa-star checked"></span>
@@ -40,30 +40,30 @@
             <span class="fa fa-star checked"></span>
             <span class="fa fa-star"></span>
         </p>
-        <p id="review-date">{{review_information[1].reviewer_date}}</p>
+        <p id="review-date">{{reviewerdate[1]}}</p>
     </div>
 </div>
 <div id="review-comment">
-    <p>{{befor_dots[1]}}<span id="dots-user-review2">...</span><span id="more-review2">{{after_dots[1]}}</span></p>
-    <button (click)="more_user_preview(2)" id="myBtn-user-review2" class="w3-button w3-khaki w3-round-xlarge">Read more</button>
+    <p>{{befor_dots[1]}}<span id="dots-user-review2">...</span><span id="more-review2">{{after_dots[1]}}</span>
+    <button (click)="more_user_preview(2)" mat-button id="myBtn-user-review2">Read more</button></p>
 </div>
 <div id="review-like-comment">
-    <p class="blue-text" (click)="like()">Like</p>
+    <p class="blue-text" id="liked1" (click)="OnclickLike(review_information[1],1)">Like</p>
     <p class="dots">.</p>
-    <p class="blue-text">Comment</p>
+    <p (click)="OnclickComment(review_information[1])" routerLink="/reviews" class="blue-text">Comment</p>
     <p class="dots">.</p>
-    <i class="fa fa-thumbs-up"></i>
-    <p type="text" class="dots" id="show-likes">{{review_information[1].reviewer_likes}}</p>
+    <i class="thumbs-up"><mat-icon>thumb_up_alt</mat-icon></i>
+    <p type="text" class="dots" id="show-likes1">{{reviewerlikes[1]}}</p>
     <p class="dots">.</p>
-    <i class="fa fa-comment"></i>
-    <p class="dots">{{review_information[1].reviewer_comments}}</p>
+    <i class="comment">	<mat-icon> mode_comment</mat-icon></i>
+    <p class="dots" id="show-comments">{{reviewercomments[1]}}</p>
 </div>
 <hr id="next-review" class="w3-gray">
 <div id="more_user_reviews">
     <div id="user-reviews">
-        <img class="reviewer-image" src="{{review_information[2].reviewer_image}}">
+        <img routerLink="/profile" class="reviewer-image" src="{{reviewerimage[2]}}">
         <div>
-            <p id="Reviewer-name">{{review_information[2].reviewer_name}}
+            <p id="Reviewer-name">{{reviewername[2]}}
                 <span id="rate-it">rated it</span>
                 <span class="fa fa-star checked" class="dots"></span>
                 <span class="fa fa-star checked"></span>
@@ -71,29 +71,29 @@
                 <span class="fa fa-star checked"></span>
                 <span class="fa fa-star"></span>
             </p>
-            <p id="review-date">{{review_information[2].reviewer_date}}</p>
+            <p id="review-date">{{reviewerdate[2]}}</p>
         </div>
     </div>
     <div id="review-comment">
-        <p>{{befor_dots[2]}}<span id="dots-user-review3">...</span><span id="more-review3">{{after_dots[2]}}</span></p>
-        <button (click)="more_user_preview(3)" id="myBtn-user-review3" class="w3-button w3-khaki w3-round-xlarge">Read more</button>
+        <p>{{befor_dots[2]}}<span id="dots-user-review3">...</span><span id="more-review3">{{after_dots[2]}}</span>
+        <button (click)="more_user_preview(3)" mat-button id="myBtn-user-review3">Read more</button></p>
     </div>
     <div id="review-like-comment">
-        <p class="blue-text" (click)="like()">Like</p>
+        <p class="blue-text" id="liked2" (click)="OnclickLike(review_information[2],2)">Like</p>
         <p class="dots">.</p>
-        <p class="blue-text">Comment</p>
+        <p (click)="OnclickComment(review_information[2])" routerLink="/reviews" class="blue-text">Comment</p>
         <p class="dots">.</p>
-        <i class="fa fa-thumbs-up"></i>
-        <p type="text" class="dots" id="show-likes">{{review_information[2].reviewer_likes}}</p>
+        <i class="thumbs-up"><mat-icon>thumb_up_alt</mat-icon></i>
+        <p type="text" class="dots" id="show-likes2">{{reviewerlikes[2]}}</p>
         <p class="dots">.</p>
-        <i class="fa fa-comment"></i>
-        <p class="dots">{{review_information[2].reviewer_comments}}</p>
+        <i class="comment">	<mat-icon> mode_comment</mat-icon></i>
+        <p class="dots" id="show-comments">{{reviewercomments[2]}}</p>
     </div>
     <hr id="next-review" class="w3-gray">
     <div id="user-reviews">
-        <img class="reviewer-image" src="{{review_information[3].reviewer_image}}">
+        <img routerLink="/profile" class="reviewer-image" src="{{reviewerimage[3]}}">
         <div>
-            <p id="Reviewer-name">{{review_information[3].reviewer_name}}
+            <p id="Reviewer-name">{{reviewername[3]}}
                 <span id="rate-it">rated it</span>
                 <span class="fa fa-star checked" class="dots"></span>
                 <span class="fa fa-star checked"></span>
@@ -101,29 +101,29 @@
                 <span class="fa fa-star checked"></span>
                 <span class="fa fa-star"></span>
             </p>
-            <p id="review-date">{{review_information[3].reviewer_date}}</p>
+            <p id="review-date">{{reviewerdate[3]}}</p>
         </div>
     </div>
     <div id="review-comment">
-        <p>{{befor_dots[3]}}<span id="dots-user-review4">...</span><span id="more-review4">{{after_dots[3]}}</span></p>
-        <button (click)="more_user_preview(4)" id="myBtn-user-review4" class="w3-button w3-khaki w3-round-xlarge">Read more</button>
+        <p>{{befor_dots[3]}}<span id="dots-user-review4">...</span><span id="more-review4">{{after_dots[3]}}</span>
+        <button (click)="more_user_preview(4)" mat-button id="myBtn-user-review4">Read more</button></p>
     </div>
     <div id="review-like-comment">
-        <p class="blue-text" (click)="like()">Like</p>
+        <p class="blue-text" id="liked3" (click)="OnclickLike(review_information[3],3)">Like</p>
         <p class="dots">.</p>
-        <p class="blue-text">Comment</p>
+        <p (click)="OnclickComment(review_information[3])" routerLink="/reviews" class="blue-text">Comment</p>
         <p class="dots">.</p>
-        <i class="fa fa-thumbs-up"></i>
-        <p type="text" class="dots" id="show-likes">{{review_information[3].reviewer_likes}}</p>
+        <i class="thumbs-up"><mat-icon>thumb_up_alt</mat-icon></i>
+        <p type="text" class="dots" id="show-likes3">{{reviewerlikes[3]}}</p>
         <p class="dots">.</p>
-        <i class="fa fa-comment"></i>
-        <p class="dots">{{review_information[3].reviewer_comments}}</p>
+        <i class="comment">	<mat-icon> mode_comment</mat-icon></i>
+        <p class="dots" id="show-comments">{{reviewercomments[3]}}</p>
     </div>
     <hr id="next-review" class="w3-gray">
     <div id="user-reviews">
-        <img class="reviewer-image" src="{{review_information[4].reviewer_image}}">
+        <img routerLink="/profile" class="reviewer-image" src="{{reviewerimage[4]}}">
         <div>
-            <p id="Reviewer-name">{{review_information[4].reviewer_name}}
+            <p id="Reviewer-name">{{reviewername[4]}}
                 <span id="rate-it">rated it</span>
                 <span class="fa fa-star checked" class="dots"></span>
                 <span class="fa fa-star checked"></span>
@@ -131,29 +131,29 @@
                 <span class="fa fa-star checked"></span>
                 <span class="fa fa-star"></span>
             </p>
-            <p id="review-date">{{review_information[4].reviewer_date}}</p>
+            <p id="review-date">{{reviewerdate[4]}}</p>
         </div>
     </div>
     <div id="review-comment">
-        <p>{{befor_dots[4]}}<span id="dots-user-review5">...</span><span id="more-review5">{{after_dots[4]}}</span></p>
-        <button (click)="more_user_preview(5)" id="myBtn-user-review5" class="w3-button w3-khaki w3-round-xlarge">Read more</button>
+        <p>{{befor_dots[4]}}<span id="dots-user-review5">...</span><span id="more-review5">{{after_dots[4]}}</span>
+        <button (click)="more_user_preview(5)" mat-button id="myBtn-user-review5">Read more</button></p>
     </div>
     <div id="review-like-comment">
-        <p class="blue-text" (click)="like()">Like</p>
+        <p class="blue-text" id="liked4" (click)="OnclickLike(review_information[4],4)">Like</p>
         <p class="dots">.</p>
-        <p class="blue-text">Comment</p>
+        <p (click)="OnclickComment(review_information[4])" routerLink="/reviews" class="blue-text">Comment</p>
         <p class="dots">.</p>
-        <i class="fa fa-thumbs-up"></i>
-        <p type="text" class="dots" id="show-likes">{{review_information[4].reviewer_likes}}</p>
+        <i class="thumbs-up"><mat-icon>thumb_up_alt</mat-icon></i>
+        <p type="text" class="dots" id="show-likes4">{{reviewerlikes[4]}}</p>
         <p class="dots">.</p>
-        <i class="fa fa-comment"></i>
-        <p class="dots">{{review_information[4].reviewer_comments}}</p>
+        <i class="comment"><mat-icon> mode_comment</mat-icon></i>
+        <p class="dots" id="show-comments">{{reviewercomments[4]}}</p>
     </div>
     <hr id="next-review" class="w3-gray">
     <div id="user-reviews">
-        <img class="reviewer-image" src="{{review_information[5].reviewer_image}}">
+        <img routerLink="/profile" class="reviewer-image" src="{{reviewerimage[5]}}">
         <div>
-            <p id="Reviewer-name">{{review_information[5].reviewer_name}}
+            <p id="Reviewer-name">{{reviewername[5]}}
                 <span id="rate-it">rated it</span>
                 <span class="fa fa-star checked" class="dots"></span>
                 <span class="fa fa-star checked"></span>
@@ -161,24 +161,24 @@
                 <span class="fa fa-star checked"></span>
                 <span class="fa fa-star"></span>
             </p>
-            <p id="review-date">{{review_information[5].reviewer_date}}</p>
+            <p id="review-date">{{reviewerdate[5]}}</p>
         </div>
     </div>
     <div id="review-comment">
-        <p>{{befor_dots[5]}}<span id="dots-user-review6">...</span><span id="more-review6">{{after_dots[5]}}</span></p>
-        <button (click)="more_user_preview(6)" id="myBtn-user-review6" class="w3-button w3-khaki w3-round-xlarge">Read more</button>
+        <p>{{befor_dots[5]}}<span id="dots-user-review6">...</span><span id="more-review6">{{after_dots[5]}}</span>
+        <button (click)="more_user_preview(6)" mat-button id="myBtn-user-review6">Read more</button></p>
     </div>
     <div id="review-like-comment">
-        <p class="blue-text" (click)="like()">Like</p>
+        <p class="blue-text" id="liked5" (click)="OnclickLike(review_information[5],5)">Like</p>
         <p class="dots">.</p>
-        <p class="blue-text">Comment</p>
+        <p (click)="OnclickComment(review_information[5])" routerLink="/reviews" class="blue-text">Comment</p>
         <p class="dots">.</p>
-        <i class="fa fa-thumbs-up"></i>
-        <p type="text" class="dots" id="show-likes">{{review_information[5].reviewer_likes}}</p>
+        <i class="thumbs-up"><mat-icon>thumb_up_alt</mat-icon></i>
+        <p type="text" class="dots" id="show-likes5">{{reviewerlikes[5]}}</p>
         <p class="dots">.</p>
-        <i class="fa fa-comment"></i>
-        <p class="dots">{{review_information[5].reviewer_comments}}</p>
+        <i class="comment">	<mat-icon> mode_comment</mat-icon></i>
+        <p class="dots" id="show-comments">{{reviewercomments[5]}}</p>
     </div>
     <hr id="next-review" class="w3-gray">
 </div>
-<button (click)="load_more_user_preview()" id="load-more-community-reviews">Load More Community Reviews</button>
+<button mat-flat-button (click)="load_more_user_preview()" id="load-more-community-reviews">Load More Community Reviews</button>

@@ -30,24 +30,40 @@ describe('ProfileBookEntityComponent', () => {
   it('should create', async(() => {
     expect(component).toBeTruthy();
   }));
-
-  it('Pre should contain Book Cover', async(() => {
-    let Pre = fixture.debugElement.nativeElement.querySelector('Pre').textContent
-    expect(Pre).toContain('Book Cover')
-  }));
-  it('button should contain Read', async(() => {
-    let button = fixture.debugElement.nativeElement.querySelector('button').textContent
-    expect(button).toContain('Read')
-  }));
-  it('button should contain want to Read', async(() => {
-    let button = fixture.debugElement.nativeElement.querySelector('button').textContent
-    expect(button).toContain('want to read')
-  }));
-
   it('list of books should be 3', () => {
     fixture.whenStable().then(() => {
-      expect(component.List_of_books.length).toBe(3)
-    })
+      expect(component.listOfBooks.length).toBe(3);
+    });
+  });
+  it('list of books should contain lord of the rings', () => {
+    fixture.whenStable().then(() => {
+      expect(component.listOfBooks.indexOf).toContain('Lord of the Rings');
+    });
+  });
+  it('list of books should contain Harry Potter', () => {
+    fixture.whenStable().then(() => {
+      expect(component.listOfBooks.indexOf).toContain('Harry Potter');
+    });
+  });
+  it('list of books should contain Game of thrones', () => {
+    fixture.whenStable().then(() => {
+      expect(component.listOfBooks.indexOf).toContain('Game of thrones');
+    });
   });
 
+  it('list of books should contain book with id = 11', () => {
+    fixture.whenStable().then(() => {
+      expect(component.listOfBooks.lastIndexOf).toContain('11');
+    });
+  });
+  it('list of books should contain book with id = 12', () => {
+    fixture.whenStable().then(() => {
+      expect(component.listOfBooks.lastIndexOf).toContain('12');
+    });
+  });
+  it('list of books should contain book with id = 13', () => {
+    fixture.whenStable().then(() => {
+      expect(component.listOfBooks.lastIndexOf).toContain('13');
+    });
+  });
 });

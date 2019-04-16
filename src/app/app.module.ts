@@ -34,9 +34,11 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { AuthorComponent } from './author/author.component';
 import { AuthorBookComponent } from './author-book/author-book.component';
 import { ProfileReadShelfComponent } from './profile-read-shelf/profile-read-shelf.component';
+import { NewsfeedCommentPostComponent } from './newsfeed-comment-post/newsfeed-comment-post.component';
 import { ReviewsComponent } from './reviews/reviews.component';
 import { ReviewsEntityComponent } from './reviews-entity/reviews-entity.component';
 import { ReviewsCommentsComponent } from './reviews-comments/reviews-comments.component';
+import { VerifiedComponent } from './verified/verified.component';
 
 @NgModule({
   declarations: [
@@ -67,9 +69,12 @@ import { ReviewsCommentsComponent } from './reviews-comments/reviews-comments.co
     AuthorComponent,
     AuthorBookComponent,
     ProfileReadShelfComponent,
+    NewsfeedCommentPostComponent,
+    ProfileReadShelfComponent,
     ReviewsComponent,
     ReviewsEntityComponent,
-    ReviewsCommentsComponent
+    ReviewsCommentsComponent,
+    VerifiedComponent
   ],
   imports: [
     BrowserModule,

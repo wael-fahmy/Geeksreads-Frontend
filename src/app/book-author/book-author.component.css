@@ -19,6 +19,12 @@
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-weight: bold;
     margin: 5px 0 0 10px;
+    cursor: pointer;
+}
+
+#author-name:hover {
+    text-decoration: underline;
+    text-decoration: black;
 }
 
 #number-followers {
@@ -35,19 +41,13 @@
     display: none;
 }
 
-#myBtn-author-discription:hover {
-    background-color: red;
-    transition: 1s;
-}
-
 #underline-book-author {
     size: 3px;
     margin-left: 10px;
 }
 
 #myBtn-author-discription {
-    background-color: darkgrey;
-    margin-bottom: 10px;
+    color: #00635D;
 }
 
 #dots-author-discription {
@@ -70,6 +70,8 @@
 
 #btn-follow-author {
     margin-top: 2px;
+    color: black;
+    background-color: #F4F1EA;
 }
 
 #author-followers {

@@ -1,0 +1,41 @@
+#user-comment
+{
+    display: flex;
+    flex-flow: row;
+    flex-wrap: nowrap;
+}
+#user-image
+{
+    max-height: 50px;
+    max-width: 50px;
+    margin: 5px 0 0 10px;
+    border-style: ridge;
+}
+#user-name
+{
+    color:rgb(40, 97, 83);
+    margin: 0 0 0 0px;
+    font-weight: bold;
+    text-decoration: none;
+}
+#user-body
+{
+    margin:0 0 0 5px;
+    color:black;
+}
+#user-backet
+{
+    margin: 3px 0 0 10px;
+}
+#comment-date
+{
+    display: inline;
+    margin: 0 0 0 10px;
+    color:gray;
+}
+#user-underline
+{
+    color:blue;
+    margin-left: 10px;
+}
+

@@ -10,7 +10,66 @@ import { delay } from 'q';
   styleUrls: ['./book-details.component.css']
 })
 export class BookDetailsComponent implements OnInit {
-
+  /**
+   *  Panel open state boolean
+   */
+   public panelOpenState: boolean;
+  /**
+   *
+   * variable list used to store book edtion
+   * @type {string []}
+   * @memberof BookDetailsComponent
+   */
+  bookedition: string [] = [];
+  /**
+   *
+   * variable list used to store book publish
+   * @type {string []}
+   * @memberof BookDetailsComponent
+   */
+  bookpublished: string [] = [];
+  /**
+   *
+   * variable list used to store book ASIN
+   * @type {string []}
+   * @memberof BookDetailsComponent
+   */
+  bookASIN: string [] = [];
+  /**
+   *
+   * variable list used to store book language
+   * @type {string []}
+   * @memberof BookDetailsComponent
+   */
+  booklang: string [] = [];
+  /**
+   *
+   * variable list used to store book title
+   * @type {string []}
+   * @memberof BookDetailsComponent
+   */
+  booktitle: string [] = [];
+  /**
+   *
+   *  variable list used to store book awards
+   * @type {string []}
+   * @memberof BookDetailsComponent
+   */
+  bookawards: string [] = [];
+  /**
+   *
+   * variable list used to store book characters
+   * @type {string []}
+   * @memberof BookDetailsComponent
+   */
+  bookchara: string [] = [];
+  /**
+   *
+   * variable list used to store book id
+   * @type {string []}
+   * @memberof BookDetailsComponent
+   */
+  bookid: string [] = [];
   // tslint:disable-next-line:variable-name
   /**
    *
@@ -34,7 +93,7 @@ export class BookDetailsComponent implements OnInit {
    * index of the current book from the list
    * @memberof BookDetailsComponent
    */
-  book_index = 0;
+  book_index = 1;
   // tslint:disable-next-line:variable-name
   /**
    * Creates an instance of BookDetailsComponent.
@@ -52,10 +111,29 @@ export class BookDetailsComponent implements OnInit {
     // tslint:disable-next-line:variable-name
     this.Sub_profile = this.bookinformation_service.get_book_Info_updated().subscribe((book_Information: Bookinformation[]) => {
       this.book_information = book_Information;
+      this.SetElements();
+      console.log(this.book_information.length);
       /* console.log(this.User_info.User_Name)
       console.log(this.User_info.user_id)
       console.log(this.User_info.User_Photo)*/
     });
   }
-
+  /**
+   *
+   * function used to set elements of lists
+   * @memberof BookDetailsComponent
+   */
+  SetElements() {
+    // tslint:disable-next-line: prefer-for-of
+    for (let x = 0; x < this.book_information.length; x++) {
+      this.bookedition[x] = this.book_information[x].book_edition;
+      this.bookid[x] = this.book_information[x].book_id;
+      this.bookpublished[x] = this.book_information[x].book_published;
+      this.bookASIN[x] = this.book_information[x].book_ASIN;
+      this.booklang[x] = this.book_information[x].book_language;
+      this.booktitle[x] = this.book_information[x].book_title;
+      this.bookawards[x] = this.book_information[x].book_awards;
+      this.bookchara[x] = this.book_information[x].book_characters;
+    }
+  }
 }

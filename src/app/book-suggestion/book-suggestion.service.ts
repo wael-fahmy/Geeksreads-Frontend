@@ -54,4 +54,20 @@ get_suggestedauthorbook_Info() {
     get_suggestedauthorbook_Info_updated() {
         return this.suggestedauthorbook_detailsUpdated.asObservable();
     }
+// tslint:disable-next-line: variable-name
+/**
+ *
+ * function used to post request of suggested book request
+ * @param {string} authorbook_id
+ * @param {string} author_id
+ * @memberof SuggestedauthorBook_Service
+ */
+post_authorbook_wanted(authorbook_id: string, author_id: string) {
+    // tslint:disable-next-line: max-line-length
+    const suggestedauthorbook: SuggestedAuthorBookDetails = {suggestedauthorbook_title: null, suggestedauthorbook_image: null, suggestedauthorbook_author: null, suggestedauthorbook_id: authorbook_id, suggestedauthorbook_authorid: author_id};
+    this.http.post<{message: string}>('http://localhost:3000/api/authorbook', suggestedauthorbook)
+    .subscribe ((responseData) => {
+        console.log(responseData.message);
+        });
+    }
 }

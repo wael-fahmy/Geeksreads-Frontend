@@ -53,7 +53,7 @@ p a {
 }
 
 .btn {
-    background-color: #8E8E8E;
+    background-color: #b9ab98;
     border: 0;
     border-radius: 3px;
     color: #FFF;
@@ -103,4 +103,17 @@ p a {
 .checkbox-inline {
     display: inline;
     margin-right: 19%;
+}
+
+.sign-up-logo-div {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    margin: 10px 0;
+    padding: 10px 0 0 0;
+}
+
+.sign-up-logo {
+    width: 100px;
+    margin: 0 auto;
 }

@@ -3,6 +3,7 @@ h2{
 }
 
 img{
+    margin-top: 1rem;
     margin-right: 2rem;
     margin-bottom: 2.5em;
     
@@ -11,10 +12,6 @@ img{
 mat-list-item{
     margin-bottom: 2rem;
     margin-top: 2rem;
-}
-mat-divider{
-    margin-bottom: 3rem;
-    margin-top: 3rem;
 }
 
 pre{

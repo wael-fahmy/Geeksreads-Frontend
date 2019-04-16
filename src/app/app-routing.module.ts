@@ -13,10 +13,11 @@ import { ProfileEditComponent } from './profile-edit/profile-edit.component';
 import { AuthorComponent } from './author/author.component';
 import {ProfileReadShelfComponent} from './profile-read-shelf/profile-read-shelf.component';
 import {ReviewsComponent} from './reviews/reviews.component';
+import { VerifiedComponent } from './verified/verified.component';
 
 const routes: Routes = [
   {
-    path: 'homepage',
+    path: '',
     component: HomepageComponent
   },
   {
@@ -25,7 +26,7 @@ const routes: Routes = [
   },
   {
     path: 'profile-read-shelf',
-    component:ProfileReadShelfComponent
+    component: ProfileReadShelfComponent
   },
   {
     path: 'book',
@@ -66,6 +67,10 @@ const routes: Routes = [
   {
     path: 'author',
     component: AuthorComponent
+  },
+  {
+    path: 'verified',
+    component: VerifiedComponent
   }
 ];
 

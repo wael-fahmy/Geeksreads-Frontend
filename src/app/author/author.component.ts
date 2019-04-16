@@ -1,9 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthorModel } from './author.model';
+import { Subscription } from 'rxjs';
+import { AuthorService } from './author.service';
 
 /**
- * Author page component
- *
- * @export
+ *  Author page component
+ *  @export
+ *  @class AuthorComponent
+ *  @implements {OnInit}
  */
 @Component({
   selector: 'app-author',
@@ -13,10 +17,19 @@ import { Component, OnInit } from '@angular/core';
 export class AuthorComponent implements OnInit {
 
   /**
-   * Creates an instance of AuthorComponent.
+   * Author Subscription
+   * @private
+   * @type {Subscription}
+   * @memberof AuthorComponent
    */
-  constructor() { }
+  private authorSubscription: Subscription;
 
+  /**
+   *  An object to fill with the JSON response
+   *  @type {AuthorModel}
+   *  @memberof AuthorComponent
+   */
+  authorInfo: AuthorModel;
 
   /**
    *  Author's Id
@@ -31,7 +44,7 @@ export class AuthorComponent implements OnInit {
   /**
    *  Link to the author's picture
    */
-  authorPicture = 'https://via.placeholder.com/86x120 ';
+  authorPicture = 'https://via.placeholder.com/86x120';
 
   /**
    *  Is the currently signed in user following this author or not
@@ -43,16 +56,14 @@ export class AuthorComponent implements OnInit {
    */
   authorNumberOfFollowers = 400;
 
-
   /**
-   *
    *  More details about this author
    */
   authorDetails = 'More details about this author';
 
   /**
-   *
    *  Follows an author
+   *  @memberof AuthorComponent
    */
   followAuthor() {
     // TODO: Send request
@@ -62,8 +73,8 @@ export class AuthorComponent implements OnInit {
   }
 
   /**
-   *
    *  Unfollows an author
+   *  @memberof AuthorComponent
    */
   unfollowAuthor() {
     // TODO: Send request
@@ -72,21 +83,39 @@ export class AuthorComponent implements OnInit {
     console.log('Unfollowing this author');
   }
 
-
   /**
-   *
    *  Request author's info
+   *  @param {(string | number)} authorID
+   *  @memberof AuthorComponent
    */
-  getAuthorInfo(authorID) {
+  getAuthorInfo(authorID: string | number) {
     console.log('Component Created ' + authorID);
   }
 
+
   /**
-   *
-   * Angular component initialization
+   *  Creates an instance of AuthorComponent.
+   *  @param {AuthorService} authorService
+   *  @memberof AuthorComponent
+   */
+  constructor(public authorService: AuthorService) { }
+
+  /**
+   *  Author component initialization
+   *  @memberof AuthorComponent
    */
   ngOnInit() {
-    this.getAuthorInfo(this.authorId);
-  }
+    this.authorService.getAuthorInfo();
 
+    this.authorSubscription = this.authorService.getAuthorInfoUpdated().
+      subscribe((authorInformation: AuthorModel) => {
+        this.authorInfo = authorInformation;
+        this.authorName = this.authorInfo.authorName;
+        this.authorDetails = this.authorInfo.authorDetails;
+        this.authorId = this.authorInfo.authorId;
+        this.authorIsFollowing = this.authorInfo.authorIsFollowing;
+        this.authorNumberOfFollowers = this.authorInfo.authorNumberOfFollowers;
+        this.authorPicture = this.authorInfo.authorPicture;
+      });
+  }
 }

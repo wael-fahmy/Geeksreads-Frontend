@@ -52,7 +52,7 @@ p a {
 }
 
 .btn {
-    background-color: #8E8E8E;
+    background-color: #b9ab98;
     border: 0;
     border-radius: 3px;
     color: #FFF;
@@ -75,31 +75,24 @@ p a {
     box-shadow: 1px 1px 2px #000;
 }
 
-.facebook {
-    background-color: #3B5998;
-}
-
-.facebook i {
-    float: left;
-    width: 44px;
-    height: 40px;
-    background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAoCAYAAACFFRgXAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAN1JREFUeNpi/P//P8NQAoyjDh518KiDRx086uBh62AtIOZE4r8A4qcUmwpyMJWxKxA//I8J2qlhPguVQ9UMiLcAMRutoo2Jyub10tKxtEjDb4FYCIn/C4jXA/FHIN4BZQ8qB38AYn4k/kQgLhjMSQIdfB/saXhIlMMGQDwHic2MJHcBiE8h8ZsoLYup4WAbID5MhLq/QMxLaTKhZ5K4SY00TU8HX6CKKVSulh/SojpGxkOulBh18KiDRx086uDRxg9eoIvW46BOx3O0mz/q4FEHjzp41MGjDiYXAAQYAJmVcB6iaE2HAAAAAElFTkSuQmCC") no-repeat center center;
-}
-
-.amazon {
-    background-color: #b18f06;
-}
-
-.amazon i {
-    float: left;
-    width: 20px;
-    height: 20px;
-    margin: 10px;
-    background: url("../../assets/signing/amazon-logo.svg") no-repeat center center;
-    background-size: contain;
-}
-
 .checkbox-inline {
     display: inline;
     margin-right: 19%;
+}
+
+.sign-in-logo-div {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    margin: 10px 0;
+    padding: 10px 0 0 0;
+}
+
+.sign-in-logo {
+    width: 100px;
+    margin: 0 auto;
+}
+
+#password-field {
+    margin: 20px 0 0 0;
 }

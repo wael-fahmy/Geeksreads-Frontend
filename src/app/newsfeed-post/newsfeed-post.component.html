@@ -5,11 +5,11 @@
             <!--image -->
             <div mat-card-avatar class="activity-header-image"> </div>
             <!--name -->
-            <mat-card-title class="name">Pirongo {{userName}} </mat-card-title>
-
+            <mat-card-title class="name">{{username}}</mat-card-title>
+           
             <!--activiy status-->
             <div class="activity">
-                <p>rated a book{{activityLog}} </p>
+                <p>{{activity}}</p>
             </div>
             <!-- display the ratigs -->
             <div class="stars">
@@ -25,7 +25,7 @@
     </div>
     <!--ending of the class "card header"-->
     <mat-card-subtitle>
-        <p class="subtitle"> about 2 hours {{activityDate}}ago</p>
+        <p class="subtitle">{{activitydate}}</p>
     </mat-card-subtitle>
 
 
@@ -36,13 +36,13 @@
     <div class="book-details">
         <div>
             <!--left part starts here-->
-            <img mat-card-image class="book-image" src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of the book">
+            <img mat-card-image class="book-image" src={{bookimage}} alt="Photo of the book">
         </div>
 
         <div class="book-description">
             <!--right part starts here-->
-            <p class="book-name-style">Book Name{{bookname}}</p>
-            <p class="author-name-style">by Yara{{authorname}}</p>
+            <p class="book-name-style"> {{bookname}}</p>
+            <p class="author-name-style">{{authorname}}</p>
             <button id="wantToRead">Want to read</button>
         </div>
     </div>
@@ -51,6 +51,6 @@
     <!--review status bar-->
     <mat-card-content>
         <br>
-        <p>It was a relly nice book and i enjoyed reading it</p>
+        <p>{{review}}</p>
     </mat-card-content>
 </mat-card>

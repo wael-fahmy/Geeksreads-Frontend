@@ -1,5 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
+/**
+ *  Newsfeed Component
+ *  @export
+ *  @class NewsfeedComponent
+ *  @implements {OnInit}
+ */
 @Component({
   selector: 'app-newsfeed',
   templateUrl: './newsfeed.component.html',
@@ -7,8 +13,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewsfeedComponent implements OnInit {
 
+  /**
+   *  Creates an instance of NewsfeedComponent.
+   *  @memberof NewsfeedComponent
+   */
   constructor() { }
 
+  /**
+   *  Angular Init
+   *  @memberof NewsfeedComponent
+   */
   ngOnInit() {
   }
 

@@ -10,8 +10,68 @@ import { delay } from 'q';
   styleUrls: ['./book-author.component.css']
 })
 export class BookAuthorComponent implements OnInit {
-
-  // tslint:disable-next-line:variable-name
+  /**
+   *  Panel open state boolean
+   */
+   public panelOpenState: boolean;
+  /**
+   *
+   * variable to carry author name list
+   * @type {string []}
+   * @memberof BookAuthorComponent
+   */
+  authorname: string [] = [];
+  /**
+   *
+   * variable to carry author id list
+   * @type {string []}
+   * @memberof BookAuthorComponent
+   */
+  authorid: string [] = [];
+  /**
+   *
+   * variable to carry author body list
+   * @type {string []}
+   * @memberof BookAuthorComponent
+   */
+  authorbody: string [] = [];
+  /**
+   *
+   * variable to carry author followers number list
+   * @type {string []}
+   * @memberof BookAuthorComponent
+   */
+  authorfollowers: string [] = [];
+  /**
+   *
+   * variable to carry author book id list
+   * @type {string []}
+   * @memberof BookAuthorComponent
+   */
+  bookid: string [] = [];
+  /**
+   *
+   * variable to carry author image list
+   * @type {string []}
+   * @memberof BookAuthorComponent
+   */
+  authorimage: string [] = [];
+  /**
+   *
+   * variable to carry half author body list
+   * @type {string []}
+   * @memberof BookAuthorComponent
+   */
+  public befor_dots: string [] = [];
+// tslint:disable-next-line: variable-name
+/**
+ *
+ * variable to carry half author body list
+ * @type {string []}
+ * @memberof BookAuthorComponent
+ */
+public after_dots: string [] = [];
+// tslint:disable-next-line: variable-na
   /**
    *
    * server subscription
@@ -34,7 +94,7 @@ export class BookAuthorComponent implements OnInit {
    * index of the current author in the list
    * @memberof BookAuthorComponent
    */
-  author_index = 1;
+  author_index = 0;
   // tslint:disable-next-line:variable-name
   /**
    * Creates an instance of BookAuthorComponent.
@@ -52,11 +112,44 @@ export class BookAuthorComponent implements OnInit {
     // tslint:disable-next-line:variable-name
     this.Sub_profile = this.authordetails_service.get_author_details_updated().subscribe((author_Information: AuthorDetails[]) => {
       this.author_details = author_Information;
+      this.SplitString();
+      this.SetElements();
       /* console.log(this.User_info.User_Name)
       console.log(this.User_info.user_id)
       console.log(this.User_info.User_Photo)*/
     });
   }
+  /**
+   *
+   * function used for spliting author body
+   * @memberof BookAuthorComponent
+   */
+  SplitString() {
+    let starting_indext = 0;
+// tslint:disable-next-line: prefer-for-of
+    for (let i = 0; i < this.author_details.length; i ++) {
+      const word = this.author_details[i].author_body.split(',');
+      this.befor_dots[starting_indext] = word[0];
+      this.after_dots[starting_indext] = word[1];
+      starting_indext++;
+    }
+  }
+  /**
+   *
+   * function used to set list elements
+   * @memberof BookAuthorComponent
+   */
+  SetElements() {
+    // tslint:disable-next-line: prefer-for-of
+        for (let x = 0; x < this.author_details.length; x++) {
+          this.authorname[x] = this.author_details[x].author_name;
+          this.authorid[x] = this.author_details[x].author_id;
+          this.authorbody[x] = this.author_details[x].author_body;
+          this.authorfollowers[x] = this.author_details[x].author_followers;
+          this.bookid[x] = this.author_details[x].book_id;
+          this.authorimage[x] = this.author_details[x].author_image;
+        }
+      }
   /**
    *
    * function used to show hidden information of the author details
