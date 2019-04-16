@@ -78,9 +78,7 @@ export class SignInComponent implements OnInit {
       // tslint:disable-nextline: variable-name
       .subscribe((serverResponse) => {
         console.log(serverResponse);
-        if (serverResponse === 'You entered the data correctly') {
-          this.route.navigate(['/newsfeed']);
-        }
+        this.router.navigate(['/newsfeed']);
       }, (error: { json: () => void; }) => {
         console.log(error.json);
       });
@@ -93,7 +91,7 @@ export class SignInComponent implements OnInit {
    * http client module used to make requests to server
    * @memberof SignInComponent
    */
-  constructor(private http: HttpClient, private route: Router) { }
+  constructor(private http: HttpClient, private router: Router) { }
 
   /**
    *
