@@ -32,7 +32,7 @@ export interface GenreDetails {
    * @type {string}
    * @memberof Genredetails
    */
-  genre_four: string;
+  genreFour: string;
 
   /**
    *
