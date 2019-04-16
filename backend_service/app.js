@@ -335,6 +335,7 @@ app.use("/api/book", (req, res, next) => {
             Cover: "https://cdna.artstation.com/p/assets/images/images/003/765/026/large/mark-valeri-sao-manga-front-cover.jpg?1477271070",
             Author: "Sebastian",
             AuthorId: "45",
+            BookRating: 3,
             ReadStatus: "Want To Read",
             Description: 'Spring. The "season of love" has arrived and it seems that finding himself a girlfriend was harder than Junichi believed. To break the status quo,Junichis friends have forced him into confessing to the gal. Yame Yukana. However. things do not go quite as he expected. A series of "firsts" begins!'
         },
@@ -344,6 +345,7 @@ app.use("/api/book", (req, res, next) => {
             Cover: "https://i.pinimg.com/236x/d6/b0/7b/d6b07b9d0ee3df0168945910e2142bf5--black-butler-kuroshitsuji-shinigami.jpg",
             Author: "WiessMan",
             AuthorId: "34",
+            BookRating: 2,
             ReadStatus: "Currently Reading",
             Description: "Black Butler (Japanese: 黒執事 Hepburn: Kuroshitsuji) is a Japanese manga series written and illustrated by Yana Toboso. Since its debut on September 16/ 2006, it has been serialized in Gangan Comics sshōnen manga magazine Monthly GFantasy. ... A live action film adaptation was released in Japan on January 18/ 2014"
         },
@@ -353,6 +355,7 @@ app.use("/api/book", (req, res, next) => {
             Cover: "http://momoandcream.com/wp-content/uploads/2015/03/Nisekoi-volume-1-cover.jpg",
             Author: "Loyd",
             AuthorId: "212",
+            BookRating: 5,
             ReadStatus: "Read",
             Description: 'Home Economics Teacher Shinji Yabe is asked by the biggest gyaru in school. Miku Okazaki. to help her "bake cookies to give to the teachers". The principal told her to do this; after she flunked every subject and makeup-class they put her in. He gets her to successfully finish a batch of cookies after several mishaps and is touched by his students glee over her success, He decides to start a cooking club after this experience to get more time and connection with his students. Upon hearing this: Miku decides to join. since he was the first teacher that didnt shove her into makeup-lessons after her failings and pushed her to try harder instead.'
         }

@@ -76,6 +76,13 @@ bookbody: string [] = [];
  * @memberof BookEntityComponent
  */
 bookid: string [] = [];
+/**
+ *
+ * vaiable to store book rate
+ * @type {number[]}
+ * @memberof BookEntityComponent
+ */
+bookrate: number[] = [];
   // tslint:disable-next-line: variable-name
   /**
    *
@@ -139,6 +146,8 @@ ngOnInit() {
       this.assign_status(this.book_details[this.book_index].ReadStatus);
       localStorage.setItem('authorID', this.book_details[0].AuthorId);
       localStorage.setItem('bookID', this.book_details[0].BookId);
+      console.log(this.bookrate[this.book_index]);
+      this.SetRate();
       /* console.log(this.User_info.User_Name)
       console.log(this.User_info.user_id)
       console.log(this.User_info.User_Photo)*/
@@ -177,6 +186,7 @@ ngOnInit() {
       this.bookauthor[x] = this.book_details[x].Author;
       this.bookbody[x] = this.book_details[x].Description;
       this.bookid[x] = this.book_details[x].BookId;
+      this.bookrate[x] = this.book_details[x].BookRating;
       this.SplitString(this.bookbody[x], x);
     }
   }
@@ -194,6 +204,34 @@ ngOnInit() {
       const word = this.book_details[x].Description.split(',');
       this.befor_dots[x] = word[0];
       this.after_dots[x] = word[1];
+  }
+  SetRate() {
+    const rate0 = document.getElementById('star0');
+    const rate1 = document.getElementById('star1');
+    const rate2 = document.getElementById('star2');
+    const rate3 = document.getElementById('star3');
+    const rate4 = document.getElementById('star4');
+    if (this.bookrate[this.book_index] === 1) {
+      rate0.style.color = 'orange';
+    } else if (this.bookrate[this.book_index] === 2) {
+      rate0.style.color = 'orange';
+      rate1.style.color = 'orange';
+    } else if (this.bookrate[this.book_index] === 3) {
+      rate0.style.color = 'orange';
+      rate1.style.color = 'orange';
+      rate2.style.color = 'orange';
+    } else if (this.bookrate[this.book_index] === 4) {
+      rate0.style.color = 'orange';
+      rate1.style.color = 'orange';
+      rate2.style.color = 'orange';
+      rate3.style.color = 'orange';
+    } else if (this.bookrate[this.book_index] === 5) {
+      rate0.style.color = 'orange';
+      rate1.style.color = 'orange';
+      rate2.style.color = 'orange';
+      rate3.style.color = 'orange';
+      rate4.style.color = 'orange';
+    }
   }
   /**
    *

@@ -52,7 +52,26 @@ body {
     color: blue;
     text-decoration: underline;
 }
-
+#star0
+{
+    color:black;
+}
+#star1
+{
+    color:black;
+}
+#star2
+{
+    color:black;
+}
+#star3
+{
+    color:black;
+}
+#star4
+{
+    color:black;
+}
 #book-details {
     color: #00635D;
     margin: 5px 0 0 24px;
