@@ -35,6 +35,14 @@ app.post("/api/book", (req, res, next) => {
         message: "Post added successfully"
     });
 });
+app.post("/api/reviewerdata", (req, res, next) => {
+    const post = req.body;
+    console.log(post.reviewer_id);
+    console.log(post.reviewer_likes);
+    res.status(201).json({
+        message: "Post added successfully"
+    });
+});
 app.post("/api/authordata", (req, res, next) => {
     const post = req.body;
     console.log(post.author_id);

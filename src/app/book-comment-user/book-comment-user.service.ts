@@ -87,17 +87,11 @@ request_reviewer_comment(review_id: string) {
  */
 request_reviewer_like(review_id: string, review_like: string) {
 // tslint:disable-next-line: radix
-        let x = parseInt(review_like);
-        if (this.liked === 0) {
-            x = x + 1;
-            this.liked = 1;
-        } else {
-            x = x - 1;
-            this.liked = 0;
-        }
-        review_like = x.toString();
 // tslint:disable-next-line: max-line-length
-        const reviewer_comment: Bookreviews = {reviewer_id: review_id, reviewer_name:null,reviewer_body:null,reviewer_comments:null,reviewer_date:null,reviewer_image:null,reviewer_likes:review_like,reviewer_rate:null};
+        const reviewer_comment: Bookreviews = {reviewer_id: review_id, 
+        reviewer_name:null,reviewer_body:null,
+        reviewer_comments:null,reviewer_date:null,reviewer_image:null,
+        reviewer_likes:review_like,reviewer_rate:null};
         this.http.post<{message: string}>('http://localhost:3000/api/reviewdata', reviewer_comment)
         .subscribe ((responseData) => {
             console.log(responseData.message);

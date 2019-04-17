@@ -200,6 +200,28 @@ ngOnInit() {
       moreText.style.display = 'inline';
     }
   }
+  OnclickLike(index: ReviewDetails) {
+    const Liked = document.getElementById('liked');
+    const liking = document.getElementById('show-likes');
+    if(Liked.innerHTML === 'Like') {
+      Liked.innerHTML = 'Liked';
+      let x = liking.innerHTML.toString();
+// tslint:disable-next-line: radix
+      let y = parseInt(x);
+      y = y + 1;
+      x = y.toString();
+      liking.innerHTML = x;
+    } else {
+      Liked.innerHTML = 'Like';
+      let x = liking.innerHTML.toString();
+// tslint:disable-next-line: radix
+      let y = parseInt(x);
+      y = y - 1;
+      x = y.toString();
+      liking.innerHTML = x;
+    }
+    this.review_service.request_reviewer_like(index.reviewer_id, liking.innerHTML.toString());
+  }
   /**
    *
    * function used to split review body
