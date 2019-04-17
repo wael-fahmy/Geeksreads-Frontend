@@ -49,3 +49,47 @@ export interface AuthorModel {
    */
   authorBookIds: string[];
 }
+
+/**
+ * Follow Author Model
+ * @export
+ * @interface FollowAuthor
+ */
+export interface FollowAuthorModel {
+
+  /**
+   * User now follows author
+   * @type {boolean}
+   * @memberof FollowAuthor
+   */
+  success: boolean;
+
+  /**
+   * Message
+   * @type {string}
+   * @memberof FollowAuthor
+   */
+  message: string;
+}
+
+/**
+ * UnFollow Author Model
+ * @export
+ * @interface FollowAuthor
+ */
+export interface UnfollowAuthorModel {
+
+  /**
+   * User now unfollows author
+   * @type {boolean}
+   * @memberof FollowAuthor
+   */
+  success: boolean;
+
+  /**
+   * Message
+   * @type {string}
+   * @memberof FollowAuthor
+   */
+  message: string;
+}

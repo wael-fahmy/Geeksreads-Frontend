@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthorModel } from './author.model';
+import { AuthorModel, FollowAuthorModel, UnfollowAuthorModel } from './author.model';
 import { Subscription } from 'rxjs';
 import { AuthorService } from './author.service';
 
@@ -30,6 +30,22 @@ export class AuthorComponent implements OnInit {
    *  @memberof AuthorComponent
    */
   authorInfo: AuthorModel;
+
+  /**
+   *
+   * Object to fill data
+   * @type {FollowAuthorModel}
+   * @memberof AuthorComponent
+   */
+  authorFollow: FollowAuthorModel;
+
+  /**
+   *
+   * Object to fill data
+   * @type {UnfollowAuthorModel}
+   * @memberof AuthorComponent
+   */
+  authorUnfollow: UnfollowAuthorModel;
 
   /**
    *  Author's Id
@@ -66,8 +82,13 @@ export class AuthorComponent implements OnInit {
    *  @memberof AuthorComponent
    */
   followAuthor() {
-    // TODO: Send request
-    this.authorIsFollowing = true;
+    this.authorService.followAuthor();
+
+    this.authorSubscription = this.authorService.getFollowAuthorUpdated()
+    .subscribe((authorFollow: FollowAuthorModel) => {
+      this.authorFollow = authorFollow;
+      this.authorIsFollowing = this.authorFollow.success;
+    });
     this.authorNumberOfFollowers += 1;
     console.log('Following this author');
   }
@@ -77,8 +98,13 @@ export class AuthorComponent implements OnInit {
    *  @memberof AuthorComponent
    */
   unfollowAuthor() {
-    // TODO: Send request
-    this.authorIsFollowing = false;
+    this.authorService.unfollowAuthor();
+
+    this.authorSubscription = this.authorService.getUnfollowAuthorUpdated()
+    .subscribe((authorUnfollow: FollowAuthorModel) => {
+      this.authorUnfollow = authorUnfollow;
+      this.authorIsFollowing = this.authorUnfollow.success;
+    });
     this.authorNumberOfFollowers -= 1;
     console.log('Unfollowing this author');
   }
