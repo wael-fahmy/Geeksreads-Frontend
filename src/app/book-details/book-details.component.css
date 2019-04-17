@@ -1,0 +1,32 @@
+#book-details-more {
+    font-weight: bold;
+}
+
+#book-edition {
+    margin: 10px 0 0 10px;
+}
+
+#publish-date {
+    margin-left: 10px;
+}
+
+#ASIN-number {
+    margin: 20px 0 0 10px;
+}
+
+.text-shift {
+    margin: 0 0 0 10px;
+}
+
+.span-color {
+    margin-left: 10px;
+    color: grey;
+}
+
+#underline-book-details {
+    margin-left: 10px;
+}
+
+.mat-expansion-panel:not([class*=mat-elevation-z]) {
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0), 0 0 0 0 rgba(0, 0, 0, 0), 0 0 0 0 rgba(0, 0, 0, 0);
+}

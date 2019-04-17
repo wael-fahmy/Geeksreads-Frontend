@@ -1,0 +1,85 @@
+.activity-card {
+    width: 600px;
+    margin: 10px 0;
+}
+
+.activity-header-image {
+    background-image: url('https://tse1.mm.bing.net/th?id=OIP.JchDxbr-ajB0-wbB1h5BBgAAAA&pid=15.1&P=0&w=300&h=300');
+    background-size: cover;
+}
+
+.activity-card p {
+    margin: 0;
+}
+
+.name {
+    color: #092c21;
+}
+
+.activity {
+    font-size: 115%;
+    position: relative;
+    padding-top: -2;
+    border-top: 10px;
+    color: brown;
+}
+
+.book-image {
+    width: 100px;
+    height: 100px;
+    margin: 0 !important;
+}
+
+.example-button-row button,
+.example-button-row a {
+    margin-right: 8px;
+}
+
+.checked {
+    color: orange;
+}
+
+#wantToRead {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.author-name-style {
+    color: grey;
+    font-size: 18px;
+}
+
+.book-name-style {
+    color: black;
+    font-size: 22px;
+}
+
+.book-details {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.book-description {
+    margin: 0 0 0 10px;
+}
+
+.card-header {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.stars {
+    margin-left: 15px;
+}
+.subtitle{
+    margin-left: 10px ; 
+}

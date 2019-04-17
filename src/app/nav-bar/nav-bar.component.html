@@ -1,0 +1,43 @@
+<mat-toolbar>
+    <mat-toolbar-row>
+        <div class="nav-margin">
+            <span><a routerLink="/homepage"><img src="../../assets/logos/nav-logo.png" alt="Geeksreads main logo" id="nav-logo"></a></span>
+            <span id="nav-links-container">
+        <span class="nav-link"><a routerLink="/newsfeed">Home</a></span>
+            <span class="nav-link"><a routerLink="/book">My Books</a></span>
+            <span class="nav-link"><a routerLink="/genres">Browse</a></span>
+            <form id="nav-search-bar">
+                <mat-form-field>
+                    <input type="search" matInput placeholder="Search">
+                    <mat-icon matSuffix id="nav-search-bar-icon">search</mat-icon>
+                </mat-form-field>
+            </form>
+            <span class="nav-link"><a routerLink="/sign-in">Sign In</a></span>
+            <span class="nav-link"><a routerLink="/sign-up">Join</a></span>
+            <button mat-icon-button [matMenuTriggerFor]="notificationMenu">
+          <mat-icon>notifications</mat-icon>
+        </button>
+            <mat-menu #notificationMenu="matMenu">
+                <div class="notification-instance">
+                    <p>This will be a component</p>
+                </div>
+                <hr>
+                <div class="notification-instance">
+                    <p>This too</p>
+                </div>
+            </mat-menu>
+            <button mat-icon-button [matMenuTriggerFor]="userMenu">
+        <mat-icon>person</mat-icon>
+      </button>
+            <mat-menu #userMenu="matMenu">
+                <div class="user-menu">
+                    <p>Geek</p>
+                    <a routerLink="/profile">Profile</a>
+                    <hr>
+                    <a routerLink="/sign-out">Sign Out</a>
+                </div>
+            </mat-menu>
+            </span>
+        </div>
+    </mat-toolbar-row>
+</mat-toolbar>

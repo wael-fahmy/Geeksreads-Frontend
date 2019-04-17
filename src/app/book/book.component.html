@@ -1,0 +1,44 @@
+<app-book-entity></app-book-entity>
+<p id="get-a-copy">Get a copy</p>
+<div id="Stores-buttons">
+    <button id="amazon-store" onclick=" window.open('https://www.amazon.com','-blank')"> Amazon</button>
+    <div class="drop-down-online-store">
+        <button id="online-store">Online Stores</button>
+        <div class="dropdown-list">
+            <a onclick=" window.open('https://www.barnesandnoble.com','-blank')">Barnes & Noble</a>
+            <a onclick=" window.open('https://www.kobo.com','-blank')">Rakuten Kobo</a>
+            <a onclick=" window.open('https://itunes.apple.com','-blank')">Apple Store</a>
+            <a onclick=" window.open('https://play.google.com','-blank')">Google Store</a>
+            <a onclick=" window.open('https://www.abebooks.com','-blank')">Abe Books</a>
+            <a onclick=" window.open('https://www.bookdepository.com','-blank')">Book Despository</a>
+            <a onclick=" window.open('https://www.chapters.indigo.ca','-blank')">Indigo</a>
+        </div>
+    </div>
+    <button id="libraries-store" onclick=" window.open('https://www.worldcat.org/title','-blank')"> Libraries</button>
+</div>
+<hr class="w3-gray" id="Stores-underline">
+<app-book-comment-user></app-book-comment-user>
+<hr id="book-details-uppar-line" class="w3-gray">
+
+
+<app-book-details></app-book-details>
+
+<app-book-author></app-book-author>
+
+<mat-accordion>
+    <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                <p id="genres">Genres</p>
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div id="genres-type">
+            <button routerLink="/genres" id="genre-color1" mat-flat-button>{{genreDetails[genreIndex]?.genreOne}}</button>
+            <button routerLink="/genres" id="genre-color" mat-flat-button>{{genreDetails[genreIndex]?.genreTwo}}</button>
+            <button routerLink="/genres" id="genre-color" mat-flat-button>{{genreDetails[genreIndex]?.genreThree}}</button>
+            <button routerLink="/genres" id="genre-color" mat-flat-button>{{genreDetails[genreIndex]?.genreFour}}</button>
+            <button routerLink="/genres" id="genre-color" mat-flat-button>{{genreDetails[genreIndex]?.genreFive}}</button>
+        </div>
+    </mat-expansion-panel>
+</mat-accordion>
+<hr id="Stores-underline" class="w3-gray">

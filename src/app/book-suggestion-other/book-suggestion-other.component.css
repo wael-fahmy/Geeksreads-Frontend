@@ -1,0 +1,54 @@
+.suggested-book-other-image {
+    height: 200px;
+    width: 140px;
+}
+
+#suggested-books-others {
+    margin: 10px 0 0 15px;
+    font-weight: bold;
+}
+
+.suggested-book-other-title {
+    color: black;
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.author-name {
+    margin: 0 0 0 5px;
+}
+
+.suggested-book-other-author {
+    font-family: 'Times New Roman', Times, serif;
+    color: gray;
+    font-size: 14px;
+}
+
+#suggested-book-other h4 {
+    margin: 0;
+}
+
+#suggested-book-other p {
+    margin: 0;
+}
+
+#underline-other-suggested-books {
+    margin-left: 10px;
+}
+
+div.scroll-menu-other a {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px;
+    text-decoration: none;
+}
+
+div.scroll-menu-other {
+    overflow: auto;
+    white-space: nowrap;
+}
+
+#suggested-books-other {
+    margin: 0 0 0 15px;
+}

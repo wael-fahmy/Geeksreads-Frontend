@@ -1,0 +1,100 @@
+#Author-picture-data {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    margin: 0 0 0 10px;
+}
+
+#about-this-author {
+    font-weight: bold;
+}
+.author-following-button {
+    border-radius: 3px;
+    border: 1px solid #D6D0C4;
+    font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
+    font-size: 14px;
+    appearance: none;
+    cursor: pointer;
+    display: inline-block;
+    text-decoration: none;
+    color: #333333;
+    background-color: #F4F1EA;
+    line-height: 1;
+    padding: 8px 8px;
+    margin: 10px 0;
+    width: 140px;
+}
+#author-image {
+    max-width: 85px;
+    max-height: 85px;
+    margin: 0 0 0 0;
+}
+
+#author-name {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: bold;
+    margin: 5px 0 0 10px;
+    cursor: pointer;
+}
+
+#author-name:hover {
+    text-decoration: underline;
+    text-decoration: black;
+}
+
+#number-followers {
+    flex-wrap: nowrap;
+    flex-direction: row;
+    margin: 10px 0 0 25px;
+}
+
+.author-discription {
+    margin: 0 0 0 15px;
+}
+
+#more-author-discription {
+    display: none;
+}
+
+#underline-book-author {
+    size: 3px;
+    margin-left: 10px;
+}
+
+#myBtn-author-discription {
+    color: #00635D;
+}
+
+#dots-author-discription {
+    color: blue;
+}
+
+#Author-data {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    margin: 0 0 0 10px;
+}
+
+#Author-data p {
+    margin: 0;
+}
+
+#Author-data span {
+    margin: 0 0 0 5px;
+}
+
+#btn-follow-author {
+    margin-top: 2px;
+    color: black;
+    background-color: #F4F1EA;
+}
+
+#author-followers {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.mat-expansion-panel:not([class*=mat-elevation-z]) {
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0), 0 0 0 0 rgba(0, 0, 0, 0), 0 0 0 0 rgba(0, 0, 0, 0);
+}

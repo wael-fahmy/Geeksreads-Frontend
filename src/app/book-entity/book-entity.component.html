@@ -1,0 +1,33 @@
+<div id="Book-info">
+    <img class="Book-image" src="{{bookimage[book_index]}}">
+    <div id="Book-Title">
+        <h3 id="title">{{booktitle[book_index]}}</h3>
+        <p id="By-Author">by
+            <span (click)="GetAuthorByID()" routerLink="/author" id="Author-name">{{bookauthor[book_index]}}</span></p>
+            <button mat-button [matMenuTriggerFor]="menu" class="want-to-read" id='first-option'>{{bookstatus[book_index]}}</button>
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item (click)="book_status('second-option')" id='second-option'>{{type1}}</button>
+            <button mat-menu-item (click)="book_status('third-option')" id='third-option'>{{type2}}</button>
+        </mat-menu>
+        <button mat-stroked-button id="rate">Rate </button>
+    </div>
+
+</div>
+<div id="review-book">
+    <span id="star0" class="fa fa-star"></span>
+    <span id="star1" class="fa fa-star"></span>
+    <span id="star2" class="fa fa-star"></span>
+    <span id="star3" class="fa fa-star"></span>
+    <span id="star4" class="fa fa-star"></span>
+</div>
+<div id="book-details-and-reviewbutton">
+    <p id="book-details">book details</p>
+</div>
+
+<div class="book-discription">
+    <p>{{befor_dots[book_index]}}
+        <span id="dots-book-discription">...</span>
+        <span id="more-book-discription">{{after_dots[book_index]}}</span>
+    <button (click)="more_book_discription()" mat-button id="myBtn-book-discription">Read more</button></p>
+    <hr id="underline-bookk-entity" class="w3-gray">
+</div>

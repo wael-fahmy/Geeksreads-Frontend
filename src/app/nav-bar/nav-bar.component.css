@@ -1,0 +1,67 @@
+mat-toolbar {
+    font-size: 1em;
+    position: fixed;
+    top: 0;
+    z-index: 999 !important;
+}
+
+.nav-margin {
+    display: flex;
+    flex-wrap: nowrap;
+    margin: 0 auto;
+}
+
+#nav-logo {
+    margin: 5px 0 0 0;
+    max-height: 200px;
+    max-width: 200px;
+}
+
+#nav-links-container {
+    align-items: center;
+    display: flex;
+    height: 100%;
+    margin: 0 10px;
+}
+
+.nav-link a {
+    color: #000000;
+    cursor: pointer;
+    display: block;
+    padding: 16px 15px;
+    text-decoration: none;
+}
+
+.nav-link a:hover {
+    background-color: #382110;
+    color: #ffffff;
+}
+
+#nav-search-bar {
+    margin: 0 10px;
+}
+
+#nav-search-bar-icon {
+    margin: 0;
+}
+
+.notification-instance {
+    margin: 5px 10px;
+}
+
+.user-menu p {
+    margin: 0 0 5px 0;
+    font-weight: bold;
+}
+
+.user-menu a {
+    margin: 0 0 5px 0;
+}
+
+.user-menu {
+    margin: 0 0 0 5px;
+}
+
+.notifications-menu {
+    overflow-y: scroll;
+}

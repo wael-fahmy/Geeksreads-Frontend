@@ -1,0 +1,116 @@
+.margin-adujester
+{
+  margin-top: 200px;
+  margin-bottom: 200px;
+}
+
+
+.sc-container h1{
+color:black;
+font-weight: bold;
+font-family: 'Times New Roman', Times, serif
+}
+
+.picture{
+  background-image: url("background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.sc-container{
+  margin-top: 70px;
+  margin-left: 50px;
+}
+
+.Sign_In{
+  margin-left: 1000px;
+  padding-bottom: 100px;
+  padding-left: 10px;
+}
+
+
+.header h3{
+color:black;
+font-weight: bold;
+font-family: 'Times New Roman', Times, serif
+}
+
+.books{
+  margin-top:100px;
+
+
+}
+.header{
+  margin-left:1100px;
+}
+
+
+.Sign_Up{
+  margin-left:1100px;
+
+}
+
+.header2{
+  margin-left: 800px;
+  margin-top: 50px;
+}
+
+.header3{
+  margin-top: -120px;
+  margin-left:300px;
+
+}
+
+.search input{
+ width:250px;
+
+
+}
+.search{
+  margin-top:300px;
+  margin-left:45%;
+}
+
+.search-icon{
+  width: 75px;
+  height: 75px;
+  top: -62px;
+  right: -45px;
+}
+
+.search p{
+  margin-bottom:-10px;
+}
+
+
+.types ul{
+  margin-left:650px;
+  list-style-type: none;
+}
+
+.types1{
+  margin-left:800px;
+  margin-top:-180px;
+  list-style-type: none;
+}
+
+
+.types2{
+  margin-left:950px;
+  margin-top:-165px;
+  list-style-type: none;
+}
+
+.types3{
+  margin-left:1050px;
+  margin-top:-165px;
+  list-style-type: none;
+}
+
+
+
+
+
+
+
+

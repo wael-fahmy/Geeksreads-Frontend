@@ -1,0 +1,36 @@
+<div id="user-reviews">
+  <img class="reviewer-image" src="{{reviewerimage[0]}}">
+  <div>
+      <p id="Reviewer-name">{{reviewername[0]}}
+          <span id="rate-it">rated a book</span>
+          <span class="fa fa-star checked" class="dots"></span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star"></span>
+      </p>
+      <p id="review-date">{{reviewerdate[0]}} <span>ago</span></p>
+  </div>
+</div>
+<div id="review-comment">
+    <div id="Book-info">
+        <img class="Book-image" src="{{bookimage[0]}}">
+        <div id="Book-Title">
+            <h4 id="book_title_font">{{booktitle[0]}}</h4>
+            <p id="By-Author">by <span id="Author-name">{{bookauthor[0]}}</span></p>
+            <button id="want-to-read" mat-raised-button color="primary">Want To Read | <mat-icon>library_add</mat-icon></button>
+        </div>
+    </div>
+    <p id="date_read_book">read in <span>{{bookreaddate[0]}}</span></p>
+    <p>{{befor_dots[0]}}<span id="dots-user-review">...</span><span id="more-review"> {{after_dots[0]}}</span> <button (click)="more_review_discription()" id="myBtn-user-review" mat-button>Read Full Review</button></p>
+</div>
+<div id="review-like-comment">
+  <p class="blue-text">Like</p>
+  <p class="dots">.</p>
+  <i class="thumbs-up">	<mat-icon>thumb_up_alt</mat-icon></i>
+  <p type="text" class="dots" id="show-likes">{{reviewerlikes[0]}}</p>
+  <p class="dots">.</p>
+  <i class="comment"><mat-icon> mode_comment</mat-icon></i>
+  <p class="dots">{{reviewercomments[0]}}</p>
+</div>
+<hr id="next-review" class="w3-gray">

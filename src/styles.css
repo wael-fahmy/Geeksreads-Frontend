@@ -1,0 +1,18 @@
+/* You can add global styles to this file, and also import other style files */
+
+*,
+ :after,
+ :before {
+    -webkit-box-sizing: border-box !important;
+    box-sizing: border-box !important;
+}
+
+body {
+    margin: 0;
+    font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
+    font-size: 14px;
+}
+
+input {
+    margin-bottom: 7px !important;
+}

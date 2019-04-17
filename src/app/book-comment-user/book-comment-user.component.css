@@ -1,0 +1,166 @@
+.checked {
+    color: orange;
+}
+
+#review-book {
+    margin: 0 0 0 15px;
+}
+
+.reviewer-image {
+    height: 50px;
+    width: 50px;
+    margin: 0 0 0 10px;
+    border-style: ridge;
+    cursor: pointer;
+}
+
+#community-reviews {
+    margin-left: 10px;
+    font-weight: bold;
+}
+
+#user-reviews {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.blue-text {
+    color: #00635D;
+    cursor: pointer;
+}
+
+.dots {
+    margin-left: 5px;
+}
+
+#Reviewer-name {
+    color: #00635D;
+    margin: 0 0 0 12px;
+}
+
+#review-date {
+    margin: 5px 0 0 10px;
+    color: #999999;
+}
+#load-more-community-reviews {
+    width: 100%;
+    height: 50px;
+    background-color: #F4F1EA;
+    color: black;
+    text-align: center;
+    font-size: 16px;
+    border-radius: 14px;
+    cursor: pointer;
+    margin: 0 0 15px 0;
+}
+#myBtn-user-review1 {
+    color:#00635D;
+ }
+#more-review1 {
+    display: none;
+}
+#myBtn-user-review2 {
+    color:#00635D;
+ }
+
+#more-review2 {
+    display: none;
+}
+#myBtn-user-review3 {
+    color:#00635D;
+ }
+
+#more-review3 {
+    display: none;
+}
+#myBtn-user-review4 {
+    color:#00635D;
+ }
+
+#more-review4 {
+    display: none;
+}
+#myBtn-user-review5 {
+    color:#00635D;
+ }
+
+#more-review5 {
+    display: none;
+}
+#myBtn-user-review6 {
+    color:#00635D;
+ }
+#more_user_reviews
+{
+    display: none;
+}
+#more-review6 {
+    display: none;
+}
+#rate-it {
+    color: rgb(88, 88, 88);
+}
+
+#review-comment {
+    margin-left: 65px;
+}
+
+#next-review {
+    color: darkgray;
+    size: 3px;
+    margin-left: 10px;
+}
+
+#review-like-comment {
+    display: flex;
+    vertical-align: top;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    margin-left: 65px;
+    margin-top: 5px;
+}
+#review-comment button :hover
+{
+    text-decoration: underline;
+    background: red;
+}
+.thumbs-up
+{
+    margin-left: 5px;
+    margin-top: 12px;
+    color: rgba(0, 99, 92, 0.274);
+}
+.comment {
+    margin-left: 5px;
+    margin-top: 12px;
+    color: rgba(0, 99, 92, 0.274);
+}
+#show-likes0
+{
+    color: #00635D;
+}
+#show-likes1
+{
+    color: #00635D;
+}
+#show-likes2
+{
+    color: #00635D;
+}
+#show-likes3
+{
+    color: #00635D;
+}
+#show-likes4
+{
+    color: #00635D;
+}
+#show-likes5
+{
+    color: #00635D;
+}
+#show-comments
+{
+    color: #00635D;
+}

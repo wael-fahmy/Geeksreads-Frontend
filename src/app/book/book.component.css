@@ -1,0 +1,126 @@
+#Stores-buttons {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    margin: 15px 0 0 10px;
+}
+
+#get-a-copy {
+    margin: 15px 0 0 10px;
+    font-weight: bold;
+}
+
+#Stores-buttons button:hover {
+    background-color: red;
+    transition: 1s;
+}
+
+#amazon-store {
+    background-color: darkgrey;
+    margin: 0 0 0 0;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.drop-down-online-store {
+    display: inline;
+}
+
+.drop-down-online-store:hover .dropdown-list {
+    display: block;
+    cursor: pointer;
+}
+
+#genres {
+    font-weight: bold;
+}
+
+#genres-type {
+    display: inline;
+}
+
+#genre-color {
+    background-color: #eee;
+    margin-left: 10px;
+}
+
+#genre-color1 {
+    background-color: #eee;
+}
+
+.genres-button {
+    margin: 15px 0 0 10px;
+}
+
+#book-details-uppar-line {
+    background-color: darkgray;
+    color: grey;
+    size: 5;
+    margin: 5px 0 10px 10px;
+}
+
+.drop-down-online-store:hover .online-store {
+    background-color: #3e8e41;
+}
+
+#Stores-underline {
+    margin: 25px 0 0 10px;
+}
+
+#online-store {
+    background-color: darkgrey;
+    margin: 0 0 0 10px;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.dropdown-list a:hover {
+    background-color: #ddd;
+}
+
+.dropdown-list a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-list {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+#libraries-store {
+    background-color: darkgrey;
+    margin: 0 0 0 10px;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+#Stores-underline {
+    color: black;
+    background-color: black;
+}
+
+.mat-expansion-panel:not([class*=mat-elevation-z]) {
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0), 0 0 0 0 rgba(0, 0, 0, 0), 0 0 0 0 rgba(0, 0, 0, 0);
+}

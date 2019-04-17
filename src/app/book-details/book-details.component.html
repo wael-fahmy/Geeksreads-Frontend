@@ -1,0 +1,19 @@
+<mat-accordion>
+    <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+        <mat-expansion-panel-header>
+            <mat-panel-title name="book-details-bottom" id="book-details-more">
+                Book details
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+        <p id="book-edition">{{bookedition[book_index]}}</p>
+        <span id="publish-date">{{bookpublished[book_index]}}</span>
+        <div>
+            <p id="ASIN-number">ASIN<span class="span-color"> {{bookASIN[book_index]}}</span></p>
+            <p class="text-shift">Edition language<span class="span-color">{{booklang[book_index]}}</span></p>
+            <p class="text-shift">Original title<span class="span-color">{{booktitle[book_index]}}</span></p>
+            <p class="text-shift">Literary Awards<span class="span-color">{{bookawards[book_index]}}</span></p>
+            <p class="text-shift">Characters<span class="span-color">{{bookchara[book_index]}}</span></p>
+        </div>
+    </mat-expansion-panel>
+</mat-accordion>
+<hr id="underline-book-details" class="w3-darkgray">

@@ -1,0 +1,31 @@
+img {
+    margin-right: 2rem;
+    margin-bottom: 2.5em;
+}
+
+mat-list-item {
+    margin-bottom: 4rem;
+    margin-top: 4rem;
+}
+
+mat-divider {
+    margin-bottom: 3rem;
+    margin-top: 3rem;
+}
+
+pre {
+    font-size: 110%;
+}
+
+#MENU {
+    margin-left: 2rem;
+    color: primary;
+}
+
+p {
+    margin-left: 20px;
+}
+
+.checked {
+    color: orange;
+}

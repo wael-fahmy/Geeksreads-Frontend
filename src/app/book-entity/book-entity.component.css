@@ -1,0 +1,159 @@
+body {
+    background-color: darksalmon;
+}
+
+.Book-image {
+    max-width: 150px;
+    max-height: 150px;
+    margin: 5px 0 0 0;
+    display: block;
+}
+#title
+{
+    font-weight: bold;
+}
+#Book-Title {
+    display: inline;
+    vertical-align: top;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    margin: 5px 0 0 0;
+}
+
+#Book-info {
+    margin: 65px 0 0 10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+#Book-info h3 {
+    margin: 0 0 0 15px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+#Book-info p {
+    margin: 7px 0 0 15px;
+}
+
+#review-book {
+    margin: 10px 0 0 28px;
+}
+
+#book-details-and-reviewbutton {
+    display: flex;
+    vertical-align: top;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+#Book-info span {
+    margin: 10px 0 0 0;
+    color: blue;
+    text-decoration: underline;
+}
+#star0
+{
+    color:black;
+}
+#star1
+{
+    color:black;
+}
+#star2
+{
+    color:black;
+}
+#star3
+{
+    color:black;
+}
+#star4
+{
+    color:black;
+}
+#book-details {
+    color: #00635D;
+    margin: 5px 0 0 24px;
+    cursor: pointer;
+}
+
+.want-to-read {
+    margin: 15px 0 0 15px;
+    background-color: #F4F1EA;
+    border: none;
+    border:1px solid #D6D0C4;
+    font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
+    color: #181818;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    display: inline-block;
+    font-size: 12px;
+    cursor: pointer;
+}
+#Author-name
+{
+    color: #00635D;
+    text-decoration: none;
+}
+#By-Author {
+    cursor: pointer;
+}
+
+#rate {
+    margin: 15px 0 0 5px;
+    background-color: #F4F1EA;
+    border: none;
+    border:1px solid #D6D0C4;
+    font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
+    color: #181818;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    display: inline-block;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.book-discription {
+    margin: 0 0 0 10px;
+}
+
+#underline-bookk-entity {
+    color: darkgray;
+    background-color: darkgray;
+    size: 5;
+    margin-left: 0;
+}
+
+#Write-a-review {
+    margin: 10px 0 0 15px;
+    background-color: #F4F1EA;
+    border: none;
+    border:1px solid #D6D0C4;
+    font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
+    color: #181818;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    display: inline-block;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.checked {
+    color: orange;
+}
+
+#more-book-discription {
+    display: none;
+}
+
+#myBtn-book-discription {
+    color:#00635D;
+}
+
+#dots-book-discription {
+    color: blue;
+}

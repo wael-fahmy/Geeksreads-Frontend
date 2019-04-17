@@ -1,0 +1,56 @@
+<mat-card class="activity-card">
+    <!-- header of the card contains name of the user's image,name,ratings,activity-->
+    <div class="card-header">
+        <mat-card-header>
+            <!--image -->
+            <div mat-card-avatar class="activity-header-image"> </div>
+            <!--name -->
+            <mat-card-title class="name">{{username}}</mat-card-title>
+           
+            <!--activiy status-->
+            <div class="activity">
+                <p>{{activity}}</p>
+            </div>
+            <!-- display the ratigs -->
+            <div class="stars">
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star"></span>
+                <span class="fa fa-star"></span>
+            </div>
+
+        </mat-card-header>
+
+    </div>
+    <!--ending of the class "card header"-->
+    <mat-card-subtitle>
+        <p class="subtitle">{{activitydate}}</p>
+    </mat-card-subtitle>
+
+
+
+
+
+    <!--body of the card contains book's image and book's info should consist of 2 parts resposible class is called book details  -->
+    <div class="book-details">
+        <div>
+            <!--left part starts here-->
+            <img mat-card-image class="book-image" src={{bookimage}} alt="Photo of the book">
+        </div>
+
+        <div class="book-description">
+            <!--right part starts here-->
+            <p class="book-name-style"> {{bookname}}</p>
+            <p class="author-name-style">{{authorname}}</p>
+            <button id="wantToRead">Want to read</button>
+        </div>
+    </div>
+
+
+    <!--review status bar-->
+    <mat-card-content>
+        <br>
+        <p>{{review}}</p>
+    </mat-card-content>
+</mat-card>

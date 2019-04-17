@@ -1,0 +1,33 @@
+<mat-list>
+    <hr>
+    <mat-list-item *ngFor="let index of listOfBooks">
+        <img width="60" height="80" src="{{index.bookCover}}" alt="book">
+        <a routerLink="/book">{{index.bookName}} <br> by {{index.authorName}}  </a>
+        <button id="MENU" [matMenuTriggerFor]="menu">{{index.state}} ...</button>
+        <mat-menu #menu="matMenu">
+            <div *ngIf="index.state=='currently reading'">
+                <!-- check the state and determine the menu     -->
+                <button mat-menu-item (click)=" OnClick_read(index)">Read</button>
+                <button mat-menu-item (click)="OnClick_want_read(index)">want to read</button>
+            </div>
+            <div *ngIf="index.state=='read'">
+                <!-- check the state and determine the menu     -->
+                <button mat-menu-item (click)=" OnClick_reading(index)">currently reading</button>
+                <button mat-menu-item (click)="OnClick_want_read(index)">want to read</button>
+            </div>
+            <div *ngIf="index.state=='want to read'">
+                <!-- check the state and determine the menu     -->
+                <button mat-menu-item (click)=" OnClick_reading(index)">currently reading</button>
+                <button mat-menu-item (click)="OnClick_read(index)">Read</button>
+            </div>
+        </mat-menu>
+        <p>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star"></span>
+            <span class="fa fa-star"></span>
+        </p>
+        <mat-divider></mat-divider>
+    </mat-list-item>
+</mat-list>

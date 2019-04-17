@@ -1,0 +1,180 @@
+.nav-margin {
+    margin: 64px 0 0 0;
+}
+
+#container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#container-inner {
+    border-color: #fff #fff #ababab;
+    padding: 20px;
+}
+
+h1 {
+    color: #666666;
+    font-size: 30px;
+    font-weight: normal;
+    line-height: 1.1;
+    margin: 0 0 12px 0;
+    padding: 0 0 28px 0;
+}
+
+
+/* -- !Fieldsets -- */
+
+fieldset {
+    border: none;
+    position: relative;
+    padding: 0;
+}
+
+
+/* -- !Fields -- */
+
+fieldset div {
+    margin: 0 0 10px 0;
+    padding: 5px 0 5px 160px;
+}
+
+fieldset div.controls {
+    margin: 25px 0 0 0;
+    padding: 0;
+}
+
+
+/* Labels */
+
+fieldset div label {
+    color: #666;
+    float: left;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 1.1;
+    margin: 7px 0 0 -160px;
+    width: 140px;
+}
+
+
+/* Input defaults */
+
+fieldset div input,
+fieldset div select {
+    border: 1px solid #a3b4c4;
+    border-color: #636d77 #a3b4c4 #c7d2de;
+    color: #333;
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.1;
+    margin: 0;
+}
+
+
+/* Text inputs */
+
+fieldset div input {
+    padding: 6px 5px;
+    width: 288px;
+}
+
+
+/* Select menus */
+
+fieldset div select {
+    padding: 0 0 0 3px;
+    width: 291px;
+}
+
+
+/* File Upload */
+
+fieldset div input[type=file] {
+    background: none;
+    border: none;
+    padding: 0;
+}
+
+
+/* Groups */
+
+fieldset fieldset.group {
+    border: none;
+    color: #666;
+    margin: 0 0 10px 155px;
+    padding: 0;
+}
+
+fieldset fieldset.group legend span {
+    background: none;
+    border: none;
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    left: 0;
+    line-height: 1.1;
+    margin: 9px 20px 0 -155px;
+    padding: 0;
+    position: absolute;
+    width: 140px;
+}
+
+fieldset fieldset.group div {
+    float: left;
+    margin: 0 0 0 5px;
+    padding-left: 0;
+}
+
+fieldset div.controls input {
+    float: right;
+    width: auto;
+}
+
+
+/* Radio buttons */
+
+fieldset div ul li label {
+    display: inline;
+    float: none;
+    font-size: 14px;
+    font-weight: normal;
+    margin: 0;
+    padding: 0;
+}
+
+fieldset div ul li input {
+    display: inline;
+    margin: 0 5px 0 0;
+    padding: 0;
+    width: auto;
+}
+
+
+/* -- Date of Birth -- */
+
+fieldset fieldset#section-dob div label {
+    position: absolute;
+    top: -99em;
+}
+
+fieldset fieldset#section-dob div select {
+    width: 85px;
+}
+
+fieldset fieldset#section-dob div select#dob_month {
+    width: 108px;
+}
+
+
+/* -- Submit -- */
+
+fieldset .controls input#submit {
+    background: url(images/ir-submit-edit-profile.png) no-repeat -140px 0;
+    border: none;
+    cursor: pointer;
+    height: 32px;
+    margin: 0;
+    padding: 32px 0 0 66px;
+    width: 66px;
+}

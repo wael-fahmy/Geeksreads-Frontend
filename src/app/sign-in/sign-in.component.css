@@ -1,0 +1,98 @@
+mat-form-field {
+    width: 100%;
+}
+
+p a {
+    color: #b18f06;
+}
+
+.sign-in {
+    background: white;
+    border-radius: 6px;
+    margin: 64px auto 0 auto;
+    padding: 0px 0px 70px 0px;
+    width: 400px;
+}
+
+.sign-in p {
+    color: #000000;
+    font-size: 12px;
+    text-decoration: none;
+}
+
+.sign-in h1 {
+    font-size: 1.5em;
+    text-align: center;
+}
+
+.sign-in-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.email {
+    background: #ecf0f1;
+    border: #ccc 1px solid;
+    border-bottom: #ccc 2px solid;
+    border-radius: 4px;
+    color: #AAAAAA;
+    font-size: 1em;
+    margin-top: 10px;
+    padding: 8px;
+    width: 100%;
+}
+
+.password {
+    background: #ecf0f1;
+    border-radius: 4px;
+    border: #ccc 1px solid;
+    font-size: 1em;
+    padding: 8px;
+    width: 100%;
+}
+
+.btn {
+    background-color: #b9ab98;
+    border: 0;
+    border-radius: 3px;
+    color: #FFF;
+    cursor: pointer;
+    box-shadow: 2px 2px 2px #111;
+    width: 100%;
+    height: 40px;
+    position: relative;
+    padding: 0;
+    margin: 10px 0;
+}
+
+.btn span {
+    font-size: 15px;
+    line-height: 40px;
+}
+
+.btn:active {
+    top: 1px;
+    box-shadow: 1px 1px 2px #000;
+}
+
+.checkbox-inline {
+    display: inline;
+    margin-right: 19%;
+}
+
+.sign-in-logo-div {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    margin: 10px 0;
+    padding: 10px 0 0 0;
+}
+
+.sign-in-logo {
+    width: 100px;
+    margin: 0 auto;
+}
+
+#password-field {
+    margin: 20px 0 0 0;
+}

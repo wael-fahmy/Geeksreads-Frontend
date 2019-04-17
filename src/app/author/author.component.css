@@ -1,0 +1,76 @@
+hr {
+    margin: 5px 0;
+}
+
+.nav-bar-margin {
+    height: 65px;
+}
+
+.author-header {
+    margin: 20px 0 10px 10px;
+}
+
+.author-stats {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.author-image {
+    margin: 0 10px 0 0;
+}
+
+.author-info-details {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+
+.author-info-details p {
+    margin: 0;
+    font-size: 14px;
+}
+
+#author-name {
+    font-family: "Merriweather", Georgia, "Times New Roman", serif;
+    font-size: 24px;
+    line-height: 26px;
+    margin: 0;
+}
+
+.author-following-button {
+    border-radius: 3px;
+    border: 1px solid #D6D0C4;
+    font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
+    font-size: 14px;
+    appearance: none;
+    cursor: pointer;
+    display: inline-block;
+    text-decoration: none;
+    color: #333333;
+    background-color: #F4F1EA;
+    line-height: 1;
+    padding: 8px 8px;
+    margin: 10px 0;
+    width: 140px;
+}
+
+#author-more-details {
+    color: #00635D;
+    text-decoration: none;
+    margin: 0 0 0 2px;
+    cursor: pointer;
+}
+
+#author-more-details:hover {
+    text-decoration: underline;
+}
+
+.author-books-header {
+    padding: 10px 10px;
+    margin: 0;
+    color: #333333;
+    font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
+    font-weight: normal;
+    font-size: 16px;
+}

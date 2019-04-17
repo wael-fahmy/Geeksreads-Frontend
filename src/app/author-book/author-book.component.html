@@ -1,0 +1,23 @@
+<div class="author-book">
+    <div class="author-book-header">
+        <div class="author-book-stats">
+            <div class="author-book-image">
+                <a href={{authorBookLink}} target="_blank"><img src={{authorBookPicture}} alt="{{authorBookName}}'s Book Cover"></a>
+            </div>
+            <div class="author-book-info-details">
+                <a href={{authorBookLink}} target="_blank" id="author-book-name">{{authorBookName}}</a>
+                <div class='author-book-rating-div'>
+                    Rating <span id='author-book-rating'>{{authorBookRating}}</span>
+                </div>
+                <button mat-button id="author-book-shelf-button" [matMenuTriggerFor]="bookShelf" #addToShelf>{{shelfAction}}</button>
+                <mat-menu #bookShelf="matMenu">
+                    <button mat-menu-item (click)="wantToRead()" id="want-to-read">Want to Read</button>
+                    <button mat-menu-item (click)="currentlyReading()" id="currently-reading">Currently Reading</button>
+                    <button mat-menu-item (click)="read()" id="read">Read</button>
+                    <button *ngIf=authorBookIsInAShelf mat-menu-item (click)="removeFromShelf()" id="remove-from-shelf">Remove from shelf</button>
+                </mat-menu>
+            </div>
+        </div>
+    </div>
+    <hr>
+</div>
