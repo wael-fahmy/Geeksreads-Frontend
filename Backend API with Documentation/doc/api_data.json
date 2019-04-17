@@ -856,6 +856,34 @@
         "Success 200": [
           {
             "group": "Success 200",
+            "optional": false,
+            "field": "varname1",
+            "description": "<p>No type.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "varname2",
+            "description": "<p>With type.</p>"
+          }
+        ]
+      }
+    },
+    "type": "",
+    "url": "",
+    "version": "0.0.0",
+    "filename": "./doc/main.js",
+    "group": "C__Users_waela_Documents_GitHub_Geeksreads_Frontend_Backend_API_with_Documentation_doc_main_js",
+    "groupTitle": "C__Users_waela_Documents_GitHub_Geeksreads_Frontend_Backend_API_with_Documentation_doc_main_js",
+    "name": ""
+  },
+  {
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
             "type": "Boolean",
             "optional": false,
             "field": "AddedCommentSuc",
@@ -2003,7 +2031,7 @@
   },
   {
     "type": "POST",
-    "url": "/user/SignIn/",
+    "url": "api/auth/signin/",
     "title": "Signing in by Email and Password",
     "name": "SignIn",
     "group": "User",

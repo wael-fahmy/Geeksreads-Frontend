@@ -82,15 +82,17 @@ export class AuthorComponent implements OnInit {
    *  @memberof AuthorComponent
    */
   followAuthor() {
-    this.authorService.followAuthor();
-
-    this.authorSubscription = this.authorService.getFollowAuthorUpdated()
-    .subscribe((authorFollow: FollowAuthorModel) => {
-      this.authorFollow = authorFollow;
-      this.authorIsFollowing = this.authorFollow.success;
-    });
+    this.authorIsFollowing = true;
     this.authorNumberOfFollowers += 1;
     console.log('Following this author');
+    this.authorService.followAuthor();
+    this.authorSubscription = this.authorService.getFollowAuthorUpdated()
+      .subscribe((authorFollow: FollowAuthorModel) => {
+        this.authorFollow = authorFollow;
+        this.authorIsFollowing = this.authorFollow.success;
+        this.authorNumberOfFollowers += 1;
+        console.log('Following this author');
+      });
   }
 
   /**
@@ -98,15 +100,18 @@ export class AuthorComponent implements OnInit {
    *  @memberof AuthorComponent
    */
   unfollowAuthor() {
+    this.authorIsFollowing = false;
+    this.authorNumberOfFollowers -= 1;
+    console.log('Unfollowing this author');
     this.authorService.unfollowAuthor();
 
     this.authorSubscription = this.authorService.getUnfollowAuthorUpdated()
-    .subscribe((authorUnfollow: FollowAuthorModel) => {
-      this.authorUnfollow = authorUnfollow;
-      this.authorIsFollowing = this.authorUnfollow.success;
-    });
-    this.authorNumberOfFollowers -= 1;
-    console.log('Unfollowing this author');
+      .subscribe((authorUnfollow: FollowAuthorModel) => {
+        this.authorUnfollow = authorUnfollow;
+        this.authorIsFollowing = this.authorUnfollow.success;
+        this.authorNumberOfFollowers -= 1;
+        console.log('Unfollowing this author');
+      });
   }
 
   /**
@@ -131,8 +136,8 @@ export class AuthorComponent implements OnInit {
         this.authorName = this.authorInfo.authorName;
         this.authorPicture = this.authorInfo.authorPicture;
         this.authorNumberOfFollowers = this.authorInfo.authorNumberOfFollowers;
-        // this.authorDetails = this.authorInfo.authorDetails;
-        // this.authorIsFollowing = this.authorInfo.authorIsFollowing;
+        this.authorDetails = this.authorInfo.authorDetails;
+        this.authorIsFollowing = this.authorInfo.authorIsFollowing;
       });
   }
 }
