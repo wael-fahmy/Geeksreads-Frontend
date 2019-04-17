@@ -263,6 +263,6 @@ ngOnInit() {
       x = y.toString();
       liking.innerHTML = x;
     }
-    this.bookreviews_service.request_reviewer_like(index.reviewer_id, index.reviewer_likes);
+    this.bookreviews_service.request_reviewer_like(index.reviewer_id,  liking.innerHTML.toString());
   }
 }

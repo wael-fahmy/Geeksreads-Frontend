@@ -102,7 +102,7 @@ export class BookTitle_Service {
 post_book_status(bookc_id: string, bookc_status: string) {
 // tslint:disable-next-line: max-line-length
         const book: BookDetails = {BookId: bookc_id, ReadStatus: bookc_status, AuthorId: null,
-             Description: null, Cover: null, Title: null, BookRating: null, Author: null};
+            Description: null, Cover: null, Title: null, BookRating: null, Author: null};
         this.http.post<{message: string}>('http://localhost:3000/api/book', book)
         .subscribe ((responseData) => {
             console.log(responseData.message);
