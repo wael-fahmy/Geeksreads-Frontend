@@ -17,6 +17,7 @@ describe('Login tests', () => {
 
 
     beforeEach(() => {
+        browser.get('http://geeksreads.herokuapp.com/');
         page = new LoginPage();
         page.navigateTo();
         emailBox = page.getEmailTextbox();
@@ -27,74 +28,89 @@ describe('Login tests', () => {
     });
 
 
+
+    it('Sign-up form with USername, EMAIL and Passwrod : ' + '"ayahossam_95@hotmail.com" and "tmam123"' + '   SHOULD BE : VALID', () => {
+
+        emailBox.clear().then(() => {
+            emailBox.sendKeys('ayahossam_95@hotmail.com').then(() => {
+                expect(emailBox.getAttribute('class')).toContain('ng-valid');
+            });
+
+            pwdBox.clear().then(() => {
+                pwdBox.sendKeys('tmam123').then(() => {
+                    expect(pwdBox.getAttribute('class')).toContain('ng-valid');
+                });
+            });
+        });
+    });
     /******************************************************************************************************* */
     // EMAIL
 
-    emailTestCases.valid.forEach((testCase) => {
-        it('Sign-up form: EMAIL INPUT : ' + testCase + '   SHOULD BE : VALID', () => {
-            emailBox.clear().then(() => {
-                emailBox.sendKeys(testCase).then(() => {
-                    expect(emailBox.getAttribute('class')).toContain('ng-valid');
-                });
-            });
-        });
-    });
+    // emailTestCases.valid.forEach((testCase) => {
+    //     it('Sign-up form: EMAIL INPUT : ' + testCase + '   SHOULD BE : VALID', () => {
+    //         emailBox.clear().then(() => {
+    //             emailBox.sendKeys(testCase).then(() => {
+    //                 expect(emailBox.getAttribute('class')).toContain('ng-valid');
+    //             });
+    //         });
+    //     });
+    // });
 
-    emailTestCases.invalid.forEach((testCase) => {
-        it('Sign-up form: EMAIL INPUT : ' + testCase + '   SHOULD BE : INVALID', () => {
-            emailBox.clear().then(() => {
-                emailBox.sendKeys(testCase).then(() => {
-                    expect(emailBox.getAttribute('class')).toContain('ng-invalid');
-                });
-            });
-        });
-    });
+    // emailTestCases.invalid.forEach((testCase) => {
+    //     it('Sign-up form: EMAIL INPUT : ' + testCase + '   SHOULD BE : INVALID', () => {
+    //         emailBox.clear().then(() => {
+    //             emailBox.sendKeys(testCase).then(() => {
+    //                 expect(emailBox.getAttribute('class')).toContain('ng-invalid');
+    //             });
+    //         });
+    //     });
+    // });
 
-    /******************************************************************************************************* */
-    // PASSWORD
+    // /******************************************************************************************************* */
+    // // PASSWORD
 
-    pwdTestCases.valid.forEach((testCase) => {
-        it('Sign-up form: PASSWORD INPUT : ' + testCase + '   SHOULD BE : VALID', () => {
-            pwdBox.clear().then(() => {
-                pwdBox.sendKeys(testCase).then(() => {
-                    expect(pwdBox.getAttribute('class')).toContain('ng-valid');
-                });
-            });
-        });
-    });
-
-
-    pwdTestCases.invalid.forEach((testCase) => {
-        it('Sign-up form: PASSWORD INPUT : ' + testCase + '   SHOULD BE : INVALID', () => {
-            pwdBox.clear().then(() => {
-                pwdBox.sendKeys(testCase).then(() => {
-                    expect(pwdBox.getAttribute('class')).toContain('ng-invalid');
-                });
-            });
-        });
-    });
-
-    /******************************************************************************************************* */
-    // NAME
-
-    nameTestCases.valid.forEach((testCase) => {
-        it('Sign-up form: NAME INPUT : ' + testCase + '   SHOULD BE : VALID', () => {
-            pwdBox.clear().then(() => {
-                pwdBox.sendKeys(testCase).then(() => {
-                    expect(pwdBox.getAttribute('class')).toContain('ng-valid');
-                });
-            });
-        });
-    });
+    // pwdTestCases.valid.forEach((testCase) => {
+    //     it('Sign-up form: PASSWORD INPUT : ' + testCase + '   SHOULD BE : VALID', () => {
+    //         pwdBox.clear().then(() => {
+    //             pwdBox.sendKeys(testCase).then(() => {
+    //                 expect(pwdBox.getAttribute('class')).toContain('ng-valid');
+    //             });
+    //         });
+    //     });
+    // });
 
 
-    nameTestCases.invalid.forEach((testCase) => {
-        it('Sign-up form: NAME INPUT : ' + testCase + '   SHOULD BE : INVALID', () => {
-            pwdBox.clear().then(() => {
-                pwdBox.sendKeys(testCase).then(() => {
-                    expect(pwdBox.getAttribute('class')).toContain('ng-invalid');
-                });
-            });
-        });
-    });
+    // pwdTestCases.invalid.forEach((testCase) => {
+    //     it('Sign-up form: PASSWORD INPUT : ' + testCase + '   SHOULD BE : INVALID', () => {
+    //         pwdBox.clear().then(() => {
+    //             pwdBox.sendKeys(testCase).then(() => {
+    //                 expect(pwdBox.getAttribute('class')).toContain('ng-invalid');
+    //             });
+    //         });
+    //     });
+    // });
+
+    // /******************************************************************************************************* */
+    // // NAME
+
+    // nameTestCases.valid.forEach((testCase) => {
+    //     it('Sign-up form: NAME INPUT : ' + testCase + '   SHOULD BE : VALID', () => {
+    //         pwdBox.clear().then(() => {
+    //             pwdBox.sendKeys(testCase).then(() => {
+    //                 expect(pwdBox.getAttribute('class')).toContain('ng-valid');
+    //             });
+    //         });
+    //     });
+    // });
+
+
+    // nameTestCases.invalid.forEach((testCase) => {
+    //     it('Sign-up form: NAME INPUT : ' + testCase + '   SHOULD BE : INVALID', () => {
+    //         pwdBox.clear().then(() => {
+    //             pwdBox.sendKeys(testCase).then(() => {
+    //                 expect(pwdBox.getAttribute('class')).toContain('ng-invalid');
+    //             });
+    //         });
+    //     });
+    // });
 });

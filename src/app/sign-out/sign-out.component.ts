@@ -24,6 +24,10 @@ export class SignOutComponent implements OnInit {
    *  Angular ngOnInit
    * @memberof SignOutComponent
    */
-  ngOnInit() { }
+  ngOnInit() {
+    // TODO: Send Request
+    localStorage.removeItem('token');
+    localStorage.removeItem('userId');
+  }
 
 }

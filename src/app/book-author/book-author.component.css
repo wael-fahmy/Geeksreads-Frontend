@@ -8,7 +8,22 @@
 #about-this-author {
     font-weight: bold;
 }
-
+.author-following-button {
+    border-radius: 3px;
+    border: 1px solid #D6D0C4;
+    font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
+    font-size: 14px;
+    appearance: none;
+    cursor: pointer;
+    display: inline-block;
+    text-decoration: none;
+    color: #333333;
+    background-color: #F4F1EA;
+    line-height: 1;
+    padding: 8px 8px;
+    margin: 10px 0;
+    width: 140px;
+}
 #author-image {
     max-width: 85px;
     max-height: 85px;

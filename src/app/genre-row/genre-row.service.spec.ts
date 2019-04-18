@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { GenreRowService } from './genre-row.service';
+import { RowServices } from './genre-row.service';
 
 describe('GenreRowService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: GenreRowService = TestBed.get(GenreRowService);
+    const service: RowServices = TestBed.get(RowServices);
     expect(service).toBeTruthy();
   });
 });

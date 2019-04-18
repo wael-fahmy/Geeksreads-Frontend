@@ -2,6 +2,7 @@ import { browser, by, element, promise, ElementFinder, ElementArrayFinder } from
 
 export class LoginPage {
     navigateTo() {
+        browser.get('http://geeksreads.herokuapp.com/');
         return browser.get('/sign-up');
     }
 

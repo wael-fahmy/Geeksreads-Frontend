@@ -13,6 +13,7 @@ export class ReviewerDetails_Service {
  * @memberof ReviewerDetails_Service
  */
 constructor(private http: HttpClient) { }
+liked = 1;
 // tslint:disable-next-line: variable-name
 /**
  *
@@ -42,6 +43,17 @@ get_Review_Info() {
                 this.reviewer_details = reviewdata.reviewer_details;
                 this.reviewer_detailsUpdated.next([...this.reviewer_details]);
             });
+    }
+    request_reviewer_like(reviewc_id: string, review_like: string) {
+// tslint:disable-next-line: radix
+// tslint:disable-next-line: max-line-length
+        const review: ReviewDetails = {reviewer_id: reviewc_id, reviewer_likes: review_like, reviewer_body: null,
+            reviewer_comments: null, reviewer_date: null, reviewer_image: null, reviewer_name: null, reviewer_rate: null,
+            book_read_date: null, book_author: null, book_id: null, book_image: null, book_title: null};
+        this.http.post<{message: string}>('http://localhost:3000/api/reviewdata', review)
+        .subscribe ((responseData) => {
+            console.log(responseData.message);
+        });
     }
     /**
      *

@@ -1,7 +1,7 @@
 'use strict';
 export const testCases = {
     valid: [
-        'aya@gmail.com',
+        'aya.karmo95@gmail.com',
         'aya@asd.com.eg',
     ]
     ,

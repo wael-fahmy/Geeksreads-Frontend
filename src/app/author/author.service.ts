@@ -1,11 +1,11 @@
-import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
-import { AuthorModel } from './author.model';
+import { AuthorModel } from './author-model';
 import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
+import { Subject } from 'rxjs';
 
 /**
- *
- *  Inject
+ *  Author Service
  *  @export
  *  @class AuthorService
  */
@@ -14,14 +14,19 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AuthorService {
 
+  /**
+   * API URL By Name
+   * @type {string}
+   * @memberof AuthorService
+   */
+  apiURLByName: 'https://geeksreads.herokuapp.com/api/authors/name';
 
   /**
-   *  Creates an instance of AuthorService.
-   *  @param {HttpClient} http
-   *  @memberof AuthorService
+   * API URL By ID
+   * @type {'https://geeksreads.herokuapp.com/api/authors/id'}
+   * @memberof AuthorService
    */
-  constructor(private http: HttpClient) { }
-
+  apiURLById: 'https://geeksreads.herokuapp.com/api/authors/id';
 
   /**
    *  Object to fill
@@ -31,7 +36,6 @@ export class AuthorService {
    */
   private author: AuthorModel;
 
-
   /**
    *  Subject object
    *  @private
@@ -39,21 +43,30 @@ export class AuthorService {
    */
   private authorUpdated = new Subject<AuthorModel>();
 
-
   /**
-   *  Get the JSON response from the mock service
-   *  and update the author info
+   *  Get the JSON response and update the author info
    *  @memberof AuthorService
    */
   getAuthorInfo() {
-    this.http.get<{ message: string, authorInfo: AuthorModel }>('http://localhost:3000/api/author').
-      subscribe((AuthorData) => {       // subscribe the recived data
-        // and put it in the user object to display it
-        this.author = AuthorData.authorInfo;
+    this.http
+      .get('https://geeksreads.herokuapp.com/api/authors/name', {
+        params: {
+          auth_name: 'Deena Craig',
+        }
+      })
+      .subscribe((serverResponse: any) => {
+        console.log(serverResponse);
+        this.author.authorId = serverResponse.AuthorId;
+        this.author.authorName = serverResponse.AuthorName;
+        this.author.authorPicture = serverResponse.Photo;
+        this.author.authorBookIds = serverResponse.BookId;
+        this.author.authorFollowingUserIds = serverResponse.FollowingUserId;
+        this.author.authorNumberOfFollowers = serverResponse.FollowingUserId.length();
         this.authorUpdated.next(this.author);
+      }, (error: { json: () => void; }) => {
+        console.log(error);
       });
   }
-
 
   /**
    *  To update the author's info as observed
@@ -63,4 +76,11 @@ export class AuthorService {
   getAuthorInfoUpdated() {
     return this.authorUpdated.asObservable();
   }
+
+  /**
+   *  Creates an instance of AuthorService.
+   *  @param {HttpClient} http
+   *  @memberof AuthorService
+   */
+  constructor(private http: HttpClient, private router: Router) { }
 }

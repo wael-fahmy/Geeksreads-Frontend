@@ -13,7 +13,7 @@ export class BookAuthorComponent implements OnInit {
   /**
    *  Panel open state boolean
    */
-   public panelOpenState: boolean;
+  public panelOpenState: boolean;
   /**
    *
    * variable to carry author name list
@@ -28,6 +28,13 @@ export class BookAuthorComponent implements OnInit {
    * @memberof BookAuthorComponent
    */
   authorid: string [] = [];
+  /**
+   *
+   * variable tp carry user id
+   * @type {string []}
+   * @memberof BookAuthorComponent
+   */
+  userid: string [] = [];
   /**
    *
    * variable to carry author body list
@@ -80,6 +87,7 @@ public after_dots: string [] = [];
    * @memberof BookAuthorComponent
    */
   private Sub_profile: Subscription;
+  authorIsFollowing = false;
   // tslint:disable-next-line:variable-name
   /**
    *
@@ -108,6 +116,8 @@ public after_dots: string [] = [];
    * @memberof BookAuthorComponent
    */
   ngOnInit() {
+    let author=localStorage.getItem("authorID");
+    console.log(author);
     this.authordetails_service.get_author_Info();                                  // to get the user info from the service
     // tslint:disable-next-line:variable-name
     this.Sub_profile = this.authordetails_service.get_author_details_updated().subscribe((author_Information: AuthorDetails[]) => {
@@ -118,6 +128,49 @@ public after_dots: string [] = [];
       console.log(this.User_info.user_id)
       console.log(this.User_info.User_Photo)*/
     });
+  }
+  /**
+   *
+   * function to follow author
+   * @memberof BookAuthorComponent
+   */
+  followAuthor() {
+    // TODO: Send request
+    this.authorIsFollowing = true;
+    const number = document.getElementById('number-followers');
+// tslint:disable-next-line: radix
+    let x = number.innerHTML.toString();
+// tslint:disable-next-line: radix
+    let y = parseInt(x);
+    y = y + 1;
+    x = y.toString();
+    number.innerHTML = x;
+    this.authordetails_service.post_author_unfollow(this.authorid[this.author_index], this.userid[this.author_index]);
+    //this.authorNumberOfFollowers += 1;
+    console.log('Following this author');
+  }
+  /**
+   *
+   * function to unfollow author
+   * @memberof BookAuthorComponent
+   */
+  unfollowAuthor() {
+    // TODO: Send request
+    this.authorIsFollowing = false;
+    //this.authorNumberOfFollowers -= 1;
+    const number = document.getElementById('number-followers');
+// tslint:disable-next-line: radix
+    let x = number.innerHTML.toString();
+// tslint:disable-next-line: radix
+    let y = parseInt(x);
+    y = y - 1;
+    x = y.toString();
+    number.innerHTML = x;
+    this.authordetails_service.post_author_unfollow(this.authorid[this.author_index], this.userid[this.author_index]);
+    console.log('Unfollowing this author');
+  }
+  GetAuthorByID() {
+    this.authordetails_service.post_author_id(this.authorid[this.author_index]);
   }
   /**
    *
@@ -148,6 +201,7 @@ public after_dots: string [] = [];
           this.authorfollowers[x] = this.author_details[x].author_followers;
           this.bookid[x] = this.author_details[x].book_id;
           this.authorimage[x] = this.author_details[x].author_image;
+          this.userid[x] = this.author_details[x].user_id;
         }
       }
   /**

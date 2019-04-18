@@ -47,4 +47,11 @@ export interface AuthorDetails {
      * @memberof AuthorDetails
      */
     book_id: string;
+    /**
+     *
+     * variable to carry user id
+     * @type {string}
+     * @memberof AuthorDetails
+     */
+    user_id: string;
 }
