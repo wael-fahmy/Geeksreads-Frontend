@@ -4,6 +4,8 @@ import { AuthorFollowModel } from './author-follow-model';
 import { AuthorUnfollowModel } from './author-unfollow-model';
 import { Subscription } from 'rxjs';
 import { AuthorService } from './author.service';
+import { AuthorFollowService } from './author-follow.service';
+import { AuthorUnfollowService } from './author-unfollow.service';
 
 /**
  *  Author page component
@@ -37,14 +39,14 @@ export class AuthorComponent implements OnInit {
    * @type {AuthorFollowModel}
    * @memberof AuthorComponent
    */
-  authorFollow: AuthorFollowModel;
+  authorFollow: AuthorFollowService;
 
   /**
    * Object to fill data
    * @type {AuthorUnfollowModel}
    * @memberof AuthorComponent
    */
-  authorUnfollow: AuthorUnfollowModel;
+  authorUnfollow: AuthorUnfollowService;
 
   /**
    *  Author's Id
@@ -81,13 +83,11 @@ export class AuthorComponent implements OnInit {
    *  @memberof AuthorComponent
    */
   followAuthor() {
-    this.authorService.followAuthor();
+    this.authorFollow.followAuthor();
 
-    this.authorSubscription = this.authorService.getFollowAuthorUpdated()
+    this.authorSubscription = this.authorFollow.getFollowAuthorUpdated()
       .subscribe((authorFollow: AuthorFollowModel) => {
         console.log('Following this author');
-        this.authorFollow = authorFollow;
-        this.authorIsFollowing = this.authorFollow.success;
       }, (error: { json: () => void; }) => {
         console.log(error);
       });
@@ -100,11 +100,9 @@ export class AuthorComponent implements OnInit {
   unfollowAuthor() {
     this.authorIsFollowing = false;
     console.log('Unfollowing this author');
-    this.authorService.unfollowAuthor();
-    this.authorSubscription = this.authorService.getUnfollowAuthorUpdated()
+    this.authorUnfollow.unfollowAuthor();
+    this.authorSubscription = this.authorUnfollow.getUnfollowAuthorUpdated()
       .subscribe((authorUnfollow: AuthorUnfollowModel) => {
-        this.authorUnfollow = authorUnfollow;
-        this.authorIsFollowing = this.authorUnfollow.success;
         console.log('Unfollowing this author');
       }, (error: { json: () => void; }) => {
         console.log(error);

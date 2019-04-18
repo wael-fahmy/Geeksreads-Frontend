@@ -49,7 +49,7 @@ export class AuthorService {
    */
   getAuthorInfo() {
     this.http
-      .get('https://geeksreads.herokuapp.com/api/authors/name', {
+      .get('https://geeksreads.herokuapp.com/api/authors/name/', {
         params: {
           auth_name: 'Deena Craig',
         }

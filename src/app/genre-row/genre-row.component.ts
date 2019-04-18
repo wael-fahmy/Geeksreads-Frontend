@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Row } from './genre-row.model';
 import { RowServices } from './genre-row.service';
@@ -16,34 +16,26 @@ import { RowServices } from './genre-row.service';
 })
 export class GenreRowComponent implements OnInit {
 
-  /**
-   * initialization of genre type
-   * @memberof GenreRowComponent
-   */
-  genretype = 'Romance';
+  @Input() genreType: string;
 
   /**
    * book image 1
    * @memberof GenreRowComponent
    */
-  bookimage1 = 'https://via.placeholder.com/120x120';
+  bookImage1 = 'https://via.placeholder.com/120x120';
 
   /**
    * book image 2
    * @memberof GenreRowComponent
    */
-  bookimage2 = 'https://via.placeholder.com/120x120';
+  bookImage2 = 'https://via.placeholder.com/120x120';
 
   /**
    *
    * book image 3
    * @memberof GenreRowComponent
    */
-  bookimage3 = 'https://via.placeholder.com/120x120';
-  /**
-   * Creates an instance of GenreRowComponent.
-   * @memberof GenreRowComponent
-   */
+  bookImage3 = 'https://via.placeholder.com/120x120';
 
   /**
    * Row object created to fill data
@@ -53,7 +45,7 @@ export class GenreRowComponent implements OnInit {
   RowObj: Row;
 
   /**
-   *
+   * Subscription
    * @private
    * @type {Subscription}
    * @memberof GenreRowComponent
@@ -69,17 +61,16 @@ export class GenreRowComponent implements OnInit {
 
   /**
    * conatins all the function in service class
-   *
    * @memberof GenreRowComponent
    */
   ngOnInit() {
-    this.rowServicesObj.get_row();
+    this.rowServicesObj.get_row(this.genreType);
     this.subprofile = this.rowServicesObj.get_row_updated().subscribe((RowData: Row) => {
       this.RowObj = RowData;
-      this.genretype = this.RowObj.genretype;
-      this.bookimage1 = this.RowObj.bookimage1;
-      this.bookimage2 = this.RowObj.bookimage2;
-      this.bookimage3 = this.RowObj.bookimage3;
+      this.genreType = this.RowObj.genretype;
+      this.bookImage1 = this.RowObj.bookimage1;
+      this.bookImage2 = this.RowObj.bookimage2;
+      this.bookImage3 = this.RowObj.bookimage3;
     });
   }
 }

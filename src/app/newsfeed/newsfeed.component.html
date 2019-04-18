@@ -1,5 +1,8 @@
 <div class="navbar-margin"></div>
-<div class="newsfeed-posts-container">
+<div *ngIf=noStatuses class="no-status">
+    <p>There are no statuses!</p>
+</div>
+<div *ngIf=!noStatuses class="newsfeed-posts-container">
     <app-newsfeed-post></app-newsfeed-post>
     <app-newsfeed-comment-post></app-newsfeed-comment-post>
     <app-newsfeed-post></app-newsfeed-post>

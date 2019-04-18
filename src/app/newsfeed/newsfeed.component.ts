@@ -12,8 +12,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./newsfeed.component.css']
 })
 export class NewsfeedComponent implements OnInit {
-  [x: string]: any;
-
+  noStatuses: true;
   /**
    *  Creates an instance of NewsfeedComponent.
    *  @memberof NewsfeedComponent

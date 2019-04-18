@@ -45,10 +45,10 @@ export class PostsServices {
       .subscribe((PostData) => {
         this.post = PostData.Post;
         this.postUpdated.next(this.post);
-
+        // const token = localStorage.getItem('userId');
+        // if (localStorage.getItem('token') === null)
       });
   }
-
   /**
    * This function makes sure that the newsfeed is updated
    * @returns

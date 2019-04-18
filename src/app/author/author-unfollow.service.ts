@@ -54,7 +54,7 @@ export class AuthorUnfollowService {
         console.log(serverResponse);
         this.unfollowing.message = serverResponse.Message;
         this.unfollowing.success = serverResponse.success;
-        this.unfollowingUpdated.next(this.following);
+        this.unfollowingUpdated.next(this.unfollowing);
       }, (error: { json: () => void; }) => {
         console.log(error.json);
       });
