@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthorModel, FollowAuthorModel, UnfollowAuthorModel } from './author.model';
+import { AuthorModel } from './author-model';
+import { AuthorFollowModel } from './author-follow-model';
+import { AuthorUnfollowModel } from './author-unfollow-model';
 import { Subscription } from 'rxjs';
 import { AuthorService } from './author.service';
 
@@ -15,7 +17,6 @@ import { AuthorService } from './author.service';
   styleUrls: ['./author.component.css']
 })
 export class AuthorComponent implements OnInit {
-
   /**
    * Author Subscription
    * @private
@@ -32,66 +33,63 @@ export class AuthorComponent implements OnInit {
   authorInfo: AuthorModel;
 
   /**
-   *
    * Object to fill data
-   * @type {FollowAuthorModel}
+   * @type {AuthorFollowModel}
    * @memberof AuthorComponent
    */
-  authorFollow: FollowAuthorModel;
+  authorFollow: AuthorFollowModel;
 
   /**
-   *
    * Object to fill data
-   * @type {UnfollowAuthorModel}
+   * @type {AuthorUnfollowModel}
    * @memberof AuthorComponent
    */
-  authorUnfollow: UnfollowAuthorModel;
+  authorUnfollow: AuthorUnfollowModel;
 
   /**
    *  Author's Id
    */
-  authorId = 12345;
+  authorId = '';
 
   /**
    *  Name of the author
    */
-  authorName = 'Name of the author';
+  authorName = '';
 
   /**
    *  Link to the author's picture
    */
-  authorPicture = 'https://via.placeholder.com/86x120';
+  authorPicture = '';
 
   /**
    *  Is the currently signed in user following this author or not
    */
-  authorIsFollowing = false;
+  authorIsFollowing: boolean;
 
   /**
    *  Number of users following this author
    */
-  authorNumberOfFollowers = 400;
+  authorNumberOfFollowers = '';
 
   /**
    *  More details about this author
    */
-  authorDetails = 'More details about this author';
+  authorDetails = '';
 
   /**
    *  Follows an author
    *  @memberof AuthorComponent
    */
   followAuthor() {
-    this.authorIsFollowing = true;
-    this.authorNumberOfFollowers += 1;
-    console.log('Following this author');
     this.authorService.followAuthor();
+
     this.authorSubscription = this.authorService.getFollowAuthorUpdated()
-      .subscribe((authorFollow: FollowAuthorModel) => {
+      .subscribe((authorFollow: AuthorFollowModel) => {
+        console.log('Following this author');
         this.authorFollow = authorFollow;
         this.authorIsFollowing = this.authorFollow.success;
-        this.authorNumberOfFollowers += 1;
-        console.log('Following this author');
+      }, (error: { json: () => void; }) => {
+        console.log(error);
       });
   }
 
@@ -101,17 +99,27 @@ export class AuthorComponent implements OnInit {
    */
   unfollowAuthor() {
     this.authorIsFollowing = false;
-    this.authorNumberOfFollowers -= 1;
     console.log('Unfollowing this author');
     this.authorService.unfollowAuthor();
-
     this.authorSubscription = this.authorService.getUnfollowAuthorUpdated()
-      .subscribe((authorUnfollow: FollowAuthorModel) => {
+      .subscribe((authorUnfollow: AuthorUnfollowModel) => {
         this.authorUnfollow = authorUnfollow;
         this.authorIsFollowing = this.authorUnfollow.success;
-        this.authorNumberOfFollowers -= 1;
         console.log('Unfollowing this author');
+      }, (error: { json: () => void; }) => {
+        console.log(error);
       });
+  }
+
+  /**
+   * If user is not signed in
+   * follow author button is shown
+   * @memberof AuthorComponent
+   */
+  setIsFollowing() {
+    if (localStorage.getItem('userId') === null) {
+      this.authorIsFollowing = false;
+    }
   }
 
   /**
@@ -126,10 +134,11 @@ export class AuthorComponent implements OnInit {
    *  @memberof AuthorComponent
    */
   ngOnInit() {
+    this.setIsFollowing();
     this.authorService.getAuthorInfo();
 
-    this.authorSubscription = this.authorService.getAuthorInfoUpdated().
-      subscribe((authorInformation: AuthorModel) => {
+    this.authorSubscription = this.authorService.getAuthorInfoUpdated()
+      .subscribe((authorInformation: AuthorModel) => {
         this.authorInfo = authorInformation;
 
         this.authorId = this.authorInfo.authorId;
@@ -138,6 +147,8 @@ export class AuthorComponent implements OnInit {
         this.authorNumberOfFollowers = this.authorInfo.authorNumberOfFollowers;
         this.authorDetails = this.authorInfo.authorDetails;
         this.authorIsFollowing = this.authorInfo.authorIsFollowing;
+      }, (error: { json: () => void; }) => {
+        console.log(error);
       });
   }
 }
