@@ -41,6 +41,7 @@ import { ReviewsCommentsComponent } from './reviews-comments/reviews-comments.co
 import { VerifiedComponent } from './verified/verified.component';
 import { VerificationComponent } from './verification/verification.component';
 import { CommentComponent } from './comment/comment.component';
+import { ReviewComponent } from './review/review.component';
 
 @NgModule({
   declarations: [
@@ -78,7 +79,8 @@ import { CommentComponent } from './comment/comment.component';
     ReviewsCommentsComponent,
     VerifiedComponent,
     VerificationComponent,
-    CommentComponent
+    CommentComponent,
+    ReviewComponent
   ],
   imports: [
     BrowserModule,
