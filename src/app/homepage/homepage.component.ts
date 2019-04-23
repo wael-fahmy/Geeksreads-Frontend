@@ -17,7 +17,9 @@ export class HomepageComponent implements OnInit {
    *  Creates an instance of HomepageComponent.
    *  @memberof HomepageComponent
    */
-  constructor() { }
+  constructor() {
+    console.log("man ya bta3 zman")
+   }
 
   /**
    *  Angular Initialization
