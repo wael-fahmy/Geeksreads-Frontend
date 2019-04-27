@@ -12,6 +12,8 @@ import { NewsfeedComponent } from './newsfeed/newsfeed.component';
 import { ProfileEditComponent } from './profile-edit/profile-edit.component';
 import { AuthorComponent } from './author/author.component';
 import {ProfileReadShelfComponent} from './profile-read-shelf/profile-read-shelf.component';
+import {ProfileReadingShelfComponent} from './profile-reading-shelf/profile-reading-shelf.component';
+import {ProfileWantToReadShelfComponent} from './profile-want-to-read-shelf/profile-want-to-read-shelf.component';
 import {ReviewsComponent} from './reviews/reviews.component';
 import { VerifiedComponent } from './verified/verified.component';
 import { VerificationComponent } from './verification/verification.component';
@@ -28,6 +30,14 @@ const routes: Routes = [
   {
     path: 'profile-read-shelf',
     component: ProfileReadShelfComponent
+  },
+  {
+    path: 'profile-reading-shelf',
+    component: ProfileReadingShelfComponent
+  },
+  {
+    path: 'profile-want-to-read-shelf',
+    component: ProfileWantToReadShelfComponent
   },
   {
     path: 'book',

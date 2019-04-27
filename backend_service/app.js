@@ -536,7 +536,7 @@ app.use("/api/list", (req, res, next) => {
             bookName: "Game of Thrones",
             authorName: "G.R.R Martin",
             bookCover: "https://tse2.mm.bing.net/th?id=OIP.FN55nUOxccDTpCPhYOmVfgHaLU&pid=15.1&P=0&w=300&h=300",
-            state: "read"
+            state: "currently reading"
         },
         {
             bookId: 13,
@@ -554,9 +554,12 @@ app.use("/api/list", (req, res, next) => {
 
 app.use("/api/title", (req, res, next) => {
     const User_Info = {
-        userId: 1,
-        userName: 'Mohamed Medhat',
-        userPhoto: 'https://tse4.mm.bing.net/th?id=OIP.FZz1UZSbw_p_m5hdjUOM3AHaLF&pid=15.1&P=0&w=300&h=300'
+        UserId: '1',
+        UserName: 'Marwan Medhat',
+        UserEmail:'marwan_medhat@hotmail.com',
+        OwnedBookId:[],
+        UserPhoto: "https://tse2.mm.bing.net/th?id=OIP.FN55nUOxccDTpCPhYOmVfgHaLU&pid=15.1&P=0&w=300&h=300"
+            
     };
 
     res.status(200).json({

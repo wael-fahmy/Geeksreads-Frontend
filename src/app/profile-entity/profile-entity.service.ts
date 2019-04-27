@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import { User } from './profile.model';
 import { HttpClient } from '@angular/common/http';
+import {CountBooksService} from '../profile-book-entity/book.service';
+import {ListOfBooks} from '../profile-book-entity/book.model';
 
 /**
  *
@@ -18,7 +20,7 @@ export class TitlesService {
    * @param {HttpClient} http
    * @memberof TitlesService
    */
-  constructor(private http: HttpClient) { }
+  constructor(public countBooksService: CountBooksService, private http: HttpClient) { }
 
   /**
    * User data member to put user info inside
@@ -27,7 +29,8 @@ export class TitlesService {
    * @memberof TitlesService
    */
   private User: User;
-
+  private List: ListOfBooks[]  ;
+  private listUpdated = new Subject<ListOfBooks[]>();
   /**
    * to update the user info on demand
    *
@@ -44,14 +47,13 @@ export class TitlesService {
    * and put it in the user object to display it
    * @memberof TitlesService
    */
-  get_User_Info() {
+  get_User_Info() {    // give the signed in user id as a parameter
     this.http.get<{ message: string, User_Info: User }>('http://localhost:3000/api/title').    // get response from this URL
       subscribe((UserData) => {       // subscribe the recived data
         this.User = UserData.User_Info;       // and put it in the user object to display it
         this.userUpdated.next(this.User);
       });
   }
-
   /**
    * to update the user info as observed
    * @returns
@@ -60,5 +62,24 @@ export class TitlesService {
   get_User_Info_updated() {            // to update the user info as observed
     return this.userUpdated.asObservable();
   }
+
+
+
+  get_Owned_books( Owned_books : string[]) {
+    for(let i of Owned_books)
+    {
+      this.http.get<{ message: string, Books: ListOfBooks }>('http://localhost:3000/api/list/${i}').
+      subscribe((bookData) => {          //  subscribe the list of books recieved
+        this.List.push(bookData.Books);    // push the book into the list of books to display them
+        this.listUpdated.next([...this.List]);
+      });
+    }
+  }
+
+  get_Owned_books_updated() {
+    return this.listUpdated.asObservable();
+  }
+
+
 
 }

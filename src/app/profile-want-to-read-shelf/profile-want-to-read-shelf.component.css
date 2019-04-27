@@ -1,0 +1,32 @@
+h2{
+    margin-top: 90px;
+}
+
+img{
+    margin-top: 1rem;
+    margin-right: 2rem;
+    margin-bottom: 2.5em;
+    
+}
+
+mat-list-item{
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+}
+
+pre{
+    font-size:110%;
+}
+#MENU{
+    margin-left: 2rem;
+    color:primary;
+}
+
+p{
+     margin-left: 20px;
+    
+}
+.checked
+{
+    color:orange;
+}

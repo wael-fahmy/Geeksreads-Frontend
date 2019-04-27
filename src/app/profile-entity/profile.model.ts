@@ -10,10 +10,10 @@ export interface User {
     /**
      *
      * user id
-     * @type {number}
+     * @type {string}
      * @memberof User
      */
-    userId: number;  // user id
+    UserId: string;  // user id
 
     /**
      *
@@ -21,7 +21,11 @@ export interface User {
      * @type {string}
      * @memberof User
      */
-    userName: string;  // user name
+    UserName: string;  // user name
+
+    UserEmail: string;
+
+    OwnedBookId: string [];
 
     /**
      *
@@ -29,5 +33,5 @@ export interface User {
      * @type {string}
      * @memberof User
      */
-    userPhoto: string;  // user profile photo
+    UserPhoto: string;  // user profile photo
 }

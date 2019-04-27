@@ -1,7 +1,7 @@
 <h2>
-    Read : </h2>
+    Read Books : </h2>
 <mat-list *ngFor="let index of listOfBooksRead">
-    <hr>
+    
     <mat-list-item *ngIf="index.state=='read'">
         <img width="60" height="80" src="{{index.bookCover}}" alt="book">
         <a routerLink="/book">{{index.bookName}} <br> by {{index.authorName}}  </a>

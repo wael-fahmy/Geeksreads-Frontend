@@ -50,7 +50,7 @@ export class ProfileEntityComponent implements OnInit {
    * @memberof ProfileEntityComponent
    */
   userName: string;
-
+  userEmail: string;
   /**
    * Creates an instance of ProfileEntityComponent.
    * @param {TitlesService} titlesService
@@ -71,8 +71,10 @@ export class ProfileEntityComponent implements OnInit {
     this.subProfile = this.titlesService.get_User_Info_updated().       // once the class is initialized
       subscribe((userInformation: User) => {                            //  supscripe the value recieved
         this.userInfo = userInformation;
-        this.userCoverPhoto = this.userInfo.userPhoto;
-        this.userName = this.userInfo.userName;
+        this.userCoverPhoto = this.userInfo.UserPhoto;
+        this.userName = this.userInfo.UserName;
+        this.userEmail=this.userInfo.UserEmail;
+        console.log(this.userInfo.UserPhoto)
          /*console.log(this.userInfo.userName)
          console.log(this.userInfo.user_id)
          console.log(this.userInfo.User_Photo)*/

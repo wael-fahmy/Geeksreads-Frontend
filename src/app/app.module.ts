@@ -42,6 +42,8 @@ import { VerifiedComponent } from './verified/verified.component';
 import { VerificationComponent } from './verification/verification.component';
 import { CommentComponent } from './comment/comment.component';
 import { ReviewComponent } from './review/review.component';
+import { ProfileReadingShelfComponent } from './profile-reading-shelf/profile-reading-shelf.component';
+import { ProfileWantToReadShelfComponent } from './profile-want-to-read-shelf/profile-want-to-read-shelf.component';
 
 @NgModule({
   declarations: [
@@ -80,7 +82,9 @@ import { ReviewComponent } from './review/review.component';
     VerifiedComponent,
     VerificationComponent,
     CommentComponent,
-    ReviewComponent
+    ReviewComponent,
+    ProfileReadingShelfComponent,
+    ProfileWantToReadShelfComponent
   ],
   imports: [
     BrowserModule,
