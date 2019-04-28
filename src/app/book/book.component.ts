@@ -21,7 +21,6 @@ export class BookComponent implements OnInit {
   /**
    *  Panel open state boolean
    */
-  public panelOpenState: boolean;
 
   /**
    *
@@ -45,7 +44,7 @@ export class BookComponent implements OnInit {
    * index of the genre list  currently showing
    * @memberof BookComponent
    */
-  genreIndex = 2;
+  genreIndex = 0;
 
   /**
    * Creates an instance of BookComponent.
@@ -60,13 +59,13 @@ export class BookComponent implements OnInit {
    * @memberof BookComponent
    */
   ngOnInit() {
-    this.bookTitleService.get_genre_Info();                                  // to get the user info from the service
+    /*this.bookTitleService.get_genre_Info();                                  // to get the user info from the service
     // tslint:disable-next-line:variable-name
     this.subProfile = this.bookTitleService.get_genre_Info_updated().subscribe((bookInformation: GenreDetails[]) => {
       this.genreDetails = bookInformation;
       /* console.log(this.User_info.User_Name)
       console.log(this.User_info.user_id)
-      console.log(this.User_info.User_Photo)*/
-    });
+      console.log(this.User_info.User_Photo)
+    });*/
   }
 }

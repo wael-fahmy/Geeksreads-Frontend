@@ -36,27 +36,6 @@
     cursor: pointer;
 }
 
-#genres {
-    font-weight: bold;
-}
-
-#genres-type {
-    display: inline;
-}
-
-#genre-color {
-    background-color: #eee;
-    margin-left: 10px;
-}
-
-#genre-color1 {
-    background-color: #eee;
-}
-
-.genres-button {
-    margin: 15px 0 0 10px;
-}
-
 #book-details-uppar-line {
     background-color: darkgray;
     color: grey;
@@ -119,8 +98,4 @@
 #Stores-underline {
     color: black;
     background-color: black;
-}
-
-.mat-expansion-panel:not([class*=mat-elevation-z]) {
-    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0), 0 0 0 0 rgba(0, 0, 0, 0), 0 0 0 0 rgba(0, 0, 0, 0);
 }

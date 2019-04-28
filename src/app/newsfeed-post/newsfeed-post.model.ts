@@ -52,4 +52,12 @@ export interface Post {
    *  User Image
    */
   userimage: string;
+
+
+  /**
+   *
+   * ratings 
+   * @memberof Post
+   */
+  numberOfStars; 
 }

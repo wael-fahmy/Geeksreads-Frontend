@@ -21,6 +21,7 @@ export class ReviewComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    console.log(this.reviewername);
     this.SplitString();
   }
   SplitString() {

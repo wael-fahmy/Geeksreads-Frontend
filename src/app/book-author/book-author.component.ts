@@ -117,7 +117,6 @@ public after_dots: string [] = [];
    */
   ngOnInit() {
     const author = localStorage.getItem('authorID');
-    console.log(author);
     this.authordetails_service.get_author_Info();                                  // to get the user info from the service
     // tslint:disable-next-line:variable-name
     this.Sub_profile = this.authordetails_service.get_author_details_updated().subscribe((author_Information: AuthorDetails[]) => {
@@ -145,7 +144,8 @@ public after_dots: string [] = [];
     y = y + 1;
     x = y.toString();
     number.innerHTML = x;
-    this.authordetails_service.post_author_unfollow(this.authorid[this.author_index], this.userid[this.author_index]);
+    console.log(this.authorid[this.author_index]);
+    this.authordetails_service.post_author_follow(this.authorid[this.author_index]);
     //this.authorNumberOfFollowers += 1;
     console.log('Following this author');
   }

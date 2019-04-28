@@ -183,11 +183,15 @@ constructor(public bookreviews_service: Bookreviews_Service, render: Renderer2) 
 ngOnInit() {
     this.bookreviews_service.get_review_Info();                                  // to get the user info from the service
     // tslint:disable-next-line:variable-name
-    this.Sub_profile = this.bookreviews_service.get_review_Info_updated().subscribe((review_Information: Bookreviews[]) => {
+    this.Sub_profile = this.bookreviews_service.get_review_Info_updated()
+    .subscribe((review_Information: Bookreviews[]) => {
       this.review_information = review_Information;
-      this.SplitString();
+      console.log(review_Information);
+      console.log(this.review_information);
       this.SetElements();
-      console.log(this.review_information[1].reviewer_id);
+      console.log(this.reviewername[0]);
+      //this.SplitString();
+      //console.log(this.review_information[0].userId);
       /* console.log(this.User_info.User_Name)
       console.log(this.User_info.user_id)
       console.log(this.User_info.User_Photo)*/
@@ -201,14 +205,18 @@ ngOnInit() {
   SetElements() {
 // tslint:disable-next-line: prefer-for-of
     for (let x = 0; x < this.review_information.length; x++) {
-      this.reviewerid[x] = this.review_information[x].reviewer_id;
-      this.reviewername[x] = this.review_information[x].reviewer_name;
-      this.reviewerlikes[x] = this.review_information[x].reviewer_likes;
+      console.log(this.review_information[x].userName);
+      console.log(this.review_information.length);
+      this.reviewerid[x] = this.review_information[x].userId;
+      this.reviewername[x] = this.review_information[x].userName;
+      this.reviewerlikes[x] = this.review_information[x].likesCount;
       this.reviewercomments[x] = this.review_information[x].reviewer_comments;
-      this.reviewerimage[x] = this.review_information[x].reviewer_image;
-      this.reviewerdate[x] = this.review_information[x].reviewer_date;
-      this.reviewerbody[x] = this.review_information[x].reviewer_body;
-      this.reviewerrate[x] = this.review_information[x].reviewer_rate;
+      this.reviewerimage[x] = this.review_information[x].photo;
+      const fixed = this.review_information[x].reviewDate.split('T');
+      this.review_information[x].reviewDate = fixed[0];
+      this.reviewerdate[x] = fixed[0];
+      this.reviewerbody[x] = this.review_information[x].reviewBody;
+      this.reviewerrate[x] = this.review_information[x].rating;
     }
   }
   /**
@@ -221,7 +229,7 @@ ngOnInit() {
     let starting_indext = 0;
 // tslint:disable-next-line: prefer-for-of
     for (let i = 0; i < this.review_information.length; i ++) {
-      const word = this.review_information[i].reviewer_body.split(',');
+      const word = this.review_information[i].reviewBody.split(',');
       this.befor_dots[starting_indext] = word[0];
       this.after_dots[starting_indext] = word[1];
       starting_indext++;
@@ -234,7 +242,7 @@ ngOnInit() {
    * @memberof BookCommentUserComponent
    */
   OnclickComment(index: Bookreviews) {
-    this.bookreviews_service.request_reviewer_comment(index.reviewer_id);
+    this.bookreviews_service.request_reviewer_comment(index.userId);
   }
   /**
    *
@@ -263,6 +271,6 @@ ngOnInit() {
       x = y.toString();
       liking.innerHTML = x;
     }
-    this.bookreviews_service.request_reviewer_like(index.reviewer_id,  liking.innerHTML.toString());
+    this.bookreviews_service.request_reviewer_like(index.userId,  liking.innerHTML.toString());
   }
 }

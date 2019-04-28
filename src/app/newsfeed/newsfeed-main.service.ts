@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
-import { Post } from './newsfeed-post.model';
+import { Post } from './newsfeed-main.model';
 import { HttpClient } from '@angular/common/http';
+import { BookDetailsComponent } from '../book-details/book-details.component';
 
 /**
  * contains all the service functions
@@ -26,14 +27,14 @@ export class PostsServices {
    * @type {Post}
    * @memberof PostsServices
    */
-  private post: Post;
+  private post: Post[] = [];
 
   /**
    * Post Updated
    * @private
    * @memberof PostsServices
    */
-  private postUpdated = new Subject<Post>();
+  private postUpdated = new Subject<Post[]>();
 
   /**
    *
@@ -46,16 +47,22 @@ export class PostsServices {
 
       }
     })
-      .subscribe((serverResponse: any) => {
+      .subscribe((serverResponse: Post[]) => {
         console.log(serverResponse);
-        this.post.activitydate = serverResponse[0].ReviewDate;
-        this.post.bookimage = serverResponse[0].BookPhoto;
-        this.post.bookname = serverResponse[0].BookName;
-        this.post.userimage = serverResponse[0].MakerPhoto;
-        this.post.username = serverResponse[0].MakerName;
-        this.post.review = serverResponse[0].ReviewBody;
-        this.post.numberOfStars = serverResponse[0].NumberOfStars;
-        const bookId = serverResponse[0].BookID;
+        this.post = serverResponse;
+       // this.post.activitydate = serverResponse[0].ReviewDate;
+       // this.post.bookimage = serverResponse[0].BookPhoto;
+        // this.post.bookname = serverResponse[0].BookName;
+       // this.post.userimage = serverResponse[0].MakerPhoto;
+        // this.post.username = serverResponse[0].MakerName;
+        // this.post.review = serverResponse[0].ReviewBody;
+        // this.post.numberOfStars = serverResponse[0].NumberOfStars;
+        // this.post.StatusType = serverResponse[0].StatusType;
+        this.postUpdated.next([...this.post]);
+
+
+
+
       });
 
     }

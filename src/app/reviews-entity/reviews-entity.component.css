@@ -39,8 +39,7 @@
 {
     color:gray;
 }
-#want-to-read {
-    background-color: green;
+.want-to-read {
     padding-left: 10px;
     padding-right: 10px;
     padding-top: 1px;

@@ -4,13 +4,13 @@ export interface Post {
    *  Activity Date
    *  @memberof Post
    */
-  activitydate;
+  activityDate;
 
   /**
    *  Activity Log
    *  @memberof Post
    */
-  activitylog;
+  activityLog;
 
   /**
    *  Comment
