@@ -40,20 +40,20 @@ export class RowServices {
    */
   get_row(genre: string) {
     this.http
-      .get('https://geeksreads.herokuapp.com/api/books/genre', {
+      .get('https://geeksreads.herokuapp.com/api/books/genre/', {
         params: {
-          Genre: '',
+          Genre: genre,
         }
       })
       .subscribe((serverResponse: any) => {
         console.log(serverResponse);
         this.http
-        .get('https://geeksreads.herokuapp.com/api/api/books/id', {
+        .get('https://geeksreads.herokuapp.com/api/books/id', {
           params: {
             id: serverResponse[0].BookId,
           }
         }).subscribe((serverResponse2: any) => {
-          console.log(serverResponse);
+          console.log(serverResponse2);
           // Set Book Info
         }, (error: { json: () => void; }) => {
           console.log(error);
