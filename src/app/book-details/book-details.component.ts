@@ -62,7 +62,7 @@ export class BookDetailsComponent implements OnInit {
    * @type {string []}
    * @memberof BookDetailsComponent
    */
-  bookchara: string [] = [];
+  bookpages: string [] = [];
   /**
    *
    * variable list used to store book id
@@ -93,7 +93,7 @@ export class BookDetailsComponent implements OnInit {
    * index of the current book from the list
    * @memberof BookDetailsComponent
    */
-  book_index = 1;
+  book_index = 0;
   // tslint:disable-next-line:variable-name
   /**
    * Creates an instance of BookDetailsComponent.
@@ -107,7 +107,7 @@ export class BookDetailsComponent implements OnInit {
    * @memberof BookDetailsComponent
    */
   ngOnInit() {
-    this.bookinformation_service.get_book_Info();                                  // to get the user info from the service
+    /*this.bookinformation_service.get_book_Info();                                  // to get the user info from the service
     // tslint:disable-next-line:variable-name
     this.Sub_profile = this.bookinformation_service.get_book_Info_updated().subscribe((book_Information: Bookinformation[]) => {
       this.book_information = book_Information;
@@ -115,14 +115,24 @@ export class BookDetailsComponent implements OnInit {
       console.log(this.book_information.length);
       /* console.log(this.User_info.User_Name)
       console.log(this.User_info.user_id)
-      console.log(this.User_info.User_Photo)*/
-    });
+      console.log(this.User_info.User_Photo)
+    });*/
+    this.bookASIN[this.book_index] = localStorage.getItem('ISBN');
+    this.bookedition[this.book_index] = localStorage.getItem('publisher');
+    this.bookpublished[this.book_index] = localStorage.getItem('publishedDate');
+    this.CutDate();
+    this.booktitle[this.book_index] = localStorage.getItem('bookTitle');
+    this.bookpages[this.book_index] = localStorage.getItem('pages');
   }
   /**
    *
    * function used to set elements of lists
    * @memberof BookDetailsComponent
    */
+  CutDate() {
+    const word = this.bookpublished[this.book_index].split('T');
+    this.bookpublished[this.book_index] = word[0];
+  }
   SetElements() {
     // tslint:disable-next-line: prefer-for-of
     for (let x = 0; x < this.book_information.length; x++) {
@@ -133,7 +143,7 @@ export class BookDetailsComponent implements OnInit {
       this.booklang[x] = this.book_information[x].book_language;
       this.booktitle[x] = this.book_information[x].book_title;
       this.bookawards[x] = this.book_information[x].book_awards;
-      this.bookchara[x] = this.book_information[x].book_characters;
+      this.bookpages[x] = this.book_information[x].book_characters;
     }
   }
 }

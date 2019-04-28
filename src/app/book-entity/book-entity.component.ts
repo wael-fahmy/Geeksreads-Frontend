@@ -146,6 +146,11 @@ ngOnInit() {
       this.assign_status(this.book_details[this.book_index].ReadStatus);
       localStorage.setItem('authorID', this.book_details[0].AuthorId);
       localStorage.setItem('bookID', this.book_details[0].BookId);
+      localStorage.setItem('ISBN', this.book_details[0].ISBN);
+      localStorage.setItem('genre', this.book_details[0].Genre);
+      localStorage.setItem('pages', this.book_details[0].Pages.toString());
+      localStorage.setItem('publishedDate', this.book_details[0].Published);
+      localStorage.setItem('publisher', this.book_details[0].Publisher);
       console.log(this.bookrate[this.book_index]);
       this.SetRate();
       /* console.log(this.User_info.User_Name)
