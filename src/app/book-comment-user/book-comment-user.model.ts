@@ -12,42 +12,42 @@ export interface Bookreviews {
      * @type {string}
      * @memberof Bookreviews
      */
-    reviewer_image: string;
+    photo: string;
     /**
      *
      * variable to carry reviewer image
      * @type {string}
      * @memberof Bookreviews
      */
-    reviewer_name: string;
+    userName: string;
     /**
      *
      * variable to carry reviewer date
      * @type {string}
      * @memberof Bookreviews
      */
-    reviewer_date: string;
+    reviewDate: string;
     /**
      *
      * variable to carry reviewer date
      * @type {string}
      * @memberof Bookreviews
      */
-    reviewer_rate: string;
+    rating: string;
     /**
      *
      * variable to carry reviewer body
      * @type {string}
      * @memberof Bookreviews
      */
-    reviewer_body: string;
+    reviewBody: string;
     /**
      *
      * variable carry number of likes
      * @type {string}
      * @memberof Bookreviews
      */
-    reviewer_likes: string;
+    likesCount: string;
     /**
      *
      * variable carry number of comments
@@ -61,5 +61,7 @@ export interface Bookreviews {
      * @type {string}
      * @memberof Bookreviews
      */
-    reviewer_id: string;
+    userId: string;
+    reviewId: string;
+    liked: boolean;
 }

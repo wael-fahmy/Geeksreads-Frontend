@@ -44,11 +44,20 @@ liked = 1;
      * @memberof Bookreviews_Service
      */
     get_review_Info() {
-        this.http.get<{ message: string, review_details: Bookreviews[] }>('http://localhost:3000/api/reviewdata').
+        this.http.get('https://geeksreads.herokuapp.com/api/reviews/getrev',
+            { params: {
+                bookId: '5c911452bbfd1717b8a7a169',
+                UserId: '5cb6067bd42e9b00173fa1fc'
+        }
+            }).
             // tslint:disable-next-line:variable-name
-            subscribe((reviewdata) => {
-                this.review_information = reviewdata.review_details;
+            subscribe((reviewdata: any) => {
+                this.review_information = reviewdata;
+                console.log(reviewdata);
+                console.log(this.review_information);
                 this.review_informationUpdated.next([...this.review_information]);
+            }, (error: { json: () => void; }) => {
+                console.log(error);
             });
     }
    /**
@@ -71,11 +80,11 @@ request_reviewer_comment(review_id: string) {
 // tslint:disable-next-line: max-line-length
 // tslint:disable-next-line: object-literal-shorthand
 // tslint:disable-next-line: max-line-length
-        const reviewer_comment: Bookreviews = {reviewer_id: review_id, reviewer_name:null,reviewer_body:null,reviewer_comments:null,reviewer_date:null,reviewer_image:null,reviewer_likes:null,reviewer_rate:null};
+       /* const reviewer_comment: Bookreviews = {reviewer_id: review_id, reviewer_name:null,reviewer_body:null,reviewer_comments:null,reviewer_date:null,reviewer_image:null,reviewer_likes:null,reviewer_rate:null};
         this.http.post<{message: string}>('http://localhost:3000/api/reviewdata', reviewer_comment)
         .subscribe ((responseData) => {
             console.log(responseData.message);
-        });
+        });*/
     }
 // tslint:disable-next-line: variable-name
 /**
@@ -88,13 +97,14 @@ request_reviewer_comment(review_id: string) {
 request_reviewer_like(review_id: string, review_like: string) {
 // tslint:disable-next-line: radix
 // tslint:disable-next-line: max-line-length
-        const reviewer_comment: Bookreviews = {reviewer_id: review_id, 
+       /* const reviewer_comment: Bookreviews = {reviewer_id: review_id,
         reviewer_name:null,reviewer_body:null,
         reviewer_comments:null,reviewer_date:null,reviewer_image:null,
         reviewer_likes:review_like,reviewer_rate:null};
+        //https://geeksreads.herokuapp.com/api/reviews/getrev
         this.http.post<{message: string}>('http://localhost:3000/api/reviewdata', reviewer_comment)
         .subscribe ((responseData) => {
             console.log(responseData.message);
-        });
+        });*/
     }
 }

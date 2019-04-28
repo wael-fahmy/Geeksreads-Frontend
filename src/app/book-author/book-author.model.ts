@@ -54,4 +54,6 @@ export interface AuthorDetails {
      * @memberof AuthorDetails
      */
     user_id: string;
+    message: string;
+    success: boolean;
 }
