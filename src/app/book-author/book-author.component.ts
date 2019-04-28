@@ -116,7 +116,7 @@ public after_dots: string [] = [];
    * @memberof BookAuthorComponent
    */
   ngOnInit() {
-    let author=localStorage.getItem("authorID");
+    const author = localStorage.getItem('authorID');
     console.log(author);
     this.authordetails_service.get_author_Info();                                  // to get the user info from the service
     // tslint:disable-next-line:variable-name
@@ -157,7 +157,7 @@ public after_dots: string [] = [];
   unfollowAuthor() {
     // TODO: Send request
     this.authorIsFollowing = false;
-    //this.authorNumberOfFollowers -= 1;
+    // this.authorNumberOfFollowers -= 1;
     const number = document.getElementById('number-followers');
 // tslint:disable-next-line: radix
     let x = number.innerHTML.toString();
