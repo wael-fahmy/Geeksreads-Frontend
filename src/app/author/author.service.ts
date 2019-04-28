@@ -34,7 +34,7 @@ export class AuthorService {
    *  @type {Author}
    *  @memberof AuthorService
    */
-  private author: AuthorModel;
+   private author: AuthorModel;
 
   /**
    *  Subject object
@@ -49,22 +49,19 @@ export class AuthorService {
    */
   getAuthorInfo() {
     this.http
-      .get('https://geeksreads.herokuapp.com/api/authors/name/', {
+      .get('https://geeksreads.herokuapp.com/api/authors/name', {
         params: {
           auth_name: 'Deena Craig',
         }
       })
-      .subscribe((serverResponse: any) => {
+      .subscribe((serverResponse: AuthorModel) => {
         console.log(serverResponse);
-        this.author.authorId = serverResponse.AuthorId;
-        this.author.authorName = serverResponse.AuthorName;
-        this.author.authorPicture = serverResponse.Photo;
-        this.author.authorBookIds = serverResponse.BookId;
-        this.author.authorFollowingUserIds = serverResponse.FollowingUserId;
-        this.author.authorNumberOfFollowers = serverResponse.FollowingUserId.length();
+        this.author = serverResponse;
+        console.log(this.author);
         this.authorUpdated.next(this.author);
-      }, (error: { json: () => void; }) => {
-        console.log(error);
+      }
+      , (error: { json: () => void; }) => {
+        //console.log(error);
       });
   }
 

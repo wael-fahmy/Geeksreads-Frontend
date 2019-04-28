@@ -41,8 +41,8 @@ export class ProfileWantToReadShelfComponent implements OnInit {
    * @param {ListOfBooks} index  index of the book to be sent to the backend
    * @memberof ProfileWantToReadShelfComponent
    */
-  OnClick_want_read(index: ListOfBooks) {                   // to increment the number of books want to read on click
-    this.countBooksService.add_count_want_to_read(index);
+  OnClick_read(index: ListOfBooks) {                   // to increment the number of books want to read on click
+    this.countBooksService.add_book_to_shelf_read(index);
     // index.state = 'want to read';
   }
 
@@ -54,7 +54,7 @@ export class ProfileWantToReadShelfComponent implements OnInit {
    * @memberof ProfileWantToReadShelfComponent
    */
   OnClick_reading(index: ListOfBooks) {                           // to increment the number of books currently reading on click
-    this.countBooksService.add_count_reading(index);
+    this.countBooksService.add_book_to_shelf_reading(index);
     // console.log(index.author_name);
   }
 
@@ -66,8 +66,8 @@ export class ProfileWantToReadShelfComponent implements OnInit {
    * @memberof ProfileWantToReadShelfComponent
    */
   ngOnInit() {
-    this.countBooksService.get_List_of_books();                         // to get the book info from the service
-    this.subList = this.countBooksService.get_List_of_books_updated().
+    this.countBooksService.get_List_of_books_want_to_read();                         // to get the book info from the service
+    this.subList = this.countBooksService.get_List_of_books_want_to_read_updated().
       subscribe((List: ListOfBooks[]) => {                              // subscribe the recieved data
         this.listOfWantToReadBooks = List;                                    // and put it inside the list of books to display it
       });

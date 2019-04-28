@@ -4,10 +4,10 @@ export interface ListOfBooks {
   /**
    *
    * book id
-   * @type {number}
+   * @type {string}
    * @memberof ListOfBooks
    */
-  bookId: number;
+  bookId: string;
 
   /**
    *
@@ -33,11 +33,4 @@ export interface ListOfBooks {
    */
   bookCover: string;
 
-  /**
-   *
-   * book state ( read , want to read , currently reading )
-   * @type {string}
-   * @memberof ListOfBooks
-   */
-  state: string;
 }

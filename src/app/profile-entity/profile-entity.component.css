@@ -1,4 +1,19 @@
 div {
     text-align: center;
-    margin-top: 72px;
+    margin-top: 80px;
+}
+.photo {
+    max-width: 150px;
+    max-height: 150px;
+}
+#user-name {
+    font-family: 'Times New Roman', Times, serif;
+}
+#user-email {
+    font-family: 'Times New Roman', Times, serif;
+}
+#my-book {
+    font-family: 'Times New Roman', Times, serif;
+    margin-left: 10px;
+    margin-top: 10px;
 }

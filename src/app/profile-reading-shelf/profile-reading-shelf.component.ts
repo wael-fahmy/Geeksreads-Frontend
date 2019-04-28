@@ -42,7 +42,7 @@ export class ProfileReadingShelfComponent implements OnInit {
    * @memberof ProfileReadingShelfComponent
    */
   OnClick_want_read(index: ListOfBooks) {                   // to increment the number of books want to read on click
-    this.countBooksService.add_count_want_to_read(index);
+    this.countBooksService.add_book_to_shelf_want_to_read(index);
     // index.state = 'want to read';
   }
 
@@ -53,8 +53,8 @@ export class ProfileReadingShelfComponent implements OnInit {
    * @param {ListOfBooks} index index of the book to be sent to the backend
    * @memberof ProfileReadingShelfComponent
    */
-  OnClick_reading(index: ListOfBooks) {                           // to increment the number of books currently reading on click
-    this.countBooksService.add_count_reading(index);
+  OnClick_read(index: ListOfBooks) {                           // to increment the number of books currently reading on click
+    this.countBooksService.add_book_to_shelf_read(index);
     // console.log(index.author_name);
   }
 
@@ -66,10 +66,10 @@ export class ProfileReadingShelfComponent implements OnInit {
    * @memberof ProfileReadingShelfComponent
    */
   ngOnInit() {
-    this.countBooksService.get_List_of_books();                         // to get the book info from the service
-    this.subList = this.countBooksService.get_List_of_books_updated().
-      subscribe((List: ListOfBooks[]) => {                              // subscribe the recieved data
-        this.listOfBooksReading = List;                                    // and put it inside the list of books to display it
+    this.countBooksService.get_List_of_books_reading();                    // to get the book info from the service
+    this.subList = this.countBooksService.get_List_of_books_reading_updated().
+      subscribe((List: ListOfBooks[]) => {                     // subscribe the list of books recived
+        this.listOfBooksReading = List;                              // and put it in the list of books to display them
       });
   }
 }

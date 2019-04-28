@@ -48,7 +48,7 @@ export class ProfileBookEntityComponent implements OnInit {
    * @memberof ProfileBookEntityComponent
    */
   OnClick_want_read(index: ListOfBooks) {
-    this.countBooksService.add_count_want_to_read(index);
+    this.countBooksService.add_book_to_shelf_want_to_read(index);
   }
 
   /**
@@ -58,7 +58,7 @@ export class ProfileBookEntityComponent implements OnInit {
    * @memberof ProfileBookEntityComponent
    */
   OnClick_read(index: ListOfBooks) {
-    this.countBooksService.add_count_read(index);
+    this.countBooksService.add_book_to_shelf_read(index);
     // index.state = 'read';
 
   }
@@ -70,7 +70,7 @@ export class ProfileBookEntityComponent implements OnInit {
    * @memberof ProfileBookEntityComponent
    */
   OnClick_reading(index: ListOfBooks) {
-    this.countBooksService.add_count_reading(index);
+    this.countBooksService.add_book_to_shelf_reading(index);
     // console.log(index.author_name);
   }
 
@@ -83,8 +83,8 @@ export class ProfileBookEntityComponent implements OnInit {
    */
   ngOnInit() {
 
-    this.countBooksService.get_List_of_books();                    // to get the book info from the service
-    this.subList = this.countBooksService.get_List_of_books_updated().
+    this.countBooksService.get_List_of_books_reading();                    // to get the book info from the service
+    this.subList = this.countBooksService.get_List_of_books_reading_updated().
       subscribe((List: ListOfBooks[]) => {                     // subscribe the list of books recived
         this.listOfBooks = List;                              // and put it in the list of books to display them
       });
