@@ -11,6 +11,9 @@
             <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'" required name="password" [(ngModel)]="userPassword">
             <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
         </mat-form-field>
+
+        <a href="forgot-password">Forget Password?</a>
+
         <button mat-raised-button class="btn" type="submit" id="form-submit-btn">Sign In</button>
         <p>Not a member? <a routerLink="/sign-up">Sign Up</a></p>
     </form>

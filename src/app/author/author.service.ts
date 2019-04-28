@@ -61,7 +61,7 @@ export class AuthorService {
         this.authorUpdated.next(this.author);
       }
       , (error: { json: () => void; }) => {
-        //console.log(error);
+        console.log(error);
       });
   }
 

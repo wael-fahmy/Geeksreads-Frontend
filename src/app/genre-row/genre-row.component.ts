@@ -73,7 +73,4 @@ export class GenreRowComponent implements OnInit {
       this.bookImage3 = this.RowObj.bookimage3;
     });
   }
-  See_more_genres() {
-    //ToDo implement any function
-  }
 }
