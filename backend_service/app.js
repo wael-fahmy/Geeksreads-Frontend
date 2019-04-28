@@ -559,7 +559,7 @@ app.use("/api/title", (req, res, next) => {
         UserEmail:'marwan_medhat@hotmail.com',
         OwnedBookId:[],
         UserPhoto: "https://tse2.mm.bing.net/th?id=OIP.FN55nUOxccDTpCPhYOmVfgHaLU&pid=15.1&P=0&w=300&h=300"
-            
+
     };
 
     res.status(200).json({
@@ -619,7 +619,7 @@ app.post("/api/sign-in", (req, res, next) => {
 app.post("/api/sign-up", (req, res, next) => {
     Name = "Omar Osama"
     email = "omar@gmail.com";
-    pass = "1234";
+    pass = "123456";
 
 
 

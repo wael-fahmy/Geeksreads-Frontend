@@ -17,6 +17,7 @@ import {ProfileWantToReadShelfComponent} from './profile-want-to-read-shelf/prof
 import {ReviewsComponent} from './reviews/reviews.component';
 import { VerifiedComponent } from './verified/verified.component';
 import { VerificationComponent } from './verification/verification.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 
 const routes: Routes = [
   {
@@ -86,6 +87,10 @@ const routes: Routes = [
   {
     path: 'verification',
     component: VerificationComponent
+  },
+  {
+    path: 'forgot-password',
+    component: ForgotPasswordComponent
   }
 ];
 

@@ -44,6 +44,7 @@ import { CommentComponent } from './comment/comment.component';
 import { ReviewComponent } from './review/review.component';
 import { ProfileReadingShelfComponent } from './profile-reading-shelf/profile-reading-shelf.component';
 import { ProfileWantToReadShelfComponent } from './profile-want-to-read-shelf/profile-want-to-read-shelf.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 
 @NgModule({
   declarations: [
@@ -84,7 +85,8 @@ import { ProfileWantToReadShelfComponent } from './profile-want-to-read-shelf/pr
     CommentComponent,
     ReviewComponent,
     ProfileReadingShelfComponent,
-    ProfileWantToReadShelfComponent
+    ProfileWantToReadShelfComponent,
+    ForgotPasswordComponent
   ],
   imports: [
     BrowserModule,
