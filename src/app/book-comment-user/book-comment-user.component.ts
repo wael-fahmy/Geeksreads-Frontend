@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Renderer2 } from '@angular/core';
 import { Bookreviews } from './book-comment-user.model';
 import { Subscription } from 'rxjs';
 import { Bookreviews_Service } from './book-comment-user.service';
@@ -112,7 +112,7 @@ public load_more_reviews = 0;
  * @param {Bookreviews_Service} bookreviews_service
  * @memberof BookCommentUserComponent
  */
-constructor(public bookreviews_service: Bookreviews_Service) { }
+constructor(public bookreviews_service: Bookreviews_Service, render: Renderer2) { }
   /**
    *
    * function used to see more reviews by other users

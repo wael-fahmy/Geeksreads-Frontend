@@ -40,9 +40,9 @@ export class RowServices {
    */
   get_row(genre: string) {
     this.http
-      .get('https://geeksreads.herokuapp.com/api/books/genre/', {
+      .get('https://geeksreads.herokuapp.com/api/books/genre', {
         params: {
-          Genre: genre,
+          Genre: '',
         }
       })
       .subscribe((serverResponse: any) => {
