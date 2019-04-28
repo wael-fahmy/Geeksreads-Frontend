@@ -52,12 +52,19 @@ export class BookTitle_Service {
      * function used to recieve json file from server
      * @memberof BookTitle_Service
      */
+    //https://geeksreads.herokuapp.com/api/books/id
     get_book_Info() {
-        this.http.get<{ message: string, book_details: BookDetails[] }>('http://localhost:3000/api/book').
+        this.http.get<{ message: string, book_details: BookDetails[] }>('', { params: {
+            book_id: '5c9114a0d345b4a65637eacc'
+    }
+        }).
             // tslint:disable-next-line:variable-name
-            subscribe((bookdata) => {
+            subscribe((bookdata: any) => {
+                console.log(bookdata);
                 this.book_details = bookdata.book_details;
                 this.book_detailsUpdated.next([...this.book_details]);
+            }, (error: { json: () => void; }) => {
+                console.log(error);
             });
     }
     /**
@@ -108,6 +115,7 @@ post_book_status(bookc_id: string, bookc_status: string) {
             console.log(responseData.message);
         });
     }
+
 post_book_id(bookc_id: string) {
 // tslint:disable-next-line: max-line-length
         const book: BookDetails = {BookId: bookc_id, ReadStatus: null, AuthorId: null, Description: null
