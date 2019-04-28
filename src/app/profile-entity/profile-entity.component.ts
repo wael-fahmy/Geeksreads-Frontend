@@ -71,7 +71,7 @@ export class ProfileEntityComponent implements OnInit {
     this.subProfile = this.titlesService.get_User_Info_updated().       // once the class is initialized
       subscribe((userInformation: User) => {                            //  supscripe the value recieved
         this.userInfo = userInformation;
-        this.userCoverPhoto = this.userInfo.UserPhoto;
+        this.userCoverPhoto = this.userInfo.Photo;
         this.userName = this.userInfo.UserName;
         this.userEmail=this.userInfo.UserEmail;
        // console.log(this.userInfo.UserPhoto)

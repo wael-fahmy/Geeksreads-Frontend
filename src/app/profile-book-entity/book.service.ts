@@ -84,14 +84,14 @@ export class CountBooksService {
    * @memberof CountBooksService
    */
   get_List_of_books_reading() {
-    this.http.get('http://localhost:3000/api/list', {
-      params: {
-        book_status: 'currently reading',
-        User_id : localStorage.getItem('userId') ,   // id of signed in user
-      }
-    }).
-      subscribe((bookData: ListOfBooks[]) => {          //  subscribe the list of books recieved
-        this.List_reading = bookData;    // assign them to the list to display them
+    const UserToken = {
+      token : localStorage.getItem('token')
+    }
+    this.http.post<{ ReadingData: ListOfBooks[] }>('https://geeksreads.herokuapp.com/api/users/GetUserReadingDetails', UserToken
+    ).
+      subscribe(bookData => {          //  subscribe the list of books recieved
+        console.log(bookData.ReadingData);
+        this.List_reading = bookData.ReadingData;    // assign them to the list to display them
         this.listReadingUpdated.next([...this.List_reading]);
       });
   }
@@ -115,18 +115,18 @@ export class CountBooksService {
    */
   get_List_of_books_read() {
 
-      
-    this.http.get<{ message: string, Books: ListOfBooks[] }>('http://localhost:3000/api/list', { 
-      params: {
-        book_status: 'read',
-        User_id : localStorage.getItem('userId') ,     // id of signed in user
-      }
-    }).
-      subscribe((bookData) => {          //  subscribe the list of books recieved
-        this.List_read = bookData.Books;    // assign them to the list to display them
+    const UserToken = {
+      token : localStorage.getItem('token')
+    }
+    this.http.post<{ ReadData: ListOfBooks[] }>('https://geeksreads.herokuapp.com/api/users/GetUserReadDetails', UserToken
+    ).
+      subscribe(bookData => {          //  subscribe the list of books recieved
+        console.log(bookData.ReadData);
+        this.List_read = bookData.ReadData;    // assign them to the list to display them
         this.listReadUpdated.next([...this.List_read]);
       });
   }
+  
   /**
    *
    * // to display the list of books as observable
@@ -146,14 +146,14 @@ export class CountBooksService {
    * @memberof CountBooksService
    */
   get_List_of_books_want_to_read() {
-    this.http.get<{ message: string, Books: ListOfBooks[] }>('http://localhost:3000/api/list', {
-      params: {
-        book_status: 'want to read',
-        User_id : localStorage.getItem('userId') ,
-      }
-    }).
-      subscribe((bookData) => {          //  subscribe the list of books recieved
-        this.List_wantto_read = bookData.Books;    // assign them to the list to display them
+    const UserToken = {
+      token : localStorage.getItem('token')
+    }
+    this.http.post<{ WantToReadData: ListOfBooks[] }>('https://geeksreads.herokuapp.com/api/users/GetUserWantToReadDetails', UserToken
+    ).
+      subscribe(bookData => {          //  subscribe the list of books recieved
+        console.log(bookData.WantToReadData);
+        this.List_wantto_read = bookData.WantToReadData;    // assign them to the list to display them
         this.listWanttoReadUpdated.next([...this.List_wantto_read]);
       });
   }
@@ -176,11 +176,12 @@ export class CountBooksService {
    * @memberof CountBooksService
    */
   add_book_to_shelf_read(index: ListOfBooks) {
-    this.newNumRead = this.newNumRead + 1;         // to inc number of books read
-    this.numReadUpdated.next(this.newNumRead);     // to update the number of books read
+   const bookID = {
+     BookID: index.BookId
+   };
     
     this.http
-      .post<{ message: string }>('http://localhost:3000/api/posts', index)   // to send request with the book info
+      .post<{ message: string }>('http://localhost:3000/api/add/read/shelf', bookID)   // to send request with the book info
       .subscribe(responsedata => {                                    // to add a book to a read shelf
        // console.log(responsedata.message);                   // to check that the request sent successfuly
       });
