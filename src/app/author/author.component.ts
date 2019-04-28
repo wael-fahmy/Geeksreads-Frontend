@@ -1,24 +1,93 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthorModel } from './author-model';
-import { AuthorFollowModel } from './author-follow-model';
-import { AuthorUnfollowModel } from './author-unfollow-model';
-import { Subscription } from 'rxjs';
-import { AuthorService } from './author.service';
-import { AuthorFollowService } from './author-follow.service';
-import { AuthorUnfollowService } from './author-unfollow.service';
+import {
+  AuthorService, AuthorFollowService, AuthorUnfollowService
+} from './author.service';
+import { Subscription, Observable } from 'rxjs';
+import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
+import { take, map } from "rxjs/operators";
 
-/**
- *  Author page component
- *  @export
- *  @class AuthorComponent
- *  @implements {OnInit}
- */
+export interface AuthorModel {
+
+  /**
+   *  A brief information about the author
+   */
+  About: string;
+
+  /**
+   *  Author's Id
+   */
+  AuthorId: string;
+
+  /**
+   *  Name of the author
+   */
+  AuthorName: string;
+
+  /**
+   * Books written by this author
+   * @type {string[]}
+   * @memberof AuthorModel
+   */
+  BookId: string[];
+
+  /**
+   * Array of user ids following this author
+   * @type {string[]}
+   * @memberof AuthorModel
+   */
+  FollowingUserId: string[];
+
+  /**
+   *  Link to the author's picture
+   */
+  Photo: string;
+
+  // tslint:disable-next-line:variable-name
+  _id: string;
+}
+
+export interface AuthorFollowModel {
+  /**
+   * User now follows author
+   * @type {boolean}
+   * @memberof FollowAuthor
+   */
+  success: boolean;
+
+  /**
+   * Message
+   * @type {string}
+   * @memberof FollowAuthor
+   */
+  message: string;
+}
+
+export interface AuthorUnfollowModel {
+  /**
+   * User now unfollows author
+   * @type {boolean}
+   * @memberof FollowAuthor
+   */
+  success: boolean;
+
+  /**
+   * Message
+   * @type {string}
+   * @memberof FollowAuthor
+   */
+  message: string;
+}
+
 @Component({
   selector: 'app-author',
   templateUrl: './author.component.html',
   styleUrls: ['./author.component.css']
 })
 export class AuthorComponent implements OnInit {
+  isHandset$: Observable<boolean> = this.breakpointObserver
+  .observe(Breakpoints.Handset)
+  .pipe(map(authorModel => authorModel.matches));
+
   /**
    * Author Subscription
    * @private
@@ -32,21 +101,21 @@ export class AuthorComponent implements OnInit {
    *  @type {AuthorModel}
    *  @memberof AuthorComponent
    */
-  authorInfo: AuthorModel;
+  authorModel: AuthorModel;
 
   /**
-   * Object to fill data
+   * Author Follow Model
    * @type {AuthorFollowModel}
    * @memberof AuthorComponent
    */
-  authorFollow: AuthorFollowService;
+  authorFollowModel: AuthorFollowModel;
 
   /**
-   * Object to fill data
+   * Author Unfollow Model
    * @type {AuthorUnfollowModel}
    * @memberof AuthorComponent
    */
-  authorUnfollow: AuthorUnfollowService;
+  authorUnfollowModel: AuthorUnfollowModel;
 
   /**
    *  Author's Id
@@ -83,9 +152,8 @@ export class AuthorComponent implements OnInit {
    *  @memberof AuthorComponent
    */
   followAuthor() {
-    this.authorFollow.followAuthor();
-
-    this.authorSubscription = this.authorFollow.getFollowAuthorUpdated()
+    this.authorFollowService.followAuthor();
+    this.authorSubscription = this.authorFollowService.getFollowAuthorUpdated()
       .subscribe((authorFollow: AuthorFollowModel) => {
         console.log('Following this author');
       }, (error: { json: () => void; }) => {
@@ -100,8 +168,8 @@ export class AuthorComponent implements OnInit {
   unfollowAuthor() {
     this.authorIsFollowing = false;
     console.log('Unfollowing this author');
-    this.authorUnfollow.unfollowAuthor();
-    this.authorSubscription = this.authorUnfollow.getUnfollowAuthorUpdated()
+    this.authorUnfollowService.unfollowAuthor();
+    this.authorSubscription = this.authorUnfollowService.getUnfollowAuthorUpdated()
       .subscribe((authorUnfollow: AuthorUnfollowModel) => {
         console.log('Unfollowing this author');
       }, (error: { json: () => void; }) => {
@@ -125,7 +193,10 @@ export class AuthorComponent implements OnInit {
    *  @param {AuthorService} authorService
    *  @memberof AuthorComponent
    */
-  constructor(public authorService: AuthorService) { }
+  constructor(public authorService: AuthorService,
+              public authorFollowService: AuthorFollowService,
+              public authorUnfollowService: AuthorUnfollowService,
+              private breakpointObserver: BreakpointObserver) { }
 
   /**
    *  Author component initialization
@@ -134,18 +205,15 @@ export class AuthorComponent implements OnInit {
   ngOnInit() {
     this.setIsFollowing();
     this.authorService.getAuthorInfo();
-
     this.authorSubscription = this.authorService.getAuthorInfoUpdated()
       .subscribe((authorInformation) => {
         console.log(authorInformation);
-       // this.authorInfo = authorInformation;
-
         this.authorId = authorInformation.AuthorId;
         this.authorName = authorInformation.AuthorName;
         this.authorPicture = authorInformation.Photo;
         this.authorNumberOfFollowers = authorInformation.FollowingUserId.length.toString();
         this.authorDetails = authorInformation.About;
-       // this.authorIsFollowing = this.authorInfo.authorIsFollowing;
+        // this.authorIsFollowing = this.authorInfo.authorIsFollowing;
       }, (error: { json: () => void; }) => {
         console.log(error);
       });
