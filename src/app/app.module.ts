@@ -44,7 +44,11 @@ import { CommentComponent } from './comment/comment.component';
 import { ReviewComponent } from './review/review.component';
 import { ProfileReadingShelfComponent } from './profile-reading-shelf/profile-reading-shelf.component';
 import { ProfileWantToReadShelfComponent } from './profile-want-to-read-shelf/profile-want-to-read-shelf.component';
+<<<<<<< HEAD
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+=======
+import { BookGenreComponent } from './book-genre/book-genre.component';
+>>>>>>> fcce48064ce85e1c5aa374007cdc94fab9ddbd0c
 
 @NgModule({
   declarations: [
@@ -86,7 +90,11 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
     ReviewComponent,
     ProfileReadingShelfComponent,
     ProfileWantToReadShelfComponent,
+<<<<<<< HEAD
     ForgotPasswordComponent
+=======
+    BookGenreComponent
+>>>>>>> fcce48064ce85e1c5aa374007cdc94fab9ddbd0c
   ],
   imports: [
     BrowserModule,

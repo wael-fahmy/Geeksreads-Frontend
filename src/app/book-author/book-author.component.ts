@@ -46,7 +46,7 @@ export class BookAuthorComponent implements OnInit {
    *
    * variable to carry author followers number list
    * @type {string []}
-   * @memberof BookAuthorComponent
+   * @memberof B.okAuthorComponent
    */
   authorfollowers: string [] = [];
   /**
@@ -116,7 +116,7 @@ public after_dots: string [] = [];
    * @memberof BookAuthorComponent
    */
   ngOnInit() {
-    let author=localStorage.getItem("authorID");
+    const author = localStorage.getItem('authorID');
     console.log(author);
     this.authordetails_service.get_author_Info();                                  // to get the user info from the service
     // tslint:disable-next-line:variable-name
@@ -157,7 +157,7 @@ public after_dots: string [] = [];
   unfollowAuthor() {
     // TODO: Send request
     this.authorIsFollowing = false;
-    //this.authorNumberOfFollowers -= 1;
+    // this.authorNumberOfFollowers -= 1;
     const number = document.getElementById('number-followers');
 // tslint:disable-next-line: radix
     let x = number.innerHTML.toString();
@@ -181,7 +181,7 @@ public after_dots: string [] = [];
     let starting_indext = 0;
 // tslint:disable-next-line: prefer-for-of
     for (let i = 0; i < this.author_details.length; i ++) {
-      const word = this.author_details[i].author_body.split(',');
+      const word = this.author_details[i].About.split(',');
       this.befor_dots[starting_indext] = word[0];
       this.after_dots[starting_indext] = word[1];
       starting_indext++;
@@ -195,13 +195,12 @@ public after_dots: string [] = [];
   SetElements() {
     // tslint:disable-next-line: prefer-for-of
         for (let x = 0; x < this.author_details.length; x++) {
-          this.authorname[x] = this.author_details[x].author_name;
-          this.authorid[x] = this.author_details[x].author_id;
-          this.authorbody[x] = this.author_details[x].author_body;
-          this.authorfollowers[x] = this.author_details[x].author_followers;
-          this.bookid[x] = this.author_details[x].book_id;
-          this.authorimage[x] = this.author_details[x].author_image;
-          this.userid[x] = this.author_details[x].user_id;
+          this.authorname[x] = this.author_details[x].AuthorName;
+          this.authorid[x] = this.author_details[x].AuthorId;
+          this.authorbody[x] = this.author_details[x].About;
+          this.authorfollowers[x] = this.author_details[x].FollowingUserId.length.toString();
+          this.bookid[x] = this.author_details[x].BookId;
+          this.authorimage[x] = this.author_details[x].Photo;
         }
       }
   /**

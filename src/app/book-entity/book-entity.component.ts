@@ -146,6 +146,11 @@ ngOnInit() {
       this.assign_status(this.book_details[this.book_index].ReadStatus);
       localStorage.setItem('authorID', this.book_details[0].AuthorId);
       localStorage.setItem('bookID', this.book_details[0].BookId);
+      localStorage.setItem('ISBN', this.book_details[0].ISBN);
+      localStorage.setItem('genre', this.book_details[0].Genre);
+      localStorage.setItem('pages', this.book_details[0].Pages.toString());
+      localStorage.setItem('publishedDate', this.book_details[0].Published);
+      localStorage.setItem('publisher', this.book_details[0].Publisher);
       console.log(this.bookrate[this.book_index]);
       this.SetRate();
       /* console.log(this.User_info.User_Name)
@@ -204,6 +209,15 @@ ngOnInit() {
       const word = this.book_details[x].Description.split(',');
       this.befor_dots[x] = word[0];
       this.after_dots[x] = word[1];
+      const ReadMoreBt = document.getElementById('myBtn-book-discription');
+      const ReadMoreDot = document.getElementById('dots-book-discription');
+      console.log(this.bookbody[x]);
+      console.log(this.befor_dots[x].length);
+      const check = this.bookbody[x].split(' ');
+      if (check.length < 15) {
+        ReadMoreBt.style.display = 'none';
+        ReadMoreDot.style.display = 'none';
+      }
   }
   SetRate() {
     const rate0 = document.getElementById('star0');

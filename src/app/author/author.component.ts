@@ -136,15 +136,16 @@ export class AuthorComponent implements OnInit {
     this.authorService.getAuthorInfo();
 
     this.authorSubscription = this.authorService.getAuthorInfoUpdated()
-      .subscribe((authorInformation: AuthorModel) => {
-        this.authorInfo = authorInformation;
+      .subscribe((authorInformation) => {
+        console.log(authorInformation);
+       // this.authorInfo = authorInformation;
 
-        this.authorId = this.authorInfo.authorId;
-        this.authorName = this.authorInfo.authorName;
-        this.authorPicture = this.authorInfo.authorPicture;
-        this.authorNumberOfFollowers = this.authorInfo.authorNumberOfFollowers;
-        this.authorDetails = this.authorInfo.authorDetails;
-        this.authorIsFollowing = this.authorInfo.authorIsFollowing;
+        this.authorId = authorInformation.AuthorId;
+        this.authorName = authorInformation.AuthorName;
+        this.authorPicture = authorInformation.Photo;
+        this.authorNumberOfFollowers = authorInformation.FollowingUserId.length.toString();
+        this.authorDetails = authorInformation.About;
+       // this.authorIsFollowing = this.authorInfo.authorIsFollowing;
       }, (error: { json: () => void; }) => {
         console.log(error);
       });

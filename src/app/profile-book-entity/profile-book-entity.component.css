@@ -29,3 +29,6 @@ p {
 .checked {
     color: orange;
 }
+hr{
+    margin-bottom: 1rem;
+}

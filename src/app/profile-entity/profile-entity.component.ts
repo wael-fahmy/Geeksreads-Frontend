@@ -74,7 +74,7 @@ export class ProfileEntityComponent implements OnInit {
         this.userCoverPhoto = this.userInfo.UserPhoto;
         this.userName = this.userInfo.UserName;
         this.userEmail=this.userInfo.UserEmail;
-        console.log(this.userInfo.UserPhoto)
+       // console.log(this.userInfo.UserPhoto)
          /*console.log(this.userInfo.userName)
          console.log(this.userInfo.user_id)
          console.log(this.userInfo.User_Photo)*/

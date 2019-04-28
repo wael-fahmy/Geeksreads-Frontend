@@ -13,6 +13,12 @@ export class AuthorDetails_Service {
      * @memberof AuthorDetails_Service
      */
     constructor(private http: HttpClient) { }
+    name: string;
+    image: string;
+    id: string;
+    body: string;
+    bookid: string;
+    followers: string;
     // tslint:disable-next-line:variable-name
     /**
      *
@@ -37,11 +43,18 @@ export class AuthorDetails_Service {
      * @memberof AuthorDetails_Service
      */
     get_author_Info() {
-        this.http.get<{ message: string, author_details: AuthorDetails[] }>('http://localhost:3000/api/authordata').
+        this.http.get('https://geeksreads.herokuapp.com/api/authors/id', {
+            params: {
+            auth_id: '5c911452938ffea87b4672d7',
+            }
+        }).
             // tslint:disable-next-line:variable-name
-            subscribe((authordata) => {
-                this.author_details = authordata.author_details;
+            subscribe((authordata: AuthorDetails) => {
+                console.log(authordata);
+                this.author_details[0] = authordata;
                 this.author_detailsUpdated.next([...this.author_details]);
+            }, (error: { json: () => void; }) => {
+                console.log(error);
             });
     }
     /**
@@ -61,24 +74,24 @@ export class AuthorDetails_Service {
      * @memberof AuthorDetails_Service
      */
     post_author_unfollow(authorid: string, userid: string) {
-        const author: AuthorDetails = {user_id: userid, author_id: authorid, author_body: null,
-            author_followers: null, author_image: null, author_name: null, book_id: null};
+        const author: AuthorDetails = {user_id: userid, AuthorId: authorid, About: null,
+            FollowingUserId: null, Photo: null, AuthorName: null, BookId: null};
         this.http.post<{message: string}>('http://localhost:3000/api/authordata', author)
         .subscribe ((responseData) => {
             console.log(responseData.message);
         });
     }
     post_author_follow(authorid: string, userid: string) {
-        const author: AuthorDetails = {user_id: userid, author_id: authorid, author_body: null,
-            author_followers: null, author_image: null, author_name: null, book_id: null};
+        const author: AuthorDetails = {user_id: userid, AuthorId: authorid, About: null,
+            FollowingUserId: null, Photo: null, AuthorName: null, BookId: null};
         this.http.post<{message: string}>('http://localhost:3000/api/authordata', author)
         .subscribe ((responseData) => {
             console.log(responseData.message);
         });
     }
     post_author_id(authorid: string) {
-        const author: AuthorDetails = {user_id: null, author_id: authorid, author_body: null,
-            author_followers: null, author_image: null, author_name: null, book_id: null};
+        const author: AuthorDetails = {user_id: null, AuthorId: authorid, About: null,
+            FollowingUserId: null, Photo: null, AuthorName: null, BookId: null};
         this.http.post<{message: string}>('http://localhost:3000/api/authordata', author)
         .subscribe ((responseData) => {
             console.log(responseData.message);

@@ -10,6 +10,21 @@ import { delay } from 'q';
 })
 export class ReviewsEntityComponent implements OnInit {
 
+  // tslint:disable-next-line: prefer-const
+/**
+ *
+ * vairbale used to store available option of read button
+ * @type {string}
+ * @memberof BookEntityComponent
+ */
+type1: string;
+/**
+ *
+ * vairbale used to store available option of read button
+ * @type {string}
+ * @memberof BookEntityComponent
+ */
+type2: string;
   /**
    *
    * variable list used to carry book title
@@ -157,6 +172,8 @@ ngOnInit() {
       console.log(this.User_info.user_id)
       console.log(this.User_info.User_Photo)*/
     });
+    this.type1 = 'Currently Reading';
+    this.type2 = 'Read';
   }
   /**
    *
@@ -239,4 +256,29 @@ ngOnInit() {
       starting_indext++;
     }
   }
+  book_status(index: string) {
+    const first = document.getElementById(index);
+    const second = document.getElementById('first-option');
+    let x = first.innerHTML.toString();
+    first.innerHTML = second.innerHTML.toString();
+    second.innerHTML = x;
+  }
+/**
+ *
+ * function used to assign status of book on intilize
+ * @param {string} index
+ * @memberof BookEntityComponent
+ */
+assign_status(index: string) {
+  if (index === 'Want To Read') {
+    this.type1 = 'Currently Reading';
+    this.type2 = 'Read';
+  } else if (index === 'Read') {
+    this.type1 = 'Currently Reading';
+    this.type2 = 'Want To Read';
+  } else if (index === 'Currently Reading') {
+    this.type1 = 'Read';
+    this.type2 = 'Want To Read';
+  }
+}
 }

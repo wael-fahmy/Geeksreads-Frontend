@@ -52,12 +52,19 @@ export class BookTitle_Service {
      * function used to recieve json file from server
      * @memberof BookTitle_Service
      */
+    //https://geeksreads.herokuapp.com/api/books/id
     get_book_Info() {
-        this.http.get<{ message: string, book_details: BookDetails[] }>('http://localhost:3000/api/book').
+        this.http.get('https://geeksreads.herokuapp.com/api/books/id', { params: {
+            book_id: '5c9114a0d345b4a65637eacc'
+    }
+        }).
             // tslint:disable-next-line:variable-name
-            subscribe((bookdata) => {
-                this.book_details = bookdata.book_details;
+            subscribe((bookdata: any) => {
+                console.log(bookdata);
+                this.book_details[0] = bookdata;
                 this.book_detailsUpdated.next([...this.book_details]);
+            }, (error: { json: () => void; }) => {
+                console.log(error);
             });
     }
     /**
@@ -102,16 +109,19 @@ export class BookTitle_Service {
 post_book_status(bookc_id: string, bookc_status: string) {
 // tslint:disable-next-line: max-line-length
         const book: BookDetails = {BookId: bookc_id, ReadStatus: bookc_status, AuthorId: null,
-            Description: null, Cover: null, Title: null, BookRating: null, Author: null};
+            Description: null, Cover: null, Title: null, BookRating: null, Author: null, Genre: null,
+            ISBN: null, Pages: null, Published: null, Publisher: null};
         this.http.post<{message: string}>('http://localhost:3000/api/book', book)
         .subscribe ((responseData) => {
             console.log(responseData.message);
         });
     }
+
 post_book_id(bookc_id: string) {
 // tslint:disable-next-line: max-line-length
         const book: BookDetails = {BookId: bookc_id, ReadStatus: null, AuthorId: null, Description: null
-            , Cover: null, Title: null, BookRating: null, Author: null};
+            , Cover: null, Title: null, BookRating: null, Author: null, Genre: null,
+            ISBN: null, Pages: null, Published: null, Publisher: null};
         this.http.post<{message: string}>('http://localhost:3000/api/book', book)
         .subscribe ((responseData) => {
             console.log(responseData.message);

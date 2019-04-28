@@ -18,11 +18,16 @@
         <div id="Book-Title">
             <h4 id="book_title_font">{{booktitle[0]}}</h4>
             <p routerLink="/author" id="By-Author">by <span id="Author-name">{{bookauthor[0]}}</span></p>
-            <button id="want-to-read" mat-raised-button color="primary">Want To Read | <mat-icon>library_add</mat-icon></button>
+            <button mat-raised-button color="primary" [matMenuTriggerFor]="menu" class="want-to-read" id='first-option'>Want To Read</button>
+        <mat-menu #menu="matMenu">
+            <button class="want-to-read" mat-menu-item (click)="book_status('second-option')" id='second-option'>{{type1}}</button>
+            <button class="want-to-read" mat-menu-item (click)="book_status('third-option')" id='third-option'>{{type2}}</button>
+        </mat-menu>
         </div>
     </div>
     <p id="date_read_book">read in <span>{{bookreaddate[0]}}</span></p>
-    <p>{{befor_dots[0]}}<span id="dots-user-review">...</span><span id="more-review"> {{after_dots[0]}}</span> <button (click)="more_review_discription()" id="myBtn-user-review" mat-button>Read Full Review</button></p>
+    <p>{{befor_dots[0]}}<span id="dots-user-review">...</span>
+        <span id="more-review"> {{after_dots[0]}}</span> <button (click)="more_review_discription()" id="myBtn-user-review" mat-button>Read Full Review</button></p>
 </div>
 <div id="review-like-comment">
   <p (click)="OnclickLike(review_details[0])" id="liked" class="blue-text">Like</p>
