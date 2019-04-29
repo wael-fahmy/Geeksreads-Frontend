@@ -33,7 +33,7 @@ export class ProfileBookEntityComponent implements OnInit {
    * @memberof ProfileBookEntityComponent
    */
   listOfBooks: ListOfBooks[] = [];
-
+  
   /**
    * Creates an instance of ProfileBookEntityComponent.
    * @param {CountBooksService} CountBooksService
@@ -87,6 +87,7 @@ export class ProfileBookEntityComponent implements OnInit {
     this.subList = this.countBooksService.get_List_of_books_reading_updated().
       subscribe((List: ListOfBooks[]) => {                     // subscribe the list of books recived
         this.listOfBooks = List;                              // and put it in the list of books to display them
+        
       });
 
   }

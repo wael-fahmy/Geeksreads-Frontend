@@ -523,11 +523,8 @@ app.use("/api/bookDetails", (req, res, next) => {
         book_details: book_details
     });
 });
-app.use("/api/list", (req, res, next) => {
-    const state=req.body;
-    console.log(state.book_status);
-    if(state.book_status == 'read')
-    {
+app.use("/api/list/read", (req, res, next) => {
+    
     const Books = [{
             bookId: '11',
             bookName: "Harry Potter",
@@ -554,10 +551,10 @@ app.use("/api/list", (req, res, next) => {
         message: "Posts fetched successfully!",
         Books: Books
     });
-  }
+});
+  
 
-  else if (state.book_status == 'want to read')
-  {
+app.use("/api/list/reading", (req, res, next) => {
     const Books = [{
         bookId: '11',
         bookName: "7amoksha",
@@ -584,10 +581,11 @@ res.status(200).json({
     message: "Posts fetched successfully!",
     Books: Books
 });
+});
 
-}
 
-else {
+app.use("/api/list/toread", (req, res, next) => {
+
     const Books = [{
         bookId: '11',
         bookName: "Harry Potter 2",
@@ -614,7 +612,7 @@ res.status(200).json({
     message: "Posts fetched successfully!",
     Books: Books
 });
-}
+
 
 });
 

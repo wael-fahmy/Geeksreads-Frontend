@@ -24,14 +24,17 @@ export interface User {
     UserName: string;  // user name
 
     UserEmail: string;
-
-    OwnedBookId: string [];
-
     /**
      *
      * user profile photo
      * @type {string}
      * @memberof User
      */
-    UserPhoto: string;  // user profile photo
+    Photo: string;  // user profile photo
+    Reading: string [];
+    WantToRead: string [];
+    Read: string [];
+    FollowersUserId: string [];
+    FollowingUserId: string [];
+
 }

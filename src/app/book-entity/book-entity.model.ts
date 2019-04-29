@@ -66,6 +66,8 @@ export interface BookDetails {
     Pages: number;
     Published: string;
     Publisher: string;
+    message: string;
+    success: boolean;
 }
 export interface AuthorDetails {
     _id: string;

@@ -48,9 +48,15 @@ export class TitlesService {
    * @memberof TitlesService
    */
   get_User_Info() {    // give the signed in user id as a parameter
-    this.http.get<{ message: string, User_Info: User }>('http://localhost:3000/api/title').    // get response from this URL
-      subscribe((UserData) => {       // subscribe the recived data
-        this.User = UserData.User_Info;       // and put it in the user object to display it
+    const UserToken = {
+      token: localStorage.getItem('token')
+     };
+    this.http.post('https://geeksreads.herokuapp.com/api/users/me', UserToken
+     ).    // get response from this URL
+      subscribe((UserData: User) => {       // subscribe the recived data
+       // console.log(UserData);
+        this.User = UserData;       // and put it in the user object to display it
+        console.log(this.User);
         this.userUpdated.next(this.User);
       });
   }
@@ -65,20 +71,20 @@ export class TitlesService {
 
 
 
-  get_Owned_books( Owned_books : string[]) {
-    for(let i of Owned_books)
-    {
-      this.http.get<{ message: string, Books: ListOfBooks }>('http://localhost:3000/api/list/${i}').
-      subscribe((bookData) => {          //  subscribe the list of books recieved
-        this.List.push(bookData.Books);    // push the book into the list of books to display them
-        this.listUpdated.next([...this.List]);
-      });
-    }
-  }
+  // get_Owned_books( Owned_books : string[]) {
+  //   for(let i of Owned_books)
+  //   {
+  //     this.http.get<{ message: string, Books: ListOfBooks }>('http://localhost:3000/api/list/${i}').
+  //     subscribe((bookData) => {          //  subscribe the list of books recieved
+  //       this.List.push(bookData.Books);    // push the book into the list of books to display them
+  //       this.listUpdated.next([...this.List]);
+  //     });
+  //   }
+  // }
 
-  get_Owned_books_updated() {
-    return this.listUpdated.asObservable();
-  }
+  // get_Owned_books_updated() {
+  //   return this.listUpdated.asObservable();
+  // }
 
 
 
