@@ -12,11 +12,11 @@
                     <mat-icon matSuffix id="nav-search-bar-icon">search</mat-icon>
                 </mat-form-field>
             </form>
-            <span class="nav-link"><a routerLink="/sign-in">Sign In</a></span>
-            <span class="nav-link"><a routerLink="/sign-up">Join</a></span>
-            <button mat-icon-button [matMenuTriggerFor]="notificationMenu">
-          <mat-icon>notifications</mat-icon>
-        </button>
+            <span *ngIf="!isSignedIn" class="nav-link"><a routerLink="/sign-in">Sign In</a></span>
+            <span *ngIf="!isSignedIn" class="nav-link"><a routerLink="/sign-up">Join</a></span>
+            <button *ngIf="isSignedIn" mat-icon-button [matMenuTriggerFor]="notificationMenu">
+              <mat-icon>notifications</mat-icon>
+            </button>
             <mat-menu #notificationMenu="matMenu">
                 <div class="notification-instance">
                     <p>This will be a component</p>
@@ -26,9 +26,9 @@
                     <p>This too</p>
                 </div>
             </mat-menu>
-            <button mat-icon-button [matMenuTriggerFor]="userMenu">
-        <mat-icon>person</mat-icon>
-      </button>
+            <button *ngIf="isSignedIn" mat-icon-button [matMenuTriggerFor]="userMenu">
+              <mat-icon>person</mat-icon>
+            </button>
             <mat-menu #userMenu="matMenu">
                 <div class="user-menu">
                     <p>Geek</p>

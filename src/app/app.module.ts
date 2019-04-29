@@ -46,6 +46,8 @@ import { SignOutComponent } from './sign-out/sign-out.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { VerificationComponent } from './verification/verification.component';
 import { VerifiedComponent } from './verified/verified.component';
+import { PasswordResetComponent } from './password-reset/password-reset.component';
+import { DataSharingService } from './nav-bar/data-sharing.service';
 
 @NgModule({
   declarations: [
@@ -88,7 +90,8 @@ import { VerifiedComponent } from './verified/verified.component';
     SignOutComponent,
     SignUpComponent,
     VerificationComponent,
-    VerifiedComponent
+    VerifiedComponent,
+    PasswordResetComponent
   ],
   imports: [
     AppRoutingModule,
@@ -100,7 +103,7 @@ import { VerifiedComponent } from './verified/verified.component';
     ReactiveFormsModule
   ],
   providers: [
-
+    DataSharingService
   ],
   bootstrap: [AppComponent]
 })

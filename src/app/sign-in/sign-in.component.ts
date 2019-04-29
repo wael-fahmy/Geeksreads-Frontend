@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators, NgForm } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { DataSharingService } from '../nav-bar/data-sharing.service';
 
 /**
  *
@@ -75,6 +76,7 @@ export class SignInComponent implements OnInit {
     this.http
       .post('https://geeksreads.herokuapp.com/api/auth/signin', data)
       .subscribe((serverResponse: any) => {
+        this.dataSharingService.isUserLoggedIn.next(true);
         localStorage.setItem('token', serverResponse.Token);
         localStorage.setItem('userId', serverResponse.UserId);
         this.router.navigate(['/newsfeed']);
@@ -90,7 +92,7 @@ export class SignInComponent implements OnInit {
    * @param {HttpClient} http
    * @memberof SignInComponent
    */
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(private http: HttpClient, private router: Router, private dataSharingService: DataSharingService) { }
 
   /**
    *

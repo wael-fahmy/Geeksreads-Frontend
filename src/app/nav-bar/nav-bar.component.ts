@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataSharingService } from './data-sharing.service';
 
 /**
  *  Navbar Component
@@ -14,11 +15,15 @@ import { Component, OnInit } from '@angular/core';
 
 export class NavBarComponent implements OnInit {
 
+  isSignedIn: boolean;
   /**
    *  Creates an instance of NavBarComponent.
    *  @memberof NavBarComponent
    */
-  constructor() {
+  constructor(private dataSharingService: DataSharingService) {
+    this.dataSharingService.isUserLoggedIn.subscribe( value => {
+      this.isSignedIn = value;
+  });
   }
 
   /**
@@ -26,6 +31,10 @@ export class NavBarComponent implements OnInit {
    *  @memberof NavBarComponent
    */
   ngOnInit() {
+    if (localStorage.getItem('token') === null) {
+      this.isSignedIn = false;
+    } else {
+      this.isSignedIn = true;
+    }
   }
-
 }

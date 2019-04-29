@@ -11,17 +11,23 @@ import { GenresComponent } from './genres/genres.component';
 import { NewsfeedComponent } from './newsfeed/newsfeed.component';
 import { ProfileEditComponent } from './profile-edit/profile-edit.component';
 import { AuthorComponent } from './author/author.component';
-import {ProfileReadShelfComponent} from './profile-read-shelf/profile-read-shelf.component';
-import {ProfileReadingShelfComponent} from './profile-reading-shelf/profile-reading-shelf.component';
-import {ProfileWantToReadShelfComponent} from './profile-want-to-read-shelf/profile-want-to-read-shelf.component';
-import {ReviewsComponent} from './reviews/reviews.component';
+import { ProfileReadShelfComponent } from './profile-read-shelf/profile-read-shelf.component';
+import { ProfileReadingShelfComponent } from './profile-reading-shelf/profile-reading-shelf.component';
+import { ProfileWantToReadShelfComponent } from './profile-want-to-read-shelf/profile-want-to-read-shelf.component';
+import { ReviewsComponent } from './reviews/reviews.component';
 import { VerifiedComponent } from './verified/verified.component';
 import { VerificationComponent } from './verification/verification.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { PasswordResetComponent } from './password-reset/password-reset.component';
 
 const routes: Routes = [
   {
     path: '',
+    redirectTo: '/homepage',
+    pathMatch: 'full'
+  },
+  {
+    path: 'homepage',
     component: HomepageComponent
   },
   {
@@ -91,6 +97,10 @@ const routes: Routes = [
   {
     path: 'forgot-password',
     component: ForgotPasswordComponent
+  },
+  {
+    path: 'password-reset',
+    component: PasswordResetComponent
   }
 ];
 

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { DataSharingService } from '../nav-bar/data-sharing.service';
 
 /**
  *  Signout Component
@@ -18,7 +18,7 @@ export class SignOutComponent implements OnInit {
    *  Creates an instance of SignOutComponent.
    *  @memberof SignOutComponent
    */
-  constructor() { }
+  constructor(private dataSharingService: DataSharingService) { }
 
   /**
    *  Angular ngOnInit
@@ -26,6 +26,7 @@ export class SignOutComponent implements OnInit {
    */
   ngOnInit() {
     // TODO: Send Request
+    this.dataSharingService.isUserLoggedIn.next(false);
     localStorage.removeItem('token');
     localStorage.removeItem('userId');
   }
