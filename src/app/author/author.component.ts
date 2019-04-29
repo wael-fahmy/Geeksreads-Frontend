@@ -1,82 +1,11 @@
+import { AuthorFollowModel } from './author-follow-model';
+import { AuthorFollowService } from './author-follow.service';
+import { AuthorModel } from './author-model';
+import { AuthorService } from './author.service';
+import { AuthorUnfollowModel } from './author-unfollow-model';
+import { AuthorUnfollowService } from './author-unfollow.service';
 import { Component, OnInit } from '@angular/core';
-import {
-  AuthorService, AuthorFollowService, AuthorUnfollowService
-} from './author.service';
-import { Subscription, Observable } from 'rxjs';
-import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
-import { take, map } from "rxjs/operators";
-
-export interface AuthorModel {
-
-  /**
-   *  A brief information about the author
-   */
-  About: string;
-
-  /**
-   *  Author's Id
-   */
-  AuthorId: string;
-
-  /**
-   *  Name of the author
-   */
-  AuthorName: string;
-
-  /**
-   * Books written by this author
-   * @type {string[]}
-   * @memberof AuthorModel
-   */
-  BookId: string[];
-
-  /**
-   * Array of user ids following this author
-   * @type {string[]}
-   * @memberof AuthorModel
-   */
-  FollowingUserId: string[];
-
-  /**
-   *  Link to the author's picture
-   */
-  Photo: string;
-
-  // tslint:disable-next-line:variable-name
-  _id: string;
-}
-
-export interface AuthorFollowModel {
-  /**
-   * User now follows author
-   * @type {boolean}
-   * @memberof FollowAuthor
-   */
-  success: boolean;
-
-  /**
-   * Message
-   * @type {string}
-   * @memberof FollowAuthor
-   */
-  message: string;
-}
-
-export interface AuthorUnfollowModel {
-  /**
-   * User now unfollows author
-   * @type {boolean}
-   * @memberof FollowAuthor
-   */
-  success: boolean;
-
-  /**
-   * Message
-   * @type {string}
-   * @memberof FollowAuthor
-   */
-  message: string;
-}
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-author',
@@ -84,10 +13,9 @@ export interface AuthorUnfollowModel {
   styleUrls: ['./author.component.css']
 })
 export class AuthorComponent implements OnInit {
-  isHandset$: Observable<boolean> = this.breakpointObserver
-  .observe(Breakpoints.Handset)
-  .pipe(map(authorModel => authorModel.matches));
-
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//                                                        Subscription and Models                                                        //
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   /**
    * Author Subscription
    * @private
@@ -117,6 +45,9 @@ export class AuthorComponent implements OnInit {
    */
   authorUnfollowModel: AuthorUnfollowModel;
 
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//                                                           HTML Variables                                                              //
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   /**
    *  Author's Id
    */
@@ -147,6 +78,9 @@ export class AuthorComponent implements OnInit {
    */
   authorDetails = '';
 
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//                                                              Methods                                                                  //
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   /**
    *  Follows an author
    *  @memberof AuthorComponent
@@ -188,6 +122,9 @@ export class AuthorComponent implements OnInit {
     }
   }
 
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//                                                              Constructor                                                              //
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   /**
    *  Creates an instance of AuthorComponent.
    *  @param {AuthorService} authorService
@@ -195,8 +132,7 @@ export class AuthorComponent implements OnInit {
    */
   constructor(public authorService: AuthorService,
               public authorFollowService: AuthorFollowService,
-              public authorUnfollowService: AuthorUnfollowService,
-              private breakpointObserver: BreakpointObserver) { }
+              public authorUnfollowService: AuthorUnfollowService) { }
 
   /**
    *  Author component initialization
