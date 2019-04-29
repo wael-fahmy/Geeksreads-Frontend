@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import { Post } from './newsfeed-main.model';
 import { HttpClient } from '@angular/common/http';
-import { BookDetailsComponent } from '../book-details/book-details.component';
+import { Router } from '@angular/router';
 
 /**
  * contains all the service functions
@@ -13,13 +13,14 @@ import { BookDetailsComponent } from '../book-details/book-details.component';
 
 
 export class PostsServices {
+ 
 
   /**
    * Creates an instance of PostsServices
    * @param {HttpClient} http
    * @memberof PostsServices
    */
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient , private router: Router) { }
 
   /**
    * Post
@@ -41,12 +42,11 @@ export class PostsServices {
    * this functions gets the data required ftom the backend
    * @memberof PostsServices
    */
+   
+  
   getpost() {
-    this.http.get('https://geeksreads.herokuapp.com/api/user_status/show', {
-      params : {
-
-      }
-    })
+    
+    this.http.get('https://geeksreads.herokuapp.com/api/user_status/show')
       .subscribe((serverResponse: Post[]) => {
         console.log(serverResponse);
         this.post = serverResponse;
@@ -59,9 +59,6 @@ export class PostsServices {
         // this.post.numberOfStars = serverResponse[0].NumberOfStars;
         // this.post.StatusType = serverResponse[0].StatusType;
         this.postUpdated.next([...this.post]);
-
-
-
 
       });
 
