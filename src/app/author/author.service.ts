@@ -13,23 +13,8 @@ import { Subject } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthorService {
-
   /**
-   * API URL By Name
-   * @type {string}
-   * @memberof AuthorService
-   */
-  apiURLByName: 'https://geeksreads.herokuapp.com/api/authors/name';
-
-  /**
-   * API URL By ID
-   * @type {'https://geeksreads.herokuapp.com/api/authors/id'}
-   * @memberof AuthorService
-   */
-  apiURLById: 'https://geeksreads.herokuapp.com/api/authors/id';
-
-  /**
-   *  Object to fill
+   *  Model to fill
    *  @private
    *  @type {Author}
    *  @memberof AuthorService
@@ -55,7 +40,7 @@ export class AuthorService {
         }
       })
       .subscribe((serverResponse: AuthorModel) => {
-        console.log(serverResponse);
+        // console.log(serverResponse);
         this.author = serverResponse;
         this.authorUpdated.next(this.author);
       }

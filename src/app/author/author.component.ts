@@ -143,7 +143,6 @@ export class AuthorComponent implements OnInit {
     this.authorService.getAuthorInfo();
     this.authorSubscription = this.authorService.getAuthorInfoUpdated()
       .subscribe((authorInformation) => {
-        console.log(authorInformation);
         this.authorId = authorInformation.AuthorId;
         this.authorName = authorInformation.AuthorName;
         this.authorPicture = authorInformation.Photo;
