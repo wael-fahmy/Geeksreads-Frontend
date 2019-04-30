@@ -14,7 +14,6 @@ import { DataSharingService } from './data-sharing.service';
 })
 
 export class NavBarComponent implements OnInit {
-
   isSignedIn: boolean;
   /**
    *  Creates an instance of NavBarComponent.

@@ -14,12 +14,12 @@
 </div>
 <div id="review-comment">
     <p>{{befordots}}<span id="dots-user-review">...</span><span id="more-review">{{afterdots}}</span>
-    <button (click)="more_user_preview()" mat-button id="myBtn-user-review">Read more</button></p>
+        <button (click)="more_user_preview()" mat-button id="myBtn-user-review">Read more</button></p>
 </div>
 <div id="review-like-comment">
     <p class="blue-text" id="liked">Like</p>
     <p class="dots">.</p>
-    <p routerLink="/reviews" class="blue-text">Comment</p>
+    <p routerLink="/reviews" class="blue-text" id="comment">Comment</p>
     <p class="dots">.</p>
     <i class="thumbs-up"><mat-icon>thumb_up_alt</mat-icon></i>
     <p type="text" class="dots" id="show-likes">{{reviewerlikes}}</p>
