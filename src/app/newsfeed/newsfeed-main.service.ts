@@ -45,10 +45,8 @@ export class PostsServices {
    
   
   getpost() {
-    const UserToken = {
-      token: localStorage.getItem('token')
-     };
-    this.http.post('https://geeksreads.herokuapp.com/api/user_status/show', UserToken)
+   
+    this.http.get('https://geeksreads.herokuapp.com/api/user_status/show')
       .subscribe((serverResponse: Post[]) => {
         console.log(serverResponse);
         this.post = serverResponse;

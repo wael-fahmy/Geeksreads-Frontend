@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Post } from './newsfeed-post.model';
-import { PostsServices } from './newsfeed-post.service';
 import { Subscription } from 'rxjs';
+import { PostsServices } from '../newsfeed/newsfeed-main.service';
+import { Post } from '../newsfeed/newsfeed-main.model';
 
 /**
  *  Newsfeed post component
@@ -32,7 +32,7 @@ export class NewsfeedPostComponent implements OnInit {
    * @type {Post}
    * @memberof NewsfeedPostComponent
    */
-  PostObj: Post;
+  PostObj: Post[] = [];
 
   /**
    *
@@ -98,15 +98,15 @@ export class NewsfeedPostComponent implements OnInit {
    */
   ngOnInit() {
     this.PostsServicesObj.getpost();
-    this.subprofile = this.PostsServicesObj.get_post_updated().subscribe((PostInfo: Post) => {
+    this.subprofile = this.PostsServicesObj.get_post_updated().subscribe((PostInfo: Post[]) => {
       this.PostObj = PostInfo;
-      this.activity = this.PostObj.activitylog;
-      this.activitydate = this.PostObj.activitydate;
-      this.authorname = this.PostObj.authorname;
-      this.bookimage = this.PostObj.bookimage;
-      this.bookname = this.PostObj.bookname;
-      this.review = this.PostObj.review;
-      this.username = this.PostObj.username;
+      this.activity = this.PostObj[0].StatusType;
+      this.activitydate = this.PostObj[0].ReviewDate;
+      //this.authorname = this.PostObj[0].;
+      this.bookimage = this.PostObj[0].BookPhoto;
+      this.bookname = this.PostObj[0].BookName;
+      this.review = this.PostObj[0].ReviewBody;
+      this.username = this.PostObj[0].MakerName;
 
     });
   }
