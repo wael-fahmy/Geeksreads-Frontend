@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 @Injectable({
   providedIn: 'root'
 })
+
 export class ForgotPasswordService {
   forgotPassword(email) {
     const data = {
@@ -18,6 +19,7 @@ export class ForgotPasswordService {
         console.log(error);
       });
   }
+
   constructor(private http: HttpClient,
               private router: Router) { }
 }

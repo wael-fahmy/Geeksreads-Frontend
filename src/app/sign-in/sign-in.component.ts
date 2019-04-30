@@ -92,5 +92,4 @@ export class SignInComponent implements OnInit {
       password: this.password
     });
   }
-
 }
