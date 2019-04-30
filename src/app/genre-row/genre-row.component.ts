@@ -52,6 +52,10 @@ export class GenreRowComponent implements OnInit {
    */
   private subprofile: Subscription;
 
+  See_more_genres() {
+    console.log('Loading more genres ... ');
+  }
+
   /**
    * Creates an instance of GenreRowComponent.
    * @param {RowServices} rowServicesObj

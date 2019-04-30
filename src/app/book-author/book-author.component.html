@@ -8,7 +8,7 @@
         <div id="Author-picture-data">
             <img id="author-image" src={{authorimage[author_index]}}>
             <div id="Author-data">
-                <p (click)="GetAuthorByID()" routerLink="/author" id="author-name">{{authorname[author_index]}}</p>
+                <p (click)="GetAuthorByID()" routerLink="/authors" id="author-name">{{authorname[author_index]}}</p>
                 <div id="author-followers">
                     <p id="number-followers">{{authorfollowers[author_index]}}</p>
                     <span id="followers-word">Followers</span>
@@ -22,7 +22,7 @@
                 <span id="dots-author-discription">...</span>
                 <span id="more-author-discription">
                 {{after_dots[author_index]}}</span>
-            <button (click)="more_author_details()" mat-button id="myBtn-author-discription">Read more</button></p>
+                <button (click)="more_author_details()" mat-button id="myBtn-author-discription">Read more</button></p>
         </div>
     </mat-expansion-panel>
 </mat-accordion>

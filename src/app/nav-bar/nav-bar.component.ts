@@ -23,7 +23,7 @@ export class NavBarComponent implements OnInit {
   constructor(private dataSharingService: DataSharingService) {
     this.dataSharingService.isUserLoggedIn.subscribe( value => {
       this.isSignedIn = value;
-  });
+    });
   }
 
   /**

@@ -105,6 +105,10 @@ export class SignUpComponent implements OnInit {
    * function called on initiallization
    * @memberof SignUpComponent
    */
-  ngOnInit() { }
+  ngOnInit() {
+    if (localStorage.getItem('token') !== null) {
+      this.router.navigate(['/newsfeed']);
+    }
+  }
 
 }

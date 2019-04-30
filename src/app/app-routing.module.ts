@@ -83,7 +83,7 @@ const routes: Routes = [
     component: ProfileEditComponent
   },
   {
-    path: 'author',
+    path: 'authors/:author',
     component: AuthorComponent
   },
   {

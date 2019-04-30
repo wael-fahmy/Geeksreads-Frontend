@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, Validators, NgForm } from '@angular/forms';
+import { PasswordResetService } from './password-reset.service';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-password-reset',
@@ -16,41 +16,54 @@ export class PasswordResetComponent implements OnInit {
    */
   hide = true;
 
-  /**
-   * User's password hashed
-   * @type {String}
-   * @memberof PasswordResetComponent
-   */
-  userPassword = '';
+  requestSuccess: boolean;
 
-  /**
-   * Token
-   * @type {String}
-   * @memberof PasswordResetComponent
-   */
-  token = '';
+  formdata: FormGroup;
+
+  email: FormControl;
+
+  password: FormControl;
+
+  token: FormControl;
 
   /**
    * test request for sign in
    * @memberof Password
    */
-  requestNewPassword() {
-    const data = {
-      token: this.token,
-      UserPassword: this.userPassword
-    };
-    this.http
-      .post('https://geeksreads.herokuapp.com/api/ChangeForgotPassword', data)
-      .subscribe((serverResponse: any) => {
-
-      }, (error: { json: () => void; }) => {
-        console.log(error.json);
-      });
+  updatePassword(formData) {
+    this.passwordResetService.updatePassword(formData.email, formData.password, formData.token);
+    this.requestSuccess = true;
   }
 
-  constructor(private http: HttpClient, private router: Router) { }
+  getErrorMessage() {
+    return this.email.hasError('required')
+      ? 'You must enter a value'
+      : this.email.hasError('email')
+        ? 'Not a valid email'
+        : '';
+  }
+
+  passwordvalidation(formcontrol) {
+    if (formcontrol.value.length < 6) {
+      return { password: true };
+    }
+  }
+
+  constructor(private http: HttpClient, public passwordResetService: PasswordResetService) { }
 
   ngOnInit() {
+    this.requestSuccess = false;
+    this.password = new FormControl('', this.passwordvalidation);
+    this.token = new FormControl('', Validators.required);
+    this.email = new FormControl('', Validators.compose([
+      Validators.required,
+      Validators.pattern('[^ @]*@[^ @]*\.[a-z]+')
+    ]));
+    this.formdata = new FormGroup({
+      email: this.email,
+      password: this.password,
+      token: this.token
+    });
   }
 
 }

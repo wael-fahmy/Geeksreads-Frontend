@@ -32,11 +32,11 @@ export class AuthorService {
    *  Get the JSON response and update the author info
    *  @memberof AuthorService
    */
-  getAuthorInfo() {
+  getAuthorInfo(snapshotParam: string) {
     this.http
       .get('https://geeksreads.herokuapp.com/api/authors/name', {
         params: {
-          auth_name: 'Deena Craig',
+          auth_name: snapshotParam,
         }
       })
       .subscribe((serverResponse: AuthorModel) => {
