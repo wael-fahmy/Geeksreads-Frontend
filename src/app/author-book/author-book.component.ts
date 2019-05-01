@@ -17,7 +17,7 @@ export class AuthorBookComponent implements OnInit {
   @Input() bookName: string;
   @Input() bookRating: string;
   @Input() bookShelfStatus: string;
-  @Input() bookLink: string;
+  @Input() bookId: string;
   /**
    *  Author Book Subscription
    *  @private

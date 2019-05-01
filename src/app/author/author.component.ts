@@ -68,6 +68,7 @@ export class AuthorComponent implements OnInit {
    */
   authorDetails = '';
 
+  authorBookId = '';
   authorBookName = '';
   authorBookPicture = '';
   authorBookRating = '';
@@ -165,6 +166,7 @@ export class AuthorComponent implements OnInit {
         this.authorBookShelf = authorBooksInformation.ReadStatus;
         this.authorBookPicture = authorBooksInformation.Cover;
         this.authorBookRating = authorBooksInformation.BookRating.$numberDecimal;
+        this.authorBookId = authorBooksInformation.BookId;
       }, (error: { json: () => void; }) => {
         console.log(error);
       });
