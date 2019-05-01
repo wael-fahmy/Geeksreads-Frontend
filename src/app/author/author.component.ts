@@ -68,6 +68,12 @@ export class AuthorComponent implements OnInit {
    */
   authorDetails = '';
 
+  authorBookName = '';
+  authorBookPicture = '';
+  authorBookRating = '';
+  authorBookShelf = '';
+
+  books: [];
   /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   //                                                              Methods                                                                //
   /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -140,22 +146,25 @@ export class AuthorComponent implements OnInit {
 
     this.authorService.getAuthorInfo(this.snapshotParam);
     this.authorSubscription = this.authorService.getAuthorInfoUpdated()
-      .subscribe((authorInformation) => {
+      .subscribe((authorInformation: AuthorModel) => {
         this.authorId = authorInformation.AuthorId;
         this.authorName = authorInformation.AuthorName;
         this.authorPicture = authorInformation.Photo;
         this.authorNumberOfFollowers = authorInformation.FollowingUserId.length.toString();
         this.authorDetails = authorInformation.About;
         // this.authorIsFollowing = this.authorInfo.authorIsFollowing;
-        console.log(authorInformation);
       }, (error: { json: () => void; }) => {
         console.log(error);
       });
 
     this.authorService.getBooksByAuthor(this.snapshotParam);
     this.authorBooksSubscription = this.authorService.getBooksByAuthorUpdated()
-      .subscribe((authorBooksInformation) => {
+      .subscribe((authorBooksInformation: AuthorBooksModel) => {
         console.log(authorBooksInformation);
+        this.authorBookName = authorBooksInformation.Title;
+        this.authorBookShelf = authorBooksInformation.ReadStatus;
+        this.authorBookPicture = authorBooksInformation.Cover;
+        this.authorBookRating = authorBooksInformation.BookRating.$numberDecimal;
       }, (error: { json: () => void; }) => {
         console.log(error);
       });

@@ -1,5 +1,3 @@
-import { AuthorBookModel } from './author-book.model';
-import { AuthorBookService } from './author-book.service';
 import { Component, Input, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 
@@ -19,6 +17,7 @@ export class AuthorBookComponent implements OnInit {
   @Input() bookName: string;
   @Input() bookRating: string;
   @Input() bookShelfStatus: string;
+  @Input() bookLink: string;
   /**
    *  Author Book Subscription
    *  @private
@@ -26,13 +25,6 @@ export class AuthorBookComponent implements OnInit {
    *  @memberof AuthorBookComponent
    */
   private authorBookSubscription: Subscription;
-
-  /**
-   *  Model Object
-   *  @type {AuthorBookModel}
-   *  @memberof AuthorBookComponent
-   */
-  authorBookInfo: AuthorBookModel;
 
   /**
    *  Author's Id
@@ -99,16 +91,6 @@ export class AuthorBookComponent implements OnInit {
   }
 
   /**
-   *  Request book's info
-   *  @param {(string | number)} authorBookID
-   *  @memberof AuthorBookComponent
-   */
-  getAuthorBookInfo(authorBookID: string | number) {
-    console.log('Component Created ' + authorBookID);
-  }
-
-
-  /**
    *  Adds book to Want to Read Shelf
    */
   wantToRead() {
@@ -162,7 +144,7 @@ export class AuthorBookComponent implements OnInit {
    *  @param {AuthorBookService} authorBookService
    *  @memberof AuthorBookComponent
    */
-  constructor(public authorBookService: AuthorBookService) { }
+  constructor() { }
 
   /**
    *  Author component initialization
