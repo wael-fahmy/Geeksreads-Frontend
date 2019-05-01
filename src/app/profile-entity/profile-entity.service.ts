@@ -49,8 +49,9 @@ export class TitlesService {
    */
   get_User_Info() {    // give the signed in user id as a parameter
     const UserToken = {
-      token: localStorage.getItem('token')
-    };
+      token: localStorage.getItem('token'),
+      UserID: localStorage.getItem('userId')
+     };
     this.http.post('https://geeksreads.herokuapp.com/api/users/me', UserToken
     ).    // get response from this URL
       subscribe((UserData: User) => {       // subscribe the recived data
@@ -69,24 +70,5 @@ export class TitlesService {
   get_User_Info_updated() {            // to update the user info as observed
     return this.userUpdated.asObservable();
   }
-
-
-
-  // get_Owned_books( Owned_books : string[]) {
-  //   for(let i of Owned_books)
-  //   {
-  //     this.http.get<{ message: string, Books: ListOfBooks }>('http://localhost:3000/api/list/${i}').
-  //     subscribe((bookData) => {          //  subscribe the list of books recieved
-  //       this.List.push(bookData.Books);    // push the book into the list of books to display them
-  //       this.listUpdated.next([...this.List]);
-  //     });
-  //   }
-  // }
-
-  // get_Owned_books_updated() {
-  //   return this.listUpdated.asObservable();
-  // }
-
-
 
 }

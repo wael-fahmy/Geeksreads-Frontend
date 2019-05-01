@@ -1,29 +1,21 @@
 import { Component, OnInit } from '@angular/core';
-import { TitlesService } from './profile-entity.service';
-import { User } from './profile.model';
+import { TitlesService } from '../profile-entity/profile-entity.service';
+import { User } from '../profile-entity/profile.model';
 import { Subscription } from 'rxjs';
-import { CdkOverlayOrigin } from '@angular/cdk/overlay';
 
-/**
- *
- * Profile Entity Component
- * @export
- * @class ProfileEntityComponent
- * @implements {OnInit}
- */
 @Component({
-  selector: 'app-profile-entity',
-  templateUrl: './profile-entity.component.html',
-  styleUrls: ['./profile-entity.component.css']
+  selector: 'app-other-user-profile-entity',
+  templateUrl: './other-user-profile-entity.component.html',
+  styleUrls: ['./other-user-profile-entity.component.css']
 })
-export class ProfileEntityComponent implements OnInit {
+export class OtherUserProfileEntityComponent implements OnInit {
 
   /**
    *
    * sub for getting user info
    * @private
    * @type {Subscription}
-   * @memberof ProfileEntityComponent
+   * @memberof OtherUserProfileEntityComponent
    */
   private subProfile: Subscription;
 
@@ -31,7 +23,7 @@ export class ProfileEntityComponent implements OnInit {
    *
    * to store user info
    * @type {User}
-   * @memberof ProfileEntityComponent
+   * @memberof OtherUserProfileEntityComponent
    */
   userInfo: User;            // user object contains user info
 
@@ -39,7 +31,7 @@ export class ProfileEntityComponent implements OnInit {
    *
    * user cover photo recieved
    * @type {string}
-   * @memberof ProfileEntityComponent
+   * @memberof OtherUserProfileEntityComponent
    */
   userCoverPhoto: string ;
 
@@ -47,7 +39,7 @@ export class ProfileEntityComponent implements OnInit {
    *
    * user name recieved
    * @type {string}
-   * @memberof ProfileEntityComponent
+   * @memberof OtherUserProfileEntityComponent
    */
   userName: string;
   userEmail: string;
@@ -57,7 +49,7 @@ export class ProfileEntityComponent implements OnInit {
   /**
    * Creates an instance of ProfileEntityComponent.
    * @param {TitlesService} titlesService
-   * @memberof ProfileEntityComponent
+   * @memberof OtherUserProfileEntityComponent
    */
   constructor(public titlesService: TitlesService) { }  // constructor of that class
 
@@ -67,7 +59,7 @@ export class ProfileEntityComponent implements OnInit {
    * to get the user info from the service
    *  once the class is initialized
    * supscripe the value recieved
-   * @memberof ProfileEntityComponent
+   * @memberof OtherUserProfileEntityComponent
    */
   ngOnInit() {
     this.titlesService.get_User_Info();                                  // to get the user info from the service
@@ -88,3 +80,4 @@ export class ProfileEntityComponent implements OnInit {
   }
 
 }
+

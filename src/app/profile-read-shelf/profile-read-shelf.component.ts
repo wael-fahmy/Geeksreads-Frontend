@@ -65,6 +65,10 @@ export class ProfileReadShelfComponent implements OnInit {
     this.countBooksService.add_book_to_shelf_reading(index);
     // console.log(index.author_name);
   }
+  onClick_Details(index: ListOfBooks) {
+    console.log(index.Title);
+    localStorage.setItem('bookId', index.BookId);
+  }
 
   /**
    *  on initializing that class implement this function

@@ -1,0 +1,11 @@
+<div>
+  <img class="photo"  [src]="userCoverPhoto">
+  <h3 id="user-name">{{userName}}</h3>
+  <h3 id="user-email">{{userEmail}}</h3>
+  <button id="profile-button" mat-stroked-button routerLink="/profile-edit">Follow</button>
+  <pre>Followers : {{userFollowers}}         Following : {{userFollowing}}   </pre> 
+  
+  
+</div>
+<h3 id="my-book"> User Books : </h3>
+<app-profile-book-entity></app-profile-book-entity>

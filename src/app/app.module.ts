@@ -46,6 +46,7 @@ import { SignOutComponent } from './sign-out/sign-out.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { VerificationComponent } from './verification/verification.component';
 import { VerifiedComponent } from './verified/verified.component';
+import { OtherUserProfileEntityComponent } from './other-user-profile-entity/other-user-profile-entity.component';
 import { PasswordResetComponent } from './password-reset/password-reset.component';
 import { DataSharingService } from './nav-bar/data-sharing.service';
 
@@ -91,6 +92,7 @@ import { DataSharingService } from './nav-bar/data-sharing.service';
     SignUpComponent,
     VerificationComponent,
     VerifiedComponent,
+    OtherUserProfileEntityComponent,
     PasswordResetComponent
   ],
   imports: [
