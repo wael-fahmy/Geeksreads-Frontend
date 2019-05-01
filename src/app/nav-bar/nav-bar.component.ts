@@ -15,6 +15,7 @@ import { DataSharingService } from './data-sharing.service';
 
 export class NavBarComponent implements OnInit {
   isSignedIn: boolean;
+  userName: string;
   /**
    *  Creates an instance of NavBarComponent.
    *  @memberof NavBarComponent
@@ -22,6 +23,9 @@ export class NavBarComponent implements OnInit {
   constructor(private dataSharingService: DataSharingService) {
     this.dataSharingService.isUserLoggedIn.subscribe( value => {
       this.isSignedIn = value;
+    });
+    this.dataSharingService.userName.subscribe( value => {
+      this.userName = value;
     });
   }
 

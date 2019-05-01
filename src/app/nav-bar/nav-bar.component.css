@@ -56,6 +56,11 @@ mat-toolbar {
 
 .user-menu a {
     margin: 0 0 5px 0;
+    text-decoration: none;
+}
+
+.user-menu a:hover {
+    text-decoration: underline;
 }
 
 .user-menu {

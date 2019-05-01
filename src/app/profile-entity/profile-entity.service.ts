@@ -1,10 +1,10 @@
+import { CountBooksService } from '../profile-book-entity/book.service';
+import { DataSharingService } from '../nav-bar/data-sharing.service';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { ListOfBooks } from '../profile-book-entity/book.model';
 import { Subject } from 'rxjs';
 import { User } from './profile.model';
-import { HttpClient } from '@angular/common/http';
-import {CountBooksService} from '../profile-book-entity/book.service';
-import {ListOfBooks} from '../profile-book-entity/book.model';
-
 /**
  *
  * Injectable
@@ -20,7 +20,7 @@ export class TitlesService {
    * @param {HttpClient} http
    * @memberof TitlesService
    */
-  constructor(public countBooksService: CountBooksService, private http: HttpClient) { }
+  constructor(public countBooksService: CountBooksService, private http: HttpClient, private dataSharingService: DataSharingService) { }
 
   /**
    * User data member to put user info inside
@@ -29,7 +29,7 @@ export class TitlesService {
    * @memberof TitlesService
    */
   private User: User;
-  private List: ListOfBooks[]  ;
+  private List: ListOfBooks[];
   private listUpdated = new Subject<ListOfBooks[]>();
   /**
    * to update the user info on demand
@@ -50,12 +50,13 @@ export class TitlesService {
   get_User_Info() {    // give the signed in user id as a parameter
     const UserToken = {
       token: localStorage.getItem('token')
-     };
+    };
     this.http.post('https://geeksreads.herokuapp.com/api/users/me', UserToken
-     ).    // get response from this URL
+    ).    // get response from this URL
       subscribe((UserData: User) => {       // subscribe the recived data
-       // console.log(UserData);
+        // console.log(UserData);
         this.User = UserData;       // and put it in the user object to display it
+        this.dataSharingService.userName.next(UserData.UserName);
         console.log(this.User);
         this.userUpdated.next(this.User);
       });

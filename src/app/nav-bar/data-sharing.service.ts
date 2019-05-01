@@ -6,5 +6,6 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class DataSharingService {
   public isUserLoggedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+  public userName: BehaviorSubject<string> = new BehaviorSubject<string>('');
   constructor() { }
 }
