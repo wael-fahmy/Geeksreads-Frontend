@@ -45,11 +45,13 @@ export class PostsServices {
    
   
   getpost() {
-   
-    this.http.get('https://geeksreads.herokuapp.com/api/user_status/show')
-      .subscribe((serverResponse: Post[]) => {
-        console.log(serverResponse);
-        this.post = serverResponse;
+    const UserToken = {
+      token : localStorage.getItem('token')
+    }
+    this.http.post<{ receivedPost: Post[] }>('https://geeksreads.herokuapp.com/api/user_status/show' , UserToken)
+      .subscribe((serverResponse) => {
+        console.log(serverResponse.receivedPost);
+        this.post = serverResponse.receivedPost;
        // this.post.activitydate = serverResponse[0].ReviewDate;
        // this.post.bookimage = serverResponse[0].BookPhoto;
         // this.post.bookname = serverResponse[0].BookName;
