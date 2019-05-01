@@ -3,7 +3,7 @@ export interface ListOfBooks {
 
 
 
-  BookRating: string;
+  
   /**
    *
    * book id
@@ -35,5 +35,7 @@ export interface ListOfBooks {
    * @memberof ListOfBooks
    */
   Cover: string;
+  BookRating: string;
+  Publisher: string;
 
 }

@@ -7,6 +7,9 @@
     <img class="photo"  [src]="userCoverPhoto">
     <h3 id="user-name">{{userName}}</h3>
     <h3 id="user-email">{{userEmail}}</h3>
-    <button mat-stroked-button routerLink="/profile-edit">Edit Profile</button>
+    <button id="profile-button" routerLink="/profile-edit">Edit Profile</button>
+    <pre>Followers : {{userFollowers}}         Following : {{userFollowing}}   </pre> 
+    
+    
 </div>
-<h3 id="my-book"> My Books : </h3>
+<h1 id="my-book"> My Books : </h1>

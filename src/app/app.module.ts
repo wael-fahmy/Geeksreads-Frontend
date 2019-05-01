@@ -46,6 +46,7 @@ import { SignOutComponent } from './sign-out/sign-out.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { VerificationComponent } from './verification/verification.component';
 import { VerifiedComponent } from './verified/verified.component';
+import { OtherUserProfileEntityComponent } from './other-user-profile-entity/other-user-profile-entity.component';
 
 @NgModule({
   declarations: [
@@ -88,7 +89,8 @@ import { VerifiedComponent } from './verified/verified.component';
     SignOutComponent,
     SignUpComponent,
     VerificationComponent,
-    VerifiedComponent
+    VerifiedComponent,
+    OtherUserProfileEntityComponent
   ],
   imports: [
     AppRoutingModule,

@@ -36,5 +36,8 @@ export interface User {
     Read: string [];
     FollowersUserId: string [];
     FollowingUserId: string [];
+    NoOfFollowings: number;
+    NoOfFollowers: number;
+    UserBirthDate: string;
 
 }
