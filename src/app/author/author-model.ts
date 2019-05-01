@@ -1,11 +1,4 @@
-
-/**
- * Author Model Class
- * @export
- * @class AuthorModel
- */
-export interface AuthorModel {
-
+export class AuthorModel {
   /**
    *  A brief information about the author
    */
@@ -40,5 +33,6 @@ export interface AuthorModel {
    */
   Photo: string;
 
+  // tslint:disable-next-line:variable-name
   _id: string;
 }

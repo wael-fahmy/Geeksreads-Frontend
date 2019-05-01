@@ -47,6 +47,8 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 import { VerificationComponent } from './verification/verification.component';
 import { VerifiedComponent } from './verified/verified.component';
 import { OtherUserProfileEntityComponent } from './other-user-profile-entity/other-user-profile-entity.component';
+import { PasswordResetComponent } from './password-reset/password-reset.component';
+import { DataSharingService } from './nav-bar/data-sharing.service';
 
 @NgModule({
   declarations: [
@@ -90,7 +92,8 @@ import { OtherUserProfileEntityComponent } from './other-user-profile-entity/oth
     SignUpComponent,
     VerificationComponent,
     VerifiedComponent,
-    OtherUserProfileEntityComponent
+    OtherUserProfileEntityComponent,
+    PasswordResetComponent
   ],
   imports: [
     AppRoutingModule,
@@ -102,7 +105,7 @@ import { OtherUserProfileEntityComponent } from './other-user-profile-entity/oth
     ReactiveFormsModule
   ],
   providers: [
-
+    DataSharingService
   ],
   bootstrap: [AppComponent]
 })

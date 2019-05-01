@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Post } from './newsfeed-main.model';
 import { PostsServices } from './newsfeed-main.service';
+import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 
 /**
@@ -81,6 +82,8 @@ export class NewsfeedComponent implements OnInit {
    */
   bookimage = 'https://via.placeholder.com/120x120';
 
+  StatusType;
+  
   noStatuses = false;
 
   /**
@@ -88,7 +91,7 @@ export class NewsfeedComponent implements OnInit {
    *  @param {PostsServices} PostsServicesObj
    *  @memberof NewsfeedPostComponent
    */
-  constructor(public PostsServicesObj: PostsServices) { }
+  constructor(public PostsServicesObj: PostsServices, private router: Router) { }
 
 
   /**
@@ -97,9 +100,12 @@ export class NewsfeedComponent implements OnInit {
    * @memberof NewsfeedPostComponent
    */
   ngOnInit() {
+    // if (localStorage.getItem('token') === null) {
+    //   this.router.navigate(['/homepage']);
+    // }
     this.PostsServicesObj.getpost();
     this.subprofile = this.PostsServicesObj.get_post_updated().subscribe((PostInfo) => {
-       this.PostObj = PostInfo;
+      this.PostObj = PostInfo;
       // this.activity = this.PostObj.activitylog;
       // this.activitydate = this.PostObj.activitydate;
       // this.authorname = this.PostObj.authorname;
@@ -107,7 +113,6 @@ export class NewsfeedComponent implements OnInit {
       // this.bookname = this.PostObj.bookname;
       // this.review = this.PostObj.review;
       // this.username = this.PostObj.username;
-
     });
   }
 }

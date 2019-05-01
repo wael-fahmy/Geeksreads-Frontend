@@ -49,3 +49,25 @@
 .footer-social a:last-child {
     margin: 0 0 0 10px;
 }
+
+@media only screen and (max-width: 636px) {
+    .footer {
+        flex-wrap: wrap;
+    }
+    .footer-column {
+        width: 50%;
+    }
+}
+
+@media only screen and (max-width: 343px) {
+    .footer {
+        flex-wrap: wrap;
+    }
+    .footer-column {
+        width: 100%;
+        margin: 10px 0;
+    }
+    .footer-app-stores {
+        width: 30%;
+    }
+}

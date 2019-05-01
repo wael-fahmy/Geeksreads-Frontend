@@ -4,22 +4,10 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
 
-/**
- * Follow Author Service
- * @export
- * @class AuthorFollowService
- */
 @Injectable({
   providedIn: 'root'
 })
 export class AuthorFollowService {
-  /**
-   * Server Url
-   * @type {string}
-   * @memberof AuthorService
-   */
-  apiURL: 'https://geeksreads.herokuapp.com/api/authors/follow';
-
   /**
    *  Object to fill
    *  @private
@@ -39,18 +27,19 @@ export class AuthorFollowService {
    * Follows Author
    * @memberof AuthorService
    */
-  followAuthor() {
+  followAuthor(snapshotParam: string) {
     if (localStorage.getItem('userId') === null) {
       this.router.navigate(['/sign-in']);
       return;
     }
+
+    const data = {
+      myuserId: localStorage.getItem('userId'),
+      auth_id: snapshotParam,
+    };
+
     this.http
-      .post('https://geeksreads.herokuapp.com/api/authors/follow', {
-        params: {
-          myuserId: localStorage.getItem('userId'),
-          auth_id: '5c911452938ffea87b4672d7',
-        }
-      })
+      .post('https://geeksreads.herokuapp.com/api/authors/follow', data)
       .subscribe((serverResponse: any) => {
         console.log(serverResponse);
         this.following.message = serverResponse.Message;

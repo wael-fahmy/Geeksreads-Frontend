@@ -1,4 +1,5 @@
 import { AuthorModel } from './author-model';
+import { AuthorBooksModel } from './author-books-model';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
@@ -13,28 +14,21 @@ import { Subject } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthorService {
-
   /**
-   * API URL By Name
-   * @type {string}
-   * @memberof AuthorService
-   */
-  apiURLByName: 'https://geeksreads.herokuapp.com/api/authors/name';
-
-  /**
-   * API URL By ID
-   * @type {'https://geeksreads.herokuapp.com/api/authors/id'}
-   * @memberof AuthorService
-   */
-  apiURLById: 'https://geeksreads.herokuapp.com/api/authors/id';
-
-  /**
-   *  Object to fill
+   *  Model to fill
    *  @private
    *  @type {Author}
    *  @memberof AuthorService
    */
-   private author: AuthorModel;
+  private author: AuthorModel;
+
+  /**
+   * Author Books Model to fill
+   * @private
+   * @type {AuthorBooksModel}
+   * @memberof AuthorService
+   */
+  private authorBooks: AuthorBooksModel;
 
   /**
    *  Subject object
@@ -44,25 +38,31 @@ export class AuthorService {
   private authorUpdated = new Subject<AuthorModel>();
 
   /**
+   * Author Books Service
+   * @private
+   * @memberof AuthorService
+   */
+  private authorBooksUpdated = new Subject<AuthorBooksModel>();
+
+  /**
    *  Get the JSON response and update the author info
    *  @memberof AuthorService
    */
-  getAuthorInfo() {
+  getAuthorInfo(snapshotParam: string) {
     this.http
-      .get('https://geeksreads.herokuapp.com/api/authors/name', {
+      .get('https://geeksreads.herokuapp.com/api/authors/id', {
         params: {
-          auth_name: 'Deena Craig',
+          auth_id: snapshotParam,
         }
       })
       .subscribe((serverResponse: AuthorModel) => {
         console.log(serverResponse);
         this.author = serverResponse;
-        console.log(this.author);
         this.authorUpdated.next(this.author);
       }
-      , (error: { json: () => void; }) => {
-        console.log(error);
-      });
+        , (error: { json: () => void; }) => {
+          console.log(error);
+        });
   }
 
   /**
@@ -72,6 +72,35 @@ export class AuthorService {
    */
   getAuthorInfoUpdated() {
     return this.authorUpdated.asObservable();
+  }
+
+  /**
+   *  Get the JSON response and get author books
+   *  @memberof AuthorService
+   */
+  getBooksByAuthor(snapshotParam: string) {
+    this.http
+      .get('https://geeksreads.herokuapp.com/api/books/author',{
+        params: {
+        search_param: snapshotParam,
+      }})
+      .subscribe((serverResponse: AuthorBooksModel) => {
+        console.log(serverResponse);
+        this.authorBooks = serverResponse;
+        this.authorBooksUpdated.next(this.authorBooks);
+      }
+        , (error: { json: () => void; }) => {
+          console.log(error);
+        });
+  }
+
+  /**
+   *  To update the author's info as observed
+   *  @returns
+   *  @memberof AuthorService
+   */
+  getBooksByAuthorUpdated() {
+    return this.authorBooksUpdated.asObservable();
   }
 
   /**

@@ -116,24 +116,17 @@ post_book_status(bookc_id: string, bookc_status: string) {
         .subscribe ((responseData) => {
             console.log(responseData.message);
         });*/
-        if (localStorage.getItem('userId') === null) {
-            this.router.navigate(['/sign-in']);
-            return;
-        }
-        this.http
-        .post('https://geeksreads.herokuapp.com/api/users/AddToShelf', {
-        params: {
-            BookId: '5c9114a0d345b4a65637eacc',
-            ShelfType: 'Currently Reading',
-            token: localStorage.getItem('token')
-        }
-     }).subscribe((serverResponse: any) => {
-        console.log(serverResponse);
-        this.book_details[0].message = serverResponse.Message;
-        this.book_details[0].success = serverResponse.success;
-        this.book_detailsUpdated.next(this.book_details);
-      }, (error: { json: () => void; }) => {
-        console.log(error);
+        const UserToken = {
+            token : localStorage.getItem('token'),
+            BookId: bookc_id,
+            ShelfType: 'Read'
+        };
+        this.http.post<{ ReadingData: BookDetails[] }>('https://geeksreads.herokuapp.com/api/users/AddToShelf', UserToken
+    ).
+      subscribe(bookData => {          //  subscribe the list of books recieved
+        console.log(bookData.ReadingData);
+        this.book_details = bookData.ReadingData;    // assign them to the list to display them
+        this.book_detailsUpdated.next([...this.book_details]);
       });
     }
 

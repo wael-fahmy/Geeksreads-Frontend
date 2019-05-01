@@ -4,22 +4,10 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
 
-/**
- * Unfollow Author Servuce
- * @export
- * @class AuthorUnfollowService
- */
 @Injectable({
   providedIn: 'root'
 })
 export class AuthorUnfollowService {
-  /**
-   * Server Url
-   * @type {'https://geeksreads.herokuapp.com/api/authors/follow'}
-   * @memberof AuthorUnfollowService
-   */
-  apiURL: 'https://geeksreads.herokuapp.com/api/authors/follow';
-
   /**
    * Subject Object
    * @private
@@ -39,15 +27,17 @@ export class AuthorUnfollowService {
    * Unfollows Author
    * @memberof AuthorService
    */
-  unfollowAuthor() {
+  unfollowAuthor(snapshotParam: string) {
     if (localStorage.getItem('userId') === null) {
       this.router.navigate(['/sign-in']);
       return;
     }
+
     const data = {
       myuserId: localStorage.getItem('userId'),
-      auth_id: '5c911452938ffea87b4672d7',
+      auth_id: snapshotParam,
     };
+
     this.http
       .post('https://geeksreads.herokuapp.com/api/authors/unfollow', data)
       .subscribe((serverResponse: any) => {
@@ -76,3 +66,4 @@ export class AuthorUnfollowService {
    */
   constructor(private http: HttpClient, private router: Router) { }
 }
+

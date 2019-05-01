@@ -1,7 +1,8 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { CommentServices } from './comment-post.service';
 import { Subscription } from 'rxjs';
-import { Post } from './comment-post.model';
+import { Post } from '../newsfeed/newsfeed-main.model';
+import { PostsServices } from '../newsfeed/newsfeed-main.service';
+
 /**
  *  Newsfeed Comment Component
  *  @export
@@ -14,7 +15,7 @@ import { Post } from './comment-post.model';
   styleUrls: ['./newsfeed-comment-post.component.css']
 })
 
-export class NewsfeedCommentPostComponent implements OnInit , OnDestroy {
+export class NewsfeedCommentPostComponent implements OnInit {
 
 
   /**
@@ -23,7 +24,7 @@ export class NewsfeedCommentPostComponent implements OnInit , OnDestroy {
    * @type {Post}
    * @memberof NewsfeedCommentPostComponent
    */
-  postObj: Post;
+  postObj: Post[];
   /**
    * created an instance subscription to save memory leakage when the component is discarded
    * @private
@@ -36,11 +37,11 @@ export class NewsfeedCommentPostComponent implements OnInit , OnDestroy {
    */
   userName = 'Yara Mohamed ';
 
-  activityLog = 'commented on a post';
+  activityLog ;
   /**
    *  User name
    */
-  activityDate = 'about 2 hours ago';
+  activityDate ;
 
   /**
    *  User name
@@ -51,19 +52,19 @@ export class NewsfeedCommentPostComponent implements OnInit , OnDestroy {
    *  Creates an instance of NewsfeedCommentPostComponent.
    *  @memberof NewsfeedCommentPostComponent
    */
-  constructor(public commentServices: CommentServices) { }
+  constructor(public PostsServices : PostsServices) { }
 
   /**
    *  Angular Init
    * @memberof NewsfeedCommentPostComponent
    */
   ngOnInit() {
-    this.commentServices.get_comment_post();
-    this.Sub = this.commentServices.get_updated_comment_post().subscribe((Posts: Post) => {
+    this.PostsServices.getpost();
+    this.Sub = this.PostsServices.get_post_updated().subscribe((Posts: Post[]) => {
     this.postObj = Posts;
-    this.userName = this.postObj.username;
-    this.activityDate = this.postObj.activityDate;
-    this.comment = this.postObj.comment;
+    this.userName = this.postObj[0].MakerName;
+    this.activityDate = this.postObj[0].CommentDate;
+    this.comment = this.postObj[0].CommentBody;
     });
   }
 
@@ -71,7 +72,7 @@ export class NewsfeedCommentPostComponent implements OnInit , OnDestroy {
    * Function that prevent memory leaks when the component is discarded
    * @memberof NewsfeedCommentPostComponent
    */
-  ngOnDestroy() {
-    this.Sub.unsubscribe();
-  }
+  // ngOnDestroy() {
+  //   this.Sub.unsubscribe();
+  // }
 }
