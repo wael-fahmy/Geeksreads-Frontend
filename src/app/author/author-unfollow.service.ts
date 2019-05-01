@@ -9,13 +9,6 @@ import { Subject } from 'rxjs';
 })
 export class AuthorUnfollowService {
   /**
-   * Server Url
-   * @type {'https://geeksreads.herokuapp.com/api/authors/follow'}
-   * @memberof AuthorUnfollowService
-   */
-  apiURL: 'https://geeksreads.herokuapp.com/api/authors/unfollow';
-
-  /**
    * Subject Object
    * @private
    * @memberof AuthorService
@@ -34,7 +27,7 @@ export class AuthorUnfollowService {
    * Unfollows Author
    * @memberof AuthorService
    */
-  unfollowAuthor() {
+  unfollowAuthor(snapshotParam: string) {
     if (localStorage.getItem('userId') === null) {
       this.router.navigate(['/sign-in']);
       return;
@@ -42,11 +35,11 @@ export class AuthorUnfollowService {
 
     const data = {
       myuserId: localStorage.getItem('userId'),
-      auth_id: '5c911452938ffea87b4672d7',
+      auth_id: snapshotParam,
     };
 
     this.http
-      .post(this.apiURL, data)
+      .post('https://geeksreads.herokuapp.com/api/authors/unfollow', data)
       .subscribe((serverResponse: any) => {
         console.log(serverResponse);
         this.unfollowing.message = serverResponse.Message;

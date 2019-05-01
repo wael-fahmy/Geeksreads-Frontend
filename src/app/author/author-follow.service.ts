@@ -9,13 +9,6 @@ import { Subject } from 'rxjs';
 })
 export class AuthorFollowService {
   /**
-   * Server Url
-   * @type {string}
-   * @memberof AuthorService
-   */
-  apiURL: 'https://geeksreads.herokuapp.com/api/authors/follow';
-
-  /**
    *  Object to fill
    *  @private
    *  @type {Author}
@@ -34,7 +27,7 @@ export class AuthorFollowService {
    * Follows Author
    * @memberof AuthorService
    */
-  followAuthor() {
+  followAuthor(snapshotParam: string) {
     if (localStorage.getItem('userId') === null) {
       this.router.navigate(['/sign-in']);
       return;
@@ -42,11 +35,11 @@ export class AuthorFollowService {
 
     const data = {
       myuserId: localStorage.getItem('userId'),
-      auth_id: '5c911452938ffea87b4672d7',
+      auth_id: snapshotParam,
     };
 
     this.http
-      .post(this.apiURL, data)
+      .post('https://geeksreads.herokuapp.com/api/authors/follow', data)
       .subscribe((serverResponse: any) => {
         console.log(serverResponse);
         this.following.message = serverResponse.Message;
