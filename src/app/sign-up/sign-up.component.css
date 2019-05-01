@@ -117,3 +117,10 @@ p a {
     width: 100px;
     margin: 0 auto;
 }
+
+@media only screen and (max-width: 831px) {
+    .sign-up {
+        width: 70%;
+        margin-top: 30px;
+    }
+}

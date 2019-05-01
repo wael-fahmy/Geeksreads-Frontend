@@ -96,3 +96,10 @@ p a {
 #password-field {
     margin: 20px 0 0 0;
 }
+
+@media only screen and (max-width: 831px) {
+    .sign-in {
+        width: 70%;
+        margin-top: 64px;
+    }
+}

@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef, OnDestroy } from '@angular/core';
 import { DataSharingService } from './data-sharing.service';
+import { MediaMatcher } from '@angular/cdk/layout';
 
 /**
  *  Navbar Component
@@ -16,17 +17,31 @@ import { DataSharingService } from './data-sharing.service';
 export class NavBarComponent implements OnInit {
   isSignedIn: boolean;
   userName: string;
+
+  mobileQuery: MediaQueryList;
+
+  fillerNav = Array.from({ length: 50 }, (_, i) => `Nav Item ${i + 1}`);
+
+  private _mobileQueryListener: () => void;
+
+  ngOnDestroy(): void {
+    this.mobileQuery.removeListener(this._mobileQueryListener);
+  }
+
   /**
    *  Creates an instance of NavBarComponent.
    *  @memberof NavBarComponent
    */
-  constructor(private dataSharingService: DataSharingService) {
-    this.dataSharingService.isUserLoggedIn.subscribe( value => {
+  constructor(private dataSharingService: DataSharingService, changeDetectorRef: ChangeDetectorRef, media: MediaMatcher) {
+    this.dataSharingService.isUserLoggedIn.subscribe(value => {
       this.isSignedIn = value;
     });
-    this.dataSharingService.userName.subscribe( value => {
+    this.dataSharingService.userName.subscribe(value => {
       this.userName = value;
     });
+    this.mobileQuery = media.matchMedia('(max-width: 600px)');
+    this._mobileQueryListener = () => changeDetectorRef.detectChanges();
+    this.mobileQuery.addListener(this._mobileQueryListener);
   }
 
   /**
