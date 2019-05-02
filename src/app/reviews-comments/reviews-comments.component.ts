@@ -9,87 +9,23 @@ import { delay } from 'q';
   styleUrls: ['./reviews-comments.component.css']
 })
 export class ReviewsCommentsComponent implements OnInit {
-/**
- *
- * variable list used to carry user image
- * @type {string []}
- * @memberof ReviewsCommentsComponent
- */
 userimage: string [] = [];
-/**
- *
- * variable list used to carry user name
- * @type {string []}
- * @memberof ReviewsCommentsComponent
- */
 username: string [] = [];
-/**
- *
- * variable list used to carry user id
- * @type {string []}
- * @memberof ReviewsCommentsComponent
- */
 userid: string [] = [];
-/**
- *
- * variable list used to carry user body
- * @type {string []}
- * @memberof ReviewsCommentsComponent
- */
 userbody: string [] = [];
-/**
- *
- * variable list used to carry user date
- * @type {string []}
- * @memberof ReviewsCommentsComponent
- */
 userdate: string [] = [];
-// tslint:disable-next-line: variable-name
-/**
- *
- * variable used to carry subscription
- * @private
- * @type {Subscription}
- * @memberof ReviewsCommentsComponent
- */
 private Sub_profile: Subscription;
-// tslint:disable-next-line: variable-name
-/**
- *
- * variable list used to carry comments list
- * @type {CommentsDetails[]}
- * @memberof ReviewsCommentsComponent
- */
 public comment_details: CommentsDetails[] = [];
-  // tslint:disable-next-line:variable-name
-  /**
-   * Creates an instance of ReviewsCommentsComponent.
-   * @param {CommentsDetails_Service} comments_service
-   * @memberof ReviewsCommentsComponent
-   */
-  constructor(public comments_service: CommentsDetails_Service) { }
-  /**
-   *
-   * function used to intilize page and set elements
-   * @memberof ReviewsCommentsComponent
-   */
+constructor(public comments_service: CommentsDetails_Service) { }
   ngOnInit() {
     this.comments_service.get_comments_Info();                                  // to get the user info from the service
     // tslint:disable-next-line:variable-name
     this.Sub_profile = this.comments_service.get_comments_Info_updated().subscribe((comments_Information: CommentsDetails[]) => {
       this.comment_details = comments_Information;
       this.SetElements();
-      console.log(this.comment_details[0].userName);
-      /* console.log(this.User_info.User_Name)
-      console.log(this.User_info.user_id)
-      console.log(this.User_info.User_Photo)*/
+      console.log(this.comment_details);
     });
   }
-  /**
-   *
-   * function used to set elements of lists
-   * @memberof ReviewsCommentsComponent
-   */
   SetElements() {
     // tslint:disable-next-line: prefer-for-of
     for (let x = 0; x < this.comment_details.length; x++) {
