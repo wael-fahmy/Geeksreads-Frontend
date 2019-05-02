@@ -28,7 +28,7 @@ export class AuthorService {
    * @type {AuthorBooksModel}
    * @memberof AuthorService
    */
-  private authorBooks: AuthorBooksModel;
+  private authorBooks: AuthorBooksModel[] = [];
 
   /**
    *  Subject object
@@ -42,7 +42,7 @@ export class AuthorService {
    * @private
    * @memberof AuthorService
    */
-  private authorBooksUpdated = new Subject<AuthorBooksModel>();
+  private authorBooksUpdated = new Subject<AuthorBooksModel[]>();
 
   /**
    *  Get the JSON response and update the author info
@@ -83,9 +83,11 @@ export class AuthorService {
         params: {
         search_param: snapshotParam,
       }})
-      .subscribe((serverResponse: AuthorBooksModel) => {
-        this.authorBooks = serverResponse;
-        this.authorBooksUpdated.next(this.authorBooks);
+      .subscribe((serverResponse: AuthorBooksModel[]) => {
+        this.authorBooks[0] = serverResponse[0];
+        // This comes as a single JSON
+        console.log(this.authorBooks);
+        this.authorBooksUpdated.next([...this.authorBooks]);
       }
         , (error: { json: () => void; }) => {
           console.log(error);

@@ -17,4 +17,6 @@ export class AppComponent {
    * Application Title
    */
   title = 'geeksreads';
+
+  notification: boolean;
 }

@@ -35,6 +35,8 @@ export class AuthorComponent implements OnInit {
    * @memberof AuthorComponent
    */
   private authorBooksSubscription: Subscription;
+
+  public authorBooksModel: AuthorBooksModel[] = [];
   /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   //                                                           HTML Variables                                                            //
   /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -68,13 +70,11 @@ export class AuthorComponent implements OnInit {
    */
   authorDetails = '';
 
-  authorBookId = '';
-  authorBookName = '';
-  authorBookPicture = '';
-  authorBookRating = '';
-  authorBookShelf = '';
-
-  books: [];
+  authorBookId: string[] = [];
+  authorBookName: string[] = [];
+  authorBookPicture: string[] = [];
+  authorBookRating: string[] = [];
+  authorBookShelf: string[] = [];
   /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   //                                                              Methods                                                                //
   /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -160,13 +160,16 @@ export class AuthorComponent implements OnInit {
 
     this.authorService.getBooksByAuthor(this.snapshotParam);
     this.authorBooksSubscription = this.authorService.getBooksByAuthorUpdated()
-      .subscribe((authorBooksInformation: AuthorBooksModel) => {
-        console.log(authorBooksInformation);
-        this.authorBookName = authorBooksInformation.Title;
-        this.authorBookShelf = authorBooksInformation.ReadStatus;
-        this.authorBookPicture = authorBooksInformation.Cover;
-        this.authorBookRating = authorBooksInformation.BookRating.$numberDecimal;
-        this.authorBookId = authorBooksInformation.BookId;
+      .subscribe((authorBooksInformation: AuthorBooksModel[]) => {
+        this.authorBooksModel = authorBooksInformation;
+        console.log(this.authorBooksModel);
+        for (let i = 0; i < this.authorBooksModel.length; i++) {
+          this.authorBookName[i] = this.authorBooksModel[i].Title;
+          this.authorBookShelf[i] = this.authorBooksModel[i].ReadStatus;
+          this.authorBookPicture[i] = this.authorBooksModel[i].Cover;
+          this.authorBookRating[i] = this.authorBooksModel[i].BookRating.$numberDecimal;
+          this.authorBookId[i] = this.authorBooksModel[i].BookId;
+        }
       }, (error: { json: () => void; }) => {
         console.log(error);
       });
