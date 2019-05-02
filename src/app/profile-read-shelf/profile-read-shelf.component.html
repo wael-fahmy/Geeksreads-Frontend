@@ -5,7 +5,7 @@
     <mat-list-item>
 
         <img width="60" height="80" src="{{index.Cover}}" alt="book">
-        <a (click)="onClick_Details(index)" routerLink="/book">{{index.Title}} <br> by {{index.AuthorName}}  </a>
+        <a (click)="onClick_Details(index)" routerLink="/book" id="book-route">{{index.Title}} <br> by {{index.AuthorName}}  </a>
         <button id="MENU" [matMenuTriggerFor]="menu">read...</button>
         <mat-menu #menu="matMenu">
             <button id="item_1" mat-menu-item (click)=" OnClick_reading(index)" id="currentlyReadingButton">currently reading</button>

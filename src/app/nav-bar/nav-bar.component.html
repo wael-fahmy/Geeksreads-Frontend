@@ -5,13 +5,13 @@
     </button>
         <mat-toolbar-row>
             <div class="nav-margin">
-                <span><a routerLink="/homepage"><img src="../../assets/logos/nav-logo.png" alt="Geeksreads main logo"
+                <span><a routerLink="/homepage" id="homepage-route"><img src="../../assets/logos/nav-logo.png" alt="Geeksreads main logo"
               id="nav-logo"></a></span>
                 <span id="nav-links-container">
           <div class="main-links">
-            <span class="nav-link"><a routerLink="/newsfeed">Home</a></span>
-                <span class="nav-link"><a routerLink="/book">My Books</a></span>
-                <span class="nav-link"><a routerLink="/genres">Browse</a></span>
+            <span class="nav-link"><a routerLink="/newsfeed" id="newsfeed-route">Home</a></span>
+                <span class="nav-link"><a routerLink="/book" id="my-books-route">My Books</a></span>
+                <span class="nav-link"><a routerLink="/genres" id="genres-route">Browse</a></span>
                 <form id="nav-search-bar">
                     <mat-form-field>
                         <input type="search" matInput placeholder="Search" id="search">
@@ -39,9 +39,9 @@
             <mat-menu #userMenu="matMenu">
                 <div class="user-menu">
                     <p>{{userName}}</p>
-                    <a routerLink="/profile">Profile</a>
+                    <a routerLink="/profile" id="profile-route">Profile</a>
                     <hr>
-                    <a routerLink="/sign-out">Sign Out</a>
+                    <a routerLink="/sign-out" id="sign-out-route">Sign Out</a>
                 </div>
             </mat-menu>
             </span>
@@ -51,17 +51,17 @@
 <mat-sidenav-container class="example-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
     <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
         <mat-nav-list>
-            <span class="nav-link"><a routerLink="/newsfeed">Home</a></span>
-            <span class="nav-link"><a routerLink="/book">My Books</a></span>
-            <span class="nav-link"><a routerLink="/genres">Browse</a></span>
+            <span class="nav-link"><a routerLink="/newsfeed" id="homepage-side-route">Home</a></span>
+            <span class="nav-link"><a routerLink="/book" id="my-books-side-route">My Books</a></span>
+            <span class="nav-link"><a routerLink="/genres" id="genres-side-route">Browse</a></span>
             <form id="nav-search-bar">
                 <mat-form-field>
                     <input type="search" matInput placeholder="Search" id="search">
                     <mat-icon matSuffix id="nav-search-bar-icon">search</mat-icon>
                 </mat-form-field>
             </form>
-            <span *ngIf="!isSignedIn" class="nav-link"><a routerLink="/sign-in">Sign In</a></span>
-            <span *ngIf="!isSignedIn" class="nav-link"><a routerLink="/sign-up">Join</a></span>
+            <span *ngIf="!isSignedIn" class="nav-link"><a routerLink="/sign-in" id="sign-in-side-route">Sign In</a></span>
+            <span *ngIf="!isSignedIn" class="nav-link"><a routerLink="/sign-up" id="sign-up-side-route">Join</a></span>
         </mat-nav-list>
     </mat-sidenav>
 </mat-sidenav-container>
