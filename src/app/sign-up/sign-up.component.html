@@ -4,14 +4,14 @@
     </div>
     <form class="sign-up-form" (submit)="testRequest()" #signupForm='ngForm'>
         <mat-form-field>
-            <input matInput placeholder="Enter your username" required name="userName" [(ngModel)]="userName">
+            <input matInput placeholder="Enter your username" required name="userName" [(ngModel)]="userName" id="userName">
         </mat-form-field>
         <mat-form-field>
-            <input matInput placeholder="Enter your email" [formControl]="email" required name="email" [(ngModel)]="userEmail">
+            <input matInput placeholder="Enter your email" [formControl]="email" required name="email" [(ngModel)]="userEmail" id="email">
             <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
         </mat-form-field>
         <mat-form-field hintLabel="Min 6 characters">
-            <input matInput #input minlength="6" required placeholder="Enter your password" [type]="hide ? 'password' : 'text'" name="password" [(ngModel)]="userPassword">
+            <input matInput #input minlength="6" required placeholder="Enter your password" [type]="hide ? 'password' : 'text'" name="password" [(ngModel)]="userPassword" id="password">
             <mat-hint align="end">6/{{input.value?.length || 0}}</mat-hint>
             <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
         </mat-form-field>

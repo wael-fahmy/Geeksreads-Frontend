@@ -10,13 +10,13 @@
             <input type="file" name="photo" id="photo" />
         </div>
         <mat-form-field>
-            <input matInput placeholder="Enter your username" required name="userName" />
+            <input matInput placeholder="Enter your username" required name="userName" id="userName"/>
         </mat-form-field>
         <mat-form-field>
-            <input matInput placeholder="Enter your email" required name="email" />
+            <input matInput placeholder="Enter your email" required name="email" id="email"/>
         </mat-form-field>
         <mat-form-field hintLabel="Min 6 characters">
-            <input matInput #input minlength="6" required placeholder="Enter your password" name="password" />
+            <input matInput #input minlength="6" required placeholder="Enter your password" name="password" id="password"/>
         </mat-form-field>
         <button mat-raised-button class="btn" id="saveButton">Save</button>
     </form>
