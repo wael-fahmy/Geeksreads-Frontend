@@ -100,9 +100,9 @@ export class NewsfeedComponent implements OnInit {
    * @memberof NewsfeedPostComponent
    */
   ngOnInit() {
-    // if (localStorage.getItem('token') === null) {
-    //   this.router.navigate(['/homepage']);
-    // }
+     if (localStorage.getItem('token') === null) {
+       this.router.navigate(['/homepage']);
+     }
     this.PostsServicesObj.getpost();
     this.subprofile = this.PostsServicesObj.get_post_updated().subscribe((PostInfo) => {
       this.PostObj = PostInfo;
