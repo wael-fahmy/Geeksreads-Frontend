@@ -12,9 +12,9 @@
             <span class="nav-link"><a routerLink="/newsfeed" id="newsfeed-route">Home</a></span>
                 <span class="nav-link"><a routerLink="/book" id="my-books-route">My Books</a></span>
                 <span class="nav-link"><a routerLink="/genres" id="genres-route">Browse</a></span>
-                <form id="nav-search-bar">
+                <form id="nav-search-bar" [formGroup]="formdata" (ngSubmit)="search(formdata.value)">
                     <mat-form-field>
-                        <input type="search" matInput placeholder="Search" id="search">
+                        <input type="search" matInput placeholder="Search" id="search" name="searchText" formControlName="searchText" required>
                         <mat-icon matSuffix id="nav-search-bar-icon">search</mat-icon>
                     </mat-form-field>
                 </form>
@@ -54,9 +54,9 @@
             <span class="nav-link"><a routerLink="/newsfeed" id="homepage-side-route">Home</a></span>
             <span class="nav-link"><a routerLink="/book" id="my-books-side-route">My Books</a></span>
             <span class="nav-link"><a routerLink="/genres" id="genres-side-route">Browse</a></span>
-            <form id="nav-search-bar">
+            <form id="nav-search-bar" [formGroup]="formdata" (ngSubmit)="search(formdata.value)">
                 <mat-form-field>
-                    <input type="search" matInput placeholder="Search" id="search">
+                    <input type="search" matInput placeholder="Search" id="search" name="searchText" formControlName="searchText" required>
                     <mat-icon matSuffix id="nav-search-bar-icon">search</mat-icon>
                 </mat-form-field>
             </form>
