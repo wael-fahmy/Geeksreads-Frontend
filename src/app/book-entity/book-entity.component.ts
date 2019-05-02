@@ -11,131 +11,23 @@ import { delay } from 'q';
   styleUrls: ['./book-entity.component.css']
 })
 export class BookEntityComponent implements OnInit {
-
-// tslint:disable-next-line: prefer-const
-/**
- *
- * vairbale used to store available option of read button
- * @type {string}
- * @memberof BookEntityComponent
- */
 type1: string;
-/**
- *
- * vairbale used to store available option of read button
- * @type {string}
- * @memberof BookEntityComponent
- */
 type2: string;
-/**
- *
- * variable list used to store list of book images
- * @type {string []}
- * @memberof BookEntityComponent
- */
 bookimage: string [] = [];
-/**
- *
- * variable list used to store list of book titles
- * @type {string []}
- * @memberof BookEntityComponent
- */
 booktitle: string [] = [];
-/**
- *
- * variable list used to store list of book authors
- * @type {string []}
- * @memberof BookEntityComponent
- */
 bookauthorid: string [] = [];
-/**
- *
- * vairbale to carry author details
- * @type {string []}
- * @memberof BookEntityComponent
- */
 bookauthor: string [] = [];
-/**
- *
- * variable list used to store list of book status
- * @type {string []}
- * @memberof BookEntityComponent
- */
 bookstatus: string [] = [];
-/**
- *
- * variable list used to store list of book bodys
- * @type {string []}
- * @memberof BookEntityComponent
- */
 bookbody: string [] = [];
-/**
- *
- * variable list used to store list of book id
- * @type {string []}
- * @memberof BookEntityComponent
- */
 bookid: string [] = [];
-/**
- *
- * vaiable to store book rate
- * @type {number[]}
- * @memberof BookEntityComponent
- */
 bookrate: number[] = [];
-  // tslint:disable-next-line: variable-name
-  /**
-   *
-   * variable list used to store list of half of book bodys
-   * @type {string []}
-   * @memberof BookEntityComponent
-   */
-  public befor_dots: string [] = [];
-// tslint:disable-next-line: variable-name
-/**
- *
- * variable list used to store list of half of book bodys
- * @type {string []}
- * @memberof BookEntityComponent
- */
+public befor_dots: string [] = [];
 public after_dots: string [] = [];
-  // tslint:disable-next-line:variable-name
-  /**
-   *
-   * subscription of service
-   * @private
-   * @type {Subscription}
-   * @memberof BookEntityComponent
-   */
-  private Sub_profile: Subscription;
-  // tslint:disable-next-line:variable-name
-  /**
-   *
-   * carries book details information
-   * @type {BookDetails[]}
-   * @memberof BookEntityComponent
-   */
-  public book_details: BookDetails[] = [];
-  public author_details: AuthorDetails[] = [];
-  // tslint:disable-next-line:variable-name
-  /**
-   *
-   * carries the index of the book
-   * @memberof BookEntityComponent
-   */
-  book_index = 0;
-  // tslint:disable-next-line:variable-name
-  /**
-   * Creates an instance of BookEntityComponent.
-   * @param {BookTitle_Service} booktitle_service
-   * @memberof BookEntityComponent
-   */
+private Sub_profile: Subscription;
+public book_details: BookDetails[] = [];
+public author_details: AuthorDetails[] = [];
+book_index = 0;
 constructor(public booktitle_service: BookTitle_Service) { }
-  /**
-   *
-   * function used to recieve information from services.tss
-   * @memberof BookEntityComponent
-   */
 ngOnInit() {
     const bookid = '5c9114a0d345b4a65637eacc';
     //this.booktitle_service.post_book_id('12');
@@ -164,12 +56,7 @@ ngOnInit() {
     this.Sub_profile = this.booktitle_service.get_author_Info_updated().subscribe((author_Information: AuthorDetails[]) => {
       this.author_details = author_Information;
       this.SetAuthorInfo();
-      /* console.log(this.User_info.User_Name)
-      console.log(this.User_info.user_id)
-      console.log(this.User_info.User_Photo)*/
     });
-    //this.bookauthor[this.book_index] = this.author_details[this.book_index].AuthorName;
-    //this.bookauthorid[this.book_index] = this.author_details[this.book_index].AuthorId;
   }
   /**
    *

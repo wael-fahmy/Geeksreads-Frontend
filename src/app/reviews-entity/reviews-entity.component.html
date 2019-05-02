@@ -17,7 +17,7 @@
         <img class="Book-image" src="{{bookimage[0]}}">
         <div id="Book-Title">
             <h4 id="book_title_font">{{booktitle[0]}}</h4>
-            <p routerLink="/authors" id="By-Author">by <span id="Author-name">{{bookauthor[0]}}</span></p>
+            <p [routerLink]="['/authors', bookauthorid[0]]" id="By-Author">by <span id="Author-name">{{bookauthor[0]}}</span></p>
             <button mat-raised-button color="primary" [matMenuTriggerFor]="menu" class="want-to-read" id='first-option'>Want To Read</button>
             <mat-menu #menu="matMenu">
                 <button class="want-to-read" mat-menu-item (click)="book_status('second-option')" id='second-option'>{{type1}}</button>
@@ -32,7 +32,7 @@
 <div id="review-like-comment">
     <p (click)="OnclickLike(review_details[0])" id="liked" class="blue-text">Like</p>
     <p class="dots">.</p>
-    <i class="thumbs-up">	<mat-icon>thumb_up_alt</mat-icon></i>
+    <i class="thumbs-up"><mat-icon>thumb_up_alt</mat-icon></i>
     <p type="text" class="dots" id="show-likes">{{reviewerlikes[0]}}</p>
     <p class="dots">.</p>
     <i class="comment"><mat-icon> mode_comment</mat-icon></i>

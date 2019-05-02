@@ -10,50 +10,11 @@ import { Router } from '@angular/router';
 
 // tslint:disable-next-line:class-name
 export class BookTitle_Service {
-    /**
-     * Creates an instance of BookTitle_Service.
-     * @param {HttpClient} http
-     * @memberof BookTitle_Service
-     */
     constructor(private http: HttpClient, private router: Router) { }
-    // tslint:disable-next-line:variable-name
-    /**
-     *
-     * get an list of book_details model
-     * @private
-     * @type {BookDetails[]}
-     * @memberof BookTitle_Service
-     */
     private book_details: BookDetails[] = [];
-    /**
-     *
-     * variable to carry author details
-     * @private
-     * @type {BookDetails[]}
-     * @memberof BookTitle_Service
-     */
     private author_details: AuthorDetails[] = [];
-    // tslint:disable-next-line:variable-name
-    /**
-     *
-     * carries updated details of book details
-     * @private
-     * @memberof BookTitle_Service
-     */
     private book_detailsUpdated = new Subject<BookDetails[]>();
-    /**
-     *
-     * vairbale to carry author details
-     * @private
-     * @memberof BookTitle_Service
-     */
     private author_detailsUpdated = new Subject<AuthorDetails[]>();
-    /**
-     *
-     * function used to recieve json file from server
-     * @memberof BookTitle_Service
-     */
-    //https://geeksreads.herokuapp.com/api/books/id
     get_book_Info(bookid: string) {
         this.http.get('https://geeksreads.herokuapp.com/api/books/id', { params: {
             book_id: bookid
@@ -68,20 +29,9 @@ export class BookTitle_Service {
                 console.log(error);
             });
     }
-    /**
-     *
-     * getinfo updated from server
-     * @returns
-     * @memberof BookTitle_Service
-     */
     get_book_Info_updated() {
         return this.book_detailsUpdated.asObservable();
     }
-    /**
-     *
-     * get author information
-     * @memberof BookTitle_Service
-     */
     get_author_Info(authorid: string) {
         this.http.get('https://geeksreads.herokuapp.com/api/authors/id', {
             params: {
@@ -98,12 +48,6 @@ export class BookTitle_Service {
                 console.log(error);
             });
     }
-    /**
-     *
-     * getinfo updated from server
-     * @returns
-     * @memberof BookTitle_Service
-     */
     get_author_Info_updated() {
         return this.author_detailsUpdated.asObservable();
     }
