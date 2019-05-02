@@ -635,15 +635,24 @@ app.use("/api/title", (req, res, next) => {
 //this function gets user info from the backend to update newsfeed
 app.use("/api/newsfeed", (req, res, next) => {
     const Post = {
-        userid: '1',
-        bookimage: 'https://via.placeholder.com/86x120',
-        username: 'Mohamed',
-        bookname: 'A Tale of Two Cities',
-        authorname: 'Craulo',
-        activitydate: 'about 7 hours ago',
-        activitylog: 'rated a book',
-        review: 'I enjoyed reading this book very much.',
-        userphoto: 'https://tse1.mm.bing.net/th?id=OIP.JchDxbr-ajB0-wbB1h5BBgAAAA&pid=15.1&P=0&w=300&h=300'
+        StatusType: 'comment',
+        bStatusId: 'https://via.placeholder.com/86x120',
+        UserId: 'Mohamed',
+        CommentId: 'A Tale of Two Cities',
+        CommentBody: 'Craulo',
+        CommentDate: 'about 7 hours ago',
+        CommentLikesCount: 'rated a book',
+        BookId: 'I enjoyed reading this book very much.',
+        BookName: 'Oliver Twist',
+        BookPhoto:'https://tse1.mm.bing.net/th?id=OIP.JchDxbr-ajB0-wbB1h5BBgAAAA&pid=15.1&P=0&w=300&h=300',
+        NumberOfStars:'2',
+        ReviewId: '123',
+        ReviewBody:'It was really bad.',
+        ReviewDate:'about 12 hours ago',
+        ReviewLikesCount: '0',
+        MakerId: '12345',
+        MakerPhoto: 'https://via.placeholder.com/86x120',
+        MakerName: 'Abdullah'
     };
     res.status(200).json({
         message: "User fetched successfully!",
@@ -663,9 +672,7 @@ app.use("/api/genres", (req, res, next) => {
         Row: Row
     });
 });
-
-
-
+ 
 app.post("/api/sign-in", (req, res, next) => {
     email = "omar@gmail.com";
     pass = "1234";
