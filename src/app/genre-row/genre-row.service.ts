@@ -1,7 +1,8 @@
-import { HttpClient , HttpParams } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Subject, Observable } from 'rxjs';
 import { Row } from './genre-row.model';
+import { GenreRowComponent } from './genre-row.component';
 
 /**
  *
@@ -45,23 +46,11 @@ export class RowServices {
           Genre: genre,
         }
       })
-      .subscribe((serverResponse: any) => {
+      .subscribe((serverResponse: GenreRowComponent) => {
         console.log(serverResponse);
-        this.http
-        .get('https://geeksreads.herokuapp.com/api/books/id', {
-          params: {
-            id: serverResponse[0].BookId,
-          }
-        }).subscribe((serverResponse2: any) => {
-          console.log(serverResponse2);
-          // Set Book Info
-        }, (error: { json: () => void; }) => {
-          console.log(error);
-        });
-
-        this.Row.bookimage1 = serverResponse[0].Cover;
-        this.Row.bookimage2 = serverResponse[1].Cover;
-        this.Row.bookimage3 = serverResponse[2].Cover;
+        // this.Row.bookimage1 = serverResponse[0].Cover;
+        // this.Row.bookimage2 = serverResponse[1].Cover;
+        // this.Row.bookimage3 = serverResponse[2].Cover;
       }, (error: { json: () => void; }) => {
         console.log(error);
       });
