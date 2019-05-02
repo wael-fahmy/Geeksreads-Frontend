@@ -21,7 +21,7 @@
             </div>
             <span *ngIf="!isSignedIn" class="nav-link" id="sign-in-link"><a routerLink="/sign-in">Sign In</a></span>
             <span *ngIf="!isSignedIn" class="nav-link" id="sign-up-link"><a routerLink="/sign-up">Join</a></span>
-            <button *ngIf="isSignedIn" mat-icon-button [matMenuTriggerFor]="notificationMenu">
+            <button *ngIf="isSignedIn" mat-icon-button [matMenuTriggerFor]="notificationMenu" id="notifications-button">
             <mat-icon>notifications</mat-icon>
           </button>
             <mat-menu #notificationMenu="matMenu">
@@ -33,7 +33,7 @@
                     <p>This too</p>
                 </div>
             </mat-menu>
-            <button *ngIf="isSignedIn" mat-icon-button [matMenuTriggerFor]="userMenu">
+            <button *ngIf="isSignedIn" mat-icon-button [matMenuTriggerFor]="userMenu" id="user-button">
             <mat-icon>person</mat-icon>
           </button>
             <mat-menu #userMenu="matMenu">

@@ -1,41 +1,25 @@
 <div class="nav-margin"></div>
 <div class="profile-edit">
-  <div class="profile-edit-div">
-    <img
-      src="../../assets/logos/logo.png"
-      alt="Geeksreads Logo"
-      class="profile-edit-logo"
-    />
-  </div>
-  <form class="profile-edit-form">
-    <div class="input-user-photo">
-      <label for="photo">Profile Photo</label>
-      <br>
-      <input type="file" name="photo" id="photo" />
+    <div class="profile-edit-div">
+        <img src="../../assets/logos/logo.png" alt="Geeksreads Logo" class="profile-edit-logo" />
     </div>
-    <mat-form-field>
-      <input
-        matInput
-        placeholder="Enter your username"
-        required
-        name="userName"
-      />
-    </mat-form-field>
-    <mat-form-field>
-      <input matInput placeholder="Enter your email" required name="email" />
-    </mat-form-field>
-    <mat-form-field hintLabel="Min 6 characters">
-      <input
-        matInput
-        #input
-        minlength="6"
-        required
-        placeholder="Enter your password"
-        name="password"
-      />
-    </mat-form-field>
-    <button mat-raised-button class="btn">Save</button>
-  </form>
+    <form class="profile-edit-form">
+        <div class="input-user-photo">
+            <label for="photo">Profile Photo</label>
+            <br>
+            <input type="file" name="photo" id="photo" />
+        </div>
+        <mat-form-field>
+            <input matInput placeholder="Enter your username" required name="userName" />
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Enter your email" required name="email" />
+        </mat-form-field>
+        <mat-form-field hintLabel="Min 6 characters">
+            <input matInput #input minlength="6" required placeholder="Enter your password" name="password" />
+        </mat-form-field>
+        <button mat-raised-button class="btn" id="saveButton">Save</button>
+    </form>
 </div>
 
 <!-- <div id="container">
