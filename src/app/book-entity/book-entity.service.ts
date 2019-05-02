@@ -54,9 +54,9 @@ export class BookTitle_Service {
      * @memberof BookTitle_Service
      */
     //https://geeksreads.herokuapp.com/api/books/id
-    get_book_Info() {
+    get_book_Info(bookid: string) {
         this.http.get('https://geeksreads.herokuapp.com/api/books/id', { params: {
-            book_id: '5c9114a0d345b4a65637eacc'
+            book_id: bookid
     }
         }).
             // tslint:disable-next-line:variable-name
@@ -82,12 +82,20 @@ export class BookTitle_Service {
      * get author information
      * @memberof BookTitle_Service
      */
-    get_author_Info() {
-        this.http.get<{ message: string, author_details: AuthorDetails[] }>('http://localhost:3000/api/book').
+    get_author_Info(authorid: string) {
+        this.http.get('https://geeksreads.herokuapp.com/api/authors/id', {
+            params: {
+            auth_id: authorid,
+            }
+        }).
             // tslint:disable-next-line:variable-name
-            subscribe((authordata) => {
-                this.author_details = authordata.author_details;
+            subscribe((authordata: AuthorDetails) => {
+                console.log(authordata);
+                this.author_details[0] = authordata;
+                console.log(authordata);
                 this.author_detailsUpdated.next([...this.author_details]);
+            }, (error: { json: () => void; }) => {
+                console.log(error);
             });
     }
     /**
@@ -140,7 +148,7 @@ post_book_id(bookc_id: string) {
             console.log(responseData.message);
         });*/
     }
-    post_getauthor_id(author_id: string) {
+    /*post_getauthor_id(author_id: string) {
         const author: AuthorDetails = {_id: null, AuthorId: author_id, AuthorName: null};
         this.http.post<{message: string}>('http://localhost:3000/api/book', author)
         .subscribe ((responseData) => {
@@ -153,5 +161,5 @@ post_book_id(bookc_id: string) {
         .subscribe ((responseData) => {
             console.log(responseData.message);
         });
-    }
+    }*/
 }

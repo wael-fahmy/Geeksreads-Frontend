@@ -117,7 +117,7 @@ public after_dots: string [] = [];
    */
   ngOnInit() {
     const author = localStorage.getItem('authorID');
-    this.authordetails_service.get_author_Info();                                  // to get the user info from the service
+    this.authordetails_service.get_author_Info(author);                                  // to get the user info from the service
     // tslint:disable-next-line:variable-name
     this.Sub_profile = this.authordetails_service.get_author_details_updated().subscribe((author_Information: AuthorDetails[]) => {
       this.author_details = author_Information;
@@ -149,6 +149,15 @@ public after_dots: string [] = [];
     //this.authorNumberOfFollowers += 1;
     console.log('Following this author');
   }
+  Clear_Storage() {
+    localStorage.removeItem('ISBN');
+    localStorage.removeItem('genre');
+    localStorage.removeItem('pages');
+    localStorage.removeItem('publishedDate');
+    localStorage.removeItem('publisher');
+    localStorage.removeItem('bookTitle');
+    localStorage.removeItem('bookID');
+}
   /**
    *
    * function to unfollow author

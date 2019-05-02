@@ -46,8 +46,8 @@ liked = 1;
     get_review_Info() {
         this.http.get('https://geeksreads.herokuapp.com/api/reviews/getrev',
             { params: {
-                bookId: '5c911452bbfd1717b8a7a169',
-                UserId: '5cb6067bd42e9b00173fa1fc'
+                bookId: '5c9114a012d11bb226399497',
+                UserId: '5cc5df8c2e9c5800172864c9'
         }
             }).
             // tslint:disable-next-line:variable-name

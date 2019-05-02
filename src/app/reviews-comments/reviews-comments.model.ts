@@ -18,26 +18,30 @@ export interface CommentsDetails {
      * @type {string}
      * @memberof CommentsDetails
      */
-    user_name: string;
+    userName: string;
     /**
      *
      * variable used to carry user id
      * @type {string}
      * @memberof CommentsDetails
      */
-    user_id: string;
+    userId: string;
     /**
      *
      * variable used to carry user body
      * @type {string}
      * @memberof CommentsDetails
      */
-    user_body: string;
+    body: string;
     /**
      *
      * variable used to carry user date
      * @type {string}
      * @memberof CommentsDetails
      */
-    user_date: string;
+    date: string;
+}
+export interface user {
+    NoOfFollowings: number;
+    NoOfFollowers: number;
 }

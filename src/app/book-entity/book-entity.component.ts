@@ -137,8 +137,9 @@ constructor(public booktitle_service: BookTitle_Service) { }
    * @memberof BookEntityComponent
    */
 ngOnInit() {
+    const bookid = '5c9114a0d345b4a65637eacc';
     //this.booktitle_service.post_book_id('12');
-    this.booktitle_service.get_book_Info();                                  // to get the user info from the service
+    this.booktitle_service.get_book_Info(bookid);                            // to get the user info from the service
     // tslint:disable-next-line:variable-name
     this.Sub_profile = this.booktitle_service.get_book_Info_updated().subscribe((book_Information: BookDetails[]) => {
       this.book_details = book_Information;
@@ -150,32 +151,34 @@ ngOnInit() {
       localStorage.setItem('genre', this.book_details[0].Genre);
       localStorage.setItem('pages', this.book_details[0].Pages.toString());
       localStorage.setItem('publishedDate', this.book_details[0].Published);
+      localStorage.setItem('bookTitle', this.book_details[0].Title);
       localStorage.setItem('publisher', this.book_details[0].Publisher);
-      console.log(this.bookrate[this.book_index]);
       this.SetRate();
       /* console.log(this.User_info.User_Name)
       console.log(this.User_info.user_id)
       console.log(this.User_info.User_Photo)*/
     });
-    //this.booktitle_service.post_author_id(this.bookauthorid[0]);
-    //this.booktitle_service.get_author_Info();                                  // to get the user info from the service
+    const author = localStorage.getItem('authorID');
+    this.booktitle_service.get_author_Info(author);                                  // to get the user info from the service
     // tslint:disable-next-line:variable-name
-    //this.Sub_profile = this.booktitle_service.get_author_Info_updated().subscribe((author_Information: AuthorDetails[]) => {
-     // this.author_details = author_Information;
-     // this.SetAuthorInfo();
+    this.Sub_profile = this.booktitle_service.get_author_Info_updated().subscribe((author_Information: AuthorDetails[]) => {
+      this.author_details = author_Information;
+      this.SetAuthorInfo();
       /* console.log(this.User_info.User_Name)
       console.log(this.User_info.user_id)
       console.log(this.User_info.User_Photo)*/
-   // });
+    });
+    //this.bookauthor[this.book_index] = this.author_details[this.book_index].AuthorName;
+    //this.bookauthorid[this.book_index] = this.author_details[this.book_index].AuthorId;
   }
   /**
    *
    * get author by author id
    * @memberof BookEntityComponent
    */
-  GetAuthorByID() {
+  /*GetAuthorByID() {
     this.booktitle_service.post_author_id(this.bookauthorid[this.book_index]);
-  }
+  }*/
   /**
    *
    * function used to set elements of lists
@@ -191,12 +194,13 @@ ngOnInit() {
       this.bookauthor[x] = this.book_details[x].Author;
       this.bookbody[x] = this.book_details[x].Description;
       this.bookid[x] = this.book_details[x].BookId;
-      this.bookrate[x] = this.book_details[x].BookRating;
+      this.bookrate[x] = this.book_details[x].BookRating.$numberDecimal;
       this.SplitString(this.bookbody[x], x);
     }
   }
   SetAuthorInfo() {
-    this.bookauthor[0] = this.author_details[0].AuthorName;
+    this.bookauthor[this.book_index] = this.author_details[this.book_index].AuthorName;
+    this.bookauthorid[this.book_index] = this.author_details[this.book_index].AuthorId;
   }
   /**
    *
@@ -225,21 +229,21 @@ ngOnInit() {
     const rate2 = document.getElementById('star2');
     const rate3 = document.getElementById('star3');
     const rate4 = document.getElementById('star4');
-    if (this.bookrate[this.book_index] === 1) {
+    if (this.bookrate[this.book_index].toString() === '1.0') {
       rate0.style.color = 'orange';
-    } else if (this.bookrate[this.book_index] === 2) {
+    } else if (this.bookrate[this.book_index].toString() === '2.0') {
       rate0.style.color = 'orange';
       rate1.style.color = 'orange';
-    } else if (this.bookrate[this.book_index] === 3) {
+    } else if (this.bookrate[this.book_index].toString() === '3.0') {
       rate0.style.color = 'orange';
       rate1.style.color = 'orange';
       rate2.style.color = 'orange';
-    } else if (this.bookrate[this.book_index] === 4) {
+    } else if (this.bookrate[this.book_index].toString() === '4.0') {
       rate0.style.color = 'orange';
       rate1.style.color = 'orange';
       rate2.style.color = 'orange';
       rate3.style.color = 'orange';
-    } else if (this.bookrate[this.book_index] === 5) {
+    } else if (this.bookrate[this.book_index] === 5.0) {
       rate0.style.color = 'orange';
       rate1.style.color = 'orange';
       rate2.style.color = 'orange';
@@ -297,5 +301,14 @@ assign_status(index: string) {
     this.type1 = 'Read';
     this.type2 = 'Want To Read';
   }
+}
+Clear_Storage() {
+    localStorage.removeItem('ISBN');
+    localStorage.removeItem('genre');
+    localStorage.removeItem('pages');
+    localStorage.removeItem('publishedDate');
+    localStorage.removeItem('publisher');
+    localStorage.removeItem('bookTitle');
+    localStorage.removeItem('bookID');
 }
 }

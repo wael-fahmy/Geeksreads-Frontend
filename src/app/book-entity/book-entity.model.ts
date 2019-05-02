@@ -53,7 +53,7 @@ export interface BookDetails {
      * @type {number}
      * @memberof BookDetails
      */
-    BookRating: number;
+    BookRating;
     /**
      *
      * vairble to carry author name
@@ -70,7 +70,6 @@ export interface BookDetails {
     success: boolean;
 }
 export interface AuthorDetails {
-    _id: string;
     AuthorId: string;
     AuthorName: string;
 }

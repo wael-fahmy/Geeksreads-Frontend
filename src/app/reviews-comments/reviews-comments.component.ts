@@ -79,7 +79,7 @@ public comment_details: CommentsDetails[] = [];
     this.Sub_profile = this.comments_service.get_comments_Info_updated().subscribe((comments_Information: CommentsDetails[]) => {
       this.comment_details = comments_Information;
       this.SetElements();
-      console.log(this.comment_details[0].user_name);
+      console.log(this.comment_details[0].userName);
       /* console.log(this.User_info.User_Name)
       console.log(this.User_info.user_id)
       console.log(this.User_info.User_Photo)*/
@@ -93,11 +93,10 @@ public comment_details: CommentsDetails[] = [];
   SetElements() {
     // tslint:disable-next-line: prefer-for-of
     for (let x = 0; x < this.comment_details.length; x++) {
-      this.userimage[x] = this.comment_details[x].user_image;
-      this.username[x] = this.comment_details[x].user_name;
-      this.userid[x] = this.comment_details[x].user_id;
-      this.userbody[x] = this.comment_details[x].user_body;
-      this.userdate[x] = this.comment_details[x].user_date;
+      this.username[x] = this.comment_details[x].userName;
+      this.userid[x] = this.comment_details[x].userId;
+      this.userbody[x] = this.comment_details[x].body;
+      this.userdate[x] = this.comment_details[x].date;
     }
   }
 
