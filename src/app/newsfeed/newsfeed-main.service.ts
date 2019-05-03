@@ -37,13 +37,12 @@ export class PostsServices {
    */
   private postUpdated = new Subject<Post[]>();
 
+  
   /**
+   * This functions connects to the backend 
    *
-   * this functions gets the data required ftom the backend
    * @memberof PostsServices
    */
-   
-  
   getpost() {
     const UserToken = {
       token : localStorage.getItem('token')

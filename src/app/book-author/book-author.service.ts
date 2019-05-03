@@ -43,10 +43,10 @@ export class AuthorDetails_Service {
      * get author details from server
      * @memberof AuthorDetails_Service
      */
-    get_author_Info() {
+    get_author_Info(authorid: string) {
         this.http.get('https://geeksreads.herokuapp.com/api/authors/id', {
             params: {
-            auth_id: '5c911452938ffea87b4672d7',
+            auth_id: authorid,
             }
         }).
             // tslint:disable-next-line:variable-name
@@ -57,6 +57,9 @@ export class AuthorDetails_Service {
             }, (error: { json: () => void; }) => {
                 console.log(error);
             });
+    }
+    get_author_details_updated() {
+        return this.author_detailsUpdated.asObservable();
     }
     /**
      *
@@ -107,9 +110,7 @@ export class AuthorDetails_Service {
      * @returns
      * @memberof AuthorDetails_Service
      */
-    get_author_details_updated() {
-        return this.author_detailsUpdated.asObservable();
-    }
+   
     post_author_id(authorid: string) {
         /*const author: AuthorDetails = {user_id: null, AuthorId: authorid, About: null,
             FollowingUserId: null, Photo: null, AuthorName: null, BookId: null};

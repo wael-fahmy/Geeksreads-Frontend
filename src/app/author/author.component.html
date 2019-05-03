@@ -18,6 +18,7 @@
     </div>
     <hr>
     <h2 class="author-books-header">{{authorName}}’s Books</h2>
-    <app-author-book></app-author-book>
-    <app-author-book></app-author-book>
+    <div *ngFor="let i of authorBooksModel">
+        <app-author-book [bookImage]="i.Cover" [bookName]="i.Title" [bookRating]="i.BookRating" [bookShelfStatus]="i.ReadStatus" [bookId]="i.BookId"></app-author-book>
+    </div>
 </div>

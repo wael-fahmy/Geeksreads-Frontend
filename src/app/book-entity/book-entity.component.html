@@ -3,7 +3,7 @@
     <div id="Book-Title">
         <h3 id="title">{{booktitle[book_index]}}</h3>
         <p id="By-Author">by
-            <span (click)="GetAuthorByID()" routerLink="/authors" id="Author-name">{{bookauthor[book_index]}}</span></p>
+            <span (click)="Clear_Storage()" [routerLink]="['/authors', bookauthorid[this.book_index]]" id="Author-name">{{bookauthor[book_index]}}</span></p>
         <button mat-button [matMenuTriggerFor]="menu" class="want-to-read" id='first-option'>{{bookstatus[book_index]}}</button>
         <mat-menu #menu="matMenu">
             <button mat-menu-item (click)="book_status('second-option')" id='second-option'>{{type1}}</button>

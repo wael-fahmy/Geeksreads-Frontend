@@ -1,50 +1,77 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import { ReviewDetails } from './reviews-entity.model';
+import { BookDetails } from '../book-entity/book-entity.model';
+import { AuthorDetails } from '../book-entity/book-entity.model';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({ providedIn: 'root' })
 
 // tslint:disable-next-line:class-name
 export class ReviewerDetails_Service {
-/**
- * Creates an instance of ReviewerDetails_Service.
- * @param {HttpClient} http
- * @memberof ReviewerDetails_Service
- */
 constructor(private http: HttpClient) { }
 liked = 1;
-// tslint:disable-next-line: variable-name
-/**
- *
- * variable list used to carry reviews list
- * @private
- * @type {ReviewDetails[]}
- * @memberof ReviewerDetails_Service
- */
 private reviewer_details: ReviewDetails[] = [];
-// tslint:disable-next-line: variable-name
-/**
- *
- * vairable used to carry list updates
- * @private
- * @memberof ReviewerDetails_Service
- */
 private reviewer_detailsUpdated = new Subject<ReviewDetails[]>();
-/**
- *
- * fucntion used to get information recieved from server
- * @memberof ReviewerDetails_Service
- */
-get_Review_Info() {
-        this.http.get<{ message: string, reviewer_details: ReviewDetails[] }>('http://localhost:3000/api/reviewerdata').
+private book_detailsUpdated = new Subject<BookDetails[]>();
+private book_details: BookDetails[] = [];
+private author_details: AuthorDetails[] = [];
+private author_detailsUpdated = new Subject<AuthorDetails[]>();
+//https://geeksreads.herokuapp.com
+get_Review_Info(BookID: string, UserID: string) {
+        this.http.get('http://https://geeksreads.herokuapp.com/api/reviews/getrev', {
+            params: {
+            bookId: BookID,
+            UserId: UserID
+        }
+    }).
+    subscribe((reviewdata: any) => {
+        console.log(reviewdata);
+        this.reviewer_details[0] = reviewdata;
+        this.reviewer_detailsUpdated.next([...this.reviewer_details]);
+    }, (error: { json: () => void; }) => {
+        console.log(error);
+    });
+}
+get_review_Info_updated() {
+        return this.reviewer_detailsUpdated.asObservable();
+    }
+get_book_Info(bookid: string) {
+        this.http.get('https://geeksreads.herokuapp.com/api/books/id', { params: {
+            book_id: bookid
+    }
+        }).
             // tslint:disable-next-line:variable-name
-            subscribe((reviewdata) => {
-                this.reviewer_details = reviewdata.reviewer_details;
-                this.reviewer_detailsUpdated.next([...this.reviewer_details]);
+            subscribe((bookdata: any) => {
+                this.book_details[0] = bookdata;
+                this.book_detailsUpdated.next([...this.book_details]);
+            }, (error: { json: () => void; }) => {
+                console.log(error);
             });
     }
-    request_reviewer_like(reviewc_id: string, review_like: string) {
+get_book_Info_updated() {
+        return this.book_detailsUpdated.asObservable();
+    }
+    get_author_Info(authorid: string) {
+        this.http.get('https://geeksreads.herokuapp.com/api/authors/id', {
+            params: {
+            auth_id: authorid,
+            }
+        }).
+            // tslint:disable-next-line:variable-name
+            subscribe((authordata: AuthorDetails) => {
+                console.log(authordata);
+                this.author_details[0] = authordata;
+                console.log(authordata);
+                this.author_detailsUpdated.next([...this.author_details]);
+            }, (error: { json: () => void; }) => {
+                console.log(error);
+            });
+    }
+    get_author_Info_updated() {
+        return this.author_detailsUpdated.asObservable();
+    }
+/*request_reviewer_like(reviewc_id: string, review_like: string) {
 // tslint:disable-next-line: radix
 // tslint:disable-next-line: max-line-length
         const review: ReviewDetails = {reviewer_id: reviewc_id, reviewer_likes: review_like, reviewer_body: null,
@@ -54,14 +81,5 @@ get_Review_Info() {
         .subscribe ((responseData) => {
             console.log(responseData.message);
         });
-    }
-    /**
-     *
-     * function used to get updated reviews
-     * @returns
-     * @memberof ReviewerDetails_Service
-     */
-    get_review_Info_updated() {
-        return this.reviewer_detailsUpdated.asObservable();
-    }
+    }*/
 }

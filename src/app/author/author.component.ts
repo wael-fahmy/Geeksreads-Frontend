@@ -35,6 +35,8 @@ export class AuthorComponent implements OnInit {
    * @memberof AuthorComponent
    */
   private authorBooksSubscription: Subscription;
+
+  public authorBooksModel: AuthorBooksModel[] = [];
   /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   //                                                           HTML Variables                                                            //
   /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -68,6 +70,11 @@ export class AuthorComponent implements OnInit {
    */
   authorDetails = '';
 
+  authorBookId: string[] = [];
+  authorBookName: string[] = [];
+  authorBookPicture: string[] = [];
+  authorBookRating: string[] = [];
+  authorBookShelf: string[] = [];
   /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   //                                                              Methods                                                                //
   /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -140,22 +147,29 @@ export class AuthorComponent implements OnInit {
 
     this.authorService.getAuthorInfo(this.snapshotParam);
     this.authorSubscription = this.authorService.getAuthorInfoUpdated()
-      .subscribe((authorInformation) => {
+      .subscribe((authorInformation: AuthorModel) => {
         this.authorId = authorInformation.AuthorId;
         this.authorName = authorInformation.AuthorName;
         this.authorPicture = authorInformation.Photo;
         this.authorNumberOfFollowers = authorInformation.FollowingUserId.length.toString();
         this.authorDetails = authorInformation.About;
         // this.authorIsFollowing = this.authorInfo.authorIsFollowing;
-        console.log(authorInformation);
       }, (error: { json: () => void; }) => {
         console.log(error);
       });
 
     this.authorService.getBooksByAuthor(this.snapshotParam);
     this.authorBooksSubscription = this.authorService.getBooksByAuthorUpdated()
-      .subscribe((authorBooksInformation) => {
-        console.log(authorBooksInformation);
+      .subscribe((authorBooksInformation: AuthorBooksModel[]) => {
+        this.authorBooksModel = authorBooksInformation;
+        console.log(this.authorBooksModel);
+        for (let i = 0; i < this.authorBooksModel.length; i++) {
+          this.authorBookName[i] = this.authorBooksModel[i].Title;
+          this.authorBookShelf[i] = this.authorBooksModel[i].ReadStatus;
+          this.authorBookPicture[i] = this.authorBooksModel[i].Cover;
+          this.authorBookRating[i] = this.authorBooksModel[i].BookRating.$numberDecimal;
+          this.authorBookId[i] = this.authorBooksModel[i].BookId;
+        }
       }, (error: { json: () => void; }) => {
         console.log(error);
       });

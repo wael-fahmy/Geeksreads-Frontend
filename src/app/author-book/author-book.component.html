@@ -2,14 +2,14 @@
     <div class="author-book-header">
         <div class="author-book-stats">
             <div class="author-book-image">
-                <a href={{authorBookLink}} target="_blank"><img src={{authorBookPicture}} alt="{{authorBookName}}'s Book Cover"></a>
+                <a [routerLink]="['/book', bookId]" target="_blank"><img src={{bookImage}} alt="{{authorBookName}}'s Book Cover"></a>
             </div>
             <div class="author-book-info-details">
-                <a href={{authorBookLink}} target="_blank" id="author-book-name">{{authorBookName}}</a>
+                <a [routerLink]="['/book', bookId]" target="_blank" id="author-book-name">{{bookName}}</a>
                 <div class='author-book-rating-div'>
-                    Rating <span id='author-book-rating'>{{authorBookRating}}</span>
+                    Rating <span id='author-book-rating'>{{bookRating}}</span>
                 </div>
-                <button mat-button id="author-book-shelf-button" [matMenuTriggerFor]="bookShelf" #addToShelf>{{shelfAction}}</button>
+                <button mat-button id="author-book-shelf-button" [matMenuTriggerFor]="bookShelf" #addToShelf>{{bookShelfStatus}}</button>
                 <mat-menu #bookShelf="matMenu">
                     <button mat-menu-item (click)="wantToRead()" id="want-to-read">Want to Read</button>
                     <button mat-menu-item (click)="currentlyReading()" id="currently-reading">Currently Reading</button>

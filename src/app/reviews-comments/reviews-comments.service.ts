@@ -38,11 +38,18 @@ private comments_detailsUpdated = new Subject<CommentsDetails[]>();
  * @memberof CommentsDetails_Service
  */
 get_comments_Info() {
-        this.http.get<{ message: string, comments_details: CommentsDetails[] }>('http://localhost:3000/api/reviewcomments').
+        this.http.get('https://geeksreads.herokuapp.com/api/comments/list',
+        { params: {
+            ReviewId: '5cc59a85267d4b9050f94b53'
+        }
+            }).
             // tslint:disable-next-line:variable-name
-            subscribe((commentsdata) => {
-                this.comments_details = commentsdata.comments_details;
+            subscribe((commentsdata: any) => {
+                this.comments_details = commentsdata;
+                console.log(this.comments_details);
                 this.comments_detailsUpdated.next([...this.comments_details]);
+            }, (error: { json: () => void; }) => {
+                console.log(error);
             });
     }
     /**

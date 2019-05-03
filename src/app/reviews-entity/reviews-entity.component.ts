@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ReviewDetails } from './reviews-entity.model';
 import { Subscription } from 'rxjs';
+import { BookDetails } from '../book-entity/book-entity.model';
+import { AuthorDetails } from '../book-entity/book-entity.model';
 import { ReviewerDetails_Service } from './reviews-entity.service';
 import { delay } from 'q';
 @Component({
@@ -10,199 +12,87 @@ import { delay } from 'q';
 })
 export class ReviewsEntityComponent implements OnInit {
 
-  // tslint:disable-next-line: prefer-const
-/**
- *
- * vairbale used to store available option of read button
- * @type {string}
- * @memberof BookEntityComponent
- */
-type1: string;
-/**
- *
- * vairbale used to store available option of read button
- * @type {string}
- * @memberof BookEntityComponent
- */
-type2: string;
-  /**
-   *
-   * variable list used to carry book title
-   * @type {string []}
-   * @memberof ReviewsEntityComponent
-   */
+  type1: string;
+  type2: string;
   booktitle: string [] = [];
-  /**
-   *
-   * variable list used to carry book image
-   * @type {string []}
-   * @memberof ReviewsEntityComponent
-   */
   bookimage: string [] = [];
-  /**
-   *
-   * variable list used to carry book author
-   * @type {string []}
-   * @memberof ReviewsEntityComponent
-   */
-  bookauthor: string [] = [];
-  /**
-   *
-   * variable list used to carry book date
-   * @type {string []}
-   * @memberof ReviewsEntityComponent
-   */
   bookreaddate: string [] = [];
-  /**
-   *
-   * variable list used to carry book id
-   * @type {string []}
-   * @memberof ReviewsEntityComponent
-   */
-  bookid: string [] = [];
-  /**
-   *
-   * variable list used to carry reviewer id
-   * @type {string []}
-   * @memberof ReviewsEntityComponent
-   */
-  reviewerid: string [] = [];
-  /**
-   *
-   * variable list used to carry reviewer image
-   * @type {string []}
-   * @memberof ReviewsEntityComponent
-   */
-  reviewerimage: string [] = [];
-  /**
-   *
-   * variable list used to carry reviewer rate
-   * @type {string []}
-   * @memberof ReviewsEntityComponent
-   */
-  reviewerrate: string [] = [];
-  /**
-   *
-   * variable list used to carry reviewer name
-   * @type {string []}
-   * @memberof ReviewsEntityComponent
-   */
-  reviewername: string [] = [];
-  /**
-   *
-   * variable list used to carry reviewer body
-   * @type {string []}
-   * @memberof ReviewsEntityComponent
-   */
+  bookauthorid: string [] = [];
+  /////////////////////////////////////
+  reviewerid: string[] = [];
+  reviewerrate: any [] = [];
+  reviewerdate: any [] = [];
   reviewerbody: string [] = [];
-  /**
-   *
-   * variable list used to carry reviewer likes
-   * @type {string []}
-   * @memberof ReviewsEntityComponent
-   */
-  reviewerlikes: string [] = [];
-  /**
-   *
-   * variable list used to carry reviewer comments
-   * @type {string []}
-   * @memberof ReviewsEntityComponent
-   */
+  bookId: string [] = [];
+  userId: string [] = [];
+  reviewername: string [] = [];
+  reviewerlikes: any [] = [];
+  reviewerimage: string [] = [];
   reviewercomments: string [] = [];
-  /**
-   *
-   * variable list used to carry reviewer date
-   * @type {string []}
-   * @memberof ReviewsEntityComponent
-   */
-  reviewerdate: string [] = [];
-  // tslint:disable-next-line:variable-name
-  /**
-   *
-   * variable used to carry Subscription
-   * @private
-   * @type {Subscription}
-   * @memberof ReviewsEntityComponent
-   */
+  //////////////////////////////////////
+  bookauthor: string [] = [];
+  /////////////////////////////////////
   private Sub_profile: Subscription;
-  // tslint:disable-next-line:variable-name
-  /**
-   *
-   * variable used to carry review_details
-   * @type {ReviewDetails[]}
-   * @memberof ReviewsEntityComponent
-   */
   public review_details: ReviewDetails[] = [];
-  // tslint:disable-next-line: variable-name
-  /**
-   *
-   * variable used to carry half of review body
-   * @type {string []}
-   * @memberof ReviewsEntityComponent
-   */
+  public book_details: BookDetails[] = [];
+  public author_details: AuthorDetails[] = [];
+  //////////////////////////////////////
   public befor_dots: string [] = [];
-// tslint:disable-next-line: variable-name
-/**
- *
- * variable used to carry half of review body
- * @type {string []}
- * @memberof ReviewsEntityComponent
- */
-public after_dots: string [] = [];
-// tslint:disable-next-line: variable-name
-/**
- * Creates an instance of ReviewsEntityComponent.
- * @param {ReviewerDetails_Service} review_service
- * @memberof ReviewsEntityComponent
- */
+  public after_dots: string [] = [];
 constructor(public review_service: ReviewerDetails_Service) { }
-/**
- *
- * function used to intilize page and set list of reviews
- * @memberof ReviewsEntityComponent
- */
 ngOnInit() {
-    this.review_service.get_Review_Info();                                  // to get the user info from the service
+    const BookID = '5c9114a0d345b4a65637eacc';
+    const UserID = '5cc5df8c2e9c5800172864c9';
+    this.review_service.get_Review_Info(BookID, UserID);                                  // to get the user info from the service
     // tslint:disable-next-line:variable-name
     this.Sub_profile = this.review_service.get_review_Info_updated().subscribe((review_Information: ReviewDetails[]) => {
       this.review_details = review_Information;
       this.SetElements();
-      this.SplitString();
-      /* console.log(this.User_info.User_Name)
-      console.log(this.User_info.user_id)
-      console.log(this.User_info.User_Photo)*/
+    });
+    this.review_service.get_book_Info(BookID);                            // to get the user info from the service
+    // tslint:disable-next-line:variable-name
+    this.Sub_profile = this.review_service.get_book_Info_updated().subscribe((book_Information: BookDetails[]) => {
+      this.book_details = book_Information;
+      this.SetInfoBook();
     });
     this.type1 = 'Currently Reading';
     this.type2 = 'Read';
+    const author = localStorage.getItem('authorID');
+    this.review_service.get_author_Info(author);                                  // to get the user info from the service
+    // tslint:disable-next-line:variable-name
+    this.Sub_profile = this.review_service.get_author_Info_updated().subscribe((author_Information: AuthorDetails[]) => {
+      this.author_details = author_Information;
+      this.bookauthor[0] = this.author_details[0].AuthorName;
+    });
   }
-  /**
-   *
-   * function used to set lists elements
-   * @memberof ReviewsEntityComponent
-   */
   SetElements() {
+    /*
     // tslint:disable-next-line: prefer-for-of
     for (let x = 0; x < this.review_details.length; x++) {
-      this.booktitle[x] = this.review_details[x].book_title;
-      this.bookimage[x] = this.review_details[x].book_image;
-      this.bookauthor[x] = this.review_details[x].book_author;
-      this.bookreaddate[x] = this.review_details[x].reviewer_date;
-      this.bookid[x] = this.review_details[x].book_id;
-      this.reviewerid[x] = this.review_details[x].reviewer_id;
-      this.reviewerimage[x] = this.review_details[x].reviewer_image;
-      this.reviewerrate[x] = this.review_details[x].reviewer_rate;
-      this.reviewername[x] = this.review_details[x].reviewer_name;
-      this.reviewerbody[x] = this.review_details[x].reviewer_body;
-      this.reviewerlikes[x] = this.review_details[x].reviewer_likes;
-      this.reviewercomments[x] = this.review_details[x].reviewer_comments;
-      this.reviewerdate[x] = this.review_details[x].reviewer_date;
+      this.bookreaddate[x] = this.review_details[x].reviewDate;
+      this.bookId[x] = this.review_details[x].bookId;
+      this.reviewerid[x] = this.review_details[x].reviewId;
+      this.reviewerrate[x] = this.review_details[x].rating;
+      this.reviewername[x] = this.review_details[x].userName;
+      this.reviewerbody[x] = this.review_details[x].reviewBody;
+      this.reviewerlikes[x] = this.review_details[x].LikesCount;
+      this.reviewerdate[x] = this.review_details[x].reviewDate;
     }
+    */
+    this.bookreaddate[0] = '';
+    this.bookId[0] = '';
+    this.reviewerid[0] = '';
+    this.reviewerrate[0] = '';
+    this.reviewername[0] = '';
+    this.reviewerbody[0] = '';
+    this.reviewerlikes[0] = '';
+    this.reviewerdate[0] = '';
   }
-  /**
-   *
-   * function used to expand the review body
-   * @memberof ReviewsEntityComponent
-   */
+  SetInfoBook() {
+    this.bookimage[0] = this.book_details[0].Cover;
+    this.booktitle[0] = this.book_details[0].Title;
+    this.bookauthorid[0] = this.book_details[0].AuthorId;
+  }
   more_review_discription() {
     const dots = document.getElementById('dots-user-review');
     const moreText = document.getElementById('more-review');
@@ -237,38 +127,17 @@ ngOnInit() {
       x = y.toString();
       liking.innerHTML = x;
     }
-    this.review_service.request_reviewer_like(index.reviewer_id, liking.innerHTML.toString());
+    //this.review_service.request_reviewer_like(index.reviewer_id, liking.innerHTML.toString());
   }
-  /**
-   *
-   * function used to split review body
-   * @memberof ReviewsEntityComponent
-   */
   SplitString() {
-// tslint:disable-next-line: variable-name
-    let starting_indext = 0;
-// tslint:disable-next-line: prefer-for-of
-    for (let i = 0; i < this.review_details.length; i ++) {
-// tslint:disable-next-line: prefer-const
-      let word = this.review_details[i].reviewer_body.split(',');
-      this.befor_dots[starting_indext] = word[0];
-      this.after_dots[starting_indext] = word[1];
-      starting_indext++;
-    }
   }
   book_status(index: string) {
     const first = document.getElementById(index);
     const second = document.getElementById('first-option');
-    let x = first.innerHTML.toString();
+    const x = first.innerHTML.toString();
     first.innerHTML = second.innerHTML.toString();
     second.innerHTML = x;
   }
-/**
- *
- * function used to assign status of book on intilize
- * @param {string} index
- * @memberof BookEntityComponent
- */
 assign_status(index: string) {
   if (index === 'Want To Read') {
     this.type1 = 'Currently Reading';

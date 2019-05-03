@@ -28,7 +28,7 @@ export class AuthorService {
    * @type {AuthorBooksModel}
    * @memberof AuthorService
    */
-  private authorBooks: AuthorBooksModel;
+  private authorBooks: AuthorBooksModel[] = [];
 
   /**
    *  Subject object
@@ -42,7 +42,7 @@ export class AuthorService {
    * @private
    * @memberof AuthorService
    */
-  private authorBooksUpdated = new Subject<AuthorBooksModel>();
+  private authorBooksUpdated = new Subject<AuthorBooksModel[]>();
 
   /**
    *  Get the JSON response and update the author info
@@ -56,7 +56,6 @@ export class AuthorService {
         }
       })
       .subscribe((serverResponse: AuthorModel) => {
-        console.log(serverResponse);
         this.author = serverResponse;
         this.authorUpdated.next(this.author);
       }
@@ -80,14 +79,13 @@ export class AuthorService {
    */
   getBooksByAuthor(snapshotParam: string) {
     this.http
-      .get('https://geeksreads.herokuapp.com/api/books/author',{
+      .get('https://geeksreads.herokuapp.com/api/books/author', {
         params: {
         search_param: snapshotParam,
       }})
-      .subscribe((serverResponse: AuthorBooksModel) => {
-        console.log(serverResponse);
-        this.authorBooks = serverResponse;
-        this.authorBooksUpdated.next(this.authorBooks);
+      .subscribe((serverResponse: any) => {
+        this.authorBooks[0] = serverResponse;
+        this.authorBooksUpdated.next([...this.authorBooks]);
       }
         , (error: { json: () => void; }) => {
           console.log(error);

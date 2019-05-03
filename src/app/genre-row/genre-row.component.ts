@@ -71,10 +71,10 @@ export class GenreRowComponent implements OnInit {
     this.rowServicesObj.get_row(this.genreType);
     this.subprofile = this.rowServicesObj.get_row_updated().subscribe((RowData: Row) => {
       this.RowObj = RowData;
-      this.genreType = this.RowObj.genretype;
-      this.bookImage1 = this.RowObj.bookimage1;
-      this.bookImage2 = this.RowObj.bookimage2;
-      this.bookImage3 = this.RowObj.bookimage3;
+      // this.genreType = this.RowObj.genretype;
+      // this.bookImage1 = this.RowObj.bookimage1;
+      // this.bookImage2 = this.RowObj.bookimage2;
+      // this.bookImage3 = this.RowObj.bookimage3;
     });
   }
 }
