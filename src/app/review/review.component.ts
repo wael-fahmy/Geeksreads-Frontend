@@ -47,5 +47,15 @@ export class ReviewComponent implements OnInit {
       moreText.style.display = 'inline';
     }
   }
+  ClickStorage() {
+    localStorage.removeItem('authorID');
+    localStorage.removeItem('ISBN');
+    localStorage.removeItem('bookTitle');
+    localStorage.removeItem('publishedDate');
+    localStorage.removeItem('publisher');
+    localStorage.removeItem('pages');
+    localStorage.removeItem('genre');
+    localStorage.removeItem('');
+  }
 
 }
