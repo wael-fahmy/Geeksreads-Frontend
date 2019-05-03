@@ -164,11 +164,7 @@ export class AuthorComponent implements OnInit {
         this.authorBooksModel = authorBooksInformation;
         console.log(this.authorBooksModel);
         for (let i = 0; i < this.authorBooksModel.length; i++) {
-          this.authorBookName[i] = this.authorBooksModel[i].Title;
-          this.authorBookShelf[i] = this.authorBooksModel[i].ReadStatus;
-          this.authorBookPicture[i] = this.authorBooksModel[i].Cover;
-          this.authorBookRating[i] = this.authorBooksModel[i].BookRating.$numberDecimal;
-          this.authorBookId[i] = this.authorBooksModel[i].BookId;
+          this.authorBooksModel[i].BookRating = this.authorBooksModel[i].BookRating.$numberDecimal;
         }
       }, (error: { json: () => void; }) => {
         console.log(error);
