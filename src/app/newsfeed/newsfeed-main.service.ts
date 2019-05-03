@@ -44,10 +44,15 @@ export class PostsServices {
    * @memberof PostsServices
    */
   getpost() {
-    const UserToken = {
-      token : localStorage.getItem('token')
+    if (localStorage.getItem('userId') === null) {
+      this.router.navigate(['/sign-in']);
+      return;
+    }
+    const data = {
+      myuserId: localStorage.getItem('userId'),
+      token: localStorage.getItem('token'),
     };
-    this.http.post<{ receivedPost: Post[] }>('https://geeksreads.herokuapp.com/api/user_status/show' , UserToken)
+    this.http.post<{ receivedPost: Post[] }>('https://geeksreads.herokuapp.com/api/user_status/show' , data)
       .subscribe((serverResponse) => {
         console.log(serverResponse.receivedPost);
         this.post = serverResponse.receivedPost;

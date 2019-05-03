@@ -3,7 +3,7 @@
  *  @export
  *  @interface Post
  */
-export interface Post {
+export class Post {
 
 
     /**
