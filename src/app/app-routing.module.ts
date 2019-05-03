@@ -51,7 +51,7 @@ const routes: Routes = [
     component: BookComponent
   },
   {
-    path: 'reviews',
+    path: 'reviews/:reviewid',
     component: ReviewsComponent
   },
   {

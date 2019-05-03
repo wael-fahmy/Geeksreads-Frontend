@@ -28,6 +28,7 @@ liked = 1;
      * @memberof Bookreviews_Service
      */
     private review_information: Bookreviews[] = [];
+    private review_info: Bookreviews [] = [];
 
     // tslint:disable-next-line:variable-name
 
@@ -44,17 +45,14 @@ liked = 1;
      * @memberof Bookreviews_Service
      */
     get_review_Info() {
-        this.http.get('https://geeksreads.herokuapp.com/api/reviews/getrev',
+        this.http.get('https://geeksreads.herokuapp.com/api/books/reviewbyid',
             { params: {
-                bookId: '5c9114a012d11bb226399497',
-                UserId: '5cc5df8c2e9c5800172864c9'
+                book_id: '5c911452bbfd1717b8a7a169'
         }
             }).
             // tslint:disable-next-line:variable-name
-            subscribe((reviewdata: any) => {
-                this.review_information = reviewdata;
-                console.log(reviewdata);
-                console.log(this.review_information);
+            subscribe((reviewdata: Bookreviews[]) => {
+                this.review_information[0] = reviewdata;
                 this.review_informationUpdated.next([...this.review_information]);
             }, (error: { json: () => void; }) => {
                 console.log(error);

@@ -10,114 +10,25 @@ import { delay } from 'q';
   styleUrls: ['./book-comment-user.component.css']
 })
 export class BookCommentUserComponent implements OnInit {
-// tslint:disable-next-line: variable-name
-/**
- *
- * vairbale used to take subscription
- * @private
- * @type {Subscription}
- * @memberof BookCommentUserComponent
- */
+
 private Sub_profile: Subscription;
-/**
- *
- * variable list used to store reviewers id
- * @type {string []}
- * @memberof BookCommentUserComponent
- */
+//////////////////////////////////////////////
 reviewerid: string [] = [];
-/**
- *
- * variable list used to store reviewers name
- * @type {string []}
- * @memberof BookCommentUserComponent
- */
 reviewername: string [] = [];
-/**
- *
- * variable list used to store reviewers image
- * @type {string []}
- * @memberof BookCommentUserComponent
- */
 reviewerimage: string [] = [];
-/**
- *
- * variable list used to store reviewers date
- * @type {string []}
- * @memberof BookCommentUserComponent
- */
 reviewerdate: string [] = [];
-/**
- *
- * variable list used to store reviewers body
- * @type {string []}
- * @memberof BookCommentUserComponent
- */
 reviewerbody: string [] = [];
-/**
- *
- * variable list used to store reviewers rate
- * @type {string []}
- * @memberof BookCommentUserComponent
- */
 reviewerrate: string [] = [];
-/**
- *
- * variable list used to store reviewers likes
- * @type {string []}
- * @memberof BookCommentUserComponent
- */
 reviewerlikes: string [] = [];
-/**
- *
- * variable list used to store reviewers comments
- * @type {string []}
- * @memberof BookCommentUserComponent
- */
 reviewercomments: string [] = [];
-// tslint:disable-next-line: variable-name
-/**
- *
- * variable list used to store reviewers list
- * @type {Bookreviews[]}
- * @memberof BookCommentUserComponent
- */
+userid: string [] = [];
+////////////////////////////////////////////////
 public review_information: Bookreviews[] = [];
-// tslint:disable-next-line: variable-name
-/**
- *
- * variable list used to store reviewers half body
- * @type {string []}
- * @memberof BookCommentUserComponent
- */
 public befor_dots: string [] = [];
-// tslint:disable-next-line: variable-name
-/**
- *
- * variable list used to store reviewers half body
- * @type {string []}
- * @memberof BookCommentUserComponent
- */
 public after_dots: string [] = [];
-// tslint:disable-next-line: variable-name
-/**
- *
- * variable used to expande list or not
- * @memberof BookCommentUserComponent
- */
 public load_more_reviews = 0;
-// tslint:disable-next-line: variable-name
-/**
- * Creates an instance of BookCommentUserComponent.
- * @param {Bookreviews_Service} bookreviews_service
- * @memberof BookCommentUserComponent
- */
 constructor(public bookreviews_service: Bookreviews_Service, render: Renderer2) { }
-  /**
-   *
-   * function used to see more reviews by other users
-   * @memberof BookCommentUserComponent
-   */
+
   more_user_preview(x: number) {
     let dots: HTMLElement;
     let moreText: HTMLElement;
@@ -175,26 +86,13 @@ constructor(public bookreviews_service: Bookreviews_Service, render: Renderer2) 
       this.load_more_reviews = 0;
   }
 }
-/**
- *
- * function used for intilization of page and get request
- * @memberof BookCommentUserComponent
- */
 ngOnInit() {
     this.bookreviews_service.get_review_Info();                                  // to get the user info from the service
     // tslint:disable-next-line:variable-name
     this.Sub_profile = this.bookreviews_service.get_review_Info_updated()
     .subscribe((review_Information: Bookreviews[]) => {
       this.review_information = review_Information;
-      console.log(review_Information);
-      console.log(this.review_information);
       this.SetElements();
-      console.log(this.reviewername[0]);
-      //this.SplitString();
-      //console.log(this.review_information[0].userId);
-      /* console.log(this.User_info.User_Name)
-      console.log(this.User_info.user_id)
-      console.log(this.User_info.User_Photo)*/
     });
   }
   /**
@@ -205,18 +103,17 @@ ngOnInit() {
   SetElements() {
 // tslint:disable-next-line: prefer-for-of
     for (let x = 0; x < this.review_information.length; x++) {
-      console.log(this.review_information[x].userName);
-      console.log(this.review_information.length);
-      this.reviewerid[x] = this.review_information[x].userId;
+      this.reviewerid[x] = this.review_information[x].reviewId;
       this.reviewername[x] = this.review_information[x].userName;
       this.reviewerlikes[x] = this.review_information[x].likesCount;
-      this.reviewercomments[x] = this.review_information[x].reviewer_comments;
+      this.reviewercomments[x] = this.review_information[x].reviewBody;
       this.reviewerimage[x] = this.review_information[x].photo;
       const fixed = this.review_information[x].reviewDate.split('T');
       this.review_information[x].reviewDate = fixed[0];
       this.reviewerdate[x] = fixed[0];
       this.reviewerbody[x] = this.review_information[x].reviewBody;
       this.reviewerrate[x] = this.review_information[x].rating;
+      this.userid[x] = this.review_information[x].userId;
     }
   }
   /**

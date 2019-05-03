@@ -121,7 +121,7 @@ public after_dots: string [] = [];
     // tslint:disable-next-line:variable-name
     this.Sub_profile = this.authordetails_service.get_author_details_updated().subscribe((author_Information: AuthorDetails[]) => {
       this.author_details = author_Information;
-      this.SplitString();
+      this.SplitString(this.author_details[0].About);
       this.SetElements();
       /* console.log(this.User_info.User_Name)
       console.log(this.User_info.user_id)
@@ -186,16 +186,20 @@ public after_dots: string [] = [];
    * function used for spliting author body
    * @memberof BookAuthorComponent
    */
-  SplitString() {
-    let starting_indext = 0;
-// tslint:disable-next-line: prefer-for-of
-    for (let i = 0; i < this.author_details.length; i ++) {
-      const word = this.author_details[i].About.split(',');
-      this.befor_dots[starting_indext] = word[0];
-      this.after_dots[starting_indext] = word[1];
-      starting_indext++;
+  SplitString(index: string) {
+    const word = this.author_details[0].About.split(',');
+    this.befor_dots[0] = word[0];
+    this.after_dots[0] = word[1];
+    const ReadMoreBt = document.getElementById('myBtn-author-discription');
+    const ReadMoreDot = document.getElementById('dots-author-discription');
+    console.log(this.author_details[0]);
+    console.log(this.befor_dots[0].length);
+    const check = this.author_details[0].About.split(' ');
+    if (check.length < 15) {
+      ReadMoreBt.style.display = 'none';
+      ReadMoreDot.style.display = 'none';
     }
-  }
+}
   /**
    *
    * function used to set list elements

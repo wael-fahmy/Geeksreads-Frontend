@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ReviewDetails } from './reviews-entity.model';
 import { Subscription } from 'rxjs';
 import { BookDetails } from '../book-entity/book-entity.model';
@@ -11,7 +11,7 @@ import { delay } from 'q';
   styleUrls: ['./reviews-entity.component.css']
 })
 export class ReviewsEntityComponent implements OnInit {
-
+  @Input() ReviewIDCompare;
   type1: string;
   type2: string;
   booktitle: string [] = [];
@@ -41,6 +41,7 @@ export class ReviewsEntityComponent implements OnInit {
   public after_dots: string [] = [];
 constructor(public review_service: ReviewerDetails_Service) { }
 ngOnInit() {
+    console.log(this.ReviewIDCompare);
     const BookID = '5c9114a0d345b4a65637eacc';
     const UserID = '5cc5df8c2e9c5800172864c9';
     this.review_service.get_Review_Info(BookID, UserID);                                  // to get the user info from the service

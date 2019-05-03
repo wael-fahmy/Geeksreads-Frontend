@@ -9,6 +9,7 @@ import { delay } from 'q';
   styleUrls: ['./reviews-comments.component.css']
 })
 export class ReviewsCommentsComponent implements OnInit {
+str: string;
 userimage: string [] = [];
 username: string [] = [];
 userid: string [] = [];
@@ -35,5 +36,9 @@ constructor(public comments_service: CommentsDetails_Service) { }
       this.userdate[x] = this.comment_details[x].date;
     }
   }
-
+  SendComment() {
+    console.log(this.str);
+    this.str = '';
+    this.comments_service.post_Review();
+  }
 }

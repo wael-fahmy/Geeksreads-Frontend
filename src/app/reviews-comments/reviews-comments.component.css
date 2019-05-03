@@ -11,6 +11,29 @@
     margin: 5px 0 0 10px;
     border-style: ridge;
 }
+#user-image-comment
+{
+    margin-left: 30px;
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+    border: darkgray 2px outset;
+}
+#adding-comment
+{
+    background-color: #f9f8f4;
+    margin-bottom: 0px;
+}
+#user-input
+{
+    width:85%;
+    margin-left: 40px;
+}
+#comment-send-bt
+{
+    background-color: gainsboro;
+    margin-left: 10px;
+}
 #user-name
 {
     color:rgb(40, 97, 83);
