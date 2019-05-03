@@ -52,7 +52,7 @@ liked = 1;
             }).
             // tslint:disable-next-line:variable-name
             subscribe((reviewdata: Bookreviews[]) => {
-                this.review_information[0] = reviewdata;
+                this.review_information = reviewdata;
                 this.review_informationUpdated.next([...this.review_information]);
             }, (error: { json: () => void; }) => {
                 console.log(error);
