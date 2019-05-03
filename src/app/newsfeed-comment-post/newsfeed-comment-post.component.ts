@@ -62,7 +62,7 @@ export class NewsfeedCommentPostComponent implements OnInit {
     this.PostsServices.getpost();
     this.Sub = this.PostsServices.get_post_updated().subscribe((Posts: Post[]) => {
     this.postObj = Posts;
-    this.userName = this.postObj[0].MakerName;
+    this.userName = this.postObj[0].CommentMakerPhoto;
     this.activityDate = this.postObj[0].CommentDate;
     this.comment = this.postObj[0].CommentBody;
     });
