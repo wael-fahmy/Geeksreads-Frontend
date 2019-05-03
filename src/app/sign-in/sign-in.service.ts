@@ -15,12 +15,14 @@ export class SignInService {
     this.http
       .post('https://geeksreads.herokuapp.com/api/auth/signin', data)
       .subscribe((serverResponse: any) => {
+        console.log(serverResponse);
         this.dataSharingService.isUserLoggedIn.next(true);
         localStorage.setItem('token', serverResponse.Token);
         localStorage.setItem('userId', serverResponse.UserId);
         this.router.navigate(['/newsfeed']);
       }, (error: { json: () => void; }) => {
         console.log(error.json);
+        alert(error['error']['ReturnMsg']);
       });
   }
   constructor(private http: HttpClient,

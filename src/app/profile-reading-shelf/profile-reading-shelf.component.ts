@@ -67,6 +67,7 @@ export class ProfileReadingShelfComponent implements OnInit {
    */
   ngOnInit() {
     this.countBooksService.get_List_of_books_reading();                    // to get the book info from the service
+    //this.countBooksService.get_List_of_books_reading_mockup();
     this.subList = this.countBooksService.get_List_of_books_reading_updated().
       subscribe((List: ListOfBooks[]) => {                     // subscribe the list of books recived
         this.listOfBooksReading = List;                              // and put it in the list of books to display them

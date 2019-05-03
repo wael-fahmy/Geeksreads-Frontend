@@ -523,29 +523,24 @@ app.use("/api/bookDetails", (req, res, next) => {
         book_details: book_details
     });
 });
-app.use("/api/list/read", (req, res, next) => {
+app.use("/api/users/read", (req, res, next) => {
     
     const Books = [{
-            bookId: '11',
-            bookName: "Harry Potter",
-            authorName: "J.K Rowling",
-            bookCover: "https://orig05.deviantart.net/e78f/f/2008/160/f/a/harry_potter_by_jonathan3333.jpg"
-            
-        },
-        {
-            bookId: '12',
-            bookName: "Game of Thrones",
-            authorName: "G.R.R Martin",
-            bookCover: "https://tse2.mm.bing.net/th?id=OIP.FN55nUOxccDTpCPhYOmVfgHaLU&pid=15.1&P=0&w=300&h=300"
-            
-        },
-        {
-            bookId: '13',
-            bookName: "Lord of the Rings",
-            authorName: "J.R.R Tolkien",
-            bookCover: "https://tse4.mm.bing.net/th?id=OIP.FZz1UZSbw_p_m5hdjUOM3AHaLF&pid=15.1&P=0&w=300&h=300"
-            
-        }
+        BookId: '11',
+        Title: "Harry Potter 2",
+        AuthorName: "J.K Rowling",
+        BookRating:"2.0",
+        Cover: "https://orig05.deviantart.net/e78f/f/2008/160/f/a/harry_potter_by_jonathan3333.jpg"
+        
+    },
+    {
+        BookId: '12',
+        Title: "Game of Thrones season 8",
+        AuthorName: "G.R.R Martin",
+        BookRating:"4.0",
+        Cover: "https://tse2.mm.bing.net/th?id=OIP.FN55nUOxccDTpCPhYOmVfgHaLU&pid=15.1&P=0&w=300&h=300"
+        
+    }
     ];
     res.status(200).json({
         message: "Posts fetched successfully!",
@@ -554,26 +549,21 @@ app.use("/api/list/read", (req, res, next) => {
 });
   
 
-app.use("/api/list/reading", (req, res, next) => {
+app.use("/api/users/reading", (req, res, next) => {
     const Books = [{
-        bookId: '11',
-        bookName: "7amoksha",
-        authorName: "J.K Rowling",
-        bookCover: "https://orig05.deviantart.net/e78f/f/2008/160/f/a/harry_potter_by_jonathan3333.jpg"
+        BookId: '11',
+        Title: "Harry Potter 2",
+        AuthorName: "J.K Rowling",
+        BookRating:"2.0",
+        Cover: "https://orig05.deviantart.net/e78f/f/2008/160/f/a/harry_potter_by_jonathan3333.jpg"
         
     },
     {
-        bookId: '12',
-        bookName: "Mas3od",
-        authorName: "G.R.R Martin",
-        bookCover: "https://tse2.mm.bing.net/th?id=OIP.FN55nUOxccDTpCPhYOmVfgHaLU&pid=15.1&P=0&w=300&h=300"
-        
-    },
-    {
-        bookId: '13',
-        bookName: "Lord of the Rings",
-        authorName: "J.R.R Tolkien",
-        bookCover: "https://tse4.mm.bing.net/th?id=OIP.FZz1UZSbw_p_m5hdjUOM3AHaLF&pid=15.1&P=0&w=300&h=300"
+        BookId: '13',
+        Title: "Lord of the Rings",
+        AuthorName: "J.R.R Tolkien",
+        BookRating:"1.0",
+        Cover: "https://tse4.mm.bing.net/th?id=OIP.FZz1UZSbw_p_m5hdjUOM3AHaLF&pid=15.1&P=0&w=300&h=300"
         
     }
 ];
@@ -584,27 +574,30 @@ res.status(200).json({
 });
 
 
-app.use("/api/list/toread", (req, res, next) => {
+app.use("/api/users/toread", (req, res, next) => {
 
     const Books = [{
-        bookId: '11',
-        bookName: "Harry Potter 2",
-        authorName: "J.K Rowling",
-        bookCover: "https://orig05.deviantart.net/e78f/f/2008/160/f/a/harry_potter_by_jonathan3333.jpg"
+        BookId: '11',
+        Title: "Harry Potter 2",
+        AuthorName: "J.K Rowling",
+        BookRating:"2.0",
+        Cover: "https://orig05.deviantart.net/e78f/f/2008/160/f/a/harry_potter_by_jonathan3333.jpg"
         
     },
     {
-        bookId: '12',
-        bookName: "Game of Thrones season 8",
-        authorName: "G.R.R Martin",
-        bookCover: "https://tse2.mm.bing.net/th?id=OIP.FN55nUOxccDTpCPhYOmVfgHaLU&pid=15.1&P=0&w=300&h=300"
+        BookId: '12',
+        Title: "Game of Thrones season 8",
+        AuthorName: "G.R.R Martin",
+        BookRating:"4.0",
+        Cover: "https://tse2.mm.bing.net/th?id=OIP.FN55nUOxccDTpCPhYOmVfgHaLU&pid=15.1&P=0&w=300&h=300"
         
     },
     {
-        bookId: '13',
-        bookName: "Lord of the Rings",
-        authorName: "J.R.R Tolkien",
-        bookCover: "https://tse4.mm.bing.net/th?id=OIP.FZz1UZSbw_p_m5hdjUOM3AHaLF&pid=15.1&P=0&w=300&h=300"
+        BookId: '13',
+        Title: "Lord of the Rings",
+        AuthorName: "J.R.R Tolkien",
+        BookRating:"1.0",
+        Cover: "https://tse4.mm.bing.net/th?id=OIP.FZz1UZSbw_p_m5hdjUOM3AHaLF&pid=15.1&P=0&w=300&h=300"
         
     }
 ];
@@ -617,13 +610,14 @@ res.status(200).json({
 });
 
 
-app.use("/api/title", (req, res, next) => {
+app.use("/api/users/info", (req, res, next) => {
     const User_Info = {
         UserId: '1',
         UserName: 'Marwan Medhat',
         UserEmail:'marwan_medhat@hotmail.com',
-        OwnedBookId:[],
-        UserPhoto: "https://tse2.mm.bing.net/th?id=OIP.FN55nUOxccDTpCPhYOmVfgHaLU&pid=15.1&P=0&w=300&h=300"
+        NoOfFollowings: 2,
+        NoOfFollowers: 3,
+        Photo: "https://tse2.mm.bing.net/th?id=OIP.FN55nUOxccDTpCPhYOmVfgHaLU&pid=15.1&P=0&w=300&h=300"
 
     };
 

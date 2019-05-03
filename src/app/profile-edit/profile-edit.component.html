@@ -3,24 +3,31 @@
     <div class="profile-edit-div">
         <img src="../../assets/logos/logo.png" alt="Geeksreads Logo" class="profile-edit-logo" />
     </div>
-    <form class="profile-edit-form">
+    <form class="profile-edit-form" (submit)="edit_profile_button()">
         <div class="input-user-photo">
             <label for="photo">Profile Photo</label>
             <br>
             <input type="file" name="photo" id="photo" />
         </div>
         <mat-form-field>
-            <input matInput placeholder="Enter your username" required name="userName" id="userName"/>
+          <input matInput [matDatepicker]="picker" [(ngModel)]="myDate" placeholder="Choose a date" [ngModelOptions]="{standalone: true}">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>
         <mat-form-field>
-            <input matInput placeholder="Enter your email" required name="email" id="email"/>
+            <input matInput placeholder="Enter your username" [(ngModel)]="username" required name="userName" id="userName"/>
         </mat-form-field>
         <mat-form-field hintLabel="Min 6 characters">
-            <input matInput #input minlength="6" required placeholder="Enter your password" name="password" id="password"/>
+            <input matInput #input minlength="6"  placeholder="Enter your Old password" [(ngModel)]="oldpassword" name="oldpass" id="oldpass"/>
         </mat-form-field>
+        <mat-form-field hintLabel="Min 6 characters">
+          <input matInput #input2 minlength="6"  placeholder="Enter your New password" [(ngModel)]="newpassword" name="newpass" id="newpass"/>
+      </mat-form-field>
         <button mat-raised-button class="btn" id="saveButton">Save</button>
     </form>
 </div>
+
+
 
 <!-- <div id="container">
     <div id="container-inner">

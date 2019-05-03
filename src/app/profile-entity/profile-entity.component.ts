@@ -70,7 +70,8 @@ export class ProfileEntityComponent implements OnInit {
    * @memberof ProfileEntityComponent
    */
   ngOnInit() {
-    this.titlesService.get_User_Info();                                  // to get the user info from the service
+    this.titlesService.get_User_Info();
+    //this.titlesService.get_user_info_mockup();                                  // to get the user info from the service
     this.subProfile = this.titlesService.get_User_Info_updated().       // once the class is initialized
       subscribe((userInformation: User) => {                            //  supscripe the value recieved
         this.userInfo = userInformation;

@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-
+import { AddToShelfService } from './add-to-shelf.service';
 /**
  *  Author Book Component
  *  @export
@@ -81,20 +81,10 @@ export class AuthorBookComponent implements OnInit {
   shelfAction = 'Add to Shelf';
 
   /**
-   *  Add book to a shelf
-   *  @param {string} bookShelf
-   *  @memberof AuthorBookComponent
-   */
-  bookShelf(bookShelf: string) {
-    // TODO: Send request
-    console.log('Adding this book to + ' + bookShelf);
-  }
-
-  /**
    *  Adds book to Want to Read Shelf
    */
   wantToRead() {
-    // TODO: Send request
+    this.addToShelfService.addToShelf('Want to read', this.bookId);
     this.authorBookIsInAShelf = true;
     this.shelfAction = 'Want to Read';
     document.getElementById('author-book-shelf-button').style.backgroundColor = '#f2f2f2';
@@ -106,19 +96,19 @@ export class AuthorBookComponent implements OnInit {
    *  Adds book to Currently Reading Shelf
    */
   currentlyReading() {
-    // TODO: Send request
+    this.addToShelfService.addToShelf('Currently Reading', this.bookId);
     this.authorBookIsInAShelf = true;
     this.shelfAction = 'Currently Reading';
     document.getElementById('author-book-shelf-button').style.backgroundColor = '#f2f2f2';
     document.getElementById('author-book-shelf-button').style.color = '#000000';
-    console.log('Adding to Reading Shelf');
+    console.log('Adding to Currently Reading Shelf');
   }
 
   /**
    *  Adds book to Read Shelf
    */
   read() {
-    // TODO: Send request
+    this.addToShelfService.addToShelf('Read', this.bookId);
     this.authorBookIsInAShelf = true;
     this.shelfAction = 'Read';
     document.getElementById('author-book-shelf-button').style.backgroundColor = '#f2f2f2';
@@ -130,12 +120,12 @@ export class AuthorBookComponent implements OnInit {
    *  Removes book from its current shelf
    */
   removeFromShelf() {
-    // TODO: Send request
+    this.addToShelfService.addToShelf('', this.bookId);
     this.authorBookIsInAShelf = false;
     this.shelfAction = 'Add to Shelf';
     document.getElementById('author-book-shelf-button').style.backgroundColor = '#409D69';
     document.getElementById('author-book-shelf-button').style.color = '#ffffff';
-    console.log('Adding to Read Shelf');
+    console.log('Removing from shelves');
   }
 
 
@@ -144,7 +134,7 @@ export class AuthorBookComponent implements OnInit {
    *  @param {AuthorBookService} authorBookService
    *  @memberof AuthorBookComponent
    */
-  constructor() { }
+  constructor(private addToShelfService: AddToShelfService) { }
 
   /**
    *  Author component initialization

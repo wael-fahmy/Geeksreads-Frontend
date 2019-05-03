@@ -49,6 +49,7 @@ import { VerifiedComponent } from './verified/verified.component';
 import { OtherUserProfileEntityComponent } from './other-user-profile-entity/other-user-profile-entity.component';
 import { PasswordResetComponent } from './password-reset/password-reset.component';
 import { DataSharingService } from './nav-bar/data-sharing.service';
+import { ProfileEditService } from './profile-edit/profile-edit.service';
 
 @NgModule({
   declarations: [
@@ -105,7 +106,8 @@ import { DataSharingService } from './nav-bar/data-sharing.service';
     ReactiveFormsModule
   ],
   providers: [
-    DataSharingService
+    DataSharingService,
+    ProfileEditService
   ],
   bootstrap: [AppComponent]
 })
