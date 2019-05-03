@@ -81,16 +81,18 @@ export class ProfileComponent implements OnInit {
    * @memberof ProfileComponent
    */
   ngOnInit() {
-    // this.CountBooksService.get_count_read();
+    
 
     this.countBooksService.get_List_of_books_read();                    // to get the book info from the service
-    this.Sub = this.countBooksService.get_List_of_books_read_updated().
+   //this.countBooksService.get_List_of_books_read_mockup(); 
+   this.Sub = this.countBooksService.get_List_of_books_read_updated().
       subscribe((ListRead: ListOfBooks[]) => {                     // subscribe the list of books recived
         this.listOfBooksRead = ListRead;                              // and put it in the list of books to display them
         this.numRead = this.listOfBooksRead.length;
       });
 
       this.countBooksService.get_List_of_books_want_to_read();                    // to get the book info from the service
+     //this.countBooksService.get_List_of_books_to_read_mockup();
       this.Sub2 = this.countBooksService.get_List_of_books_want_to_read_updated().
         subscribe((ListToRead: ListOfBooks[]) => {                     // subscribe the list of books recived
           this.listOfBooksToRead = ListToRead;                              // and put it in the list of books to display them
@@ -98,6 +100,7 @@ export class ProfileComponent implements OnInit {
         });
 
       this.countBooksService.get_List_of_books_reading();                    // to get the book info from the service
+      //this.countBooksService.get_List_of_books_reading_mockup();
       this.Sub3 = this.countBooksService.get_List_of_books_reading_updated().
         subscribe((ListReading: ListOfBooks[]) => {                     // subscribe the list of books recived
           this.listOfBooksReading = ListReading;                              // and put it in the list of books to display them

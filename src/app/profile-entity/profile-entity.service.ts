@@ -47,21 +47,21 @@ export class TitlesService {
    * and put it in the user object to display it
    * @memberof TitlesService
    */
-  get_User_Info() {    // give the signed in user id as a parameter
-    const UserToken = {
-      token: localStorage.getItem('token'),
-      UserID: localStorage.getItem('userId')
-     };
-    this.http.post('https://geeksreads.herokuapp.com/api/users/me', UserToken
-    ).    // get response from this URL
-      subscribe((UserData: User) => {       // subscribe the recived data
-        // console.log(UserData);
-        this.User = UserData;       // and put it in the user object to display it
-        this.dataSharingService.userName.next(UserData.UserName);
-        console.log(this.User);
-        this.userUpdated.next(this.User);
-      });
-  }
+   get_User_Info() {    // give the signed in user id as a parameter
+     const UserToken = {
+       token: localStorage.getItem('token'),
+       UserID: localStorage.getItem('userId')
+      };
+     this.http.post('https://geeksreads.herokuapp.com/api/users/me', UserToken
+     ).    // get response from this URL
+       subscribe((UserData: User) => {       // subscribe the recived data
+         // console.log(UserData);
+         this.User = UserData;       // and put it in the user object to display it
+         this.dataSharingService.userName.next(UserData.UserName);
+         console.log(this.User);
+         this.userUpdated.next(this.User);
+       });
+   }
   /**
    * to update the user info as observed
    * @returns
@@ -70,5 +70,16 @@ export class TitlesService {
   get_User_Info_updated() {            // to update the user info as observed
     return this.userUpdated.asObservable();
   }
+
+    get_user_info_mockup()
+    {
+     this.http.get<{message:string,User_Info:User}>('http://localhost:3000/api/users/info').
+     subscribe((UserData) => {
+         this.User=UserData.User_Info
+         this.userUpdated.next(this.User);
+     }); 
+  }
+
+
 
 }
