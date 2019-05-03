@@ -3,6 +3,7 @@ import { GenreDetails } from './book.model';
 import { Subscription } from 'rxjs';
 import { GenreDetailsService } from './book.service';
 import { delay } from 'q';
+import { ActivatedRoute } from "@angular/router";
 
 /**
  *
@@ -17,55 +18,9 @@ import { delay } from 'q';
   styleUrls: ['./book.component.css']
 })
 export class BookComponent implements OnInit {
-
-  /**
-   *  Panel open state boolean
-   */
-
-  /**
-   *
-   * service subscription
-   * @private
-   * @type {Subscription}
-   * @memberof BookComponent
-   */
-  private subProfile: Subscription;
-
-  /**
-   *
-   * vairable that carries the genre details list
-   * @type {Genredetails[]}
-   * @memberof BookComponent
-   */
-  public genreDetails: GenreDetails[] = [];
-
-  /**
-   *
-   * index of the genre list  currently showing
-   * @memberof BookComponent
-   */
-  genreIndex = 0;
-
-  /**
-   * Creates an instance of BookComponent.
-   * @param {GenreDetailsService} bookTitleService
-   * @memberof BookComponent
-   */
-  constructor(public bookTitleService: GenreDetailsService) { }
-
-  /**
-   *
-   * function used to read details recieved from service.ts
-   * @memberof BookComponent
-   */
+  SnapshotParam = 'initial value';
+  constructor(private route: ActivatedRoute) { }
   ngOnInit() {
-    /*this.bookTitleService.get_genre_Info();                                  // to get the user info from the service
-    // tslint:disable-next-line:variable-name
-    this.subProfile = this.bookTitleService.get_genre_Info_updated().subscribe((bookInformation: GenreDetails[]) => {
-      this.genreDetails = bookInformation;
-      /* console.log(this.User_info.User_Name)
-      console.log(this.User_info.user_id)
-      console.log(this.User_info.User_Photo)
-    });*/
+    this.SnapshotParam = this.route.snapshot.paramMap.get('bookid');
   }
 }

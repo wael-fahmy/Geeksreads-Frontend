@@ -47,7 +47,7 @@ const routes: Routes = [
     component: ProfileWantToReadShelfComponent
   },
   {
-    path: 'book',
+    path: 'book/:bookid',
     component: BookComponent
   },
   {
