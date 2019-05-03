@@ -60,19 +60,9 @@ ngOnInit() {
       this.SetAuthorInfo();
     });
   }
-  /**
-   *
-   * get author by author id
-   * @memberof BookEntityComponent
-   */
   /*GetAuthorByID() {
     this.booktitle_service.post_author_id(this.bookauthorid[this.book_index]);
   }*/
-  /**
-   *
-   * function used to set elements of lists
-   * @memberof BookEntityComponent
-   */
   SetInfo() {
 // tslint:disable-next-line: prefer-for-of
     for (let x = 0; x < this.book_details.length; x++) {
@@ -132,7 +122,7 @@ ngOnInit() {
       rate1.style.color = 'orange';
       rate2.style.color = 'orange';
       rate3.style.color = 'orange';
-    } else if (this.bookrate[this.book_index] === 5.0) {
+    } else if (this.bookrate[this.book_index].toString() === '5.0') {
       rate0.style.color = 'orange';
       rate1.style.color = 'orange';
       rate2.style.color = 'orange';
