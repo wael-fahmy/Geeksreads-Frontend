@@ -2,10 +2,10 @@
     <div class="author-book-header">
         <div class="author-book-stats">
             <div class="author-book-image">
-                <a [routerLink]="['/books', bookId]" target="_blank"><img src={{bookImage}} alt="{{authorBookName}}'s Book Cover"></a>
+                <a [routerLink]="['/book', bookId]" target="_blank"><img src={{bookImage}} alt="{{authorBookName}}'s Book Cover"></a>
             </div>
             <div class="author-book-info-details">
-                <a [routerLink]="['/books', bookId]" target="_blank" id="author-book-name">{{bookName}}</a>
+                <a [routerLink]="['/book', bookId]" target="_blank" id="author-book-name">{{bookName}}</a>
                 <div class='author-book-rating-div'>
                     Rating <span id='author-book-rating'>{{bookRating}}</span>
                 </div>

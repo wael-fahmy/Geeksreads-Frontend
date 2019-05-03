@@ -83,10 +83,8 @@ export class AuthorService {
         params: {
         search_param: snapshotParam,
       }})
-      .subscribe((serverResponse: AuthorBooksModel[]) => {
-        this.authorBooks[0] = serverResponse[0];
-        // This comes as a single JSON
-        console.log(this.authorBooks);
+      .subscribe((serverResponse: any) => {
+        this.authorBooks[0] = serverResponse;
         this.authorBooksUpdated.next([...this.authorBooks]);
       }
         , (error: { json: () => void; }) => {
