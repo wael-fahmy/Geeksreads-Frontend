@@ -182,13 +182,13 @@ export class CountBooksService {
    const bookID = {
      token : localStorage.getItem('token'),
      BookID: index.BookId,
-     UserID: localStorage.getItem('userID')
+     //UserID: localStorage.getItem('userID')
    };
    console.log(index.BookId);
     this.http
-      .post ('https://geeksreads.herokuapp.com/api/users/UpdateReadingToRead', bookID)   // to send request with the book info
+      .post<{ ReturnMsg: string }> ('https://geeksreads.herokuapp.com/api/users/UpdateReadingToRead', bookID)   // to send request with the book info
       .subscribe(responsedata => {                                    // to add a book to a read shelf
-       // console.log(responsedata.Message);                   // to check that the request sent successfuly
+        console.log(responsedata.ReturnMsg);                   // to check that the request sent successfuly
       });
     // console.log(index.book_name);
   }
