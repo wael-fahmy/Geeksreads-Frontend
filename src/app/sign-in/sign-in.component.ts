@@ -79,6 +79,7 @@ export class SignInComponent implements OnInit {
    * @memberof SignInComponent
    */
   ngOnInit() {
+    localStorage.removeItem('token');
     if (localStorage.getItem('token') !== null) {
       this.router.navigate(['/newsfeed']);
     }
