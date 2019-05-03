@@ -22,8 +22,6 @@ export class NavBarComponent implements OnInit {
 
   mobileQuery: MediaQueryList;
 
-  fillerNav = Array.from({ length: 50 }, (_, i) => `Nav Item ${i + 1}`);
-
   // tslint:disable-next-line: variable-name
   private _mobileQueryListener: () => void;
 
@@ -67,11 +65,11 @@ export class NavBarComponent implements OnInit {
    *  @memberof NavBarComponent
    */
   ngOnInit() {
-    if (localStorage.getItem('token') === null) {
-      this.isSignedIn = false;
-    } else {
-      this.isSignedIn = true;
-    }
+    // if (localStorage.getItem('token') === null) {
+    //   this.isSignedIn = false;
+    // } else {
+    //   this.isSignedIn = true;
+    // }
     this.searchText = new FormControl('', Validators.required);
     this.formdata = new FormGroup({
       searchText: this.searchText,
