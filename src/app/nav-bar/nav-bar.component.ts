@@ -19,7 +19,7 @@ import { SearchService } from './search.service';
 export class NavBarComponent implements OnInit {
   isSignedIn: boolean;
   userName: string;
-
+  isToken: boolean;
   mobileQuery: MediaQueryList;
 
   // tslint:disable-next-line: variable-name
@@ -51,10 +51,12 @@ export class NavBarComponent implements OnInit {
     this.dataSharingService.isUserLoggedIn.subscribe(value => {
       this.isSignedIn = value;
     });
+
     this.dataSharingService.userName.subscribe(value => {
       this.userName = value;
     });
-    this.mobileQuery = media.matchMedia('(max-width: 600px)');
+
+    this.mobileQuery = media.matchMedia('(max-width: 831px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     // tslint:disable-next-line: deprecation
     this.mobileQuery.addListener(this._mobileQueryListener);
@@ -65,11 +67,14 @@ export class NavBarComponent implements OnInit {
    *  @memberof NavBarComponent
    */
   ngOnInit() {
-    // if (localStorage.getItem('token') === null) {
-    //   this.isSignedIn = false;
-    // } else {
-    //   this.isSignedIn = true;
-    // }
+    if (localStorage.getItem('token') === null) {
+      this.isSignedIn = false;
+    } else {
+      this.isSignedIn = true;
+    }
+    if (localStorage.getItem('token') !== null) {
+      this.isToken = true;
+    }
     this.searchText = new FormControl('', Validators.required);
     this.formdata = new FormGroup({
       searchText: this.searchText,

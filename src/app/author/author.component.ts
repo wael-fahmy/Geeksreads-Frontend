@@ -164,6 +164,7 @@ export class AuthorComponent implements OnInit {
       .subscribe((authorBooksInformation: AuthorBooksModel[]) => {
         this.authorBooksModel = authorBooksInformation;
         console.log(this.authorBooksModel);
+        // tslint:disable-next-line: prefer-for-of
         for (let i = 0; i < this.authorBooksModel.length; i++) {
           this.authorBooksModel[i].BookRating = this.authorBooksModel[i].BookRating.$numberDecimal;
         }
