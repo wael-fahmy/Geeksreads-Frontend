@@ -10,7 +10,6 @@
                 <span id="nav-links-container">
           <div class="main-links">
             <span class="nav-link"><a routerLink="/newsfeed" id="newsfeed-route">Home</a></span>
-                <span class="nav-link"><a routerLink="/book" id="my-books-route">My Books</a></span>
                 <span class="nav-link"><a routerLink="/genres" id="genres-route">Browse</a></span>
                 <form id="nav-search-bar" [formGroup]="formdata" (ngSubmit)="search(formdata.value)">
                     <mat-form-field>
@@ -52,7 +51,6 @@
     <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
         <mat-nav-list>
             <span class="nav-link"><a routerLink="/newsfeed" id="homepage-side-route">Home</a></span>
-            <span class="nav-link"><a routerLink="/book" id="my-books-side-route">My Books</a></span>
             <span class="nav-link"><a routerLink="/genres" id="genres-side-route">Browse</a></span>
             <form id="nav-search-bar" [formGroup]="formdata" (ngSubmit)="search(formdata.value)">
                 <mat-form-field>
