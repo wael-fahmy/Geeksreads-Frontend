@@ -83,7 +83,7 @@ export class NewsfeedComponent implements OnInit {
   bookimage = 'https://via.placeholder.com/120x120';
 
   StatusType;
-  
+
   noStatuses = false;
 
   /**
@@ -100,14 +100,14 @@ export class NewsfeedComponent implements OnInit {
    * @memberof NewsfeedPostComponent
    */
   ngOnInit() {
-     if (localStorage.getItem('token') === null) {
-       this.router.navigate(['/homepage']);
-     }
-    this.PostsServicesObj.getpost();
-    this.subprofile = this.PostsServicesObj.get_post_updated().subscribe((PostInfo) => {
+    //  if (localStorage.getItem('token') === null) {
+    //    this.router.navigate(['/homepage']);
+    //  }
+     this.PostsServicesObj.getpost();
+     this.subprofile = this.PostsServicesObj.get_post_updated().subscribe((PostInfo) => {
       this.PostObj = PostInfo;
-      // this.activity = this.PostObj.activitylog;
-      // this.activitydate = this.PostObj.activitydate;
+      // this.activity = this.PostObj[0].StatusType;
+      // this.activitydate = this.PostObj[0].;
       // this.authorname = this.PostObj.authorname;
       // this.bookimage = this.PostObj.bookimage;
       // this.bookname = this.PostObj.bookname;

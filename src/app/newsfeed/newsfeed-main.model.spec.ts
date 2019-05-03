@@ -1,7 +1,7 @@
-// import { Post } from './newsfeed-main.model';
+ import { Post } from './newsfeed-main.model';
 
-// describe('AuthorFollowModel', () => {
-//   it('should create an instance', () => {
-//     expect(new Post()).toBeTruthy();
-//   });
-// });
+ describe('Post', () => {
+ it('should create an instance', () => {
+     expect(new Post()).toBeTruthy();
+  });
+ });

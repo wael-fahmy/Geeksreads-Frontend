@@ -106,7 +106,7 @@ export class NewsfeedPostComponent implements OnInit {
       this.bookimage = this.PostObj[0].BookPhoto;
       this.bookname = this.PostObj[0].BookName;
       this.review = this.PostObj[0].ReviewBody;
-      this.username = this.PostObj[0].MakerName;
+      this.username = this.PostObj[0].ReviewMakerName;
 
     });
   }
