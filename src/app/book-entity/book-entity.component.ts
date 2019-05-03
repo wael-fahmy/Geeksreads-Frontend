@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { BookDetails } from './book-entity.model';
 import { Subscription } from 'rxjs';
 import { BookTitle_Service } from './book-entity.service';
@@ -11,6 +11,7 @@ import { delay } from 'q';
   styleUrls: ['./book-entity.component.css']
 })
 export class BookEntityComponent implements OnInit {
+@Input() bookID: string;
 type1: string;
 type2: string;
 bookimage: string [] = [];
@@ -29,9 +30,10 @@ public author_details: AuthorDetails[] = [];
 book_index = 0;
 constructor(public booktitle_service: BookTitle_Service) { }
 ngOnInit() {
+    console.log(this.bookID);
     const bookid = '5c9114a0d345b4a65637eacc';
     //this.booktitle_service.post_book_id('12');
-    this.booktitle_service.get_book_Info(bookid);                            // to get the user info from the service
+    this.booktitle_service.get_book_Info(this.bookID);                            // to get the user info from the service
     // tslint:disable-next-line:variable-name
     this.Sub_profile = this.booktitle_service.get_book_Info_updated().subscribe((book_Information: BookDetails[]) => {
       this.book_details = book_Information;
