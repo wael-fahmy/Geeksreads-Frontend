@@ -16,7 +16,7 @@ export class SearchService {
   search(searchParam: string) {
     console.log(searchParam);
     this.http
-      .get('https://geeksreads.herokuapp.com/api/search', {
+      .get('https://geeksreads.herokuapp.com/api/search/', {
         params: {
           search_param: searchParam,
         }

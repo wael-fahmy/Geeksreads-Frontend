@@ -36,6 +36,7 @@ export class AuthorFollowService {
     const data = {
       myuserId: localStorage.getItem('userId'),
       auth_id: snapshotParam,
+      token: localStorage.getItem('token'),
     };
 
     this.http

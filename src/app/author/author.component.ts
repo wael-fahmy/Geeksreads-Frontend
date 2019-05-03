@@ -84,6 +84,7 @@ export class AuthorComponent implements OnInit {
    */
   followAuthor() {
     this.authorFollowService.followAuthor(this.authorId);
+    console.log(this.authorId);
     this.authorSubscription = this.authorFollowService.getFollowAuthorUpdated()
       .subscribe((authorFollow: AuthorFollowModel) => {
         console.log('Following this author');
