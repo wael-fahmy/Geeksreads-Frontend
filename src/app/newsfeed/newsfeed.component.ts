@@ -83,7 +83,7 @@ export class NewsfeedComponent implements OnInit {
   bookimage = 'https://via.placeholder.com/120x120';
 
   StatusType;
-  
+
   noStatuses = false;
 
   /**
@@ -103,8 +103,8 @@ export class NewsfeedComponent implements OnInit {
      if (localStorage.getItem('token') === null) {
        this.router.navigate(['/homepage']);
      }
-    this.PostsServicesObj.getpost();
-    this.subprofile = this.PostsServicesObj.get_post_updated().subscribe((PostInfo) => {
+     this.PostsServicesObj.getpost();
+     this.subprofile = this.PostsServicesObj.get_post_updated().subscribe((PostInfo) => {
       this.PostObj = PostInfo;
       // this.activity = this.PostObj.activitylog;
       // this.activitydate = this.PostObj.activitydate;

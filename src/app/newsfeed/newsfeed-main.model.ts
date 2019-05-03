@@ -20,7 +20,7 @@ export interface Post {
      * @memberof Post
      */
     StatusId: string;
-   
+
     /**
      * The Id of the account owner
      *
@@ -28,7 +28,7 @@ export interface Post {
      * @memberof Post
      */
     UserId: string;
-    
+
 
     /**
      *
@@ -41,7 +41,7 @@ export interface Post {
 
     /**
      *
-     * The comment body 
+     * The comment body
      * @type {string}
      * @memberof Post
      */
@@ -51,11 +51,11 @@ export interface Post {
      *  Activity Date
      */
     CommentDate: Date;
-    
+
 
     /**
      *
-     * The number of the comments and likes made 
+     * The number of the comments and likes made
      * @type {number}
      * @memberof Post
      */
@@ -64,7 +64,7 @@ export interface Post {
 
     /**
      *
-     * The book id 
+     * The book id
      * @type {string}
      * @memberof Post
      */
@@ -89,21 +89,21 @@ export interface Post {
 
     /**
      *
-     * The Id of the review 
+     * The Id of the review
      * @type {string}
      * @memberof Post
      */
     ReviewId: string;
 
     /**
-     *  Review body 
+     *  Review body
      */
     ReviewBody: string;
 
 
     /**
      *
-     * Review date 
+     * Review date
      * @memberof Post
      */
     ReviewDate;
@@ -117,24 +117,56 @@ export interface Post {
      */
     ReviewLikesCount: number;
 
-
     /**
      *
-     * The Id of the person made the review or the comment 
+     * The Id of the person i am following who made a review
      * @type {string}
      * @memberof Post
      */
-    MakerId: string;
-    /**
-     *  Author Name
-     */
-    MakerPhoto: string;
+    ReviewMakerId: string;
 
     /**
      *
-     * The photo of the person i am following 
+     * The Photo of the person i am following who made a review
      * @type {string}
      * @memberof Post
      */
-    MakerName: string;
-  }
+    ReviewMakerPhoto: string;
+
+
+    /**
+     *
+     * The name of the person i am following who made a review
+     * @type {string}
+     * @memberof Post
+     */
+    ReviewMakerName: string;
+
+
+    /**
+     *
+     * The id of the person i am following who made a comment
+     * @type {string}
+     * @memberof Post
+     */
+    CommentMakerId: string;
+
+
+    /**
+     *
+     *The photo of the person i am following who made a comment
+     * @type {string}
+     * @memberof Post
+     */
+    CommentMakerPhoto: string;
+
+
+    /**
+     *
+     *The name of the person i am following who made a comment
+     * @type {string}
+     * @memberof Post
+     */
+    CommentMakerName: string;
+
+}

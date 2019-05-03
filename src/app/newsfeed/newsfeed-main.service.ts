@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
 
 
 export class PostsServices {
- 
+
 
   /**
    * Creates an instance of PostsServices
@@ -37,28 +37,20 @@ export class PostsServices {
    */
   private postUpdated = new Subject<Post[]>();
 
-  
+
   /**
-   * This functions connects to the backend 
+   * This functions connects to the backend
    *
    * @memberof PostsServices
    */
   getpost() {
     const UserToken = {
       token : localStorage.getItem('token')
-    }
+    };
     this.http.post<{ receivedPost: Post[] }>('https://geeksreads.herokuapp.com/api/user_status/show' , UserToken)
       .subscribe((serverResponse) => {
         console.log(serverResponse.receivedPost);
         this.post = serverResponse.receivedPost;
-       // this.post.activitydate = serverResponse[0].ReviewDate;
-       // this.post.bookimage = serverResponse[0].BookPhoto;
-        // this.post.bookname = serverResponse[0].BookName;
-       // this.post.userimage = serverResponse[0].MakerPhoto;
-        // this.post.username = serverResponse[0].MakerName;
-        // this.post.review = serverResponse[0].ReviewBody;
-        // this.post.numberOfStars = serverResponse[0].NumberOfStars;
-        // this.post.StatusType = serverResponse[0].StatusType;
         this.postUpdated.next([...this.post]);
 
       });
