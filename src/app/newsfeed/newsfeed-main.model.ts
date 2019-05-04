@@ -169,4 +169,9 @@ export class Post {
      */
     CommentMakerName: string;
 
+    BookStatus;
+    ReviewIsLiked; 
+    AuthorName;
+    AuthorId;
+
 }

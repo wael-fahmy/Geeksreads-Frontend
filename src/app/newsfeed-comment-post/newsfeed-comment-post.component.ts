@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Post } from '../newsfeed/newsfeed-main.model';
 import { PostsServices } from '../newsfeed/newsfeed-main.service';
@@ -17,8 +17,15 @@ import { PostsServices } from '../newsfeed/newsfeed-main.service';
 
 export class NewsfeedCommentPostComponent implements OnInit {
 
-///////////////////////// Subscription and instances from Post Model ///////////////////////////
-  /**
+///////////////////////// Subscription and instances from Post Model and at inputs ///////////////////////////
+@Input() userName: string;
+@Input() activityDate: Date;
+@Input() comment: string;
+@Input() makerImage: string;
+
+
+
+/**
    *
    * created post obj of type comment-post module
    * @type {Post}
@@ -38,7 +45,7 @@ export class NewsfeedCommentPostComponent implements OnInit {
   /**
    *  User name
    */
-  userName = 'Yara Mohamed ';
+  //userName = 'Yara Mohamed ';
 
 
   /**
@@ -46,17 +53,17 @@ export class NewsfeedCommentPostComponent implements OnInit {
    *
    * @memberof NewsfeedCommentPostComponent
    */
-  activityLog ;
+  //activityLog ;
 
   /**
    *  The activity date
    */
-  activityDate ;
+  //activityDate ;
 
   /**
    *  The comment body
    */
-  comment = 'That book is really great';
+  //comment = 'That book is really great';
 
 
   /**
@@ -64,7 +71,7 @@ export class NewsfeedCommentPostComponent implements OnInit {
    * The image of the user who made the comment ( The person i am folllowing)
    * @memberof NewsfeedCommentPostComponent
    */
-  makerImage;
+  //makerImage;
 
   ///////////////////////////////////////////////////////////////////////////////////////////
 
@@ -84,11 +91,11 @@ export class NewsfeedCommentPostComponent implements OnInit {
     this.Sub = this.commentService.get_post_updated().subscribe((expectedPostArray: Post[])=>{
       this.postObj = expectedPostArray;
       console.log(this.postObj);
-      this.comment = expectedPostArray[0].CommentBody;
-      this.activityDate = expectedPostArray[0].CommentDate;
-      this.makerImage = expectedPostArray[0].CommentMakerPhoto;
-      this.activityLog = expectedPostArray[0].StatusType;
-      this.userName = expectedPostArray[0].CommentMakerName; 
+      //this.comment = expectedPostArray[0].CommentBody;
+      //this.activityDate = expectedPostArray[0].CommentDate;
+      //this.makerImage = expectedPostArray[0].CommentMakerPhoto;
+     // this.activityLog = expectedPostArray[0].StatusType;
+      //this.userName = expectedPostArray[0].CommentMakerName; 
     },
 
       (error: { json: () => void; }) => {
