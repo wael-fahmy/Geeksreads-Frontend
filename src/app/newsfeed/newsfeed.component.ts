@@ -3,6 +3,7 @@ import { Post } from './newsfeed-main.model';
 import { PostsServices } from './newsfeed-main.service';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { setTNodeAndViewData } from '@angular/core/src/render3/state';
 
 
 /**
@@ -43,14 +44,14 @@ export class NewsfeedComponent implements OnInit {
    * User name
    * @memberof NewsfeedPostComponent
    */
-  username = 'Yara';
+  commentMakerName;
 
   /**
    *
    * Activity date
    * @memberof NewsfeedPostComponent
    */
-  activitydate = 'about 2 hours ago';
+  commentDate;
 
   /**
    *
@@ -112,6 +113,13 @@ export class NewsfeedComponent implements OnInit {
    * @memberof NewsfeedComponent
    */
   recerivedPostsCount: number;
+
+  commentMakerImage;
+  comment;
+  reviewerName;
+  reviewerImage;
+  reviewDate;
+  reviewBody;
 ///////////////////////////////// end of HTML VARIABLES ////////////////////////////////////////////////
 
 /////////////////////////////////// Methods ///////////////////////////////////////////////////
@@ -143,7 +151,7 @@ export class NewsfeedComponent implements OnInit {
      this.PostsServicesObj.getpost();
      this.newsfeedSubscription = this.PostsServicesObj.get_post_updated().subscribe((PostInfo) => {
       this.PostObj = PostInfo;
-
+      this.setData();
       // The following is to check if there any posts received or not 
       // if their count=0 then a message to be displayed
       this.recerivedPostsCount = this.PostObj.length;
@@ -152,5 +160,19 @@ export class NewsfeedComponent implements OnInit {
       }
      
     });
+  }
+
+  setData(){
+    this.commentMakerName = this.PostObj[0].CommentMakerName;
+    this.commentDate = this.PostObj[0].CommentDate;
+    this.commentMakerImage = this.PostObj[0].CommentMakerPhoto;
+    this.comment = this.PostObj[0].CommentBody;
+    this.StatusType = this.PostObj[0].StatusType;
+    this.bookimage = this.PostObj[0].BookPhoto;
+    this.bookname = this.PostObj[0].BookName;
+    this.reviewerName = this.PostObj[0].ReviewMakerName;
+    this.reviewerImage = this.PostObj[0].ReviewMakerPhoto;
+    this.reviewDate = this.PostObj[0].ReviewDate;
+    this.reviewBody = this.PostObj[0].ReviewBody;
   }
 }
