@@ -1,11 +1,18 @@
-<div>
+<div id="profile">
   <img class="photo"  [src]="userCoverPhoto">
   <h3 id="user-name">{{userName}}</h3>
   <h3 id="user-email">{{userEmail}}</h3>
-  <button id="Follow-button" mat-stroked-button >Follow</button>
-  <pre>Followers : {{userFollowers}}         Following : {{userFollowing}}   </pre> 
-  
-  
+
+  <div *ngIf="isFollowing=='True'">
+  <button id="UnFollow-Button" (click)=" OnClickUnFollow()" mat-stroked-button >UnFollow</button>
 </div>
-<h3 id="my-book"> User Books : </h3>
-<app-profile-book-entity></app-profile-book-entity>
+<div *ngIf="isFollowing=='False'">
+  <button id="Follow-button" (click)=" OnClickFollow()" mat-stroked-button >Follow</button>
+</div>
+  <pre>Followers : {{userFollowers}}         Following : {{userFollowing}}   </pre> 
+</div>
+<app-profile-want-to-read-shelf></app-profile-want-to-read-shelf>
+<app-profile-read-shelf></app-profile-read-shelf>
+<app-profile-reading-shelf></app-profile-reading-shelf>
+
+

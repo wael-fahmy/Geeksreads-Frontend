@@ -12,7 +12,7 @@ export interface OtherUser {
      * @type {string}
      * @memberof User
      */
-
+    UserId: string;
     /**
      *
      * user name
@@ -32,5 +32,6 @@ export interface OtherUser {
     NoOfFollowings: number;
     NoOfFollowers: number;
     UserBirthDate: string;
+    IsFollowing: string;
 
 }
