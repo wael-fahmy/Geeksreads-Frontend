@@ -53,11 +53,10 @@ export class PostsServices {
       myuserId: localStorage.getItem('userId'),
       token: localStorage.getItem('token'),
     };
-    this.http.post('https://geeksreads.herokuapp.com/api/user_status/show' , data)
+    this.http.post('http://localhost:3000/api/book' , data)
       .subscribe((serverResponse: any) => {
         console.log(serverResponse);
-       // this.post[0].BookName = serverResponse.BookName;
-        this.post = serverResponse;
+        this.post[0] = serverResponse;
         this.postUpdated.next([...this.post]);
 
       });

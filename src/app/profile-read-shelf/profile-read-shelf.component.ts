@@ -34,6 +34,7 @@ export class ProfileReadShelfComponent implements OnInit {
    * @memberof ProfileReadShelfComponent
    */
   listOfBooksRead: ListOfBooks[] = [];
+  bookRoute: string;
 
   /**
    *  Creates an instance of ProfileReadShelfComponent.
@@ -42,34 +43,26 @@ export class ProfileReadShelfComponent implements OnInit {
    */
   constructor(public countBooksService: CountBooksService) { } // constructor for this class
 
-
-  /**
-   *
-   *  to increment the number of books want to read on click
-   * @param {ListOfBooks} index  index of the book to be sent to the backend
-   * @memberof ProfileReadShelfComponent
-   */
-  OnClick_want_read(index: ListOfBooks) {                   // to increment the number of books want to read on click
-    this.countBooksService.add_book_to_shelf_want_to_read(index);
-    // index.state = 'want to read';
-  }
-
-
   /**
    *
    * to increment the number of books currently reading on click
    * @param {ListOfBooks} index index of the book to be sent to the backend
    * @memberof ProfileReadShelfComponent
    */
-  OnClick_reading(index: ListOfBooks) {                           // to increment the number of books currently reading on click
-    this.countBooksService.add_book_to_shelf_reading(index);
-    // console.log(index.author_name);
+  OnClick_Remove(index: ListOfBooks) {                           // to increment the number of books currently reading on click
+    this.countBooksService.Remove_Book(index);
+    this.get_ListRead_observed();
   }
-  onClick_Details(index: ListOfBooks) {
-    console.log(index.Title);
-    localStorage.setItem('bookId', index.BookId);
-  }
-
+  
+get_ListRead_observed()
+{
+  this.countBooksService.get_List_of_books_read();                         // to get the book info from the service
+    //this.countBooksService.get_List_of_books_read_mockup();
+    this.subList = this.countBooksService.get_List_of_books_read_updated().
+      subscribe((List: ListOfBooks[]) => {                              // subscribe the recieved data
+        this.listOfBooksRead = List;                                    // and put it inside the list of books to display it
+      });
+}
   /**
    *  on initializing that class implement this function
    *  to get the book info from the service
@@ -78,11 +71,6 @@ export class ProfileReadShelfComponent implements OnInit {
    * @memberof ProfileReadShelfComponent
    */
   ngOnInit() {
-    this.countBooksService.get_List_of_books_read();                         // to get the book info from the service
-    //this.countBooksService.get_List_of_books_read_mockup();
-    this.subList = this.countBooksService.get_List_of_books_read_updated().
-      subscribe((List: ListOfBooks[]) => {                              // subscribe the recieved data
-        this.listOfBooksRead = List;                                    // and put it inside the list of books to display it
-      });
+    this.get_ListRead_observed();
   }
 }

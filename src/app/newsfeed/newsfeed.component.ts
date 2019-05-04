@@ -4,6 +4,7 @@ import { PostsServices } from './newsfeed-main.service';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 
+
 /**
  *  Newsfeed post component
  *  @export
@@ -17,13 +18,15 @@ import { Subscription } from 'rxjs';
 })
 
 export class NewsfeedComponent implements OnInit {
+
+  //////////////////////////  Subscriptions and instances from model classes ////////////////////////////
   /**
    *  This is the constructor of the component class, it makes an instance of the posts service class
    *  @private
    *  @type {Subscription}
    *  @memberof NewsfeedPostComponent
    */
-  private subprofile: Subscription;
+  private newsfeedSubscription: Subscription;
 
   /**
    *
@@ -33,6 +36,8 @@ export class NewsfeedComponent implements OnInit {
    */
   PostObj: Post[];
 
+
+  //////////////////////////  HTML VARIABLES ////////////////////////////////////////////////////////////
   /**
    *
    * User name
@@ -82,10 +87,42 @@ export class NewsfeedComponent implements OnInit {
    */
   bookimage = 'https://via.placeholder.com/120x120';
 
+
+  /**
+   * The type of the status; comment or review
+   *
+   * @memberof NewsfeedComponent
+   */
   StatusType;
 
-  noStatuses = false;
 
+  /**
+   *
+   * a variable that checks if there are posts received or not
+   * @type {boolean}
+   * @memberof NewsfeedComponent
+   */
+  fiStatuses: boolean;
+
+
+  /**
+   *
+   * variable that contains the number of the posts received
+   * @type {number}
+   * @memberof NewsfeedComponent
+   */
+  recerivedPostsCount: number;
+///////////////////////////////// end of HTML VARIABLES ////////////////////////////////////////////////
+
+/////////////////////////////////// Methods ///////////////////////////////////////////////////
+
+
+
+
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////
   /**
    *  Creates an instance of NewsfeedPostComponent.
    *  @param {PostsServices} PostsServicesObj
@@ -104,15 +141,16 @@ export class NewsfeedComponent implements OnInit {
     //    this.router.navigate(['/homepage']);
     //  }
      this.PostsServicesObj.getpost();
-     this.subprofile = this.PostsServicesObj.get_post_updated().subscribe((PostInfo) => {
+     this.newsfeedSubscription = this.PostsServicesObj.get_post_updated().subscribe((PostInfo) => {
       this.PostObj = PostInfo;
-      // this.activity = this.PostObj[0].StatusType;
-      // this.activitydate = this.PostObj[0].;
-      // this.authorname = this.PostObj.authorname;
-      // this.bookimage = this.PostObj.bookimage;
-      // this.bookname = this.PostObj.bookname;
-      // this.review = this.PostObj.review;
-      // this.username = this.PostObj.username;
+
+      // The following is to check if there any posts received or not 
+      // if their count=0 then a message to be displayed
+      this.recerivedPostsCount = this.PostObj.length;
+      if ( this.recerivedPostsCount === 0 ) {
+        this.fiStatuses = false;
+      }
+     
     });
   }
 }

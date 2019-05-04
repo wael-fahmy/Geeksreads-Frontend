@@ -1,4 +1,4 @@
-div {
+#profile {
     text-align: center;
     margin-top: 80px;
     
@@ -21,6 +21,12 @@ div {
     margin-top: 10px;
     font-size: 3rem;
     color: cadetblue;    
+}
+#UnFollow-Button {
+    color: cadetblue;
+}
+#Follow-button {
+    color: blue;
 }
 pre{
     color: blue;

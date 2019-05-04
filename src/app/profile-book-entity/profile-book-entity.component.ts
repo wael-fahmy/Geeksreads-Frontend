@@ -42,39 +42,6 @@ export class ProfileBookEntityComponent implements OnInit {
   constructor(public countBooksService: CountBooksService) { }
 
   /**
-   *
-   * to increment the number of books want to read on click
-   * @param {ListOfBooks} index   index of the book selected
-   * @memberof ProfileBookEntityComponent
-   */
-  OnClick_want_read(index: ListOfBooks) {
-    this.countBooksService.add_book_to_shelf_want_to_read(index);
-  }
-
-  /**
-   *
-   * to increment the number of books read on click
-   * @param {ListOfBooks} index   index of the book selected
-   * @memberof ProfileBookEntityComponent
-   */
-  OnClick_read(index: ListOfBooks) {
-    this.countBooksService.add_book_to_shelf_read(index);
-    // index.state = 'read';
-
-  }
-
-  /**
-   *
-   *  // to increment the number of books currently reading on click
-   * @param {ListOfBooks} index  index of the book selected
-   * @memberof ProfileBookEntityComponent
-   */
-  OnClick_reading(index: ListOfBooks) {
-    this.countBooksService.add_book_to_shelf_reading(index);
-    // console.log(index.author_name);
-  }
-
-  /**
    * on initializing that class implement this function
    * to get the book info from the service
    * subscribe the list of books recived
