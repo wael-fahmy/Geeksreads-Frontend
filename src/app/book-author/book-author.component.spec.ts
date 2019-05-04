@@ -36,17 +36,17 @@ describe('BookAuthorComponent', () => {
   });
   it('list of authors should contain Meguru Ueno', () => {
     fixture.whenStable().then(() => {
-      expect(component.author_details[0].author_name).toContain('Meguru Ueno');
+      expect(component.author_details[0].AuthorName).toContain('Meguru Ueno');
     });
   });
   it('list of authors should contain Yana Toboso', () => {
     fixture.whenStable().then(() => {
-      expect(component.author_details[1].author_name).toContain('Yana Toboso');
+      expect(component.author_details[1].AuthorName).toContain('Yana Toboso');
     });
   });
   it('list of authors should contain Loyd', () => {
     fixture.whenStable().then(() => {
-      expect(component.author_details[2].author_name).toContain('Loyd');
+      expect(component.author_details[2].AuthorName).toContain('Loyd');
     });
   });
 

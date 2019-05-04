@@ -56,11 +56,11 @@ export class OtherUserService {
     Follow_User(userid: string)
     {
         const UserToken = {
-            myuserId: localStorage.getItem('userId'),
-            token: localStorage.getItem('token'),
+            myuserid: localStorage.getItem('userId'),
+           // token: localStorage.getItem('token'),
             userId_tobefollowed: userid
            };
-          this.http.post<{success: boolean,Message: string}>('https://geeksreads.herokuapp.com/api/users/follow', UserToken
+          this.http.post<{success: boolean,Message: string}>('https://geeksreads.herokuapp.com/api/Users/Follow', UserToken
           ).    // get response from this URL
             subscribe((UserData) => {       // subscribe the recived data
               this.isFollowing = UserData.success;       // and put it in the user object to display it
@@ -71,18 +71,20 @@ export class OtherUserService {
 
     UnFollow_User(userid: string)
     {
-        const UserToken = {
-            myuserId: localStorage.getItem('userId'),
-            token: localStorage.getItem('token'),
-            userId_tobefollowed: userid
-           };
-           console.log(UserToken);
-          this.http.post<{success: boolean,Message: string}>('https://geeksreads.herokuapp.com/api/users/unfollow', UserToken
-          ).    // get response from this URL
-            subscribe((UserData) => {       // subscribe the recived data
-              this.isFollowing = UserData.success;       // and put it in the user object to display it
-              console.log(this.isFollowing);
-            });
+      const UserToken = {
+        myuserid: localStorage.getItem('userId'),
+       // token: localStorage.getItem('token'),
+        userId_tobefollowed: userid
+       };
+      this.http.post('https://geeksreads.herokuapp.com/api/Users/unFollow', UserToken
+      ).    // get response from this URL
+        subscribe((UserData) => {       // subscribe the recived data
+          //this.isFollowing = UserData.success;       // and put it in the user object to display it
+          //console.log(this.isFollowing);
+        }
+        , (error: { json: () => void; }) => {
+          console.log(error);
+        });
     }
 
 
@@ -99,7 +101,7 @@ export class OtherUserService {
             this.listReadingUpdated.next([...this.List_reading]);
           }
           , (error: { json: () => void; }) => {
-            console.log(error);
+            console.log(error); 
           });
       }
       get_List_of_books_reading_updated() {

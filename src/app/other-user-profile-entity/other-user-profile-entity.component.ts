@@ -71,12 +71,14 @@ export class OtherUserProfileEntityComponent implements OnInit {
   OnClickFollow()
   {
      this.isFollowing = 'True';
+     this.userFollowers++;
      this.OtherUserService.Follow_User(this.userId);
   }
 
   OnClickUnFollow()
   {
     this.isFollowing = 'False';
+    this.userFollowers--;
     this.OtherUserService.UnFollow_User(this.userId);
   }
 

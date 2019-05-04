@@ -29,18 +29,38 @@ describe('ProfileReadShelfComponent', () => {
 
   it('list of books should be 2', () => {
     fixture.whenStable().then(() => {
-      expect(component.listOfBooksRead.length).toBe(2);
+      expect(component.listOfBooksRead.length).toBe(1);
     });
   });
 
-  it('list of books read should contain Harry Potter', () => {
+  it('list of books read should contain consequat book', () => {
     fixture.whenStable().then(() => {
-      expect(component.listOfBooksRead.indexOf).toContain('Harry Potter');
+      expect(component.listOfBooksRead.indexOf).toContain('consequat');
     });
   });
-  it('list of books read should contain Game of thrones', () => {
+  it('list of books read should contain copidatat', () => {
     fixture.whenStable().then(() => {
-      expect(component.listOfBooksRead.indexOf).toContain('Game of thrones');
+      expect(component.listOfBooksRead.indexOf).toContain('copidatat');
+    });
+  });
+  it('copidatat book rate should be 4', () => {
+    fixture.whenStable().then(() => {
+      expect(component.listOfBooksRead.indexOf).toContain('4.0');
+    });
+  });
+  it('consequat book rate should be 2', () => {
+    fixture.whenStable().then(() => {
+      expect(component.listOfBooksRead.indexOf).toContain('2.0');
+    });
+  });
+  it('consequat book author should be Deena Craig', () => {
+    fixture.whenStable().then(() => {
+      expect(component.listOfBooksRead.indexOf).toContain('Deena Craig');
+    });
+  });
+  it('copidatat book author should be Danielle Hayden', () => {
+    fixture.whenStable().then(() => {
+      expect(component.listOfBooksRead.indexOf).toContain('Danielle Hayden');
     });
   });
 
