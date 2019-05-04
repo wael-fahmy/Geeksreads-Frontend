@@ -13,7 +13,7 @@ import { Subscription } from 'rxjs';
 export class SearchComponent implements OnInit {
   snapshotParam = 'initial value';
 
-  results: boolean;
+  //results: boolean;
 
   private searchSubscription: Subscription;
 

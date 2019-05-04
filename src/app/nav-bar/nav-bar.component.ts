@@ -87,7 +87,7 @@ export class NavBarComponent implements OnInit {
 
     this.searchText2 = new FormControl('', Validators.required);
     this.formdata2 = new FormGroup({
-      searchText2: this.searchText,
+      searchText2: this.searchText2,
     });
   }
 }
