@@ -50,7 +50,7 @@ export class TitlesService {
    get_User_Info() {    // give the signed in user id as a parameter
      const UserToken = {
        token: localStorage.getItem('token'),
-       UserID: localStorage.getItem('userId')
+       UserId: localStorage.getItem('userId')
       };
      this.http.post('https://geeksreads.herokuapp.com/api/users/me', UserToken
      ).    // get response from this URL
@@ -58,7 +58,7 @@ export class TitlesService {
          // console.log(UserData);
          this.User = UserData;       // and put it in the user object to display it
          this.dataSharingService.userName.next(UserData.UserName);
-         console.log(this.User);
+         //console.log(this.User);
          this.userUpdated.next(this.User);
        });
    }

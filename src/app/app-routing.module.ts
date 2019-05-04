@@ -11,6 +11,7 @@ import { GenresComponent } from './genres/genres.component';
 import { NewsfeedComponent } from './newsfeed/newsfeed.component';
 import { ProfileEditComponent } from './profile-edit/profile-edit.component';
 import { AuthorComponent } from './author/author.component';
+import {OtherUserProfileEntityComponent} from './other-user-profile-entity/other-user-profile-entity.component';
 import { ProfileReadShelfComponent } from './profile-read-shelf/profile-read-shelf.component';
 import { ProfileReadingShelfComponent } from './profile-reading-shelf/profile-reading-shelf.component';
 import { ProfileWantToReadShelfComponent } from './profile-want-to-read-shelf/profile-want-to-read-shelf.component';
@@ -45,6 +46,10 @@ const routes: Routes = [
   {
     path: 'profile-want-to-read-shelf',
     component: ProfileWantToReadShelfComponent
+  },
+  {
+    path: 'other-user-profile-entity/:userid',
+    component: OtherUserProfileEntityComponent
   },
   {
     path: 'book/:bookid',

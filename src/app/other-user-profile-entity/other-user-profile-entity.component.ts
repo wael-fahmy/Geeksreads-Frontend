@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { TitlesService } from '../profile-entity/profile-entity.service';
+import {OtherUserService} from './other-user.service';
 import { User } from '../profile-entity/profile.model';
 import { Subscription } from 'rxjs';
+import { ActivatedRoute } from "@angular/router";
 
 @Component({
   selector: 'app-other-user-profile-entity',
@@ -46,12 +47,13 @@ export class OtherUserProfileEntityComponent implements OnInit {
   userFollowers: number;
   userFollowing: number;
   userBirthDay: string;
+  IsFollowing: boolean;
   /**
    * Creates an instance of ProfileEntityComponent.
    * @param {TitlesService} titlesService
    * @memberof OtherUserProfileEntityComponent
    */
-  constructor(public titlesService: TitlesService) { }  // constructor of that class
+  constructor(public OtherUserService: OtherUserService,private route: ActivatedRoute) { }  // constructor of that class
 
   /**
    *
@@ -61,9 +63,11 @@ export class OtherUserProfileEntityComponent implements OnInit {
    * supscripe the value recieved
    * @memberof OtherUserProfileEntityComponent
    */
+  userId: string;
   ngOnInit() {
-    this.titlesService.get_User_Info();                                  // to get the user info from the service
-    this.subProfile = this.titlesService.get_User_Info_updated().       // once the class is initialized
+    this.userId = this.route.snapshot.paramMap.get('userid');
+    this.OtherUserService.get_other_user_info(this.userId);                                  // to get the user info from the service
+    this.subProfile = this.OtherUserService.get_User_Info_updated().       // once the class is initialized
       subscribe((userInformation: User) => {                            //  supscripe the value recieved
         this.userInfo = userInformation;
         this.userCoverPhoto = this.userInfo.Photo;

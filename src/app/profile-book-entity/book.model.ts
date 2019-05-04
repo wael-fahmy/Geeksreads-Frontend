@@ -1,6 +1,5 @@
 
 export interface ListOfBooks {
-  
   /**
    *
    * book id

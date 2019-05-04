@@ -4,11 +4,11 @@
     <!-- <mat-list-item *ngIf="index.state=='currently reading'">     -->
     <mat-list-item>
         <img width="60" height="80" src="{{index.Cover}}" alt="book">
-        <a routerLink="/book" id="book-route">{{index.Title}} <br> by {{index.AuthorName}}  </a>
+        <a routerLink="/book/{{index.BookId}}" id="book-route">{{index.Title}} <br> by {{index.AuthorName}}  </a>
         <button id="MENU" [matMenuTriggerFor]="menu">currently reading...</button>
         <mat-menu #menu="matMenu">
             <button mat-menu-item (click)=" OnClick_read(index)" id="readButton">read</button>
-            <button mat-menu-item (click)="OnClick_want_read(index)" id="wantToReadButton">want to read</button>
+            <button mat-menu-item (click)="OnClick_Remove(index)" id="wantToReadButton">Remove book</button>
         </mat-menu>
         <div *ngIf="index.BookRating=='1.0'">
             <p>

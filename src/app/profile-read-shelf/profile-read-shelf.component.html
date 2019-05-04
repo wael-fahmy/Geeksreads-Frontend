@@ -5,11 +5,10 @@
     <mat-list-item>
 
         <img width="60" height="80" src="{{index.Cover}}" alt="book">
-        <a (click)="onClick_Details(index)" routerLink="/book" id="book-route">{{index.Title}} <br> by {{index.AuthorName}}  </a>
+        <a routerLink="/book/{{index.BookId}}" id="book-route">{{index.Title}} <br> by {{index.AuthorName}}  </a>
         <button id="MENU" [matMenuTriggerFor]="menu">read...</button>
         <mat-menu #menu="matMenu">
-            <button id="item_1" mat-menu-item (click)=" OnClick_reading(index)" id="currentlyReadingButton">currently reading</button>
-            <button id="item_2" mat-menu-item (click)="OnClick_want_read(index)" id="wantToReadButton">want to read</button>
+            <button id="item_1" mat-menu-item (click)=" OnClick_Remove(index)" id="currentlyReadingButton">Remove Book</button>
         </mat-menu>
         <div *ngIf="index.BookRating=='1.0'">
             <p>
