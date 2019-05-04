@@ -50,6 +50,7 @@ import { OtherUserProfileEntityComponent } from './other-user-profile-entity/oth
 import { PasswordResetComponent } from './password-reset/password-reset.component';
 import { DataSharingService } from './nav-bar/data-sharing.service';
 import { ProfileEditService } from './profile-edit/profile-edit.service';
+import { SearchComponent } from './search/search.component';
 
 @NgModule({
   declarations: [
@@ -94,7 +95,8 @@ import { ProfileEditService } from './profile-edit/profile-edit.service';
     VerificationComponent,
     VerifiedComponent,
     OtherUserProfileEntityComponent,
-    PasswordResetComponent
+    PasswordResetComponent,
+    SearchComponent
   ],
   imports: [
     AppRoutingModule,

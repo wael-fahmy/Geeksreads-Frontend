@@ -1,16 +1,15 @@
-<div class="navbar-margin"></div>
+ <div class="navbar-margin">
 <div *ngIf=noStatuses class="no-status">
-    <p>There are no statuses!</p>
+    <p>There are no statuses!</p>  </div> 
 
-<div *ngFor="let index of PostObj">
+    
+ <div *ngFor="let index of PostObj">
     <div *ngIf="index.StatusType=='Comment'">
         <app-newsfeed-comment-post></app-newsfeed-comment-post>
     </div>
     <div *ngIf="index.StatusType=='Review'">
         <app-newsfeed-post></app-newsfeed-post>
     </div>
-</div> 
+</div>  
 
- <!-- <div *ngIf=!noStatuses class="newsfeed-posts-container">
-               
-        </div> -->
+   
