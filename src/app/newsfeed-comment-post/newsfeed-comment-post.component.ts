@@ -17,7 +17,7 @@ import { PostsServices } from '../newsfeed/newsfeed-main.service';
 
 export class NewsfeedCommentPostComponent implements OnInit {
 
-
+///////////////////////// Subscription and instances from Post Model ///////////////////////////
   /**
    *
    * created post obj of type comment-post module
@@ -32,40 +32,69 @@ export class NewsfeedCommentPostComponent implements OnInit {
    * @memberof NewsfeedCommentPostComponent
    */
   private Sub: Subscription ;
+
+
+  ////////////////////////// HTML variables //////////////////////////////////////////
   /**
    *  User name
    */
   userName = 'Yara Mohamed ';
 
-  activityLog ;
+
   /**
-   *  User name
+   * The type of activity ; comment or a review
+   *
+   * @memberof NewsfeedCommentPostComponent
+   */
+  activityLog ;
+
+  /**
+   *  The activity date
    */
   activityDate ;
 
   /**
-   *  User name
+   *  The comment body
    */
   comment = 'That book is really great';
 
+
+  /**
+   *
+   * The image of the user who made the comment ( The person i am folllowing)
+   * @memberof NewsfeedCommentPostComponent
+   */
+  makerImage;
+
+  ///////////////////////////////////////////////////////////////////////////////////////////
+
+   //////////// The constructor and the ngOnInit fn /////////////////////////////////////////////
   /**
    *  Creates an instance of NewsfeedCommentPostComponent.
    *  @memberof NewsfeedCommentPostComponent
    */
-  constructor(public PostsServices : PostsServices) { }
+  constructor( public commentService: PostsServices ) { }
 
   /**
    *  Angular Init
    * @memberof NewsfeedCommentPostComponent
    */
   ngOnInit() {
-    this.PostsServices.getpost();
-    this.Sub = this.PostsServices.get_post_updated().subscribe((Posts: Post[]) => {
-    this.postObj = Posts;
-    this.userName = this.postObj[0].CommentMakerPhoto;
-    this.activityDate = this.postObj[0].CommentDate;
-    this.comment = this.postObj[0].CommentBody;
-    });
+    this.commentService.getpost();
+    this.Sub = this.commentService.get_post_updated().subscribe((expectedPostArray: Post[])=>{
+      this.postObj = expectedPostArray;
+      console.log(this.postObj);
+      this.comment = expectedPostArray[0].CommentBody;
+      this.activityDate = expectedPostArray[0].CommentDate;
+      this.makerImage = expectedPostArray[0].CommentMakerPhoto;
+      this.activityLog = expectedPostArray[0].StatusType;
+      this.userName = expectedPostArray[0].CommentMakerName; 
+    },
+
+      (error: { json: () => void; }) => {
+        console.log(error);
+      }
+    );
   }
 
   /**

@@ -2,7 +2,8 @@
 <div *ngIf=noStatuses class="no-status">
     <p>There are no statuses!</p>  </div> 
 
-    
+    <app-newsfeed-comment-post></app-newsfeed-comment-post>
+    <app-newsfeed-post></app-newsfeed-post>
  <div *ngFor="let index of PostObj">
     <div *ngIf="index.StatusType=='Comment'">
         <app-newsfeed-comment-post></app-newsfeed-comment-post>

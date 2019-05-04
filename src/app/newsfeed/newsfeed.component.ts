@@ -4,6 +4,7 @@ import { PostsServices } from './newsfeed-main.service';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 
+
 /**
  *  Newsfeed post component
  *  @export
@@ -17,13 +18,15 @@ import { Subscription } from 'rxjs';
 })
 
 export class NewsfeedComponent implements OnInit {
+
+  //////////////////////////  Subscriptions and instances from model classes ////////////////////////////
   /**
    *  This is the constructor of the component class, it makes an instance of the posts service class
    *  @private
    *  @type {Subscription}
    *  @memberof NewsfeedPostComponent
    */
-  private subprofile: Subscription;
+  private newsfeedSubscription: Subscription;
 
   /**
    *
@@ -33,6 +36,8 @@ export class NewsfeedComponent implements OnInit {
    */
   PostObj: Post[];
 
+
+  //////////////////////////  HTML VARIABLES ////////////////////////////////////////////////////////////
   /**
    *
    * User name
@@ -104,7 +109,7 @@ export class NewsfeedComponent implements OnInit {
     //    this.router.navigate(['/homepage']);
     //  }
      this.PostsServicesObj.getpost();
-     this.subprofile = this.PostsServicesObj.get_post_updated().subscribe((PostInfo) => {
+     this.newsfeedSubscription = this.PostsServicesObj.get_post_updated().subscribe((PostInfo) => {
       this.PostObj = PostInfo;
       // this.activity = this.PostObj[0].StatusType;
       // this.activitydate = this.PostObj[0].;
