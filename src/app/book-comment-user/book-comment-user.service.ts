@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import { Bookreviews } from './book-comment-user.model';
 import { HttpClient } from '@angular/common/http';
+import { BookDetails } from '../book-entity/book-entity.model';
 
 @Injectable({ providedIn: 'root' })
 
@@ -13,6 +14,7 @@ export class Bookreviews_Service {
  * @memberof Bookreviews_Service
  */
 liked = 1;
+size: number;
     /**
      * Creates an instance of Bookreviews_Service.
      * @param {HttpClient} http
@@ -28,7 +30,6 @@ liked = 1;
      * @memberof Bookreviews_Service
      */
     private review_information: Bookreviews[] = [];
-    private review_info: Bookreviews [] = [];
 
     // tslint:disable-next-line:variable-name
 
@@ -48,11 +49,11 @@ liked = 1;
         this.http.get('https://geeksreads.herokuapp.com/api/books/reviewbyid',
             { params: {
                 book_id: '5c911452bbfd1717b8a7a169'
-        }
+            }
             }).
             // tslint:disable-next-line:variable-name
-            subscribe((reviewdata: Bookreviews[]) => {
-                this.review_information = reviewdata;
+            subscribe((reviewdata: Bookreviews) => {
+                this.review_information[0] = reviewdata;
                 this.review_informationUpdated.next([...this.review_information]);
             }, (error: { json: () => void; }) => {
                 console.log(error);

@@ -71,7 +71,7 @@ get_comments_Info() {
             Photo: '242342342',
             token: localStorage.getItem('token'),
             LikesCount: '0',
-            date: '12313131'
+            date: '2000-01-01T00:00:00.000Z'
         };
         console.log(localStorage.getItem('token'));
         this.http.post<{ message: string}>('https://geeksreads.herokuapp.com/api/comments/add', UserToken).

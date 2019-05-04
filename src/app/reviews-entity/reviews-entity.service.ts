@@ -18,16 +18,16 @@ private book_details: BookDetails[] = [];
 private author_details: AuthorDetails[] = [];
 private author_detailsUpdated = new Subject<AuthorDetails[]>();
 //https://geeksreads.herokuapp.com
-get_Review_Info(BookID: string, UserID: string) {
-        this.http.get('http://https://geeksreads.herokuapp.com/api/reviews/getrev', {
-            params: {
-            bookId: BookID,
-            UserId: UserID
-        }
+get_Review_Info(BookID: string) {
+    this.http.get('https://geeksreads.herokuapp.com/api/books/reviewbyid',
+    { params: {
+        book_id: BookID
+    }
     }).
+    // tslint:disable-next-line:variable-name
     subscribe((reviewdata: any) => {
-        console.log(reviewdata);
         this.reviewer_details[0] = reviewdata;
+        console.log(this.reviewer_details[0]);
         this.reviewer_detailsUpdated.next([...this.reviewer_details]);
     }, (error: { json: () => void; }) => {
         console.log(error);
