@@ -13,11 +13,42 @@ import { AddToShelfService } from './add-to-shelf.service';
   styleUrls: ['./author-book.component.css']
 })
 export class AuthorBookComponent implements OnInit {
+
+  /**
+   * Book image
+   * @type {string}
+   * @memberof AuthorBookComponent
+   */
   @Input() bookImage: string;
+
+  /**
+   * Book name
+   * @type {string}
+   * @memberof AuthorBookComponent
+   */
   @Input() bookName: string;
+
+  /**
+   * Book rating
+   * @type {string}
+   * @memberof AuthorBookComponent
+   */
   @Input() bookRating: string;
+
+  /**
+   * Book current shelf
+   * @type {string}
+   * @memberof AuthorBookComponent
+   */
   @Input() bookShelfStatus: string;
+
+  /**
+   * Book Id
+   * @type {string}
+   * @memberof AuthorBookComponent
+   */
   @Input() bookId: string;
+
   /**
    *  Author Book Subscription
    *  @private
@@ -26,62 +57,19 @@ export class AuthorBookComponent implements OnInit {
    */
   private authorBookSubscription: Subscription;
 
-  /**
-   *  Author's Id
-   *  @memberof AuthorBookComponent
-   */
   authorId = 12345;
-
-  /**
-   *  Book's Id
-   *  @memberof AuthorBookComponent
-   */
   authorBookId = 12345;
-
-  /**
-   *  Name of the book
-   *  @memberof AuthorBookComponent
-   */
   authorBookName = 'Name of the Book: ' + this.bookName;
-
-  /**
-   *  Link to the book's picture
-   *  @memberof AuthorBookComponent
-   */
   authorBookPicture = 'https://via.placeholder.com/86x120' + this.bookImage;
-
-  /**
-   *  Current shelf assigned to the book
-   *  @memberof AuthorBookComponent
-   */
   authorBookShelf = 'Want to Read';
-
-  /**
-   *  Book rating
-   *  @memberof AuthorBookComponent
-   */
   authorBookRating = '3.81' + this.bookRating;
-
-  /**
-   *  Book link
-   *  @memberof AuthorBookComponent
-   */
   authorBookLink = 'https://www.goodreads.com/';
-
-  /**
-   *  Is this book in a shelf?
-   *  @memberof AuthorBookComponent
-   */
   authorBookIsInAShelf = false;
-
-  /**
-   *  Where is the book now
-   *  @memberof AuthorBookComponent
-   */
   shelfAction = 'Add to Shelf';
 
   /**
-   *  Adds book to Want to Read Shelf
+   * Add book to Want to Read Shelf
+   * @memberof AuthorBookComponent
    */
   wantToRead() {
     this.addToShelfService.addToShelf('Want to read', this.bookId);
@@ -93,7 +81,8 @@ export class AuthorBookComponent implements OnInit {
   }
 
   /**
-   *  Adds book to Currently Reading Shelf
+   * Add book to Currently Reading Shelf
+   * @memberof AuthorBookComponent
    */
   currentlyReading() {
     this.addToShelfService.addToShelf('Currently Reading', this.bookId);
@@ -105,7 +94,8 @@ export class AuthorBookComponent implements OnInit {
   }
 
   /**
-   *  Adds book to Read Shelf
+   * Add book to Read Shelf
+   * @memberof AuthorBookComponent
    */
   read() {
     this.addToShelfService.addToShelf('Read', this.bookId);
@@ -117,7 +107,8 @@ export class AuthorBookComponent implements OnInit {
   }
 
   /**
-   *  Removes book from its current shelf
+   * Remove book from currently assigned shelf
+   * @memberof AuthorBookComponent
    */
   removeFromShelf() {
     this.addToShelfService.addToShelf('', this.bookId);

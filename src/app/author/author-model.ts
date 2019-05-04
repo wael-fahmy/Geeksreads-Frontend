@@ -1,16 +1,27 @@
+/**
+ * Author Model
+ * @export
+ * @class AuthorModel
+ */
 export class AuthorModel {
   /**
-   *  A brief information about the author
+   * A brief information about the author
+   * @type {string}
+   * @memberof AuthorModel
    */
   About: string;
 
   /**
-   *  Author's Id
+   * Author's Id
+   * @type {string}
+   * @memberof AuthorModel
    */
   AuthorId: string;
 
   /**
-   *  Name of the author
+   * Name of the author
+   * @type {string}
+   * @memberof AuthorModel
    */
   AuthorName: string;
 
@@ -29,10 +40,16 @@ export class AuthorModel {
   FollowingUserId: string[];
 
   /**
-   *  Link to the author's picture
+   * Link to the author's picture
+   * @type {string}
+   * @memberof AuthorModel
    */
   Photo: string;
 
-  // tslint:disable-next-line:variable-name
+  /**
+   * MongoDB Id
+   * @type {string}
+   * @memberof AuthorModel
+   */
   _id: string;
 }

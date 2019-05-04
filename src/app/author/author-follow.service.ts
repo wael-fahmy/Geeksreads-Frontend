@@ -4,6 +4,11 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
 
+/**
+ * Author Follow Service Class
+ * @export
+ * @class AuthorFollowService
+ */
 @Injectable({
   providedIn: 'root'
 })
@@ -27,24 +32,23 @@ export class AuthorFollowService {
    * Follows Author
    * @memberof AuthorService
    */
-  followAuthor(snapshotParam: string) {
+  followAuthor(authorId: string) {
+    // Can't follow author if you are a Guest
     if (localStorage.getItem('userId') === null) {
       this.router.navigate(['/sign-in']);
       return;
     }
-
     const data = {
       myuserId: localStorage.getItem('userId'),
-      auth_id: snapshotParam,
+      auth_id: authorId,
       token: localStorage.getItem('token'),
     };
 
     this.http
       .post('https://geeksreads.herokuapp.com/api/authors/follow', data)
-      .subscribe((serverResponse: any) => {
-        console.log(serverResponse);
-        this.following.message = serverResponse.Message;
-        this.following.success = serverResponse.success;
+      .subscribe((serverResponse: AuthorFollowModel) => {
+        console.log('Follow Author Service: ' + serverResponse);
+        this.following = serverResponse;
         this.followingUpdated.next(this.following);
       }, (error: { json: () => void; }) => {
         console.log(error);
@@ -52,7 +56,6 @@ export class AuthorFollowService {
   }
 
   /**
-   *
    * To update follows info
    * @returns
    * @memberof AuthorService
