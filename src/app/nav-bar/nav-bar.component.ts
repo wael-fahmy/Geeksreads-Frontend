@@ -2,7 +2,7 @@ import { Component, OnInit, ChangeDetectorRef, OnDestroy } from '@angular/core';
 import { DataSharingService } from './data-sharing.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { MediaMatcher } from '@angular/cdk/layout';
-import { SearchService } from './search.service';
+import { Router } from '@angular/router';
 
 /**
  *  Navbar Component
@@ -26,12 +26,17 @@ export class NavBarComponent implements OnInit {
   private _mobileQueryListener: () => void;
 
   formdata: FormGroup;
-
   searchText: FormControl;
 
+  formdata2: FormGroup;
+  searchText2: FormControl;
+
   search(formData) {
-    console.log('Searching...');
-    this.searchService.search(formData.searchText);
+    this.router.navigate(['/search', formData.searchText]);
+  }
+
+  search2(formData2) {
+    this.router.navigate(['/search', formData2.searchText2]);
   }
 
   // tslint:disable-next-line: use-life-cycle-interface
@@ -47,7 +52,7 @@ export class NavBarComponent implements OnInit {
   constructor(private dataSharingService: DataSharingService,
               changeDetectorRef: ChangeDetectorRef,
               media: MediaMatcher,
-              public searchService: SearchService) {
+              private router: Router) {
     this.dataSharingService.isUserLoggedIn.subscribe(value => {
       this.isSignedIn = value;
     });
@@ -78,6 +83,11 @@ export class NavBarComponent implements OnInit {
     this.searchText = new FormControl('', Validators.required);
     this.formdata = new FormGroup({
       searchText: this.searchText,
+    });
+
+    this.searchText2 = new FormControl('', Validators.required);
+    this.formdata2 = new FormGroup({
+      searchText2: this.searchText,
     });
   }
 }

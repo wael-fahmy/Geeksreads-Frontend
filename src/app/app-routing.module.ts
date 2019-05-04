@@ -19,6 +19,7 @@ import { VerifiedComponent } from './verified/verified.component';
 import { VerificationComponent } from './verification/verification.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { PasswordResetComponent } from './password-reset/password-reset.component';
+import { SearchComponent } from './search/search.component';
 
 const routes: Routes = [
   {
@@ -101,6 +102,10 @@ const routes: Routes = [
   {
     path: 'password-reset',
     component: PasswordResetComponent
+  },
+  {
+    path: 'search/:query',
+    component: SearchComponent
   }
 ];
 

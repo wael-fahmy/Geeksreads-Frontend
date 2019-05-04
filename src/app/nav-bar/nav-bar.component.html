@@ -13,7 +13,7 @@
                 <span class="nav-link"><a routerLink="/genres" id="genres-route">Browse</a></span>
                 <form id="nav-search-bar" [formGroup]="formdata" (ngSubmit)="search(formdata.value)">
                     <mat-form-field>
-                        <input type="search" matInput placeholder="Search" id="search" name="searchText" formControlName="searchText" required>
+                        <input type="search" matInput placeholder="Search" id="search" name="searchText" formControlName="searchText">
                         <mat-icon matSuffix id="nav-search-bar-icon">search</mat-icon>
                     </mat-form-field>
                 </form>
@@ -52,10 +52,10 @@
         <mat-nav-list>
             <span class="nav-link"><a routerLink="/newsfeed" id="homepage-side-route">Home</a></span>
             <span class="nav-link"><a routerLink="/genres" id="genres-side-route">Browse</a></span>
-            <form id="nav-search-bar" [formGroup]="formdata" (ngSubmit)="search(formdata.value)">
+            <form id="nav-search-bar-side" [formGroup]="formdata2" (ngSubmit)="search2(formdata2.value)">
                 <mat-form-field>
-                    <input type="search" matInput placeholder="Search" id="search" name="searchText" formControlName="searchText" required>
-                    <mat-icon matSuffix id="nav-search-bar-icon">search</mat-icon>
+                    <input type="search" matInput placeholder="Search" id="search-side" name="searchText2" formControlName="searchText2">
+                    <mat-icon matSuffix id="nav-search-bar-icon-side">search</mat-icon>
                 </mat-form-field>
             </form>
             <span *ngIf="!isSignedIn" class="nav-link"><a routerLink="/sign-in" id="sign-in-side-route">Sign In</a></span>
