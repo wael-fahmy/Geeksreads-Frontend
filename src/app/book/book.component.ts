@@ -12,17 +12,18 @@ export class BookComponent implements OnInit {
   SnapshotParam = 'initial value';
   private Sub_profile: Subscription;
   public book_details: Book[] = [];
-  public Image: string;
-  public Ahid: string;
-  public title: string;
-  public status: string;
-  public body: string;
-  public rate;
-  public asin: string;
-  public edtition: string;
-  public pages: string;
-  public date: string;
-  public Genre: string;
+  Image: string;
+  Ahid: string [] = [];
+  title: string;
+  status: string;
+  body: string;
+  rate;
+  asin: string;
+  edtition: string;
+  pages: string;
+  p: number;
+  date: string;
+  Genre: string;
   constructor(public booktitle_service: Book_Service, private route: ActivatedRoute) { }
   ngOnInit() {
     this.SnapshotParam = this.route.snapshot.paramMap.get('bookid');
@@ -30,21 +31,26 @@ export class BookComponent implements OnInit {
     // tslint:disable-next-line:variable-name
     this.Sub_profile = this.booktitle_service.get_book_Info_updated().subscribe((book_Information: Book[]) => {
       this.book_details = book_Information;
-      this.SetData();
+      this.SetinfoData(book_Information[0]);
     });
-    this.SetData();
   }
-  SetData() {
+  SetinfoData(book_details: Book) {
+    console.log(book_details);
+    this.asin = book_details.ISBN;
+    this.edtition = book_details.Publisher;
+    this.p = book_details.Pages;
+    this.pages = this.p.toString();
+    this.date = book_details.Published;
+    this.title = book_details.Title;
+    this.Genre = book_details.Genre;
+    this.Ahid[0] = this.book_details[0].AuthorId;
+  }
+  SetBook() {
     this.Image = this.book_details[0].Cover;
-    this.Ahid = this.book_details[0].AuthorId;
+    //this.Ahid = this.book_details[0].AuthorId;
     this.title = this.book_details[0].Title;
     this.status = this.book_details[0].ReadStatus;
     this.body = this.book_details[0].Description;
     this.rate = this.book_details[0].BookRating;
-    this.asin = this.book_details[0].ISBN;
-    this.edtition = this.book_details[0].Publisher;
-    this.pages = this.book_details[0].Pages.toString();
-    this.date = this.book_details[0].Published;
-    this.Genre = this.book_details[0].Genre;
   }
 }

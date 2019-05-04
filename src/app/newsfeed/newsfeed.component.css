@@ -8,3 +8,8 @@
     flex-wrap: nowrap;
     align-items: center;
 }
+
+.no-posts-message{
+    color:maroon; 
+
+}

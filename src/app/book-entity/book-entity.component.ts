@@ -12,13 +12,21 @@ import { delay } from 'q';
 })
 export class BookEntityComponent implements OnInit {
 @Input() bookID: string;
+/*
 @Input() bookimage: string;
 @Input() booktitle: string;
 @Input() bookstatus: string;
 @Input() bookbody: string;
 @Input() bookrate;
 @Input() bookauthorid: string;
+*/
 /////////////////////////////////////////////////////
+bookimage: string [] = [];
+booktitle: string [] = [];
+bookstatus: string [] = [];
+bookbody: string [] = [];
+bookrate: string[] = [];
+bookauthorid: string [] = [];
 type1: string;
 type2: string;
 bookauthor: string [] = [];
@@ -31,28 +39,39 @@ book_index = 0;
 constructor(public booktitle_service: BookTitle_Service) { }
 ngOnInit() {
     console.log(this.bookID);
-    this.SplitString();
-    this.SetRate();
-    localStorage.setItem('authorID', this.bookauthorid);
-    localStorage.setItem('bookID', this.bookID);
-    this.booktitle_service.get_author_Info(this.bookauthorid);                                  // to get the user info from the service
+    console.log(this.bookauthorid);
+    this.booktitle_service.get_book_Info(this.bookID);                            // to get the user info from the service
     // tslint:disable-next-line:variable-name
-    this.Sub_profile = this.booktitle_service.get_author_Info_updated().subscribe((author_Information: AuthorDetails[]) => {
-      this.author_details = author_Information;
-      this.SetAuthorInfo();
+    this.Sub_profile = this.booktitle_service.get_book_Info_updated().subscribe((book_Information: BookDetails[]) => {
+      this.book_details = book_Information;
+      this.SetBookInfor();
+      this.SplitString();
+      this.SetRate();
+      localStorage.setItem('authorID', this.bookauthorid[this.book_index]);
+      localStorage.setItem('bookID', this.bookID);
     });
+  }
+  SetBookInfor() {
+    this.bookauthorid[this.book_index] = this.book_details[this.book_index].AuthorId;
+    this.bookimage[this.book_index] = this.book_details[this.book_index].Cover;
+    this.booktitle[this.book_index] = this.book_details[this.book_index].Title;
+    this.bookstatus[this.book_index] = this.book_details[this.book_index].ReadStatus;
+    this.bookbody[this.book_index] = this.book_details[this.book_index].Description;
+    this.bookauthor[this.book_index] = this.book_details[this.book_index].AuthorName;
+    this.bookrate[this.book_index] = this.book_details[this.book_index].BookRating;
   }
   SetAuthorInfo() {
     this.bookauthor[this.book_index] = this.author_details[this.book_index].AuthorName;
+    console.log(this.bookauthor[this.book_index]);
   }
   SplitString() {
       const ReadMoreBt = document.getElementById('myBtn-book-discription');
       const ReadMoreDot = document.getElementById('dots-book-discription');
-      const check = this.bookbody.split(' ');
+      const check = this.bookbody[0].split(' ');
       if (check.length < 15) {
         ReadMoreBt.style.display = 'none';
         ReadMoreDot.style.display = 'none';
-        this.befor_dots[0] = this.bookbody;
+        this.befor_dots[0] = this.bookbody[0];
         this.after_dots[0] = '';
       } else {
         const word = this.bookbody[0].split(',');
@@ -61,27 +80,27 @@ ngOnInit() {
       }
   }
   SetRate() {
-    this.bookrate = this.bookrate.$numberDecimal;
+    this.bookrate[this.book_index] = this.bookrate[this.book_index];
     const rate0 = document.getElementById('star0');
     const rate1 = document.getElementById('star1');
     const rate2 = document.getElementById('star2');
     const rate3 = document.getElementById('star3');
     const rate4 = document.getElementById('star4');
-    if (this.bookrate.toString() === '1.0') {
+    if (this.bookrate[this.book_index].toString() === '1.0') {
       rate0.style.color = 'orange';
-    } else if (this.bookrate.toString() === '2.0') {
+    } else if (this.bookrate[this.book_index].toString() === '2.0') {
       rate0.style.color = 'orange';
       rate1.style.color = 'orange';
-    } else if (this.bookrate.toString() === '3.0') {
+    } else if (this.bookrate[this.book_index].toString() === '3.0') {
       rate0.style.color = 'orange';
       rate1.style.color = 'orange';
       rate2.style.color = 'orange';
-    } else if (this.bookrate.toString() === '4.0') {
+    } else if (this.bookrate[this.book_index].toString() === '4.0') {
       rate0.style.color = 'orange';
       rate1.style.color = 'orange';
       rate2.style.color = 'orange';
       rate3.style.color = 'orange';
-    } else if (this.bookrate.toString() === '5.0') {
+    } else if (this.bookrate[this.book_index].toString() === '5.0') {
       rate0.style.color = 'orange';
       rate1.style.color = 'orange';
       rate2.style.color = 'orange';

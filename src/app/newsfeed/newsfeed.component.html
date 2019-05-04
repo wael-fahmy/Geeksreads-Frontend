@@ -1,9 +1,10 @@
  <div class="navbar-margin">
-<div *ngIf=noStatuses class="no-status">
-    <p>There are no statuses!</p>  </div> 
+<div *ngIf=!fiStatuses class="no-status">
+    <p class="no-posts-message" >You may follow some friends to start the experience.</p>  </div> 
 
-    
- <div *ngFor="let index of PostObj">
+    <app-newsfeed-post></app-newsfeed-post>
+  <div *ngIf=fiStatuses> 
+    <div *ngFor="let index of PostObj">
     <div *ngIf="index.StatusType=='Comment'">
         <app-newsfeed-comment-post></app-newsfeed-comment-post>
     </div>
@@ -12,4 +13,4 @@
     </div>
 </div>  
 
-   
+</div> 

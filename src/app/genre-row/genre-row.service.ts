@@ -46,11 +46,10 @@ export class RowServices {
           Genre: genre,
         }
       })
-      .subscribe((serverResponse: GenreRowComponent) => {
+      .subscribe((serverResponse: Row ) => {
         console.log(serverResponse);
-        // this.Row.bookimage1 = serverResponse[0].Cover;
-        // this.Row.bookimage2 = serverResponse[1].Cover;
-        // this.Row.bookimage3 = serverResponse[2].Cover;
+        this.Row = serverResponse;
+        this.rowUpdated.next(this.Row);
       }, (error: { json: () => void; }) => {
         console.log(error);
       });

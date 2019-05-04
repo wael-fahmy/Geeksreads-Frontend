@@ -5,8 +5,16 @@
  * @interface Row
  */
 export class Row {
-  AuthorId;
   BooKId;
   Title;
-  _id;
+  AuthorId;
+  ISBN;
+  Published;
+  Publisher;
+  Pages;
+  Description;
+  Cover;
+  Store;
+  ReadStatus;
+  BookRating;
 }

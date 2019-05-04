@@ -80,7 +80,7 @@ export class AuthorDetails_Service {
         if (localStorage.getItem('userId') === null) {
             this.router.navigate(['/sign-in']);
             return;
-          }
+        }
         console.log(localStorage.getItem('userId'));
         /*const author: AuthorDetails = {user_id: userid, AuthorId: authorid, About: null,
             FollowingUserId: null, Photo: null, AuthorName: null, BookId: null};
@@ -88,21 +88,21 @@ export class AuthorDetails_Service {
         .subscribe ((responseData) => {
             console.log(responseData.message);
         });*/
-        this.http
-      .post('https://geeksreads.herokuapp.com/api/authors/follow', {
+        this.http.post('https://geeksreads.herokuapp.com/api/authors/follow', {
         params: {
-          myuserId: localStorage.getItem('userId'),
-          auth_id: authorid,
+        myuserId: localStorage.getItem('userId'),
+        auth_id: authorid,
+        token: localStorage.getItem('token')
         }
-      })
-      .subscribe((serverResponse: any) => {
+    })
+    .subscribe((serverResponse: any) => {
         console.log(serverResponse);
         this.author_details[0].message = serverResponse.Message;
         this.author_details[0].success = serverResponse.success;
         this.author_detailsUpdated.next(this.author_details);
-      }, (error: { json: () => void; }) => {
+    }, (error: { json: () => void; }) => {
         console.log(error);
-      });
+    });
     }
     /**
      *
@@ -110,7 +110,6 @@ export class AuthorDetails_Service {
      * @returns
      * @memberof AuthorDetails_Service
      */
-   
     post_author_id(authorid: string) {
         /*const author: AuthorDetails = {user_id: null, AuthorId: authorid, About: null,
             FollowingUserId: null, Photo: null, AuthorName: null, BookId: null};
