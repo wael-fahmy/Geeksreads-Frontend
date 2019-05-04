@@ -84,6 +84,7 @@ export class AuthorService {
         search_param: snapshotParam,
       }})
       .subscribe((serverResponse: any) => {
+        console.log(serverResponse);
         this.authorBooks[0] = serverResponse;
         this.authorBooksUpdated.next([...this.authorBooks]);
       }

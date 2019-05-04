@@ -9,15 +9,15 @@
             <span class="fa fa-star checked"></span>
             <span class="fa fa-star"></span>
         </p>
-        <p id="review-date">{{reviewerdate[0]}} <span>ago</span></p>
+        <p id="review-date">{{reviewerdate[0]}}</p>
     </div>
 </div>
 <div id="review-comment">
     <div id="Book-info">
         <img class="Book-image" src="{{bookimage[0]}}">
         <div id="Book-Title">
-            <h4 id="book_title_font">{{booktitle[0]}}</h4>
-            <p [routerLink]="['/authors', bookauthorid[0]]" id="By-Author">by <span id="Author-name">{{bookauthor[0]}}</span></p>
+            <h4 id="book_title_font" [routerLink]="['/book', bookId[0]]">{{booktitle[0]}}</h4>
+            <p [routerLink]="['/authors', author]" id="By-Author">by <span id="Author-name">{{bookauthor[0]}}</span></p>
             <button mat-raised-button color="primary" [matMenuTriggerFor]="menu" class="want-to-read" id='first-option'>Want To Read</button>
             <mat-menu #menu="matMenu">
                 <button class="want-to-read" mat-menu-item (click)="book_status('second-option')" id='second-option'>{{type1}}</button>
@@ -26,8 +26,8 @@
         </div>
     </div>
     <p id="date_read_book">read in <span>{{bookreaddate[0]}}</span></p>
-    <p>{{befor_dots[0]}}<span id="dots-user-review">...</span>
-        <span id="more-review"> {{after_dots[0]}}</span> <button (click)="more_review_discription()" id="myBtn-user-review" mat-button>Read Full Review</button></p>
+    <p>{{befordots[0]}}<span id="dots-user-review">...</span>
+        <span id="more-review"> {{afterdots[0]}}</span> <button (click)="more_review_discription()" id="myBtn-user-review" mat-button>Read Full Review</button></p>
 </div>
 <div id="review-like-comment">
     <p (click)="OnclickLike(review_details[0])" id="liked" class="blue-text">Like</p>
@@ -36,6 +36,6 @@
     <p type="text" class="dots" id="show-likes">{{reviewerlikes[0]}}</p>
     <p class="dots">.</p>
     <i class="comment"><mat-icon> mode_comment</mat-icon></i>
-    <p class="dots">{{reviewercomments[0]}}</p>
+    <p class="dots"></p>
 </div>
 <hr id="next-review" class="w3-gray">

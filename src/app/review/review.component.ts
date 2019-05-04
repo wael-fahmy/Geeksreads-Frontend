@@ -14,6 +14,7 @@ export class ReviewComponent implements OnInit {
   @Input() reviewerlikes: string;
   @Input() reviewerid: string;
   @Input() reviewercomments: string;
+  @Input() userid: string;
 
   befordots: string;
   afterdots: string;
@@ -21,7 +22,7 @@ export class ReviewComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log(this.reviewername);
+    console.log(this.reviewerid);
     this.SplitString();
   }
   SplitString() {
@@ -45,6 +46,14 @@ export class ReviewComponent implements OnInit {
       btnText.innerHTML = 'Read less';
       moreText.style.display = 'inline';
     }
+  }
+  ClickStorage() {
+    localStorage.removeItem('ISBN');
+    localStorage.removeItem('bookTitle');
+    localStorage.removeItem('publishedDate');
+    localStorage.removeItem('publisher');
+    localStorage.removeItem('pages');
+    localStorage.removeItem('genre');
   }
 
 }

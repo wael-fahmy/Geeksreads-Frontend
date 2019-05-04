@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from "@angular/router";
 
 /**
  *
@@ -13,17 +14,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./reviews.component.css']
 })
 export class ReviewsComponent implements OnInit {
-  /**
-   * Creates an instance of ReviewsComponent.
-   * @memberof ReviewsComponent
-   */
-  constructor() { }
-
-  /**
-   * Angular Init
-   * @memberof ReviewsComponent
-   */
+  SnapshotParam = 'initial value';
+  constructor(private route: ActivatedRoute) { }
   ngOnInit() {
+    this.SnapshotParam = this.route.snapshot.paramMap.get('reviewid');
   }
 
 }

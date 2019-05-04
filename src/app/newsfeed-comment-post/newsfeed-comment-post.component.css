@@ -1,10 +1,10 @@
 .example-card {
-  width: 600px;
+  width:100% ;
   margin: 0px;
   }
   
   .example-header-image {
-    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-image: url('https://tse2.mm.bing.net/th?id=OIP.FN55nUOxccDTpCPhYOmVfgHaLU&pid=15.1&P=0&w=300&h=300');
     background-size: cover;
   }
   .header{
@@ -15,4 +15,7 @@
   .activity{
     color: brown ; 
     margin: 0px 0 ; 
+  }
+  .body{
+    margin-left: 8.5%;
   }

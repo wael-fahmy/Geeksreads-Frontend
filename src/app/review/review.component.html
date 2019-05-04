@@ -19,7 +19,7 @@
 <div id="review-like-comment">
     <p class="blue-text" id="liked">Like</p>
     <p class="dots">.</p>
-    <p routerLink="/reviews" class="blue-text" id="comment">Comment</p>
+    <p (click)="ClickStorage()" [routerLink]="['/reviews', reviewerid]" class="blue-text" id="comment">Comment</p>
     <p class="dots">.</p>
     <i class="thumbs-up"><mat-icon>thumb_up_alt</mat-icon></i>
     <p type="text" class="dots" id="show-likes">{{reviewerlikes}}</p>

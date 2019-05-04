@@ -1,55 +1,32 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
-import { GenreDetails } from './book.model';
+import { Book } from './book.model';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
+
 
 @Injectable({ providedIn: 'root' })
 
-export class GenreDetailsService {
-    /**
-     * Creates an instance of GenreDetails_Service.
-     * @param {HttpClient} http
-     * @memberof GenreDetails_Service
-     */
-    constructor(private http: HttpClient) { }
-
-    /**
-     *
-     * carries genre list recieved from json
-     * @private
-     * @type {Genredetails[]}
-     * @memberof GenreDetails_Service
-     */
-    private genreDetails: GenreDetails[] = [];
-
-    // tslint:disable-next-line:variable-name
-    /**
-     *
-     * updated genre list information
-     * @private
-     * @memberof GenreDetails_Service
-     */
-    private genreDetailsUpdated = new Subject<GenreDetails[]>();
-    /**
-     *
-     * get genre information from json
-     * @memberof GenreDetails_Service
-     */
-    get_genre_Info() {
-        this.http.get<{ message: string, genreDetails: GenreDetails[] }>('http://localhost:3000/api/genredetails').
+// tslint:disable-next-line:class-name
+export class Book_Service {
+    constructor(private http: HttpClient, private router: Router) { }
+    private book_details: Book[] = [];
+    private book_detailsUpdated = new Subject<Book[]>();
+    get_book_Info(bookid: string) {
+        this.http.get('https://geeksreads.herokuapp.com/api/books/id', { params: {
+            book_id: bookid
+    }
+        }).
             // tslint:disable-next-line:variable-name
-            subscribe((genredata) => {
-                this.genreDetails = genredata.genreDetails;
-                this.genreDetailsUpdated.next([...this.genreDetails]);
+            subscribe((bookdata: any) => {
+                console.log(bookdata);
+                this.book_details[0] = bookdata;
+                this.book_detailsUpdated.next([...this.book_details]);
+            }, (error: { json: () => void; }) => {
+                console.log(error);
             });
     }
-    /**
-     *
-     * get genre information updated
-     * @returns
-     * @memberof GenreDetails_Service
-     */
-    get_genre_Info_updated() {
-        return this.genreDetailsUpdated.asObservable();
+    get_book_Info_updated() {
+        return this.book_detailsUpdated.asObservable();
     }
 }

@@ -52,6 +52,10 @@ mat-toolbar {
     margin: 0 10px;
 }
 
+#nav-search-bar-side {
+    margin: 0 10px;
+}
+
 #nav-search-bar-icon {
     margin: 0;
 }

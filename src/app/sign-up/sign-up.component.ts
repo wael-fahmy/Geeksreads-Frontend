@@ -72,7 +72,7 @@ export class SignUpComponent implements OnInit {
    * Tests the sign up component
    * @memberof SignUpComponent
    */
-  testRequest() {
+  sign_up() {
     // tslint:disable-next-line: deprecation
     // const data = new URLSearchParams();
     // data.append('userName', this.userName);
@@ -83,6 +83,7 @@ export class SignUpComponent implements OnInit {
       UserEmail: this.userEmail,
       UserPassword: this.userPassword
     };
+    console.log(data)
 
     this.http
       .post('https://geeksreads.herokuapp.com/api/users/signup', data)
@@ -90,6 +91,7 @@ export class SignUpComponent implements OnInit {
         this.router.navigate(['verification']);
       }, error => {
         console.log(error);
+        alert(error.error.ReturnMsg);
       });
   }
 

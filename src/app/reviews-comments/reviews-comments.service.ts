@@ -40,7 +40,7 @@ private comments_detailsUpdated = new Subject<CommentsDetails[]>();
 get_comments_Info() {
         this.http.get('https://geeksreads.herokuapp.com/api/comments/list',
         { params: {
-            ReviewId: '5cc59a85267d4b9050f94b53'
+            ReviewId: '5c9243a5311a20ca08d1844d'
         }
             }).
             // tslint:disable-next-line:variable-name
@@ -60,5 +60,24 @@ get_comments_Info() {
      */
     get_comments_Info_updated() {
         return this.comments_detailsUpdated.asObservable();
+    }
+    post_Review() {
+// tslint:disable-next-line: max-line-length
+        const UserToken = {
+            Body: 'afaassssssssssssssssssssssssssa',
+            ReviewId: '5cc59a85267d4b9050f94b53',
+            BookId: localStorage.getItem('bookID'),
+            userId: localStorage.getItem('userId'),
+            Photo: '242342342',
+            token: localStorage.getItem('token'),
+            LikesCount: '0',
+            date: '2000-01-01T00:00:00.000Z'
+        };
+        console.log(localStorage.getItem('token'));
+        this.http.post<{ message: string}>('https://geeksreads.herokuapp.com/api/comments/add', UserToken).
+        subscribe(responseData => {          //  subscribe the list of books recieved
+        console.log(responseData);    // assign them to the list to display them
+        //this.comments_detailsUpdated.next([...this.comments_details]);
+        });
     }
 }

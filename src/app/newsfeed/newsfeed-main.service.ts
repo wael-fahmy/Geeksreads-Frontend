@@ -4,6 +4,7 @@ import { Post } from './newsfeed-main.model';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 
+
 /**
  * contains all the service functions
  * @export
@@ -52,10 +53,11 @@ export class PostsServices {
       myuserId: localStorage.getItem('userId'),
       token: localStorage.getItem('token'),
     };
-    this.http.post<{ receivedPost: Post[] }>('https://geeksreads.herokuapp.com/api/user_status/show' , data)
-      .subscribe((serverResponse) => {
-        console.log(serverResponse.receivedPost);
-        this.post = serverResponse.receivedPost;
+    this.http.post('https://geeksreads.herokuapp.com/api/user_status/show' , data)
+      .subscribe((serverResponse: any) => {
+        console.log(serverResponse);
+       // this.post[0].BookName = serverResponse.BookName;
+        this.post = serverResponse;
         this.postUpdated.next([...this.post]);
 
       });

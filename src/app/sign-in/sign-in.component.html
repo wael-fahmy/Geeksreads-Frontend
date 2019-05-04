@@ -8,8 +8,10 @@
             <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
         </mat-form-field>
         <mat-form-field id="password-field">
-            <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'" name="password" formControlName="password" required id="password">
+            <input matInput #input placeholder="Enter your password" [type]="hide ? 'password' : 'text'" name="password" formControlName="password" required id="password">
+            <mat-hint *ngIf="input.value.length<6" align="start">Your password should be more than 6 characters </mat-hint>
             <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+
         </mat-form-field>
         <a routerLink="/forgot-password" id="forgot-password-route">Forgot Password?</a>
         <input mat-raised-button class="btn" type="submit" id="form-submit-btn" [disabled]="!formdata.valid" value="Sign In">

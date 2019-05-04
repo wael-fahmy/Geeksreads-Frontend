@@ -22,7 +22,7 @@ export class SearchService {
         }
       })
       .subscribe((serverResponse: SearchModel) => {
-        console.log(serverResponse);
+        // console.log(serverResponse);
         this.searchModel = serverResponse;
         this.searchUpdated.next(this.searchModel);
       }
@@ -34,6 +34,5 @@ export class SearchService {
   getSearchUpdated() {
     return this.searchUpdated.asObservable();
   }
-
   constructor(private http: HttpClient, private router: Router) { }
 }

@@ -1,10 +1,10 @@
 <div id="Book-info">
-    <img class="Book-image" src="{{bookimage[book_index]}}">
+    <img class="Book-image" src="{{bookimage}}">
     <div id="Book-Title">
-        <h3 id="title">{{booktitle[book_index]}}</h3>
+        <h3 id="title">{{booktitle}}</h3>
         <p id="By-Author">by
-            <span (click)="Clear_Storage()" [routerLink]="['/authors', bookauthorid[this.book_index]]" id="Author-name">{{bookauthor[book_index]}}</span></p>
-        <button mat-button [matMenuTriggerFor]="menu" class="want-to-read" id='first-option'>{{bookstatus[book_index]}}</button>
+            <span (click)="Clear_Storage()" [routerLink]="['/authors', bookauthorid]" id="Author-name">{{bookauthor[book_index]}}</span></p>
+        <button mat-button [matMenuTriggerFor]="menu" class="want-to-read" id='first-option'>{{bookstatus}}</button>
         <mat-menu #menu="matMenu">
             <button mat-menu-item (click)="book_status('second-option')" id='second-option'>{{type1}}</button>
             <button mat-menu-item (click)="book_status('third-option')" id='third-option'>{{type2}}</button>

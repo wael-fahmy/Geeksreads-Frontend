@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ReviewDetails } from './reviews-entity.model';
 import { Subscription } from 'rxjs';
 import { BookDetails } from '../book-entity/book-entity.model';
@@ -11,13 +11,15 @@ import { delay } from 'q';
   styleUrls: ['./reviews-entity.component.css']
 })
 export class ReviewsEntityComponent implements OnInit {
-
+  @Input() ReviewIDCompare;
   type1: string;
   type2: string;
   booktitle: string [] = [];
   bookimage: string [] = [];
   bookreaddate: string [] = [];
   bookauthorid: string [] = [];
+  author: string;
+  userid: string [] = [];
   /////////////////////////////////////
   reviewerid: string[] = [];
   reviewerrate: any [] = [];
@@ -37,13 +39,13 @@ export class ReviewsEntityComponent implements OnInit {
   public book_details: BookDetails[] = [];
   public author_details: AuthorDetails[] = [];
   //////////////////////////////////////
-  public befor_dots: string [] = [];
-  public after_dots: string [] = [];
+  public befordots: string [] = [];
+  public afterdots: string [] = [];
 constructor(public review_service: ReviewerDetails_Service) { }
 ngOnInit() {
-    const BookID = '5c9114a0d345b4a65637eacc';
-    const UserID = '5cc5df8c2e9c5800172864c9';
-    this.review_service.get_Review_Info(BookID, UserID);                                  // to get the user info from the service
+    console.log(this.ReviewIDCompare);
+    const BookID = localStorage.getItem('bookID');
+    this.review_service.get_Review_Info(BookID);                                  // to get the user info from the service
     // tslint:disable-next-line:variable-name
     this.Sub_profile = this.review_service.get_review_Info_updated().subscribe((review_Information: ReviewDetails[]) => {
       this.review_details = review_Information;
@@ -57,8 +59,9 @@ ngOnInit() {
     });
     this.type1 = 'Currently Reading';
     this.type2 = 'Read';
-    const author = localStorage.getItem('authorID');
-    this.review_service.get_author_Info(author);                                  // to get the user info from the service
+    this.author = localStorage.getItem('authorID');
+    console.log(this.author);
+    this.review_service.get_author_Info(this.author);                                  // to get the user info from the service
     // tslint:disable-next-line:variable-name
     this.Sub_profile = this.review_service.get_author_Info_updated().subscribe((author_Information: AuthorDetails[]) => {
       this.author_details = author_Information;
@@ -66,32 +69,40 @@ ngOnInit() {
     });
   }
   SetElements() {
-    /*
-    // tslint:disable-next-line: prefer-for-of
     for (let x = 0; x < this.review_details.length; x++) {
-      this.bookreaddate[x] = this.review_details[x].reviewDate;
-      this.bookId[x] = this.review_details[x].bookId;
       this.reviewerid[x] = this.review_details[x].reviewId;
-      this.reviewerrate[x] = this.review_details[x].rating;
       this.reviewername[x] = this.review_details[x].userName;
+      this.reviewerlikes[x] = this.review_details[x].likesCount;
       this.reviewerbody[x] = this.review_details[x].reviewBody;
-      this.reviewerlikes[x] = this.review_details[x].LikesCount;
-      this.reviewerdate[x] = this.review_details[x].reviewDate;
+      this.reviewerimage[x] = this.review_details[x].photo;
+      const fixed = this.review_details[x].reviewDate.split('T');
+      this.review_details[x].reviewDate = fixed[0];
+      this.reviewerdate[x] = fixed[0];
+      this.reviewerrate[x] = this.review_details[x].rating;
+      this.userid[x] = this.review_details[x].userId;
     }
-    */
-    this.bookreaddate[0] = '';
-    this.bookId[0] = '';
-    this.reviewerid[0] = '';
-    this.reviewerrate[0] = '';
-    this.reviewername[0] = '';
-    this.reviewerbody[0] = '';
-    this.reviewerlikes[0] = '';
-    this.reviewerdate[0] = '';
+    this.SplitString();
   }
+  SplitString() {
+    const ReadMoreBt = document.getElementById('myBtn-user-review');
+    const ReadMoreDot = document.getElementById('dots-user-review');
+    const check = this.reviewerbody[0].split(' ');
+    if (check.length < 15) {
+      ReadMoreBt.style.display = 'none';
+      ReadMoreDot.style.display = 'none';
+      this.befordots[0] = this.reviewerbody[0];
+      this.afterdots[0] = '';
+  } else {
+    const word = this.reviewerbody[0].split(',');
+    this.befordots[0] = word[0];
+    this.afterdots [0] = word[1];
+  }
+}
   SetInfoBook() {
     this.bookimage[0] = this.book_details[0].Cover;
     this.booktitle[0] = this.book_details[0].Title;
     this.bookauthorid[0] = this.book_details[0].AuthorId;
+    this.bookId[0] = this.book_details[0].BookId;
   }
   more_review_discription() {
     const dots = document.getElementById('dots-user-review');
@@ -128,8 +139,6 @@ ngOnInit() {
       liking.innerHTML = x;
     }
     //this.review_service.request_reviewer_like(index.reviewer_id, liking.innerHTML.toString());
-  }
-  SplitString() {
   }
   book_status(index: string) {
     const first = document.getElementById(index);

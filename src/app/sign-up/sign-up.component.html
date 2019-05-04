@@ -2,7 +2,7 @@
     <div class="sign-up-logo-div">
         <img src="../../assets/logos/logo.png" alt="Geeksreads Logo" class="sign-up-logo">
     </div>
-    <form class="sign-up-form" (submit)="testRequest()" #signupForm='ngForm'>
+    <form class="sign-up-form" (submit)="sign_up()" #signupForm='ngForm'>
         <mat-form-field>
             <input matInput placeholder="Enter your username" required name="userName" [(ngModel)]="userName" id="userName">
         </mat-form-field>
