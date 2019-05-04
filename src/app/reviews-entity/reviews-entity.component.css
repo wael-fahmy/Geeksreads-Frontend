@@ -26,6 +26,7 @@
 #book_title_font {
     font-family: 'Times New Roman', Times, serif;
     margin:0 0 0 0 ;
+    cursor: pointer;
 }
 #Book-Title {
     margin: 5px 0 0 10px;

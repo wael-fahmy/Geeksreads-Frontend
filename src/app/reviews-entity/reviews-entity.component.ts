@@ -84,14 +84,25 @@ ngOnInit() {
     this.SplitString();
   }
   SplitString() {
+    const ReadMoreBt = document.getElementById('myBtn-user-review');
+    const ReadMoreDot = document.getElementById('dots-user-review');
+    const check = this.reviewerbody[0].split(' ');
+    if (check.length < 15) {
+      ReadMoreBt.style.display = 'none';
+      ReadMoreDot.style.display = 'none';
+      this.befordots[0] = this.reviewerbody[0];
+      this.afterdots[0] = '';
+  } else {
     const word = this.reviewerbody[0].split(',');
     this.befordots[0] = word[0];
     this.afterdots [0] = word[1];
   }
+}
   SetInfoBook() {
     this.bookimage[0] = this.book_details[0].Cover;
     this.booktitle[0] = this.book_details[0].Title;
     this.bookauthorid[0] = this.book_details[0].AuthorId;
+    this.bookId[0] = this.book_details[0].BookId;
   }
   more_review_discription() {
     const dots = document.getElementById('dots-user-review');

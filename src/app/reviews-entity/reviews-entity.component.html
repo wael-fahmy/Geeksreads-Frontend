@@ -16,7 +16,7 @@
     <div id="Book-info">
         <img class="Book-image" src="{{bookimage[0]}}">
         <div id="Book-Title">
-            <h4 id="book_title_font">{{booktitle[0]}}</h4>
+            <h4 id="book_title_font" [routerLink]="['/book', bookId[0]]">{{booktitle[0]}}</h4>
             <p [routerLink]="['/authors', author]" id="By-Author">by <span id="Author-name">{{bookauthor[0]}}</span></p>
             <button mat-raised-button color="primary" [matMenuTriggerFor]="menu" class="want-to-read" id='first-option'>Want To Read</button>
             <mat-menu #menu="matMenu">

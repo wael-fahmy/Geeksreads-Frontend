@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-book-genre',
@@ -8,11 +8,10 @@ import { Component, OnInit } from '@angular/core';
 export class BookGenreComponent implements OnInit {
 
   public panelOpenState: boolean;
-  genre: string;
+  @Input() genre: string;
   constructor() { }
 
   ngOnInit() {
-    this.genre = localStorage.getItem('genre');
   }
 
 }
