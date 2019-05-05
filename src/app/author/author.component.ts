@@ -72,44 +72,18 @@ export class AuthorComponent implements OnInit {
   public authorUnfollowingModel: AuthorUnfollowModel;
 
   /**
-   *  Is the currently signed in user following this author or not
+   * Is the currently signed in user following this author or not
+   * @type {boolean}
+   * @memberof AuthorComponent
    */
   authorIsFollowing: boolean;
 
   /**
-   * Array of author's book ids
-   * @type {string[]}
+   * Number of users following this author
+   * @type {string}
    * @memberof AuthorComponent
    */
-  authorBookId: string[] = [];
-
-  /**
-   * Array of author's book names
-   * @type {string[]}
-   * @memberof AuthorComponent
-   */
-  authorBookName: string[] = [];
-
-  /**
-   * Array of author's book pictures
-   * @type {string[]}
-   * @memberof AuthorComponent
-   */
-  authorBookPicture: string[] = [];
-
-  /**
-   * Array of author's book rating
-   * @type {string[]}
-   * @memberof AuthorComponent
-   */
-  authorBookRating: string[] = [];
-
-  /**
-   * Array of author's book shelf
-   * @type {string[]}
-   * @memberof AuthorComponent
-   */
-  authorBookShelf: string[] = [];
+  authorNumberOfFollowers: string;
 
   /**
    *  Follows an author
@@ -117,12 +91,11 @@ export class AuthorComponent implements OnInit {
    */
   followAuthor() {
     this.authorFollowService.followAuthor(this.snapshotParam);
-    console.log('Author Component: ' + this.snapshotParam);
     this.authorSubscription = this.authorFollowService.getFollowAuthorUpdated()
       .subscribe((authorFollow: AuthorFollowModel) => {
-        console.log('Author Component: Following this author');
         this.authorFollowingModel = authorFollow;
         this.authorIsFollowing = true;
+        this.authorNumberOfFollowers = this.getNumberOfFollowers();
       }, (error: { json: () => void; }) => {
         console.log(error);
       });
@@ -133,16 +106,31 @@ export class AuthorComponent implements OnInit {
    *  @memberof AuthorComponent
    */
   unfollowAuthor() {
-    console.log('Unfollowing this author');
     this.authorUnfollowService.unfollowAuthor(this.snapshotParam);
     this.authorSubscription = this.authorUnfollowService.getUnfollowAuthorUpdated()
       .subscribe((authorUnfollow: AuthorUnfollowModel) => {
-        console.log('Author Component: Unfollowing this author');
         this.authorUnfollowingModel = authorUnfollow;
         this.authorIsFollowing = false;
+        this.authorNumberOfFollowers = this.getNumberOfFollowers();
       }, (error: { json: () => void; }) => {
         console.log(error);
       });
+  }
+
+  /**
+   * Get number of users following the author
+   * @returns {string}
+   * @memberof AuthorComponent
+   */
+  getNumberOfFollowers(): string {
+    this.authorService.getAuthorInfo(this.snapshotParam);
+    this.authorSubscription = this.authorService.getAuthorInfoUpdated()
+      .subscribe((authorInformation: AuthorModel) => {
+        return authorInformation.FollowingUserId.length.toString();
+      }, (error: { json: () => void; }) => {
+        console.log(error);
+      });
+    return '';
   }
 
   /**
@@ -174,26 +162,27 @@ export class AuthorComponent implements OnInit {
     // Get Author Id from URL Parameter
     this.snapshotParam = this.route.snapshot.paramMap.get('author');
 
-    // Make sure the button is the 'Follow' Button
+    // Make sure the button is the 'Follow' Button when guest
     this.setIsFollowing();
 
     this.authorService.getAuthorInfo(this.snapshotParam);
     this.authorSubscription = this.authorService.getAuthorInfoUpdated()
       .subscribe((authorInformation: AuthorModel) => {
         this.authorModel = authorInformation;
+        this.authorIsFollowing = this.authorModel.FollowingUserId.includes(localStorage.getItem('userId'));
+        this.authorNumberOfFollowers = this.authorModel.FollowingUserId.length.toString();
       }, (error: { json: () => void; }) => {
         console.log(error);
       });
 
-    // TODO:
     this.authorService.getBooksByAuthor(this.snapshotParam);
     this.authorBooksSubscription = this.authorService.getBooksByAuthorUpdated()
       .subscribe((authorBooksInformation: AuthorBooksModel[]) => {
         this.authorBooksModel = authorBooksInformation;
         console.log(this.authorBooksModel);
-        for (let i of this.authorBooksModel) {
-          i.BookRating = i.BookRating.$numberDecimal;
-        }
+        // for (let i of this.authorBooksModel) {
+        //   i.BookRating = i.BookRating.$numberDecimal;
+        // }
       }, (error: { json: () => void; }) => {
         console.log(error);
       });

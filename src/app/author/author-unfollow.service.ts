@@ -33,27 +33,23 @@ export class AuthorUnfollowService {
    * Unfollows Author
    * @memberof AuthorService
    */
-  unfollowAuthor(snapshotParam: string) {
+  unfollowAuthor(authorId: string) {
     // Can't unfollow if you are a Guest
     if (localStorage.getItem('userId') === null) {
       this.router.navigate(['/sign-in']);
       return;
     }
-
-    const data = {
-      myuserId: localStorage.getItem('userId'),
-      auth_id: snapshotParam,
-      token: localStorage.getItem('token'),
-    };
-
     this.http
-      .post('https://geeksreads.herokuapp.com/api/authors/unfollow', data)
-      .subscribe((serverResponse: AuthorUnfollowModel) => {
-        console.log('Unfollow Author Service: ' + serverResponse);
+      .post('https://geeksreads.herokuapp.com/api/authors/unfollow', {
+        auth_id: authorId,
+        myuserId: localStorage.getItem('userId'),
+        token: localStorage.getItem('token'),
+      })
+      .subscribe((serverResponse: any) => {
         this.unfollowing = serverResponse;
         this.unfollowingUpdated.next(this.unfollowing);
       }, (error: { json: () => void; }) => {
-        console.log(error.json);
+        console.log(error);
       });
   }
 

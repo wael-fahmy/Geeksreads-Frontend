@@ -38,16 +38,14 @@ export class AuthorFollowService {
       this.router.navigate(['/sign-in']);
       return;
     }
-    const data = {
-      myuserId: localStorage.getItem('userId'),
-      auth_id: authorId,
-      token: localStorage.getItem('token'),
-    };
-
     this.http
-      .post('https://geeksreads.herokuapp.com/api/authors/follow', data)
+      .post('https://geeksreads.herokuapp.com/api/authors/follow', {
+        auth_id: authorId,
+        myuserId: localStorage.getItem('userId'),
+        token: localStorage.getItem('token'),
+      })
       .subscribe((serverResponse: AuthorFollowModel) => {
-        console.log('Follow Author Service: ' + serverResponse);
+        // {success: true, Message: "Sucessfully done"}
         this.following = serverResponse;
         this.followingUpdated.next(this.following);
       }, (error: { json: () => void; }) => {
