@@ -11,7 +11,7 @@ import { delay } from 'q';
   styleUrls: ['./reviews-entity.component.css']
 })
 export class ReviewsEntityComponent implements OnInit {
-  @Input() ReviewIDCompare;
+  @Input() ReviewIDCompare: string;
   type1: string;
   type2: string;
   booktitle: string [] = [];
