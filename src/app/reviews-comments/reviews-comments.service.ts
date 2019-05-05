@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import { CommentsDetails } from './reviews-comments.model';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Injectable({ providedIn: 'root' })
 
@@ -12,7 +13,7 @@ export class CommentsDetails_Service {
      * @param {HttpClient} http
      * @memberof BookTitle_Service
      */
-    constructor(private http: HttpClient) { }
+    constructor(private http: HttpClient, private router: Router) { }
 
 // tslint:disable-next-line: variable-name
 /**
@@ -62,6 +63,10 @@ get_comments_Info(ReviewID: string) {
         return this.comments_detailsUpdated.asObservable();
     }
     post_Comment(body: string, ReviewID: string) {
+        if (localStorage.getItem('userId') === null) {
+            this.router.navigate(['/sign-in']);
+            return;
+        }
 // tslint:disable-next-line: max-line-length
         const UserToken = {
             Body: body,
