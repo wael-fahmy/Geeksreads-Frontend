@@ -134,16 +134,6 @@ export class AuthorComponent implements OnInit {
   }
 
   /**
-   * If user is not signed in, follow author button is shown
-   * @memberof AuthorComponent
-   */
-  setIsFollowing() {
-    if (localStorage.getItem('userId') === null) {
-      this.authorIsFollowing = false;
-    }
-  }
-
-  /**
    *  Creates an instance of AuthorComponent.
    *  @param {AuthorService} authorService
    *  @memberof AuthorComponent
@@ -163,7 +153,9 @@ export class AuthorComponent implements OnInit {
     this.snapshotParam = this.route.snapshot.paramMap.get('author');
 
     // Make sure the button is the 'Follow' Button when guest
-    this.setIsFollowing();
+    if (localStorage.getItem('userId') === null) {
+      this.authorIsFollowing = false;
+    }
 
     this.authorService.getAuthorInfo(this.snapshotParam);
     this.authorSubscription = this.authorService.getAuthorInfoUpdated()
@@ -180,9 +172,9 @@ export class AuthorComponent implements OnInit {
       .subscribe((authorBooksInformation: AuthorBooksModel[]) => {
         this.authorBooksModel = authorBooksInformation;
         console.log(this.authorBooksModel);
-        // for (let i of this.authorBooksModel) {
-        //   i.BookRating = i.BookRating.$numberDecimal;
-        // }
+        for (let i of this.authorBooksModel) {
+          i.BookRating = i.BookRating.$numberDecimal;
+        }
       }, (error: { json: () => void; }) => {
         console.log(error);
       });
