@@ -670,7 +670,7 @@ app.use("/api/genres", (req, res, next) => {
 app.post("/api/sign-in", (req, res, next) => {
     email = "omar@gmail.com";
     pass = "1234";
-
+    localStorage.setItem('token', 12345);
     console.log('data', req.body)
 
     if ((req.body.email == email) & (pass == req.body.pass))
