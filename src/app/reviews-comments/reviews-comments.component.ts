@@ -15,6 +15,10 @@ username: string [] = [];
 userid: string [] = [];
 userbody: string [] = [];
 userdate: string [] = [];
+LikesCount: string [] = [];
+Photo: string [] = [];
+ReviewId: string [] = [];
+CommentId: string [] = [];
 private Sub_profile: Subscription;
 public comment_details: CommentsDetails[] = [];
 constructor(public comments_service: CommentsDetails_Service) { }
@@ -32,8 +36,12 @@ constructor(public comments_service: CommentsDetails_Service) { }
     for (let x = 0; x < this.comment_details.length; x++) {
       this.username[x] = this.comment_details[x].userName;
       this.userid[x] = this.comment_details[x].userId;
-      this.userbody[x] = this.comment_details[x].body;
+      this.userbody[x] = this.comment_details[x].Body;
       this.userdate[x] = this.comment_details[x].date;
+      this.LikesCount[x] = this.comment_details[x].LikesCount.toString();
+      this.Photo[x] = this.comment_details[x].Photo;
+      this.ReviewId[x] = this.comment_details[x].ReviewId;
+      this.CommentId[x] = this.comment_details[x].CommentId;
     }
   }
   SendComment() {

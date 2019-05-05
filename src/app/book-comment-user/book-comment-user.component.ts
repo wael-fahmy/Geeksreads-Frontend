@@ -22,6 +22,7 @@ reviewerrate: string [] = [];
 reviewerlikes: string [] = [];
 reviewercomments: string [] = [];
 userid: string [] = [];
+visible = false;
 ////////////////////////////////////////////////
 public review_information: Bookreviews[] = [];
 public befor_dots: string [] = [];
@@ -92,6 +93,7 @@ ngOnInit() {
     this.Sub_profile = this.bookreviews_service.get_review_Info_updated()
     .subscribe((review_Information: Bookreviews[]) => {
       this.review_information = review_Information;
+      console.log(this.review_information);
       this.SetElements();
     });
   }
@@ -169,5 +171,18 @@ ngOnInit() {
       liking.innerHTML = x;
     }
     this.bookreviews_service.request_reviewer_like(index.userId,  liking.innerHTML.toString());
+  }
+  ShowReviews() {
+    const review = document.getElementById('review');
+    const Rbutton = document.getElementById('show-reviews');
+    if (this.visible === false) {
+      review.style.display = 'block';
+      Rbutton.innerHTML = 'Hide Commuinty Reviews';
+      this.visible = true;
+    } else {
+      review.style.display = 'none';
+      Rbutton.innerHTML = 'Show Commuinty Reviews';
+      this.visible = false;
+    }
   }
 }

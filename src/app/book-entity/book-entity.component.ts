@@ -59,6 +59,7 @@ ngOnInit() {
     this.bookbody[this.book_index] = this.book_details[this.book_index].Description;
     this.bookauthor[this.book_index] = this.book_details[this.book_index].AuthorName;
     this.bookrate[this.book_index] = this.book_details[this.book_index].BookRating;
+    this.assign_status(this.bookstatus[this.book_index]);
   }
   SetAuthorInfo() {
     this.bookauthor[this.book_index] = this.author_details[this.book_index].AuthorName;
