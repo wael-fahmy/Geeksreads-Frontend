@@ -1,15 +1,15 @@
 <div id="user-reviews">
-    <img routerLink="/profile" class="reviewer-image" src="{{reviewerimage}}">
+    <img routerLink="/profile" class="reviewer-image" src="{{photo}}">
     <div>
-        <p id="Reviewer-name">{{reviewername}}
+        <p id="Reviewer-name">{{userName}}
             <span id="rate-it">rated it</span>
-            <span class="fa fa-star checked" class="dots"></span>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star"></span>
-            <span class="fa fa-star"></span>
+            <span id="star0" class="fa fa-star" class="dots"></span>
+            <span id="star1" class="fa fa-star"></span>
+            <span id="star2" class="fa fa-star"></span>
+            <span id="star3" class="fa fa-star"></span>
+            <span id="star4" class="fa fa-star"></span>
         </p>
-        <p id="review-date">{{reviewerdate}}</p>
+        <p id="review-date">{{reviewDate}}</p>
     </div>
 </div>
 <div id="review-comment">
@@ -22,9 +22,9 @@
     <p (click)="ClickStorage()" [routerLink]="['/reviews', reviewerid]" class="blue-text" id="comment">Comment</p>
     <p class="dots">.</p>
     <i class="thumbs-up"><mat-icon>thumb_up_alt</mat-icon></i>
-    <p type="text" class="dots" id="show-likes">{{reviewerlikes}}</p>
+    <p type="text" class="dots" id="show-likes">{{likesCount}}</p>
     <p class="dots">.</p>
     <i class="comment">	<mat-icon> mode_comment</mat-icon></i>
-    <p class="dots" id="show-comments">{{reviewercomments}}</p>
+    <p class="dots" id="show-comments">{{commCount}}</p>
 </div>
 <hr id="next-review" class="w3-gray">

@@ -7,14 +7,17 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ReviewComponent implements OnInit {
 
-  @Input() reviewerimage: string;
-  @Input() reviewername: string;
-  @Input() reviewerdate: string;
-  @Input() reviewerbody: string;
-  @Input() reviewerlikes: string;
-  @Input() reviewerid: string;
-  @Input() reviewercomments: string;
-  @Input() userid: string;
+  @Input() bookId: string;
+  @Input() likesCount: string;
+  @Input() photo: string;
+  @Input() liked: boolean;
+  @Input() rating: number;
+  @Input() reviewBody: string;
+  @Input() reviewDate: string;
+  @Input() reviewId: string;
+  @Input() userId: string;
+  @Input() userName: string;
+  @Input() commCount: string;
 
   befordots: string;
   afterdots: string;
@@ -22,11 +25,11 @@ export class ReviewComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log(this.reviewerid);
     this.SplitString();
+    this.SetRate();
   }
   SplitString() {
-    const word = this.reviewerbody.split(',');
+    const word = this.reviewBody.split(',');
     this.befordots = word[0];
     this.afterdots = word[1];
   }
@@ -54,6 +57,36 @@ export class ReviewComponent implements OnInit {
     localStorage.removeItem('publisher');
     localStorage.removeItem('pages');
     localStorage.removeItem('genre');
+  }
+  SetRate() {
+    const rate = this.rating.toString();
+    const rate0 = document.getElementById('star0');
+    const rate1 = document.getElementById('star1');
+    const rate2 = document.getElementById('star2');
+    const rate3 = document.getElementById('star3');
+    const rate4 = document.getElementById('star4');
+    if (rate === '1') {
+      rate0.style.color = 'orange';
+    } else if (rate === '2') {
+      rate0.style.color = 'orange';
+      rate1.style.color = 'orange';
+    } else if (rate === '3') {
+      console.log('in here');
+      rate0.style.color = 'orange';
+      rate1.style.color = 'orange';
+      rate2.style.color = 'orange';
+    } else if (rate === '4') {
+      rate0.style.color = 'orange';
+      rate1.style.color = 'orange';
+      rate2.style.color = 'orange';
+      rate3.style.color = 'orange';
+    } else if (rate === '5') {
+      rate0.style.color = 'orange';
+      rate1.style.color = 'orange';
+      rate2.style.color = 'orange';
+      rate3.style.color = 'orange';
+      rate4.style.color = 'orange';
+    }
   }
 
 }

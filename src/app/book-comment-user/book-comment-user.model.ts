@@ -2,11 +2,12 @@ export interface Bookreviews {
     bookId: string;
     likesCount;
     photo: string;
-    rating;
+    liked: boolean;
+    rating: number;
     reviewBody: string;
-    reviewDate;
+    reviewDate: string;
     reviewId: string;
-    shelf;
     userId: string;
     userName: string;
+    commCount;
 }

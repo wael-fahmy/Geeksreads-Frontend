@@ -107,14 +107,14 @@ ngOnInit() {
     for (let x = 0; x < this.review_information.length; x++) {
       this.reviewerid[x] = this.review_information[x].reviewId;
       this.reviewername[x] = this.review_information[x].userName;
-      this.reviewerlikes[x] = this.review_information[x].likesCount;
+      this.reviewerlikes[x] = this.review_information[x].likesCount.toString();
       this.reviewercomments[x] = this.review_information[x].reviewBody;
       this.reviewerimage[x] = this.review_information[x].photo;
       const fixed = this.review_information[x].reviewDate.split('T');
       this.review_information[x].reviewDate = fixed[0];
       this.reviewerdate[x] = fixed[0];
       this.reviewerbody[x] = this.review_information[x].reviewBody;
-      this.reviewerrate[x] = this.review_information[x].rating;
+      this.reviewerrate[x] = this.review_information[x].rating.toString();
       this.userid[x] = this.review_information[x].userId;
     }
   }
