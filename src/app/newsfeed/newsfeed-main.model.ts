@@ -170,7 +170,7 @@ export class Post {
     CommentMakerName: string;
 
     BookStatus;
-    ReviewIsLiked; 
+    ReviewIsLiked;
     AuthorName;
     AuthorId;
 

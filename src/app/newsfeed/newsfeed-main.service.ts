@@ -21,7 +21,7 @@ export class PostsServices {
    * @param {HttpClient} http
    * @memberof PostsServices
    */
-  constructor(private http: HttpClient , private router: Router) { }
+  constructor(private http: HttpClient, private router: Router) { }
 
   /**
    * Post
@@ -49,19 +49,16 @@ export class PostsServices {
       this.router.navigate(['/sign-in']);
       return;
     }
-    const data = {
-      myuserId: localStorage.getItem('userId'),
-      token: localStorage.getItem('token'),
-    };
-    this.http.post('http://localhost:3000/api/newsfeed' , data)
+    this.http.post('https://geeksreads.herokuapp.com/api/user_status/show', { token: localStorage.getItem('token'), UserId : localStorage.getItem('userId')}
+      
+    )
       .subscribe((serverResponse: any) => {
         console.log(serverResponse);
-        this.post[0] = serverResponse;
+        this.post = serverResponse;
         this.postUpdated.next([...this.post]);
-
       });
 
-    }
+  }
   /**
    * This function makes sure that the newsfeed is updated
    * @returns
@@ -70,4 +67,4 @@ export class PostsServices {
   get_post_updated() {
     return this.postUpdated.asObservable();
   }
-  }
+}
