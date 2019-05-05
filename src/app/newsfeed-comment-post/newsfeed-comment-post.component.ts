@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Post } from '../newsfeed/newsfeed-main.model';
 import { PostsServices } from '../newsfeed/newsfeed-main.service';
+import { ɵangular_packages_platform_browser_platform_browser_j } from '@angular/platform-browser';
 
 /**
  *  Newsfeed Comment Component
@@ -19,9 +20,13 @@ export class NewsfeedCommentPostComponent implements OnInit {
 
 ///////////////////////// Subscription and instances from Post Model and at inputs ///////////////////////////
 @Input() userName: string;
-@Input() activityDate: Date;
-@Input() comment: string;
-@Input() makerImage: string;
+ @Input() activityDate: Date;
+ @Input() comment: string;
+ @Input() makerImage: string;
+ @Input() activityLog: string;
+
+@Input() postObj: Post[];
+
 
 
 
@@ -31,7 +36,7 @@ export class NewsfeedCommentPostComponent implements OnInit {
    * @type {Post}
    * @memberof NewsfeedCommentPostComponent
    */
-  postObj: Post[];
+ // postObj: Post[];
   /**
    * created an instance subscription to save memory leakage when the component is discarded
    * @private
@@ -91,11 +96,16 @@ export class NewsfeedCommentPostComponent implements OnInit {
     this.Sub = this.commentService.get_post_updated().subscribe((expectedPostArray: Post[])=>{
       this.postObj = expectedPostArray;
       console.log(this.postObj);
-      //this.comment = expectedPostArray[0].CommentBody;
+     // this.comment = expectedPostArray[0].CommentBody;
       //this.activityDate = expectedPostArray[0].CommentDate;
       //this.makerImage = expectedPostArray[0].CommentMakerPhoto;
-     // this.activityLog = expectedPostArray[0].StatusType;
+      //this.activityLog = expectedPostArray[0].StatusType;
       //this.userName = expectedPostArray[0].CommentMakerName; 
+      this.comment = this.postObj[0].CommentBody;
+      this.activityDate = this.postObj[0].CommentDate;
+      this.makerImage = this.postObj[0].CommentMakerPhoto;
+      this.activityLog = this.postObj[0].StatusType;
+      this.userName = this.postObj[0].CommentMakerName;
     },
 
       (error: { json: () => void; }) => {

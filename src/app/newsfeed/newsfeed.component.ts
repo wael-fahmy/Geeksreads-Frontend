@@ -35,7 +35,7 @@ export class NewsfeedComponent implements OnInit {
    * @type {Post}
    * @memberof NewsfeedPostComponent
    */
-  PostObj: Post[];
+  PostObj: Post[] = [];
 
 
   //////////////////////////  HTML VARIABLES ////////////////////////////////////////////////////////////
@@ -94,7 +94,7 @@ export class NewsfeedComponent implements OnInit {
    *
    * @memberof NewsfeedComponent
    */
-  StatusType;
+  StatusType: string;
 
 
   /**
@@ -151,6 +151,7 @@ export class NewsfeedComponent implements OnInit {
      this.PostsServicesObj.getpost();
      this.newsfeedSubscription = this.PostsServicesObj.get_post_updated().subscribe((PostInfo) => {
       this.PostObj = PostInfo;
+      //console.log(this.PostObj);
       this.setData();
       // The following is to check if there any posts received or not 
       // if their count=0 then a message to be displayed
