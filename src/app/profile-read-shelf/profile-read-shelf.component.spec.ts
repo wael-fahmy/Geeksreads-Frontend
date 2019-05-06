@@ -4,6 +4,7 @@ import { ProfileReadShelfComponent } from './profile-read-shelf.component';
 import { MatMenuModule, MatDividerModule, MatListModule, } from '@angular/material';
 import { MaterialModule } from '../material.module';
 import { HttpClientModule } from '@angular/common/http';
+import {RouterModule} from '@angular/router';
 
 describe('ProfileReadShelfComponent', () => {
   let component: ProfileReadShelfComponent;
@@ -12,7 +13,7 @@ describe('ProfileReadShelfComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ ProfileReadShelfComponent ],
-      imports: [MatMenuModule, MatDividerModule, MatListModule, MaterialModule, HttpClientModule]
+      imports: [MatMenuModule, MatDividerModule, MatListModule, MaterialModule, HttpClientModule,RouterModule]
     })
     .compileComponents();
   }));

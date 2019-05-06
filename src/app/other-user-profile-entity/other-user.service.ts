@@ -57,7 +57,7 @@ export class OtherUserService {
     {
         const UserToken = {
             myuserid: localStorage.getItem('userId'),
-           // token: localStorage.getItem('token'),
+            token: localStorage.getItem('token'),
             userId_tobefollowed: userid
            };
           this.http.post<{success: boolean,Message: string}>('https://geeksreads.herokuapp.com/api/Users/Follow', UserToken
@@ -73,7 +73,7 @@ export class OtherUserService {
     {
       const UserToken = {
         myuserid: localStorage.getItem('userId'),
-       // token: localStorage.getItem('token'),
+        token: localStorage.getItem('token'),
         userId_tobefollowed: userid
        };
       this.http.post('https://geeksreads.herokuapp.com/api/Users/unFollow', UserToken
@@ -101,7 +101,7 @@ export class OtherUserService {
             this.listReadingUpdated.next([...this.List_reading]);
           }
           , (error: { json: () => void; }) => {
-            console.log(error); 
+            console.log(error);  
           });
       }
       get_List_of_books_reading_updated() {
