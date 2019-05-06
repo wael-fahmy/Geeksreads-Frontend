@@ -108,7 +108,51 @@ export class OtherUserService {
         return this.listReadingUpdated.asObservable();
       }
 
+      get_List_of_books_read(userid: string) {
+        const UserToken = {
+          token : localStorage.getItem('token'),
+          UserId: userid
+        }
+        this.http.post<{ ReadData: ListOfBooks[] }>('https://geeksreads.herokuapp.com/api/users/GetUserReadDetails ', UserToken
+        ).
+          subscribe(bookData => {          //  subscribe the list of books recieved
+          //  console.log(bookData.ReadingData);
+            this.List_read = bookData.ReadData;    // assign them to the list to display them
+            this.listReadUpdated.next([...this.List_read]);
+          }
+          , (error: { json: () => void; }) => {
+            console.log(error);
+          });
+      }
+      get_List_of_books_read_updated() {
+        return this.listReadUpdated.asObservable();
+      }
 
+      get_List_of_books_want_to_read(userid: string) {
+        const UserToken = {
+          token : localStorage.getItem('token'),
+          UserId: userid
+        }
+        this.http.post<{ WantToReadData: ListOfBooks[] }>('https://geeksreads.herokuapp.com/api/users/GetUserWantToReadDetails', UserToken
+        ).
+          subscribe(bookData => {          //  subscribe the list of books recieved
+            //console.log(bookData.WantToReadData);
+            this.List_wantto_read = bookData.WantToReadData;    // assign them to the list to display them
+            this.listWanttoReadUpdated.next([...this.List_wantto_read]);
+          }
+          , (error: { json: () => void; }) => {
+            console.log(error);
+          });
+      }
 
+      /**
+       *
+       * // to display the list of books as observable
+       * @returns
+       * @memberof CountBooksService
+       */
+      get_List_of_books_want_to_read_updated() {
+        return this.listWanttoReadUpdated.asObservable();
+      }
 
 }

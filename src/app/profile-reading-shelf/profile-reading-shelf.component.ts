@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
+import { Subject } from 'rxjs';
 import { ListOfBooks } from '../profile-book-entity/book.model';
 import { CountBooksService } from '../profile-book-entity/book.service';
 
@@ -26,7 +27,9 @@ export class ProfileReadingShelfComponent implements OnInit {
    * @memberof ProfileReadingShelfComponent
    */
   listOfBooksReading: ListOfBooks[] = [];
-
+  private listReadingUpdated = new Subject<ListOfBooks[]>();
+  private listReadUpdated = new Subject<ListOfBooks[]>();
+  private listWanttoReadUpdated = new Subject<ListOfBooks[]>();
   /**
    *  Creates an instance of ProfileReadingShelfComponent.
    *  @param {CountBooksService} countBooksService
@@ -43,8 +46,8 @@ export class ProfileReadingShelfComponent implements OnInit {
    */
   OnClick_read(index: ListOfBooks) {                           // to increment the number of books currently reading on click
     this.countBooksService.add_book_to_shelf_read(index);
-    this.get_listReading_observed();
-    
+    this.listReadingUpdated.next([...this.listOfBooksReading]);
+    this.listReadingUpdated.asObservable();
   }
   OnClick_Remove(index: ListOfBooks){
     this.countBooksService.Remove_Book(index);
@@ -60,7 +63,6 @@ export class ProfileReadingShelfComponent implements OnInit {
       });
   }
 
-  
 
   /**
    *  on initializing that class implement this function
