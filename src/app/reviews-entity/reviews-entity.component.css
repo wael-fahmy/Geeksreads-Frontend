@@ -1,3 +1,4 @@
+
 #user-reviews {
     display: flex;
     flex-direction: row;
@@ -65,6 +66,7 @@
 }
 #myBtn-user-review
 {
+    display: block;
     color:green;
 }
 #review-comment {
@@ -97,3 +99,19 @@
     size: 3px;
     margin-left: 10px;
 }
+#star0 {
+    color:black;
+}
+#star1 {
+    color:black;
+}
+#star2 {
+    color:black;
+}
+#star3 {
+    color:black;
+}
+#star4 {
+    color:black;
+}
+
