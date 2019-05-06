@@ -1,16 +1,15 @@
 <div class="nav-margin"></div>
-<!-- <div *ngIf="results"> -->
-<div>
+<div *ngIf="results">
     <div *ngFor="let i of searchModel">
         <div *ngFor="let j of i">
-            <div class="author-book">
+            <div class="author-book" [routerLink]="['/book', j.BookId]">
                 <div class="author-book-header">
                     <div class="author-book-stats">
                         <div class="author-book-image">
-                            <img [routerLink]="['/book', j.BookId]" src={{j.Cover}} alt="{{j.Title}} Book Cover">
+                            <img [routerLink]="['/book', j?.BookId]" src={{j?.Cover}} alt="{{j?.Title}} Book Cover">
                         </div>
-                        <div class="author-book-info-details" [routerLink]="['/book', j.BookId]">
-                            {{j.Title}}
+                        <div class="author-book-info-details" [routerLink]="['/book', j?.BookId]">
+                            {{j?.Title}}
                         </div>
                     </div>
                 </div>
@@ -19,6 +18,6 @@
         </div>
     </div>
 </div>
-<!-- <div *ngIf="!results">
+<div *ngIf="!results">
     No results found!!
-</div> -->
+</div>
