@@ -23,13 +23,18 @@ export class GenresComponent implements OnInit {
    *  Creates an instance of GenresComponent.
    *  @memberof GenresComponent
    */
-  constructor() { }
+  constructor() { 
+    
+  }
 
+   randomize(){
+     
+   }
   /**
    *
    * Angular Init
    * @memberof GenresComponent
    */
   ngOnInit() { }
-
+ 
 }

@@ -57,14 +57,14 @@ export class NewsfeedComponent implements OnInit {
    * Book name
    * @memberof NewsfeedPostComponent
    */
-  bookname = 'Eat Pray Love';
+  bookname ;
 
   /**
    *
    * Author Name
    * @memberof NewsfeedPostComponent
    */
-  authorname = 'Paulo';
+  authorname ;
 
   /**
    *
@@ -125,7 +125,7 @@ export class NewsfeedComponent implements OnInit {
 
 
 
-
+   
 
 
 
@@ -135,7 +135,9 @@ export class NewsfeedComponent implements OnInit {
    *  @param {PostsServices} PostsServicesObj
    *  @memberof NewsfeedPostComponent
    */
-  constructor(public PostsServicesObj: PostsServices, private router: Router) { }
+  constructor(public PostsServicesObj: PostsServices, private router: Router) {
+    
+   }
 
 
   /**
@@ -147,6 +149,8 @@ export class NewsfeedComponent implements OnInit {
     //  if (localStorage.getItem('token') === null) {
     //    this.router.navigate(['/homepage']);
     //  }
+    
+    
     this.PostsServicesObj.getpost();
     this.newsfeedSubscription = this.PostsServicesObj.get_post_updated().subscribe((PostInfo) => {
       this.PostObj = PostInfo;

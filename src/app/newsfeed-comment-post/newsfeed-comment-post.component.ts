@@ -22,18 +22,25 @@ export class NewsfeedCommentPostComponent implements OnInit {
   @Input() activityDate: string;
   @Input() comment: string;
   @Input() makerImage: string;
-  @Input() activityLog: string;
+ // @Input() activityLog: string;
 
   //////////// The constructor and the ngOnInit fn /////////////////////////////////////////////
   /**
    *  Creates an instance of NewsfeedCommentPostComponent.
    *  @memberof NewsfeedCommentPostComponent
    */
-  constructor() { }
+  activityLog = 'commented on a post.'
+  constructor() {
+    
+   }
 
+   
   /**
    * Angular Init
    * @memberof NewsfeedCommentPostComponent
    */
-  ngOnInit() {}
+  ngOnInit() {
+  
+
+  }
 }

@@ -84,7 +84,7 @@ export class NewsfeedPostComponent implements OnInit {
    * Activity
    * @memberof NewsfeedPostComponent
    */
-  activity = 'rated a book';
+  activity ;
 
   /**
    *

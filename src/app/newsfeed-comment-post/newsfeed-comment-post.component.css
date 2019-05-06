@@ -15,6 +15,7 @@
   .activity{
     color: brown ; 
     margin: 0px 0 ; 
+    display: flex;
   }
   .body{
     margin-left: 8.5%;
