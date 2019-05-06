@@ -8,36 +8,10 @@ import { Router } from '@angular/router';
 
 // tslint:disable-next-line:class-name
 export class CommentsDetails_Service {
-    /**
-     * Creates an instance of BookTitle_Service.
-     * @param {HttpClient} http
-     * @memberof BookTitle_Service
-     */
-    constructor(private http: HttpClient, private router: Router) { }
-
-// tslint:disable-next-line: variable-name
-/**
- *
- * vairable list used to carry comments list
- * @private
- * @type {CommentsDetails[]}
- * @memberof CommentsDetails_Service
- */
+constructor(private http: HttpClient, private router: Router) { }
 private comments_details: CommentsDetails[] = [];
-
-// tslint:disable-next-line: variable-name
-/**
- *
- * variable used to get comments updated
- * @private
- * @memberof CommentsDetails_Service
- */
 private comments_detailsUpdated = new Subject<CommentsDetails[]>();
-/**
- *
- * function used to get request of the comments
- * @memberof CommentsDetails_Service
- */
+
 get_comments_Info(ReviewID: string) {
         this.http.get('https://geeksreads.herokuapp.com/api/comments/list',
         { params: {
@@ -53,16 +27,10 @@ get_comments_Info(ReviewID: string) {
                 console.log(error);
             });
     }
-    /**
-     *
-     * function used to get updated comments
-     * @returns
-     * @memberof CommentsDetails_Service
-     */
-    get_comments_Info_updated() {
+get_comments_Info_updated() {
         return this.comments_detailsUpdated.asObservable();
     }
-    post_Comment(body: string, ReviewID: string) {
+post_Comment(body: string, ReviewID: string) {
         if (localStorage.getItem('userId') === null) {
             this.router.navigate(['/sign-in']);
             return;
