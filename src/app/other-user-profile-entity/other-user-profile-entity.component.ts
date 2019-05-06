@@ -65,6 +65,8 @@ export class OtherUserProfileEntityComponent implements OnInit {
    * @memberof ProfileReadingShelfComponent
    */
   listOfBooksReading: ListOfBooks[] = [];
+  listOfBooksRead: ListOfBooks[] = [];
+  listOfWantToReadBooks: ListOfBooks[] = [];
 
   userId: string;
 
@@ -91,6 +93,24 @@ export class OtherUserProfileEntityComponent implements OnInit {
         this.listOfBooksReading = List;                              // and put it in the list of books to display them
       });
   }
+  get_listRead_observed()
+  {
+    this.OtherUserService.get_List_of_books_read(this.userId);                    // to get the book info from the service
+    //this.countBooksService.get_List_of_books_reading_mockup();
+    this.subList = this.OtherUserService.get_List_of_books_read_updated().
+      subscribe((List: ListOfBooks[]) => {                     // subscribe the list of books recived
+        this.listOfBooksRead = List;                              // and put it in the list of books to display them
+      });
+  }
+  get_listToRead_observed()
+  {
+    this.OtherUserService.get_List_of_books_want_to_read(this.userId);                         // to get the book info from the service
+    //this.countBooksService.get_List_of_books_to_read_mockup();
+    this.subList = this.OtherUserService.get_List_of_books_want_to_read_updated().
+      subscribe((List: ListOfBooks[]) => {                              // subscribe the recieved data
+        this.listOfWantToReadBooks = List;                                    // and put it inside the list of books to display it
+      });
+  }
 
 
   /**
@@ -115,6 +135,8 @@ export class OtherUserProfileEntityComponent implements OnInit {
         this.isFollowing = this.userInfo.IsFollowing;
       });
       this.get_listReading_observed();
+      this.get_listRead_observed();
+      this.get_listToRead_observed();
   }
 
 }

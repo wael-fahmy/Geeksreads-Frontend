@@ -35,3 +35,36 @@ pre{
     font-size: large;
     
 }
+
+
+h2{
+    margin-top: 90px;
+    color: cadetblue;
+}
+
+img{
+    margin-top: 1rem;
+    margin-right: 2rem;
+    margin-bottom: 2.5em;
+    
+}
+
+mat-list-item{
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+}
+
+
+#MENU{
+    margin-left: 2rem;
+    color:primary;
+}
+
+p{
+     margin-left: 20px;
+    
+}
+.checked
+{
+    color:orange;
+}
