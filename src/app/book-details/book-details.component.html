@@ -8,13 +8,13 @@
         <!-- <p id="book-edition">{{bookedition[book_index]}}</p>
         <span id="publish-date">{{bookpublished[book_index]}}</span> -->
         <div>
-            <p id="ASIN-number">ASIN<span class="span-color"> {{bASIN}}</span></p>
-            <p class="text-shift">Published Date<span class="span-color">{{bdition}}</span></p>
-            <p class="text-shift">Publisher<span class="span-color">{{bpublished}}</span></p>
+            <p id="ASIN-number">ASIN<span class="span-color"> {{bASIN[book_index]}}</span></p>
+            <p class="text-shift">Published Date<span class="span-color">{{bdition[book_index]}}</span></p>
+            <p class="text-shift">Publisher<span class="span-color">{{bpublished[book_index]}}</span></p>
             <!--<p class="text-shift">Edition language<span class="span-color">{{booklang[book_index]}}</span></p>-->
-            <p class="text-shift">Original title<span class="span-color">{{btitle}}</span></p>
+            <p class="text-shift">Original title<span class="span-color">{{btitle[book_index]}}</span></p>
             <!-- <p class="text-shift">Literary Awards<span class="span-color">{{bookawards[book_index]}}</span></p> -->
-            <p class="text-shift">Number Of Pages<span class="span-color">{{bpages}}</span></p>
+            <p class="text-shift">Number Of Pages<span class="span-color">{{bpages[book_index]}}</span></p>
         </div>
     </mat-expansion-panel>
 </mat-accordion>

@@ -121,11 +121,9 @@ public after_dots: string [] = [];
     // tslint:disable-next-line:variable-name
     this.Sub_profile = this.authordetails_service.get_author_details_updated().subscribe((author_Information: AuthorDetails[]) => {
       this.author_details = author_Information;
+      console.log(this.author_details);
       this.SplitString(this.author_details[0].About);
       this.SetElements();
-      /* console.log(this.User_info.User_Name)
-      console.log(this.User_info.user_id)
-      console.log(this.User_info.User_Photo)*/
     });
   }
   /**
@@ -143,10 +141,9 @@ public after_dots: string [] = [];
     let y = parseInt(x);
     y = y + 1;
     x = y.toString();
-    number.innerHTML = x;
+    //number.innerHTML = x;
     console.log(this.authorid[this.author_index]);
     this.authordetails_service.post_author_follow(this.authorid[this.author_index]);
-    //this.authorNumberOfFollowers += 1;
     console.log('Following this author');
   }
   Clear_Storage() {
@@ -175,7 +172,7 @@ public after_dots: string [] = [];
     y = y - 1;
     x = y.toString();
     number.innerHTML = x;
-    this.authordetails_service.post_author_unfollow(this.authorid[this.author_index], this.userid[this.author_index]);
+    this.authordetails_service.post_author_unfollow(this.authorid[this.author_index]);
     console.log('Unfollowing this author');
   }
   GetAuthorByID() {

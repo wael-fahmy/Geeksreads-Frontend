@@ -50,6 +50,7 @@ export class AuthorService {
    */
   getAuthorInfo(snapshotParam: string) {
     this.http
+      // .get('http://localhost:3000/api/author', {
       .get('https://geeksreads.herokuapp.com/api/authors/id', {
         params: {
           auth_id: snapshotParam,
@@ -79,13 +80,14 @@ export class AuthorService {
    */
   getBooksByAuthor(snapshotParam: string) {
     this.http
+      // .get('http://localhost:3000/api/books/author', {
       .get('https://geeksreads.herokuapp.com/api/books/author', {
         params: {
-        search_param: snapshotParam,
-      }})
+          search_param: snapshotParam
+        }
+      })
       .subscribe((serverResponse: any) => {
-        console.log(serverResponse);
-        this.authorBooks[0] = serverResponse;
+        this.authorBooks = serverResponse;
         this.authorBooksUpdated.next([...this.authorBooks]);
       }
         , (error: { json: () => void; }) => {

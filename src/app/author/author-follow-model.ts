@@ -1,6 +1,12 @@
+
+/**
+ * Author Follow Model
+ * @export
+ * @class AuthorFollowModel
+ */
 export class AuthorFollowModel {
   /**
-   * User now follows author
+   * Was the request successful
    * @type {boolean}
    * @memberof FollowAuthor
    */

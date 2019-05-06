@@ -68,33 +68,18 @@ export class AuthorDetails_Service {
      * @param {string} user_id
      * @memberof AuthorDetails_Service
      */
-    post_author_unfollow(authorid: string, userid: string) {
-       /* const author: AuthorDetails = {user_id: userid, AuthorId: authorid, About: null,
-            FollowingUserId: null, Photo: null, AuthorName: null, BookId: null};
-        this.http.post<{message: string}>('http://localhost:3000/api/authordata', author)
-        .subscribe ((responseData) => {
-            console.log(responseData.message);
-        });*/
-    }
-    post_author_follow(authorid: string) {
+    post_author_unfollow(authorid: string) {
         if (localStorage.getItem('userId') === null) {
             this.router.navigate(['/sign-in']);
             return;
         }
         console.log(localStorage.getItem('userId'));
-        /*const author: AuthorDetails = {user_id: userid, AuthorId: authorid, About: null,
-            FollowingUserId: null, Photo: null, AuthorName: null, BookId: null};
-        this.http.post<{message: string}>('http://localhost:3000/api/authordata', author)
-        .subscribe ((responseData) => {
-            console.log(responseData.message);
-        });*/
-        this.http.post('https://geeksreads.herokuapp.com/api/authors/follow', {
-        params: {
-        myuserId: localStorage.getItem('userId'),
-        auth_id: authorid,
-        token: localStorage.getItem('token')
-        }
-    })
+        const UserToken = {
+            auth_id: authorid,
+            myuserId: localStorage.getItem('userId'),
+            token: localStorage.getItem('token'),
+        };
+        this.http.post<{ message: string}>('https://geeksreads.herokuapp.com/api/authors/unfollow', UserToken)
     .subscribe((serverResponse: any) => {
         console.log(serverResponse);
         this.author_details[0].message = serverResponse.Message;
@@ -104,6 +89,27 @@ export class AuthorDetails_Service {
         console.log(error);
     });
     }
+    post_author_follow(authorid: string) {
+        if (localStorage.getItem('userId') === null) {
+            this.router.navigate(['/sign-in']);
+            return;
+        }
+        console.log(localStorage.getItem('userId'));
+        const UserToken = {
+            auth_id: authorid,
+            myuserId: localStorage.getItem('userId'),
+            token: localStorage.getItem('token'),
+        };
+        this.http.post<{ message: string}>('https://geeksreads.herokuapp.com/api/authors/follow', UserToken)
+    .subscribe((serverResponse: any) => {
+        console.log(serverResponse);
+        this.author_details[0].message = serverResponse.Message;
+        this.author_details[0].success = serverResponse.success;
+        this.author_detailsUpdated.next(this.author_details);
+    }, (error: { json: () => void; }) => {
+        console.log(error);
+    });
+}
     /**
      *
      * get updated author details

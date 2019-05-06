@@ -1,6 +1,8 @@
 <p id="community-reviews">Community Reviews</p>
-<app-review *ngFor="let item of review_information" [reviewerimage]="item.photo"
-[reviewername]="item.userName" [reviewerdate]="item.reviewDate" [reviewerbody]="item.reviewBody"
-[reviewerlikes]="item.likesCount" [reviewerid]="item.reviewId" [reviewercomments]="item.reviewer_comments"
-[userid]="item.userId">
+<app-review id="review" *ngFor="let item of review_information" [photo]="item.photo"
+[userName]="item.userName" [reviewDate]="item.reviewDate" [reviewBody]="item.reviewBody"
+[likesCount]="item.likesCount" [reviewId]="item.reviewId" [commCount]="item.commCount"
+[userId]="item.userId" [bookId]="item.bookId" [liked]="item.liked" [rating]="item.rating">
 </app-review>
+<button (click)="ShowReviews()" id="show-reviews" mat-stroked-button>Show Commuinty Reviews</button>
+<hr id="review-underline">

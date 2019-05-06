@@ -3,49 +3,47 @@
         <button mat-icon-button id="hamburger-button" (click)="snav.toggle()">
       <mat-icon>menu</mat-icon>
     </button>
-        <mat-toolbar-row>
-            <div class="nav-margin">
-                <span><a routerLink="/homepage" id="homepage-route"><img src="../../assets/logos/nav-logo.png" alt="Geeksreads main logo"
+        <div class="nav-margin">
+            <span><a routerLink="/homepage" id="homepage-route"><img src="../../assets/logos/nav-logo.png" alt="Geeksreads main logo"
               id="nav-logo"></a></span>
-                <span id="nav-links-container">
+            <span id="nav-links-container">
           <div class="main-links">
             <span class="nav-link"><a routerLink="/newsfeed" id="newsfeed-route">Home</a></span>
-                <span class="nav-link"><a routerLink="/genres" id="genres-route">Browse</a></span>
-                <form id="nav-search-bar" [formGroup]="formdata" (ngSubmit)="search(formdata.value)">
-                    <mat-form-field>
-                        <input type="search" matInput placeholder="Search" id="search" name="searchText" formControlName="searchText">
-                        <mat-icon matSuffix id="nav-search-bar-icon">search</mat-icon>
-                    </mat-form-field>
-                </form>
-            </div>
-            <span *ngIf="!isSignedIn" class="nav-link" id="sign-in-link"><a routerLink="/sign-in">Sign In</a></span>
-            <span *ngIf="!isSignedIn" class="nav-link" id="sign-up-link"><a routerLink="/sign-up">Join</a></span>
-            <button *ngIf="isSignedIn" mat-icon-button [matMenuTriggerFor]="notificationMenu" id="notifications-button">
+            <span class="nav-link"><a routerLink="/genres" id="genres-route">Browse</a></span>
+            <form id="nav-search-bar" [formGroup]="formdata" (ngSubmit)="search(formdata.value)">
+                <mat-form-field>
+                    <input type="search" matInput placeholder="Search" id="search" name="searchText" formControlName="searchText">
+                    <mat-icon matSuffix id="nav-search-bar-icon">search</mat-icon>
+                </mat-form-field>
+            </form>
+        </div>
+        <span *ngIf="!isSignedIn" class="nav-link" id="sign-in-link"><a routerLink="/sign-in">Sign In</a></span>
+        <span *ngIf="!isSignedIn" class="nav-link" id="sign-up-link"><a routerLink="/sign-up">Join</a></span>
+        <button *ngIf="isSignedIn" mat-icon-button [matMenuTriggerFor]="notificationMenu" id="notifications-button">
             <mat-icon>notifications</mat-icon>
           </button>
-            <mat-menu #notificationMenu="matMenu">
-                <div class="notification-instance">
-                    <p>This will be a component</p>
-                </div>
-                <hr>
-                <div class="notification-instance">
-                    <p>This too</p>
-                </div>
-            </mat-menu>
-            <button *ngIf="isSignedIn" mat-icon-button [matMenuTriggerFor]="userMenu" id="user-button">
+        <mat-menu #notificationMenu="matMenu">
+            <div class="notification-instance">
+                <p>This will be a component</p>
+            </div>
+            <hr>
+            <div class="notification-instance">
+                <p>This too</p>
+            </div>
+        </mat-menu>
+        <button *ngIf="isSignedIn" mat-icon-button [matMenuTriggerFor]="userMenu" id="user-button">
             <mat-icon>person</mat-icon>
           </button>
-            <mat-menu #userMenu="matMenu">
-                <div class="user-menu">
-                    <p>{{userName}}</p>
-                    <a routerLink="/profile" id="profile-route">Profile</a>
-                    <hr>
-                    <a routerLink="/sign-out" id="sign-out-route">Sign Out</a>
-                </div>
-            </mat-menu>
-            </span>
+        <mat-menu #userMenu="matMenu">
+            <div class="user-menu">
+                <p>{{userName}}</p>
+                <a routerLink="/profile" id="profile-route">Profile</a>
+                <hr>
+                <a routerLink="/sign-out" id="sign-out-route">Sign Out</a>
+            </div>
+        </mat-menu>
+        </span>
 </div>
-</mat-toolbar-row>
 </mat-toolbar>
 <mat-sidenav-container class="example-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
     <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">

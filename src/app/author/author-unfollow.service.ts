@@ -4,16 +4,15 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
 
+/**
+ * Author Unfollow Service Class
+ * @export
+ * @class AuthorUnfollowService
+ */
 @Injectable({
   providedIn: 'root'
 })
 export class AuthorUnfollowService {
-  /**
-   * Subject Object
-   * @private
-   * @memberof AuthorService
-   */
-  private unfollowingUpdated = new Subject<AuthorUnfollowModel>();
 
   /**
    *  Object to fill
@@ -24,35 +23,37 @@ export class AuthorUnfollowService {
   private unfollowing: AuthorUnfollowModel;
 
   /**
+   * Subject Object
+   * @private
+   * @memberof AuthorService
+   */
+  private unfollowingUpdated = new Subject<AuthorUnfollowModel>();
+
+  /**
    * Unfollows Author
    * @memberof AuthorService
    */
-  unfollowAuthor(snapshotParam: string) {
+  unfollowAuthor(authorId: string) {
+    // Can't unfollow if you are a Guest
     if (localStorage.getItem('userId') === null) {
       this.router.navigate(['/sign-in']);
       return;
     }
-
-    const data = {
-      myuserId: localStorage.getItem('userId'),
-      auth_id: snapshotParam,
-      token: localStorage.getItem('token'),
-    };
-
     this.http
-      .post('https://geeksreads.herokuapp.com/api/authors/unfollow', data)
+      .post('https://geeksreads.herokuapp.com/api/authors/unfollow', {
+        auth_id: authorId,
+        myuserId: localStorage.getItem('userId'),
+        token: localStorage.getItem('token'),
+      })
       .subscribe((serverResponse: any) => {
-        console.log(serverResponse);
-        this.unfollowing.message = serverResponse.Message;
-        this.unfollowing.success = serverResponse.success;
+        this.unfollowing = serverResponse;
         this.unfollowingUpdated.next(this.unfollowing);
       }, (error: { json: () => void; }) => {
-        console.log(error.json);
+        console.log(error);
       });
   }
 
   /**
-   *
    * To update unfollow info
    * @returns
    * @memberof AuthorService

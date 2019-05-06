@@ -1,59 +1,31 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
-import { Bookinformation } from './book-details.model';
+import { BookDetails } from './book-details.model';
 import { HttpClient } from '@angular/common/http';
+
 
 @Injectable({ providedIn: 'root' })
 
 // tslint:disable-next-line:class-name
-export class BookInformation_Service {
-
-    /**
-     * Creates an instance of BookInformation_Service.
-     * @param {HttpClient} http
-     * @memberof BookInformation_Service
-     */
+export class BookTitle_Service {
     constructor(private http: HttpClient) { }
-    // tslint:disable-next-line:variable-name
-    /**
-     *
-     * recieve book information from json
-     * @private
-     * @type {Bookinformation[]}
-     * @memberof BookInformation_Service
-     */
-    private book_information: Bookinformation[] = [];
-
-    // tslint:disable-next-line:variable-name
-
-    /**
-     *
-     * updated information variable
-     * @private
-     * @memberof BookInformation_Service
-     */
-    private book_informationUpdated = new Subject<Bookinformation[]>();
-
-    /**
-     *
-     * read book information and place them in side the variables to be send to ts
-     * @memberof BookInformation_Service
-     */
-    get_book_Info() {
-        this.http.get<{ message: string, book_details: Bookinformation[] }>('http://localhost:3000/api/bookDetails').
+    private book_details: BookDetails[] = [];
+    private book_detailsUpdated = new Subject<BookDetails[]>();
+    get_book_Info(bookid: string) {
+        this.http.get('https://geeksreads.herokuapp.com/api/books/id', { params: {
+            book_id: bookid
+    }
+        }).
             // tslint:disable-next-line:variable-name
-            subscribe((bookdata) => {
-                this.book_information = bookdata.book_details;
-                this.book_informationUpdated.next([...this.book_information]);
+            subscribe((bookdata: any) => {
+                console.log(bookdata);
+                this.book_details[0] = bookdata;
+                this.book_detailsUpdated.next([...this.book_details]);
+            }, (error: { json: () => void; }) => {
+                console.log(error);
             });
     }
-    /**
-     *
-     * get book information updated
-     * @returns
-     * @memberof BookInformation_Service
-     */
     get_book_Info_updated() {
-        return this.book_informationUpdated.asObservable();
+        return this.book_detailsUpdated.asObservable();
     }
 }

@@ -1,5 +1,6 @@
-<app-comment *ngFor="let item of comment_details" [username]="item.user_name"
-[userimage]="item.user_image" [userdate]="item.user_date" [userbody]="item.user_body"></app-comment>
+<app-comment *ngFor="let item of comment_details" [userName]="item.userName"
+[Photo]="item.Photo" [date]="item.date" [Body]="item.Body" [userId] = "item.userId"
+[ReviewId]="item.ReviewId" [CommentId]="item.CommentId"></app-comment>
 <div id="adding-comment">
   <img id="user-image-comment" src="https://s.gr-assets.com/assets/nophoto/user/u_30x30-4610a6c9a81aac8aaf70b7ad4388f9a2.png">
 <mat-form-field id="user-input">

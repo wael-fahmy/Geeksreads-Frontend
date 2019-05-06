@@ -1,6 +1,11 @@
+/**
+ * Author Unfollow Model
+ * @export
+ * @class AuthorUnfollowModel
+ */
 export class AuthorUnfollowModel {
   /**
-   * User now unfollows author
+   * Was the request successful
    * @type {boolean}
    * @memberof FollowAuthor
    */

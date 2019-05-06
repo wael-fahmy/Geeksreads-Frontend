@@ -7,18 +7,22 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class CommentComponent implements OnInit {
 
-@Input() userimage: string;
+  @Input() userName: string;
+  @Input() userId: string;
+  @Input() Body: string;
+  @Input() date: string;
+  @Input() Photo: string;
+  @Input() ReviewId: string;
+  @Input() CommentId: string;
 
-@Input() username: string;
-
-@Input() userid: string;
-
-@Input() userbody: string;
-
-@Input() userdate: string;
   constructor() { }
 
   ngOnInit() {
+    this.Photo = 'https://cdn.shopify.com/s/files/1/0078/6563/0831/products/TogaPrint_grande.png?v=1552807118';
+    this.CutDate();
   }
-
+  CutDate() {
+    const word = this.date.split('T');
+    this.date = word[0];
+  }
 }

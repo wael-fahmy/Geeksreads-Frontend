@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
-import { CommentsDetails } from './reviews-comments.model';
+import { CommentsDetails } from './comment.model';
 import { HttpClient } from '@angular/common/http';
-import { Router } from '@angular/router';
 
 @Injectable({ providedIn: 'root' })
 
@@ -13,7 +12,7 @@ export class CommentsDetails_Service {
      * @param {HttpClient} http
      * @memberof BookTitle_Service
      */
-    constructor(private http: HttpClient, private router: Router) { }
+    constructor(private http: HttpClient) { }
 
 // tslint:disable-next-line: variable-name
 /**
@@ -38,10 +37,10 @@ private comments_detailsUpdated = new Subject<CommentsDetails[]>();
  * function used to get request of the comments
  * @memberof CommentsDetails_Service
  */
-get_comments_Info(ReviewID: string) {
+get_comments_Info() {
         this.http.get('https://geeksreads.herokuapp.com/api/comments/list',
         { params: {
-            ReviewId: ReviewID
+            ReviewId: '5c9243a5311a20ca08d1844d',
         }
             }).
             // tslint:disable-next-line:variable-name
@@ -62,18 +61,14 @@ get_comments_Info(ReviewID: string) {
     get_comments_Info_updated() {
         return this.comments_detailsUpdated.asObservable();
     }
-    post_Comment(body: string, ReviewID: string) {
-        if (localStorage.getItem('userId') === null) {
-            this.router.navigate(['/sign-in']);
-            return;
-        }
+    post_Review() {
 // tslint:disable-next-line: max-line-length
         const UserToken = {
-            Body: body,
-            ReviewId: ReviewID,
+            Body: 'afaassssssssssssssssssssssssssa',
+            ReviewId: '5cc59a85267d4b9050f94b53',
             BookId: localStorage.getItem('bookID'),
             userId: localStorage.getItem('userId'),
-            Photo: 'https://cdn.shopify.com/s/files/1/0078/6563/0831/products/TogaPrint_grande.png?v=1552807118',
+            Photo: '242342342',
             token: localStorage.getItem('token'),
             LikesCount: '0',
             date: '2000-01-01T00:00:00.000Z'
@@ -82,7 +77,7 @@ get_comments_Info(ReviewID: string) {
         this.http.post<{ message: string}>('https://geeksreads.herokuapp.com/api/comments/add', UserToken).
         subscribe(responseData => {          //  subscribe the list of books recieved
         console.log(responseData);    // assign them to the list to display them
-        this.comments_detailsUpdated.next([...this.comments_details]);
+        //this.comments_detailsUpdated.next([...this.comments_details]);
         });
     }
 }

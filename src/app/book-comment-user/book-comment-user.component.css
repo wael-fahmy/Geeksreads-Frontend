@@ -18,7 +18,13 @@
     margin-left: 10px;
     font-weight: bold;
 }
-
+#review {
+    display: none;
+}
+#show-reviews {
+    width: 90%;
+    margin-left: 60px;
+}
 #user-reviews {
     display: flex;
     flex-direction: row;

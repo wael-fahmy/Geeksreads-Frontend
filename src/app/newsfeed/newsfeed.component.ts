@@ -3,7 +3,7 @@ import { Post } from './newsfeed-main.model';
 import { PostsServices } from './newsfeed-main.service';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-
+import { setTNodeAndViewData } from '@angular/core/src/render3/state';
 
 /**
  *  Newsfeed post component
@@ -34,7 +34,7 @@ export class NewsfeedComponent implements OnInit {
    * @type {Post}
    * @memberof NewsfeedPostComponent
    */
-  PostObj: Post[];
+  PostObj: Post[] = [];
 
 
   //////////////////////////  HTML VARIABLES ////////////////////////////////////////////////////////////
@@ -43,14 +43,14 @@ export class NewsfeedComponent implements OnInit {
    * User name
    * @memberof NewsfeedPostComponent
    */
-  username = 'Yara';
+  CommentMakerName;
 
   /**
    *
    * Activity date
    * @memberof NewsfeedPostComponent
    */
-  activitydate = 'about 2 hours ago';
+  CommentDate;
 
   /**
    *
@@ -93,7 +93,7 @@ export class NewsfeedComponent implements OnInit {
    *
    * @memberof NewsfeedComponent
    */
-  StatusType;
+  StatusType: string;
 
 
   /**
@@ -112,9 +112,16 @@ export class NewsfeedComponent implements OnInit {
    * @memberof NewsfeedComponent
    */
   recerivedPostsCount: number;
-///////////////////////////////// end of HTML VARIABLES ////////////////////////////////////////////////
 
-/////////////////////////////////// Methods ///////////////////////////////////////////////////
+  commentMakerImage;
+  comment;
+  reviewerName;
+  reviewerImage;
+  reviewDate;
+  reviewBody;
+  ///////////////////////////////// end of HTML VARIABLES ////////////////////////////////////////////////
+
+  /////////////////////////////////// Methods ///////////////////////////////////////////////////
 
 
 
@@ -122,7 +129,7 @@ export class NewsfeedComponent implements OnInit {
 
 
 
-//////////////////////////////////////////////////////////////////////////////////////////////
+  //////////////////////////////////////////////////////////////////////////////////////////////
   /**
    *  Creates an instance of NewsfeedPostComponent.
    *  @param {PostsServices} PostsServicesObj
@@ -140,17 +147,31 @@ export class NewsfeedComponent implements OnInit {
     //  if (localStorage.getItem('token') === null) {
     //    this.router.navigate(['/homepage']);
     //  }
-     this.PostsServicesObj.getpost();
-     this.newsfeedSubscription = this.PostsServicesObj.get_post_updated().subscribe((PostInfo) => {
+    this.PostsServicesObj.getpost();
+    this.newsfeedSubscription = this.PostsServicesObj.get_post_updated().subscribe((PostInfo) => {
       this.PostObj = PostInfo;
-
-      // The following is to check if there any posts received or not 
+      // console.log(this.PostObj);
+      // this.setData();
+      // The following is to check if there any posts received or not
       // if their count=0 then a message to be displayed
-      this.recerivedPostsCount = this.PostObj.length;
-      if ( this.recerivedPostsCount === 0 ) {
-        this.fiStatuses = false;
-      }
-     
+      // this.recerivedPostsCount = this.PostObj.length;
+      // if ( this.recerivedPostsCount === 0 ) {
+      //   this.fiStatuses = false;
+      // }
     });
   }
+
+  // setData() {
+  //   this.commentMakerName = this.PostObj[0].CommentMakerName;
+  //   this.commentDate = this.PostObj[0].CommentDate;
+  //   this.commentMakerImage = this.PostObj[0].CommentMakerPhoto;
+  //   this.comment = this.PostObj[0].CommentBody;
+  //   this.StatusType = this.PostObj[0].StatusType;
+  //   this.bookimage = this.PostObj[0].BookPhoto;
+  //   this.bookname = this.PostObj[0].BookName;
+  //   this.reviewerName = this.PostObj[0].ReviewMakerName;
+  //   this.reviewerImage = this.PostObj[0].ReviewMakerPhoto;
+  //   this.reviewDate = this.PostObj[0].ReviewDate;
+  //   this.reviewBody = this.PostObj[0].ReviewBody;
+  // }
 }

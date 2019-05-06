@@ -1,16 +1,18 @@
- <div class="navbar-margin">
-<div *ngIf=!fiStatuses class="no-status">
-    <p class="no-posts-message" >You may follow some friends to start the experience.</p>  </div> 
+<div class="navbar-margin"></div>
+<div *ngIf="PostObj?.length ===0 " class="no-status">
+    <p class="no-posts-message"> You may follow some friends to start the experience.</p>
+</div>
+<!--Just a static comment until we figure out the request-->
+<!--<app-newsfeed-comment-post [postObj]="PostObj"></app-newsfeed-comment-post>-->
 
-    <app-newsfeed-post></app-newsfeed-post>
-  <div *ngIf=fiStatuses> 
-    <div *ngFor="let index of PostObj">
-    <div *ngIf="index.StatusType=='Comment'">
-        <app-newsfeed-comment-post></app-newsfeed-comment-post>
+<div *ngIf="PostObj?.length > 0">
+    <div *ngFor=" let i of PostObj">
+        <div *ngIf=" i.StatusType === 'Comment' ">
+            <app-newsfeed-comment-post [userName]="i.CommentMakerName" [activityDate]="i.CommentDate" [comment]="i.CommentBody" [makerImage]="i.CommentMakerPhoto"  ></app-newsfeed-comment-post> 
+        </div>
+        <div *ngIf=" i.StatusType === 'Review' ">
+ 
+    <app-newsfeed-post  [userName]="i.ReviewMakerName" [NumberOfStars]="i.NumberOfStars" [activityDate]="i.ReviewDate" [bookimage]="i.BookPhoto" [bookname]="i.BookName" [authorname]="i.AuthorName" [bookstatus]="i.BookStatus" [review]="i.ReviewBody" [makerImage]="i.ReviewMakerPhoto" ></app-newsfeed-post>
+        </div>
     </div>
-    <div *ngIf="index.StatusType=='Review'">
-        <app-newsfeed-post></app-newsfeed-post>
-    </div>
-</div>  
-
-</div> 
+</div>
