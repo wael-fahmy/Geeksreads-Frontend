@@ -30,7 +30,7 @@ get_comments_Info(ReviewID: string) {
 get_comments_Info_updated() {
         return this.comments_detailsUpdated.asObservable();
     }
-post_Comment(body: string, ReviewID: string) {
+post_Comment(body: string, ReviewID: string, BookID: string) {
         if (localStorage.getItem('userId') === null) {
             this.router.navigate(['/sign-in']);
             return;
@@ -39,7 +39,7 @@ post_Comment(body: string, ReviewID: string) {
         const UserToken = {
             Body: body,
             ReviewId: ReviewID,
-            BookId: localStorage.getItem('bookID'),
+            BookId: BookID,
             userId: localStorage.getItem('userId'),
             Photo: 'https://cdn.shopify.com/s/files/1/0078/6563/0831/products/TogaPrint_grande.png?v=1552807118',
             token: localStorage.getItem('token'),

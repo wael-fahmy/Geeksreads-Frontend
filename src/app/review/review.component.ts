@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ReviewService } from './review.service';
+import { ActivatedRoute, Router } from '@angular/router';
 @Component({
   selector: 'app-review',
   templateUrl: './review.component.html',
@@ -19,10 +20,10 @@ export class ReviewComponent implements OnInit {
   @Input() userName: string;
   @Input() commCount: string;
 
-  befordots: string;
-  afterdots: string;
+  befordots: string [] = [];
+  afterdots: string [] = [];
 
-  constructor(public ReviewServ: ReviewService) { }
+  constructor(public ReviewServ: ReviewService, private router: Router) { }
 
   ngOnInit() {
     this.SplitString();
@@ -31,10 +32,20 @@ export class ReviewComponent implements OnInit {
     this.SetDate();
   }
   SplitString() {
-    const word = this.reviewBody.split(',');
-    this.befordots = word[0];
-    this.afterdots = word[1];
-  }
+    const ReadMoreBt = document.getElementById('myBtn-user-review');
+    const ReadMoreDot = document.getElementById('dots-user-review');
+    const check = this.reviewBody.split(' ');
+    if (check.length < 15) {
+      ReadMoreBt.style.display = 'none';
+      ReadMoreDot.style.display = 'none';
+      this.befordots[0] = this.reviewBody;
+      this.afterdots[0] = '';
+    } else {
+      const word = this.reviewBody.split(',');
+      this.befordots[0] = word[0];
+      this.afterdots[0] = word[1];
+    }
+}
   SetLike() {
     const likes = document.getElementById('liked');
     if (this.liked === true) {
@@ -71,6 +82,7 @@ export class ReviewComponent implements OnInit {
     localStorage.removeItem('publisher');
     localStorage.removeItem('pages');
     localStorage.removeItem('genre');
+    this.router.navigate(['/reviews', this.reviewId, this.bookId]);
   }
   SetRate() {
     const rate = this.rating.toString();

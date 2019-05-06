@@ -15,9 +15,14 @@ import { ActivatedRoute } from "@angular/router";
 })
 export class ReviewsComponent implements OnInit {
   SnapshotParam = 'initial value';
+  ReviewID: string;
+  BookID: string;
   constructor(private route: ActivatedRoute) { }
   ngOnInit() {
     this.SnapshotParam = this.route.snapshot.paramMap.get('reviewid');
+    this.ReviewID = this.SnapshotParam;
+    this.SnapshotParam = this.route.snapshot.paramMap.get('bookid');
+    this.BookID = this.SnapshotParam;
   }
 
 }

@@ -38,7 +38,6 @@ public author_details: AuthorDetails[] = [];
 book_index = 0;
 constructor(public booktitle_service: BookTitle_Service) { }
 ngOnInit() {
-    localStorage.removeItem('bookID');
     console.log(this.bookID);
     console.log(this.bookauthorid);
     this.booktitle_service.get_book_Info(this.bookID);                            // to get the user info from the service
@@ -48,7 +47,6 @@ ngOnInit() {
       this.SetBookInfor();
       this.SplitString();
       this.SetRate();
-      localStorage.setItem('bookID', this.bookID);
     });
   }
   SetBookInfor() {

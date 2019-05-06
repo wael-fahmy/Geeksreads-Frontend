@@ -1,5 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
-
+import { Component, OnInit, Input, SimpleChange } from '@angular/core';
+import { TitlesService } from './comment.serivce';
+import { User } from '../profile-entity/profile.model';
+import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-comment',
   templateUrl: './comment.component.html',
@@ -14,11 +16,20 @@ export class CommentComponent implements OnInit {
   @Input() Photo: string;
   @Input() ReviewId: string;
   @Input() CommentId: string;
-
-  constructor() { }
+  ///////////////////////////////////////////
+  private subProfile: Subscription;
+  userInfo: User;
+  userCoverPhoto: string ;
+  ///////////////////////////////////////////
+  constructor(public titlesService: TitlesService) { }
 
   ngOnInit() {
-    this.Photo = 'https://cdn.shopify.com/s/files/1/0078/6563/0831/products/TogaPrint_grande.png?v=1552807118';
+    this.titlesService.get_User_Info(this.userId);                               // to get the user info from the service
+    this.subProfile = this.titlesService.get_User_Info_updated().       // once the class is initialized
+      subscribe((userInformation: User) => {                            //  supscripe the value recieved
+        this.userInfo = userInformation;
+        this.Photo = this.userInfo.Photo;
+      });
     this.CutDate();
   }
   CutDate() {
