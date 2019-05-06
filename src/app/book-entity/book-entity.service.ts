@@ -22,7 +22,6 @@ export class BookTitle_Service {
         }).
             // tslint:disable-next-line:variable-name
             subscribe((bookdata: any) => {
-                console.log(bookdata);
                 this.book_details[0] = bookdata;
                 this.book_detailsUpdated.next([...this.book_details]);
             }, (error: { json: () => void; }) => {
@@ -40,7 +39,6 @@ export class BookTitle_Service {
         }).
             // tslint:disable-next-line:variable-name
             subscribe((authordata: AuthorDetails) => {
-                console.log(authordata);
                 this.author_details[0] = authordata;
                 console.log(authordata);
                 this.author_detailsUpdated.next([...this.author_details]);
@@ -60,14 +58,6 @@ export class BookTitle_Service {
  * @memberof BookTitle_Service
  */
 post_book_status(bookc_id: string, bookc_status: string) {
-// tslint:disable-next-line: max-line-length
-       /* const book: BookDetails = {BookId: bookc_id, ReadStatus: bookc_status, AuthorId: null,
-            Description: null, Cover: null, Title: null, BookRating: null, Author: null, Genre: null,
-            ISBN: null, Pages: null, Published: null, Publisher: null};
-        this.http.post<{message: string}>('https://geeksreads.herokuapp.com/api/users/AddToShelf', book)//BookId //ShelfType
-        .subscribe ((responseData) => {
-            console.log(responseData.message);
-        });*/
         const UserToken = {
             token : localStorage.getItem('token'),
             BookId: bookc_id,
@@ -81,29 +71,4 @@ post_book_status(bookc_id: string, bookc_status: string) {
         this.book_detailsUpdated.next([...this.book_details]);
       });
     }
-
-post_book_id(bookc_id: string) {
-// tslint:disable-next-line: max-line-length
-       /* const book: BookDetails = {BookId: bookc_id, ReadStatus: null, AuthorId: null, Description: null
-            , Cover: null, Title: null, BookRating: null, Author: null, Genre: null,
-            ISBN: null, Pages: null, Published: null, Publisher: null};
-        this.http.post<{message: string}>('http://localhost:3000/api/book', book)
-        .subscribe ((responseData) => {
-            console.log(responseData.message);
-        });*/
-    }
-    /*post_getauthor_id(author_id: string) {
-        const author: AuthorDetails = {_id: null, AuthorId: author_id, AuthorName: null};
-        this.http.post<{message: string}>('http://localhost:3000/api/book', author)
-        .subscribe ((responseData) => {
-            console.log(responseData.message);
-        });
-    }
-    post_author_id(author_id: string) {
-        const author: AuthorDetails = {_id: null, AuthorId: author_id, AuthorName: null};
-        this.http.post<{message: string}>('http://localhost:3000/api/book', author)
-        .subscribe ((responseData) => {
-            console.log(responseData.message);
-        });
-    }*/
 }

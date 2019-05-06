@@ -35,7 +35,6 @@ export class BookComponent implements OnInit {
     });
   }
   SetinfoData(book_details: Book) {
-    console.log(book_details);
     this.asin = book_details.ISBN;
     this.edtition = book_details.Publisher;
     this.p = book_details.Pages;

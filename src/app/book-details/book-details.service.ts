@@ -18,7 +18,6 @@ export class BookTitle_Service {
         }).
             // tslint:disable-next-line:variable-name
             subscribe((bookdata: any) => {
-                console.log(bookdata);
                 this.book_details[0] = bookdata;
                 this.book_detailsUpdated.next([...this.book_details]);
             }, (error: { json: () => void; }) => {
