@@ -2,6 +2,8 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { PostsServices } from '../newsfeed/newsfeed-main.service';
 import { Post } from '../newsfeed/newsfeed-main.model';
+import { BookDetailsComponent } from '../book-details/book-details.component';
+import { AddToShelfService } from './add-to-shelf.service';
 
 /**
  *  Newsfeed post component
@@ -26,6 +28,7 @@ export class NewsfeedPostComponent implements OnInit {
   @Input() bookstatus: any;
   @Input() review: string;
   @Input() makerImage: string;
+  @Input() bookId : string;
  // @Input() reviewMakerId: any;
 
   /**
@@ -98,8 +101,17 @@ export class NewsfeedPostComponent implements OnInit {
    *  @param {PostsServices} PostsServicesObj
    *  @memberof NewsfeedPostComponent
    */
-  constructor(public PostsServicesObj: PostsServices) { }
-
+  constructor(private addToShelfService: AddToShelfService) { }
+  authorBookIsInAShelf = false;
+  shelfAction = 'Add to Shelf';
+  changeToReading(){
+    this.addToShelfService.addToShelf('Want to read', this.bookId);
+    this.authorBookIsInAShelf = true;
+    this.shelfAction = 'Want to Read';
+    document.getElementById('author-book-shelf-button').style.backgroundColor = '#f2f2f2';
+    document.getElementById('author-book-shelf-button').style.color = '#000000';
+    console.log('Adding to Want to Read Shelf');
+  }
 
   /**
    * The  functions created in the service are implemented here
