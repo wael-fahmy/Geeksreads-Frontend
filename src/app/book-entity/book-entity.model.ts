@@ -5,7 +5,7 @@ export interface BookDetails {
     Description: string;
     ReadStatus: string;
     AuthorId: string;
-    BookRating;
+    RateCount: number;
     AuthorName: string;
     Genre: string;
     ISBN: string;

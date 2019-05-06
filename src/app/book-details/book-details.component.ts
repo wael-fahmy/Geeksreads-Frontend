@@ -12,6 +12,7 @@ export class BookDetailsComponent implements OnInit {
   /**
    *  Panel open state boolean
    */
+  ////////////////////////////////////////
   public panelOpenState: boolean;
   @Input() bookID: string;
   bdition: string [] = [];

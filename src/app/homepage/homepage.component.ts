@@ -21,7 +21,7 @@ export class HomepageComponent implements OnInit {
    *  @memberof HomepageComponent
    */
   constructor(private router: Router) {
-    this.books = [{ img: 'https://images.gr-assets.com/books/1348322381m/3450744.jpg', url: 'http://localhost:4200/book', title: 'hi' },
+    this.books = [{ img: 'https://images.gr-assets.com/books/1348322381m/3450744.jpg', url: '5c911452bbfd1717b8a7a169', title: 'hi' },
     { img: 'https://images.gr-assets.com/books/1320428955m/2776527.jpg', url: 'http://localhost:4200/book', title: 'bye' },
     { img: 'https://images.gr-assets.com/books/1320562005m/4214.jpg', url: 'http://localhost:4200/book' },
     { img: 'https://images.gr-assets.com/books/1479863624m/1618.jpg', url: 'http://localhost:4200/book' },

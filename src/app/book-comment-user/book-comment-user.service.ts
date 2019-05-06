@@ -45,10 +45,10 @@ size: number;
      * get review information from json
      * @memberof Bookreviews_Service
      */
-    get_review_Info() {
+    get_review_Info(BookID: string) {
         this.http.get('https://geeksreads.herokuapp.com/api/reviews/getrev',
             { params: {
-                bookId: '5c911452bbfd1717b8a7a169',
+                bookId: BookID,
                 UserId: localStorage.getItem('userId')
             }
             }).

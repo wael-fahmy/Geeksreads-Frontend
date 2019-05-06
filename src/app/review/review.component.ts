@@ -28,6 +28,7 @@ export class ReviewComponent implements OnInit {
     this.SplitString();
     this.SetRate();
     this.SetLike();
+    this.SetDate();
   }
   SplitString() {
     const word = this.reviewBody.split(',');
@@ -41,6 +42,10 @@ export class ReviewComponent implements OnInit {
     } else {
       likes.innerHTML = 'Like';
     }
+  }
+  SetDate() {
+    const word = this.reviewDate.split('T');
+    this.reviewDate = word[0];
   }
   more_user_preview() {
     let dots: HTMLElement;

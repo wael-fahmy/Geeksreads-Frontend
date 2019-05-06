@@ -1,4 +1,4 @@
-import { Component, OnInit, Renderer2 } from '@angular/core';
+import { Component, OnInit, Renderer2, Input } from '@angular/core';
 import { Bookreviews } from './book-comment-user.model';
 import { Subscription } from 'rxjs';
 import { Bookreviews_Service } from './book-comment-user.service';
@@ -12,6 +12,7 @@ import { delay } from 'q';
 export class BookCommentUserComponent implements OnInit {
 
 private Sub_profile: Subscription;
+@Input() bookid: string;
 //////////////////////////////////////////////
 reviewerid: string [] = [];
 reviewername: string [] = [];
@@ -31,7 +32,7 @@ public load_more_reviews = 0;
 constructor(public bookreviews_service: Bookreviews_Service, render: Renderer2) { }
 
 ngOnInit() {
-    this.bookreviews_service.get_review_Info();                                  // to get the user info from the service
+    this.bookreviews_service.get_review_Info(this.bookid);                                  // to get the user info from the service
     // tslint:disable-next-line:variable-name
     this.Sub_profile = this.bookreviews_service.get_review_Info_updated()
 // tslint:disable-next-line: variable-name

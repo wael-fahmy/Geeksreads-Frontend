@@ -109,20 +109,6 @@ export class AuthorDetails_Service {
     }, (error: { json: () => void; }) => {
         console.log(error);
     });
-}
-    /**
-     *
-     * get updated author details
-     * @returns
-     * @memberof AuthorDetails_Service
-     */
-    post_author_id(authorid: string) {
-        /*const author: AuthorDetails = {user_id: null, AuthorId: authorid, About: null,
-            FollowingUserId: null, Photo: null, AuthorName: null, BookId: null};
-        this.http.post<{message: string}>('http://localhost:3000/api/authordata', author)
-        .subscribe ((responseData) => {
-            console.log(responseData.message);
-        });*/
     }
 }
 
