@@ -1,3 +1,7 @@
+img {
+    max-width: 100px;
+}
+
 .nav-margin {
     height: 64px;
 }
