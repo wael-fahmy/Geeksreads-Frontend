@@ -13,6 +13,7 @@
 #Reviewer-name {
     color: #00635D;
     margin: 0 0 0 12px;
+    cursor: pointer;
 }
 #rate-it {
     color: rgb(88, 88, 88);

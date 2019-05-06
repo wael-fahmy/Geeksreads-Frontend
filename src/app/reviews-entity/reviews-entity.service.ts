@@ -52,34 +52,42 @@ get_book_Info(bookid: string) {
 get_book_Info_updated() {
         return this.book_detailsUpdated.asObservable();
     }
-    get_author_Info(authorid: string) {
-        this.http.get('https://geeksreads.herokuapp.com/api/authors/id', {
-            params: {
-            auth_id: authorid,
-            }
-        }).
-            // tslint:disable-next-line:variable-name
-            subscribe((authordata: AuthorDetails) => {
-                console.log(authordata);
-                this.author_details[0] = authordata;
-                console.log(authordata);
-                this.author_detailsUpdated.next([...this.author_details]);
-            }, (error: { json: () => void; }) => {
-                console.log(error);
-            });
-    }
-    get_author_Info_updated() {
-        return this.author_detailsUpdated.asObservable();
-    }
-/*request_reviewer_like(reviewc_id: string, review_like: string) {
-// tslint:disable-next-line: radix
+
+Remove_Book(bookid: string) {
+    console.log(bookid);
+    const bookID = {
+    token : localStorage.getItem('token'),
+    BookId: bookid
+    };
+    this.http
 // tslint:disable-next-line: max-line-length
-        const review: ReviewDetails = {reviewer_id: reviewc_id, reviewer_likes: review_like, reviewer_body: null,
-            reviewer_comments: null, reviewer_date: null, reviewer_image: null, reviewer_name: null, reviewer_rate: null,
-            book_read_date: null, book_author: null, book_id: null, book_image: null, book_title: null};
-        this.http.post<{message: string}>('http://localhost:3000/api/reviewdata', review)
-        .subscribe ((responseData) => {
-            console.log(responseData.message);
-        });
-    }*/
+    .post <{ ReturnMsg: string }>('https://geeksreads.herokuapp.com/api/users/RemoveFromShelf', bookID)   // to send request with the book info
+    .subscribe(responsedata => {                                    // to add a book to a read shelf
+    console.log(responsedata.ReturnMsg);                   // to check that the request sent successfuly
+    });
+}
+add_book_to_shelf_reading(bookid: string) {
+    const bookID = {
+    token : localStorage.getItem('token'),
+    BookId: bookid
+    };
+    this.http
+// tslint:disable-next-line: max-line-length
+    .post <{ ReturnMsg: string }>('https://geeksreads.herokuapp.com/api/users/UpdateWantToReading', bookID)   // to send request with the book info
+    .subscribe(responsedata => {                                    // to add a book to a read shelf
+    console.log(responsedata.ReturnMsg);                   // to check that the request sent successfuly
+    });
+}
+add_book_to_shelf_read(bookid: string) {
+    const bookID = {
+    token : localStorage.getItem('token'),
+    BookId: bookid
+    };
+    this.http
+// tslint:disable-next-line: max-line-length
+    .post<{ ReturnMsg: string }> ('https://geeksreads.herokuapp.com/api/users/UpdateReadingToRead', bookID)   // to send request with the book info
+    .subscribe(responsedata => {                                    // to add a book to a read shelf
+     console.log(responsedata.ReturnMsg);                   // to check that the request sent successfuly
+    });
+}
 }

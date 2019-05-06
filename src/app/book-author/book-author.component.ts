@@ -127,7 +127,7 @@ public after_dots: string [] = [];
     this.Sub_profile = this.booktitle_service.get_book_Info_updated().subscribe((book_Information: Book[]) => {
       this.book_details = book_Information;
       auth = this.book_details[0].AuthorId;
-      this.authordetails_service.get_author_Info(auth);  
+      this.authordetails_service.get_author_Info(auth);
     });                              // to get the user info from the service
     // tslint:disable-next-line:variable-name
     this.Sub_profile = this.authordetails_service.get_author_details_updated().subscribe((author_Information: AuthorDetails[]) => {
@@ -145,6 +145,14 @@ public after_dots: string [] = [];
    */
   followAuthor() {
     // TODO: Send request
+// tslint:disable-next-line: prefer-for-of
+    const userid = localStorage.getItem('userId');
+    for (let i = 0; i < this.author_details.length; i++) {
+      if (this.author_details[0].FollowingUserId[i] === userid){
+        console.log('already followed this author');
+        return;
+      }
+    }
     this.authorIsFollowing = true;
     const number = document.getElementById('number-followers');
 // tslint:disable-next-line: radix
@@ -156,7 +164,16 @@ public after_dots: string [] = [];
     //number.innerHTML = x;
     console.log(this.authorid[this.author_index]);
     this.authordetails_service.post_author_follow(this.authorid[this.author_index]);
+    this.authorfollowers[0] = this.GetNumberOfFollowers().toString();
     console.log('Following this author');
+  }
+    GetNumberOfFollowers(): number {
+    this.authordetails_service.get_author_Info(this.author_details[0].AuthorId);
+    this.Sub_profile = this.authordetails_service.get_author_details_updated().subscribe((author_Information: AuthorDetails[]) => {
+      this.author_details = author_Information;
+      return this.author_details[0].FollowingUserId.length.toString();
+    });
+    return this.author_details[0].FollowingUserId.length;
   }
   Clear_Storage() {
     localStorage.removeItem('ISBN');

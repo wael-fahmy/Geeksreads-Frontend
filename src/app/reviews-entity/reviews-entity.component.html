@@ -1,7 +1,7 @@
 <div id="user-reviews">
   <img class="reviewer-image" src="{{reviewerimage}}">
   <div>
-      <p id="Reviewer-name">{{reviewername}}
+      <p id="Reviewer-name" [routerLink]="['/other-user-profile-entity', userid]">{{reviewername}}
           <span id="rate-it">rated a book</span>
           <span id="star0" class="fa fa-star" class="dots"></span>
           <span id="star1" class="fa fa-star"></span>

@@ -56,6 +56,7 @@
 #Reviewer-name {
     color: blue;
     margin: 0 0 0 12px;
+    cursor: pointer;
 }
 .dots {
     margin-left: 5px;

@@ -3,6 +3,7 @@ import { Subscription } from 'rxjs';
 import { Bookreviews_Service } from '../book-comment-user/book-comment-user.service';
 import { Book_Service } from '../book/book.service';
 import { Book } from '../book/book.model';
+import {ReviewerDetails_Service} from './reviews-entity.service'
 import { Bookreviews } from '../book-comment-user/book-comment-user.model';
 @Component({
   selector: 'app-reviews-entity',
@@ -22,6 +23,7 @@ reviewerid: string;
 reviewerbody: string;
 reviewerlike: string;
 reviewercomm: string;
+userid: string;
 befor_dots: string [] = [];
 after_dots: string [] = [];
 //////////////////////////////////////////////////
@@ -40,7 +42,7 @@ public book_details: Book [] = [];
 public review_details: Bookreviews [] = [];
 //////////////////////////////////////////////////////////////////
 constructor(public review_service: Bookreviews_Service,
-            public book_service: Book_Service) { }
+            public book_service: Book_Service, public reviewPost: ReviewerDetails_Service) { }
 ngOnInit() {
     console.log(this.ReviewID);
     // tslint:disable-next-line: max-line-length
@@ -94,12 +96,36 @@ ngOnInit() {
         this.SplitString(this.reviewerbody);
         this.reviewerlike = this.review_details[i].likesCount;
         this.reviewercomm = this.review_details[i].commCount;
+        this.userid = this.review_details[i].userId;
       }
     }
   }
   SetDate(date: string) {
     const word =  date.split('T');
     this.reviewdate = word[0];
+  }
+  book_status(index: string) {
+    const first = document.getElementById(index);
+    const second = document.getElementById('first-option');
+    let x = first.innerHTML.toString();
+    first.innerHTML = second.innerHTML.toString();
+    second.innerHTML = x;
+    //second
+    if (this.bookstatus === 'Want To Read' && second.textContent === 'Currently Reading') {
+      console.log(second.textContent);
+      console.log(this.bookstatus);
+      console.log(this.bookid);
+      console.log('in first if');
+      this.reviewPost.Remove_Book(this.bookid);
+      this.reviewPost.add_book_to_shelf_reading(this.bookid);
+    } else if (this.bookstatus === 'Currently Reading' && second.textContent === 'Read') {
+      console.log(second.textContent);
+      console.log(this.bookstatus);
+      console.log(this.bookid);
+      console.log('in second if');
+      this.reviewPost.Remove_Book(this.bookid);
+      this.reviewPost.add_book_to_shelf_read(this.bookid);
+    }
   }
   SplitString(body: string) {
     const ReadMoreBt = document.getElementById('myBtn-user-review');
