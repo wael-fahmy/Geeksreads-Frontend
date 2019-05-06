@@ -14,6 +14,10 @@ hr {
     height: 65px;
 }
 
+.author-book {
+    cursor: pointer;
+}
+
 .author-book-header {
     margin: 20px 0 10px 10px;
 }

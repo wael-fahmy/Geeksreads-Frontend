@@ -13,7 +13,7 @@ import { Subscription } from 'rxjs';
 export class SearchComponent implements OnInit {
   snapshotParam = 'initial value';
 
-  //results: boolean;
+  results = true;
 
   private searchSubscription: Subscription;
 
@@ -29,10 +29,13 @@ export class SearchComponent implements OnInit {
     this.searchSubscription = this.searchService.getSearchUpdated()
       .subscribe((searchInformation: any) => {
         this.searchModel = searchInformation;
-        console.log(this.searchModel);
-        // if (this.searchModel[0].length === 0) {
-        //   this.results = false;
-        // }
+        // console.log(this.searchModel);
+        // console.log(searchInformation);
+        if (this.searchModel[0].length === 0 && this.searchModel[1].length === 0) {
+          this.results = false;
+        } else {
+          this.results = true;
+        }
       }, (error: { json: () => void; }) => {
         console.log(error);
       });
