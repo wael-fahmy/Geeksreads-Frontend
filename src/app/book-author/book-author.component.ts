@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { AuthorDetails } from './book-author.model';
 import { Subscription } from 'rxjs';
+import { Book } from '../book/book.model';
+import { Book_Service } from '../book/book.service';
 import { AuthorDetails_Service } from './book-author.service';
 import { delay } from 'q';
 
@@ -20,6 +22,8 @@ export class BookAuthorComponent implements OnInit {
    * @type {string []}
    * @memberof BookAuthorComponent
    */
+  @Input() BookID: string;
+  authid: string;
   authorname: string [] = [];
   /**
    *
@@ -96,6 +100,7 @@ public after_dots: string [] = [];
    * @memberof BookAuthorComponent
    */
   public author_details: AuthorDetails[] = [];
+  private book_details: Book[] = [];
   // tslint:disable-next-line:variable-name
   /**
    *
@@ -109,21 +114,28 @@ public after_dots: string [] = [];
    * @param {AuthorDetails_Service} authordetails_service
    * @memberof BookAuthorComponent
    */
-  constructor(public authordetails_service: AuthorDetails_Service) { }
+  constructor(public authordetails_service: AuthorDetails_Service, public booktitle_service: Book_Service) { }
   /**
    *
    * function used to read author list from services.ts
    * @memberof BookAuthorComponent
    */
   ngOnInit() {
-    const author = localStorage.getItem('authorID');
-    this.authordetails_service.get_author_Info(author);                                  // to get the user info from the service
+    let auth;
+    this.booktitle_service.get_book_Info(this.BookID);                            // to get the user info from the service
+    // tslint:disable-next-line:variable-name
+    this.Sub_profile = this.booktitle_service.get_book_Info_updated().subscribe((book_Information: Book[]) => {
+      this.book_details = book_Information;
+      auth = this.book_details[0].AuthorId;
+      this.authordetails_service.get_author_Info(auth);  
+    });                              // to get the user info from the service
     // tslint:disable-next-line:variable-name
     this.Sub_profile = this.authordetails_service.get_author_details_updated().subscribe((author_Information: AuthorDetails[]) => {
       this.author_details = author_Information;
       console.log(this.author_details);
       this.SplitString(this.author_details[0].About);
       this.SetElements();
+      localStorage.removeItem('authorID');
     });
   }
   /**
@@ -174,9 +186,6 @@ public after_dots: string [] = [];
     number.innerHTML = x;
     this.authordetails_service.post_author_unfollow(this.authorid[this.author_index]);
     console.log('Unfollowing this author');
-  }
-  GetAuthorByID() {
-    this.authordetails_service.post_author_id(this.authorid[this.author_index]);
   }
   /**
    *

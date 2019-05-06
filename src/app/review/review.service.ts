@@ -17,7 +17,8 @@ constructor(private http: HttpClient, private router: Router) { }
 // tslint:disable-next-line: max-line-length
         const UserToken = {
             resourceId: ReviewID,
-            token: localStorage.getItem('token')
+            token: localStorage.getItem('token'),
+            Type: 'Review'
         };
         this.http.post<{ message: string}>('https://geeksreads.herokuapp.com/api/resources/like', UserToken).
         subscribe(responseData => {          //  subscribe the list of books recieved
