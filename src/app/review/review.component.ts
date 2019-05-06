@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-
+import { ReviewService } from './review.service';
 @Component({
   selector: 'app-review',
   templateUrl: './review.component.html',
@@ -22,16 +22,25 @@ export class ReviewComponent implements OnInit {
   befordots: string;
   afterdots: string;
 
-  constructor() { }
+  constructor(public ReviewServ: ReviewService) { }
 
   ngOnInit() {
     this.SplitString();
     this.SetRate();
+    this.SetLike();
   }
   SplitString() {
     const word = this.reviewBody.split(',');
     this.befordots = word[0];
     this.afterdots = word[1];
+  }
+  SetLike() {
+    const likes = document.getElementById('liked');
+    if (this.liked === true) {
+      likes.innerHTML = 'Liked';
+    } else {
+      likes.innerHTML = 'Like';
+    }
   }
   more_user_preview() {
     let dots: HTMLElement;
@@ -88,5 +97,8 @@ export class ReviewComponent implements OnInit {
       rate4.style.color = 'orange';
     }
   }
-
+  LikeReview() {
+    console.log(this.reviewId);
+    this.ReviewServ.post_Like_Review(this.reviewId);
+  }
 }

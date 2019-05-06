@@ -17,7 +17,7 @@
         <button (click)="more_user_preview()" mat-button id="myBtn-user-review">Read more</button></p>
 </div>
 <div id="review-like-comment">
-    <p class="blue-text" id="liked">Like</p>
+    <p (click)="LikeReview()" class="blue-text" id="liked">Like</p>
     <p class="dots">.</p>
     <p (click)="ClickStorage()" [routerLink]="['/reviews', reviewId]" class="blue-text" id="comment">Comment</p>
     <p class="dots">.</p>
