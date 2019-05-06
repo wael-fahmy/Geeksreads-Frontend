@@ -122,14 +122,6 @@ export class NewsfeedComponent implements OnInit {
   ///////////////////////////////// end of HTML VARIABLES ////////////////////////////////////////////////
 
   /////////////////////////////////// Methods ///////////////////////////////////////////////////
-
-
-
-
-
-
-
-  //////////////////////////////////////////////////////////////////////////////////////////////
   /**
    *  Creates an instance of NewsfeedPostComponent.
    *  @param {PostsServices} PostsServicesObj
@@ -144,9 +136,9 @@ export class NewsfeedComponent implements OnInit {
    * @memberof NewsfeedPostComponent
    */
   ngOnInit() {
-    //  if (localStorage.getItem('token') === null) {
-    //    this.router.navigate(['/homepage']);
-    //  }
+    if (localStorage.getItem('token') === null) {
+      this.router.navigate(['/homepage']);
+    }
     this.PostsServicesObj.getpost();
     this.newsfeedSubscription = this.PostsServicesObj.get_post_updated().subscribe((PostInfo) => {
       this.PostObj = PostInfo;
