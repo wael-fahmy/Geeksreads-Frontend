@@ -24,18 +24,26 @@ export class GenreComponent implements OnInit {
    */
   specificgenre;
 
+  genreType1 = 'Thriller';
+
+  genreType2 = 'Comedy';
+
+  genreType3 = 'Horror';
+
   /**
    *  Creates an instance of GenreComponent.
    *  @memberof GenreComponent
    */
   constructor() { }
 
+ 
   /**
    *
    * Angular Init
    * @memberof GenreComponent
    */
   ngOnInit() {
+    
   }
 
 }
