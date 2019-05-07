@@ -1595,6 +1595,148 @@ app.controller('ScreenshotReportController', function ($scope, $http) {
         "screenShotFile": "Screenshots\\00dc00e5-00d5-00be-0080-00100044003f.png",
         "timestamp": 1557243737023,
         "duration": 20100
+    },
+    {
+        "description": "Should Redirect to Sign out when he clicks sign out button|Logout tests",
+        "passed": false,
+        "pending": false,
+        "os": "Windows NT",
+        "instanceId": 16852,
+        "browser": {
+            "name": "chrome",
+            "version": "74.0.3729.131"
+        },
+        "message": [
+            "Error: Timeout - Async callback was not invoked within timeout specified by jasmine.DEFAULT_TIMEOUT_INTERVAL.",
+            "Error: Timeout - Async callback was not invoked within timeout specified by jasmine.DEFAULT_TIMEOUT_INTERVAL.",
+            "Expected 'http://geeksreads.herokuapp.com/homepage' to be 'http://geeksreads.herokuapp.com/sign-out'.",
+            "Expected false to be truthy."
+        ],
+        "trace": [
+            "Error: Timeout - Async callback was not invoked within timeout specified by jasmine.DEFAULT_TIMEOUT_INTERVAL.\n    at Timeout._onTimeout (C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\node_modules\\jasmine\\node_modules\\jasmine-core\\lib\\jasmine-core\\jasmine.js:4281:23)\n    at ontimeout (timers.js:498:11)\n    at tryOnTimeout (timers.js:323:5)\n    at Timer.listOnTimeout (timers.js:290:5)",
+            "Error: Timeout - Async callback was not invoked within timeout specified by jasmine.DEFAULT_TIMEOUT_INTERVAL.\n    at Timeout._onTimeout (C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\node_modules\\jasmine\\node_modules\\jasmine-core\\lib\\jasmine-core\\jasmine.js:4281:23)\n    at ontimeout (timers.js:498:11)\n    at tryOnTimeout (timers.js:323:5)\n    at Timer.listOnTimeout (timers.js:290:5)",
+            "Error: Failed expectation\n    at C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\e2e\\src\\sig-out-routing\\sign-out.e2e-spec.ts:32:21\n    at ManagedPromise.invokeCallback_ (C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\node_modules\\selenium-webdriver\\lib\\promise.js:1376:14)\n    at TaskQueue.execute_ (C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\node_modules\\selenium-webdriver\\lib\\promise.js:3084:14)\n    at TaskQueue.executeNext_ (C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\node_modules\\selenium-webdriver\\lib\\promise.js:3067:27)\n    at asyncRun (C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\node_modules\\selenium-webdriver\\lib\\promise.js:2927:27)\n    at C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\node_modules\\selenium-webdriver\\lib\\promise.js:668:7\n    at <anonymous>\n    at process._tickCallback (internal/process/next_tick.js:188:7)",
+            "Error: Failed expectation\n    at UserContext.<anonymous> (C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\e2e\\src\\sig-out-routing\\sign-out.e2e-spec.ts:34:40)\n    at C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\node_modules\\jasminewd2\\index.js:112:25\n    at new ManagedPromise (C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\node_modules\\selenium-webdriver\\lib\\promise.js:1077:7)\n    at ControlFlow.promise (C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\node_modules\\selenium-webdriver\\lib\\promise.js:2505:12)\n    at schedulerExecute (C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\node_modules\\jasminewd2\\index.js:95:18)\n    at TaskQueue.execute_ (C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\node_modules\\selenium-webdriver\\lib\\promise.js:3084:14)\n    at TaskQueue.executeNext_ (C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\node_modules\\selenium-webdriver\\lib\\promise.js:3067:27)\n    at asyncRun (C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\node_modules\\selenium-webdriver\\lib\\promise.js:2974:25)\n    at C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\node_modules\\selenium-webdriver\\lib\\promise.js:668:7"
+        ],
+        "browserLogs": [
+            {
+                "level": "WARNING",
+                "message": "deprecation - HTML Imports is deprecated and will be removed in M73, around March 2019. Please use ES modules instead. See https://www.chromestatus.com/features/5144752345317376 for more details.",
+                "timestamp": 1557266054915,
+                "type": ""
+            },
+            {
+                "level": "SEVERE",
+                "message": "https://geeksreads.herokuapp.com/api/users/SignOut - Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+                "timestamp": 1557266155375,
+                "type": ""
+            },
+            {
+                "level": "SEVERE",
+                "message": "https://geeksreads.herokuapp.com/api/user_status/show - Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+                "timestamp": 1557266155478,
+                "type": ""
+            },
+            {
+                "level": "SEVERE",
+                "message": "http://localhost:4200/vendor.js 80742:18 \"ERROR\" HttpErrorResponse",
+                "timestamp": 1557266155478,
+                "type": ""
+            }
+        ],
+        "screenShotFile": "Screenshots\\00ef00b6-00d4-004d-0016-00cf003d0068.png",
+        "timestamp": 1557266075140,
+        "duration": 80471
+    },
+    {
+        "description": "Should Redirect to Sign out when he clicks sign out button|Logout tests",
+        "passed": true,
+        "pending": false,
+        "os": "Windows NT",
+        "instanceId": 22420,
+        "browser": {
+            "name": "chrome",
+            "version": "74.0.3729.131"
+        },
+        "message": "Passed.",
+        "trace": "",
+        "browserLogs": [
+            {
+                "level": "WARNING",
+                "message": "deprecation - HTML Imports is deprecated and will be removed in M73, around March 2019. Please use ES modules instead. See https://www.chromestatus.com/features/5144752345317376 for more details.",
+                "timestamp": 1557266448929,
+                "type": ""
+            },
+            {
+                "level": "SEVERE",
+                "message": "https://geeksreads.herokuapp.com/api/user_status/show - Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+                "timestamp": 1557266480891,
+                "type": ""
+            },
+            {
+                "level": "SEVERE",
+                "message": "https://geeksreads.herokuapp.com/api/users/SignOut - Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+                "timestamp": 1557266480891,
+                "type": ""
+            },
+            {
+                "level": "SEVERE",
+                "message": "http://localhost:4200/vendor.js 80742:18 \"ERROR\" HttpErrorResponse",
+                "timestamp": 1557266480891,
+                "type": ""
+            }
+        ],
+        "screenShotFile": "Screenshots\\00610015-00f6-0099-003f-009100730026.png",
+        "timestamp": 1557266452683,
+        "duration": 28232
+    },
+    {
+        "description": "Should Sign out Checks to see the join in button if exist now|Logout tests",
+        "passed": true,
+        "pending": false,
+        "os": "Windows NT",
+        "instanceId": 3128,
+        "browser": {
+            "name": "chrome",
+            "version": "74.0.3729.131"
+        },
+        "message": "Passed.",
+        "trace": "",
+        "browserLogs": [
+            {
+                "level": "WARNING",
+                "message": "deprecation - HTML Imports is deprecated and will be removed in M73, around March 2019. Please use ES modules instead. See https://www.chromestatus.com/features/5144752345317376 for more details.",
+                "timestamp": 1557266621588,
+                "type": ""
+            },
+            {
+                "level": "WARNING",
+                "message": "http://localhost:4200/vendor.js 165635 WebSocket connection to 'ws://localhost:4200/sockjs-node/402/0dz3cctz/websocket' failed: WebSocket is closed before the connection is established.",
+                "timestamp": 1557266638836,
+                "type": ""
+            },
+            {
+                "level": "SEVERE",
+                "message": "https://geeksreads.herokuapp.com/api/users/SignOut - Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+                "timestamp": 1557266650983,
+                "type": ""
+            },
+            {
+                "level": "SEVERE",
+                "message": "https://geeksreads.herokuapp.com/api/user_status/show - Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+                "timestamp": 1557266651090,
+                "type": ""
+            },
+            {
+                "level": "SEVERE",
+                "message": "http://localhost:4200/vendor.js 80742:18 \"ERROR\" HttpErrorResponse",
+                "timestamp": 1557266651090,
+                "type": ""
+            }
+        ],
+        "screenShotFile": "Screenshots\\006500b4-0012-00d0-0050-001e0014006c.png",
+        "timestamp": 1557266625314,
+        "duration": 25801
     }
 ];
 
