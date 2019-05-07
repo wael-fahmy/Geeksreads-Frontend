@@ -50,9 +50,33 @@ export class ProfileEntityComponent implements OnInit {
    * @memberof ProfileEntityComponent
    */
   userName: string;
+  /**
+   * user email
+   *
+   * @type {string}
+   * @memberof ProfileEntityComponent
+   */
   userEmail: string;
+  /**
+   * user followers
+   *
+   * @type {number}
+   * @memberof ProfileEntityComponent
+   */
   userFollowers: number;
+  /**
+   * user followings
+   *
+   * @type {number}
+   * @memberof ProfileEntityComponent
+   */
   userFollowing: number;
+  /**
+   * user birth date
+   *
+   * @type {string}
+   * @memberof ProfileEntityComponent
+   */
   userBirthDay: string;
   /**
    * Creates an instance of ProfileEntityComponent.

@@ -30,7 +30,7 @@ get_comments_Info(ReviewID: string) {
 get_comments_Info_updated() {
         return this.comments_detailsUpdated.asObservable();
     }
-post_Comment(body: string, ReviewID: string, BookID: string) {
+post_Comment(body: string, ReviewID: string, BookID: string, ddate: string, image: string) {
         if (localStorage.getItem('userId') === null) {
             this.router.navigate(['/sign-in']);
             return;
@@ -41,10 +41,10 @@ post_Comment(body: string, ReviewID: string, BookID: string) {
             ReviewId: ReviewID,
             BookId: BookID,
             userId: localStorage.getItem('userId'),
-            Photo: 'https://cdn.shopify.com/s/files/1/0078/6563/0831/products/TogaPrint_grande.png?v=1552807118',
+            Photo: image,
             token: localStorage.getItem('token'),
             LikesCount: '0',
-            date: '2000-01-01T00:00:00.000Z'
+            date: ddate
         };
         console.log(localStorage.getItem('token'));
         this.http.post<{ message: string}>('https://geeksreads.herokuapp.com/api/comments/add', UserToken).

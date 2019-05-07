@@ -17,6 +17,7 @@ import { listLazyRoutes } from '@angular/compiler/src/aot/lazy_routes';
   templateUrl: './profile-read-shelf.component.html',
   styleUrls: ['./profile-read-shelf.component.css']
 })
+
 export class ProfileReadShelfComponent implements OnInit {
 
   /**
@@ -28,17 +29,40 @@ export class ProfileReadShelfComponent implements OnInit {
    */
   private subList: Subscription;
 
+  
+
   /**
    *
-   * List of books read
-   * @type {ListOfBooks[]} to store the books read info inside it
+   *
+   * @private to update the reading shelf
    * @memberof ProfileReadShelfComponent
    */
   private listReadingUpdated = new Subject<ListOfBooks[]>();
+
+  /**
+   *
+   *
+   * @private to update the read shelf
+   * @memberof ProfileReadShelfComponent
+   */
   private listReadUpdated = new Subject<ListOfBooks[]>();
+
+  /**
+   *
+   *
+   * @private to update the want to read shelf
+   * @memberof ProfileReadShelfComponent
+   */
   private listWanttoReadUpdated = new Subject<ListOfBooks[]>();
+
+  /**
+   *
+   *
+   * @type {ListOfBooks[]}  to store the list of books read
+   * @memberof ProfileReadShelfComponent
+   */
   listOfBooksRead: ListOfBooks[] = [];
-  bookRoute: string;
+
 
   /**
    *  Creates an instance of ProfileReadShelfComponent.
@@ -49,16 +73,22 @@ export class ProfileReadShelfComponent implements OnInit {
 
   /**
    *
-   * to increment the number of books currently reading on click
+   * to remove the book from shelf read on click
    * @param {ListOfBooks} index index of the book to be sent to the backend
    * @memberof ProfileReadShelfComponent
    */
-  OnClick_Remove(index: ListOfBooks) {                           // to increment the number of books currently reading on click
+  OnClick_Remove(index: ListOfBooks) {                           // to remove  books read on click
     this.countBooksService.Remove_Book(index);
     this.listReadUpdated.next([...this.listOfBooksRead]);
     this.listReadUpdated.asObservable();
   }
   
+/**
+ * to get the book info from the service
+ * subscribe the recieved data
+ * and put it inside the list of books to display it
+ * @memberof ProfileReadShelfComponent
+ */
 get_ListRead_observed()
 {
   this.countBooksService.get_List_of_books_read();                         // to get the book info from the service

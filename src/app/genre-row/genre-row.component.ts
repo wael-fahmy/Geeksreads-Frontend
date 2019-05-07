@@ -17,11 +17,8 @@ import { RowServices } from './genre-row.service';
 export class GenreRowComponent implements OnInit {
 
   @Input() genreType: string;
- // @Input() bookImage1: string;
-  //@Input() bookimage2:string;
-  //@Input() bookimage3:string;
-
-
+  @Input() showGenreName: boolean;
+ 
   /**
    * book image 1
    * @memberof GenreRowComponent
@@ -56,10 +53,7 @@ export class GenreRowComponent implements OnInit {
    */
   private subprofile: Subscription;
 
-  See_more_genres() {
-    console.log('Loading more genres ... ');
-  }
-
+  
   /**
    * Creates an instance of GenreRowComponent.
    * @param {RowServices} rowServicesObj

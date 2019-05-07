@@ -3,6 +3,7 @@ import { Subject } from 'rxjs';
 import { Bookreviews } from './book-comment-user.model';
 import { HttpClient } from '@angular/common/http';
 import { BookDetails } from '../book-entity/book-entity.model';
+import { Router } from '@angular/router';
 
 @Injectable({ providedIn: 'root' })
 
@@ -20,7 +21,7 @@ size: number;
      * @param {HttpClient} http
      * @memberof Bookreviews_Service
      */
-    constructor(private http: HttpClient) { }
+    constructor(private http: HttpClient, private router: Router) { }
     // tslint:disable-next-line:variable-name
     /**
      *
@@ -55,7 +56,6 @@ size: number;
             // tslint:disable-next-line:variable-name
             subscribe((reviewdata: Bookreviews[]) => {
                 this.review_information = reviewdata;
-                console.log(reviewdata);
                 this.review_informationUpdated.next([...this.review_information]);
             }, (error: { json: () => void; }) => {
                 console.log(error);
@@ -63,5 +63,26 @@ size: number;
     }
     get_review_Info_updated() {
         return this.review_informationUpdated.asObservable();
+    }
+    post_book_review(bookc_id: string, reviewbody: string, reviewdate: string, Rrating: number) {
+        if (localStorage.getItem('userId') === null) {
+            this.router.navigate(['/sign-in']);
+            return;
+        }
+        const UserToken = {
+            userId : localStorage.getItem('userId'),
+            bookId: bookc_id,
+            rating: Rrating,
+            reviewBody: reviewbody,
+            reviewDate: reviewdate,
+            token: localStorage.getItem('token')
+        };
+        this.http.post<{ message: string }>('https://geeksreads.herokuapp.com/api/reviews/add', UserToken).
+      subscribe(bookData => {          //  subscribe the list of books recieved
+        console.log(bookData);   // assign them to the list to display them
+        this.review_informationUpdated.next([...this.review_information]);
+    }, (error: { json: () => void; }) => {
+        console.log(error);
+    });
     }
 }

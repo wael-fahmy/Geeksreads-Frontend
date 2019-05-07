@@ -6,12 +6,19 @@ import { Book_Service } from '../book/book.service';
 import { AuthorDetails_Service } from './book-author.service';
 import { delay } from 'q';
 import { Router } from '@angular/router';
-
+/**
+ *
+ * class used to implement logic
+ * @export
+ * @class BookAuthorComponent
+ * @implements {OnInit}
+ */
 @Component({
   selector: 'app-book-author',
   templateUrl: './book-author.component.html',
   styleUrls: ['./book-author.component.css']
 })
+
 export class BookAuthorComponent implements OnInit {
   /**
    *  Panel open state boolean
@@ -19,12 +26,24 @@ export class BookAuthorComponent implements OnInit {
   public panelOpenState: boolean;
   /**
    *
-   * variable to carry author name list
-   * @type {string []}
+   * variable to carry book id
+   * @type {string}
    * @memberof BookAuthorComponent
    */
   @Input() BookID: string;
+  /**
+   *
+   * vairbale to carry author id
+   * @type {string}
+   * @memberof BookAuthorComponent
+   */
   authid: string;
+  /**
+   *
+   * vairbale to carry author name
+   * @type {string []}
+   * @memberof BookAuthorComponent
+   */
   authorname: string [] = [];
   /**
    *
@@ -92,6 +111,11 @@ public after_dots: string [] = [];
    * @memberof BookAuthorComponent
    */
   private Sub_profile: Subscription;
+  /**
+   *
+   * boolea used for checking following auhtor
+   * @memberof BookAuthorComponent
+   */
   authorIsFollowing = false;
   // tslint:disable-next-line:variable-name
   /**
@@ -101,7 +125,20 @@ public after_dots: string [] = [];
    * @memberof BookAuthorComponent
    */
   public author_details: AuthorDetails[] = [];
+  /**
+   *
+   * variable to carry book details
+   * @private
+   * @type {Book[]}
+   * @memberof BookAuthorComponent
+   */
   private book_details: Book[] = [];
+  /**
+   *
+   * vairbale to carry follow updated
+   * @type {AuthorDetails}
+   * @memberof BookAuthorComponent
+   */
   public follow: AuthorDetails;
   // tslint:disable-next-line:variable-name
   /**
@@ -135,12 +172,18 @@ public after_dots: string [] = [];
     // tslint:disable-next-line:variable-name
     this.Sub_profile = this.authordetails_service.get_author_details_updated().subscribe((author_Information: AuthorDetails[]) => {
       this.author_details = author_Information;
-      this.SplitString(this.author_details[0].About);
       this.SetElements();
       this.SetFollow(author_Information);
       localStorage.removeItem('authorID');
     });
   }
+  /**
+   *
+   * function to set follow button
+   * @param {AuthorDetails []} author
+   * @returns
+   * @memberof BookAuthorComponent
+   */
   SetFollow(author: AuthorDetails []) {
     const userid = localStorage.getItem('userId');
 // tslint:disable-next-line: prefer-for-of
@@ -153,6 +196,12 @@ public after_dots: string [] = [];
     }
     this.authorIsFollowing = false;
   }
+  /**
+   *
+   * function to follow author
+   * @returns
+   * @memberof BookAuthorComponent
+   */
   followAuthor() {
     // TODO: Send request
 // tslint:disable-next-line: prefer-for-of
@@ -176,7 +225,13 @@ public after_dots: string [] = [];
     //number.innerHTML = x;
     this.ngOnInit();
   }
-    GetNumberOfFollowers(): string {
+  /**
+   *
+   * function to get updated number of users
+   * @returns {string}
+   * @memberof BookAuthorComponent
+   */
+  GetNumberOfFollowers(): string {
       this.authordetails_service.get_author_Info(this.authorid[this.author_index]);
       this.Sub_profile = this.authordetails_service.get_author_details_updated()
       .subscribe((authorInformation: AuthorDetails[]) => {
@@ -188,6 +243,11 @@ public after_dots: string [] = [];
       });
       return '';
   }
+  /**
+   *
+   * function to clear local storage
+   * @memberof BookAuthorComponent
+   */
   Clear_Storage() {
     localStorage.removeItem('ISBN');
     localStorage.removeItem('genre');
@@ -248,6 +308,7 @@ public after_dots: string [] = [];
           this.authorfollowers[x] = this.author_details[x].FollowingUserId.length.toString();
           this.bookid[x] = this.author_details[x].BookId;
           this.authorimage[x] = this.author_details[x].Photo;
+          this.befor_dots[x] = this.author_details[x].About;
         }
       }
   /**

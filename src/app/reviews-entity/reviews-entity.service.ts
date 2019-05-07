@@ -4,13 +4,13 @@ import { ReviewDetails } from './reviews-entity.model';
 import { BookDetails } from '../book-entity/book-entity.model';
 import { AuthorDetails } from '../book-entity/book-entity.model';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Injectable({ providedIn: 'root' })
 
 // tslint:disable-next-line:class-name
 export class ReviewerDetails_Service {
-constructor(private http: HttpClient) { }
-liked = 1;
+constructor(private http: HttpClient, private router: Router) { }
 private reviewer_details: ReviewDetails[] = [];
 private reviewer_detailsUpdated = new Subject<ReviewDetails[]>();
 private book_detailsUpdated = new Subject<BookDetails[]>();
@@ -54,7 +54,10 @@ get_book_Info_updated() {
     }
 
 Remove_Book(bookid: string) {
-    console.log(bookid);
+    if (localStorage.getItem('userId') === null) {
+        this.router.navigate(['/sign-in']);
+        return;
+    }
     const bookID = {
     token : localStorage.getItem('token'),
     BookId: bookid
@@ -62,11 +65,16 @@ Remove_Book(bookid: string) {
     this.http
 // tslint:disable-next-line: max-line-length
     .post <{ ReturnMsg: string }>('https://geeksreads.herokuapp.com/api/users/RemoveFromShelf', bookID)   // to send request with the book info
-    .subscribe(responsedata => {                                    // to add a book to a read shelf
+    .subscribe(responsedata => {
+    console.log('removing book');                                  // to add a book to a read shelf
     console.log(responsedata.ReturnMsg);                   // to check that the request sent successfuly
     });
 }
 add_book_to_shelf_reading(bookid: string) {
+    if (localStorage.getItem('userId') === null) {
+        this.router.navigate(['/sign-in']);
+        return;
+    }
     const bookID = {
     token : localStorage.getItem('token'),
     BookId: bookid
@@ -79,6 +87,10 @@ add_book_to_shelf_reading(bookid: string) {
     });
 }
 add_book_to_shelf_read(bookid: string) {
+    if (localStorage.getItem('userId') === null) {
+        this.router.navigate(['/sign-in']);
+        return;
+    }
     const bookID = {
     token : localStorage.getItem('token'),
     BookId: bookid
@@ -86,6 +98,24 @@ add_book_to_shelf_read(bookid: string) {
     this.http
 // tslint:disable-next-line: max-line-length
     .post<{ ReturnMsg: string }> ('https://geeksreads.herokuapp.com/api/users/UpdateReadingToRead', bookID)   // to send request with the book info
+    .subscribe(responsedata => {                                    // to add a book to a read shelf
+     console.log(responsedata.ReturnMsg);                   // to check that the request sent successfuly
+    });
+}
+like_review(reviewid: string) {
+    if (localStorage.getItem('userId') === null) {
+        this.router.navigate(['/sign-in']);
+        return;
+    }
+    const Review = {
+    token : localStorage.getItem('token'),
+    User_Id: localStorage.getItem('userId'),
+    resourceId: reviewid,
+    Type: 'Review'
+    };
+    this.http
+// tslint:disable-next-line: max-line-length
+    .post<{ ReturnMsg: string }> ('https://geeksreads.herokuapp.com/api/resources/like', Review)   // to send request with the book info
     .subscribe(responsedata => {                                    // to add a book to a read shelf
      console.log(responsedata.ReturnMsg);                   // to check that the request sent successfuly
     });

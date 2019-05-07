@@ -2,9 +2,12 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Bookreviews_Service } from '../book-comment-user/book-comment-user.service';
 import { Book_Service } from '../book/book.service';
+import { ReadStatus } from '../book-entity/book-entity.model';
+import { BookTitle_Service } from '../book-entity/book-entity.service';
 import { Book } from '../book/book.model';
-import {ReviewerDetails_Service} from './reviews-entity.service'
+import {ReviewerDetails_Service} from './reviews-entity.service';
 import { Bookreviews } from '../book-comment-user/book-comment-user.model';
+import { ReviewService } from '../review/review.service';
 @Component({
   selector: 'app-reviews-entity',
   templateUrl: './reviews-entity.component.html',
@@ -23,6 +26,7 @@ reviewerid: string;
 reviewerbody: string;
 reviewerlike: string;
 reviewercomm: string;
+reviewerliked: boolean;
 userid: string;
 befor_dots: string [] = [];
 after_dots: string [] = [];
@@ -36,13 +40,16 @@ authorid: string;
 bookstatus: string;
 type1: string;
 type2: string;
+type3: string;
 //////////////////////////////////////////////////
 private Sub_profile: Subscription;
 public book_details: Book [] = [];
 public review_details: Bookreviews [] = [];
+public Read_status: ReadStatus;
 //////////////////////////////////////////////////////////////////
 constructor(public review_service: Bookreviews_Service,
-            public book_service: Book_Service, public reviewPost: ReviewerDetails_Service) { }
+            public book_service: Book_Service, public reviewPost: ReviewerDetails_Service,
+            public booktitle_service: BookTitle_Service, public ReviewServ: ReviewService) { }
 ngOnInit() {
     console.log(this.ReviewID);
     // tslint:disable-next-line: max-line-length
@@ -59,6 +66,21 @@ ngOnInit() {
       this.book_details = book_Information;
       this.SetBook();
     });
+    this.booktitle_service.Get_book_status(this.BookID);                            // to get the user info from the service
+    // tslint:disable-next-line:variable-name
+    this.Sub_profile = this.booktitle_service.get_status_Info_updated().subscribe((status_Information: ReadStatus) => {
+      this.Read_status = status_Information;
+      this.SetReadStatus();
+    });
+  }
+  SetReadStatus() {
+    this.bookstatus = this.Read_status.ReturnMsg;
+    if (this.bookstatus === 'This BookId is Not in any Shelf, Please Add it to Shelf First') {
+      this.bookstatus = 'Add To Shelf';
+      this.assign_status(this.bookstatus);
+    } else {
+      this.assign_status(this.bookstatus);
+    }
   }
   SetBook() {
     this.bookcover = this.book_details[0].Cover;
@@ -72,14 +94,57 @@ ngOnInit() {
   assign_status(index: string) {
     if (index === 'Want To Read') {
       this.type1 = 'Currently Reading';
-      this.type2 = 'Read';
+      this.type2 = 'Remove From Shelve';
+      this.type3 = '';
     } else if (index === 'Read') {
-      this.type1 = 'Currently Reading';
-      this.type2 = 'Want To Read';
+      this.type1 = 'Remove From Shelve';
+      this.type2 = '';
+      this.type3 = '';
     } else if (index === 'Currently Reading') {
       this.type1 = 'Read';
-      this.type2 = 'Want To Read';
+      this.type2 = 'Remove From Shelve';
+      this.type3 = '';
+    } else if (index === 'Add To Shelf') {
+      this.type1 = 'Want To Read';
+      this.type2 = 'Currently Reading';
+      this.type3 = 'Read';
     }
+  }
+  book_status_Post(indexfirst: string, indexsecond: string) {
+    const first = document.getElementById(indexfirst);
+    const second = document.getElementById(indexsecond);
+    const y = first.textContent;
+    const x = second.textContent;
+    if (y === 'Read') {
+      this.booktitle_service.Remove_Book(this.bookid);
+      first.textContent = 'Add To Shelf';
+      this.assign_status(first.textContent);
+    } else if (y === 'Want To Read') {
+      if (x === 'Remove From Shelve') {
+        this.booktitle_service.Remove_Book(this.bookid);
+        first.textContent = 'Add To Shelf';
+        this.assign_status(first.textContent);
+      } else {
+        this.booktitle_service.add_book_to_shelf_reading(this.bookid);
+        first.textContent = x;
+        this.assign_status(x);
+      }
+    } else if (y === 'Currently Reading') {
+      if (x === 'Remove From Shelve') {
+        this.booktitle_service.Remove_Book(this.bookid);
+        first.textContent = 'Add To Shelf';
+        this.assign_status(first.textContent);
+      } else {
+        this.booktitle_service.add_book_to_shelf_read(this.bookid);
+        first.textContent = x;
+        this.assign_status(x);
+      }
+    } else if (y === 'Add To Shelf') {
+      this.booktitle_service.AddToShelf(this.bookid, x);
+      first.textContent = x;
+      this.assign_status(x);
+    }
+    console.log('missed');
   }
   SetReview() {
 // tslint:disable-next-line: prefer-for-of
@@ -87,7 +152,6 @@ ngOnInit() {
       if (this.review_details[i].reviewId === this.ReviewID) {
         this.reviewerimage = this.review_details[i].photo;
         this.reviewername = this.review_details[i].userName;
-        this.reviewerid = this.review_details[i].userId;
         this.reviewdate = this.review_details[i].reviewDate;
         this.SetDate(this.reviewdate);
         this.reviewrate = this.review_details[i].rating.toString();
@@ -97,7 +161,17 @@ ngOnInit() {
         this.reviewerlike = this.review_details[i].likesCount;
         this.reviewercomm = this.review_details[i].commCount;
         this.userid = this.review_details[i].userId;
+        this.reviewerliked = this.review_details[i].liked;
+        this.LikeStatus(this.reviewerliked);
       }
+    }
+  }
+  LikeStatus(liked: boolean) {
+    const like = document.getElementById('liked');
+    if (liked === true) {
+      like.textContent = 'Unlike';
+    } else if (liked === false) {
+      like.textContent = 'Like';
     }
   }
   SetDate(date: string) {
@@ -142,7 +216,7 @@ ngOnInit() {
       this.after_dots[0] = word[1];
     }
 }
-SetRate(rate: string) { 
+SetRate(rate: string) {
   const rate0 = document.getElementById('star0');
   const rate1 = document.getElementById('star1');
   const rate2 = document.getElementById('star2');
@@ -170,6 +244,26 @@ SetRate(rate: string) {
     rate4.style.color = 'orange';
   }
 }
-more_review_discription()
-{}
+more_review_discription() {
+  const dots = document.getElementById('dots-user-review');
+  const moreText = document.getElementById('more-review');
+  const btnText = document.getElementById('myBtn-user-review');
+  if (dots.style.display === 'none') {
+    dots.style.display = 'inline';
+    btnText.innerHTML = 'Read Full Review';
+    moreText.style.display = 'none';
+  } else {
+    dots.style.display = 'none';
+    btnText.innerHTML = 'Show Less Review';
+    moreText.style.display = 'inline';
+  }
+}
+LikePost() {
+  console.log(this.ReviewID);
+  if (this.reviewerliked === false) {
+    this.ReviewServ.post_Like_Review(this.ReviewID);
+  } else if (this.reviewerliked === true) {
+    this.ReviewServ.post_UnLike_Review(this.ReviewID);
+  }
+}
 }

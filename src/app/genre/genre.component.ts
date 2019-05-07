@@ -26,9 +26,11 @@ export class GenreComponent implements OnInit {
 
   genreType1 = 'Thriller';
 
-  genreType2 = 'Comedy';
 
-  genreType3 = 'Horror';
+    showDiv: boolean;
+
+    hideButton: boolean =  false;
+    showLess: boolean = false;
 
   /**
    *  Creates an instance of GenreComponent.
@@ -36,14 +38,28 @@ export class GenreComponent implements OnInit {
    */
   constructor() { }
 
- 
+  See_more_genres() {
+    console.log('Loading more genres ... ');
+
+    this.showDiv = true;
+    this.hideButton = true;
+    this.showLess = true ;
+ }
+//  Show_less(){
+
+//    this.showLess = false;
+//    this.hideButton = true;
+//    this.showDiv = false;
+//  }
+
+
   /**
    *
    * Angular Init
    * @memberof GenreComponent
    */
   ngOnInit() {
-    
+
   }
 
 }
