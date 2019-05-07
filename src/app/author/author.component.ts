@@ -171,10 +171,6 @@ export class AuthorComponent implements OnInit {
     this.authorBooksSubscription = this.authorService.getBooksByAuthorUpdated()
       .subscribe((authorBooksInformation: AuthorBooksModel[]) => {
         this.authorBooksModel = authorBooksInformation;
-        console.log(this.authorBooksModel);
-        for (let i of this.authorBooksModel) {
-          i.BookRating = i.BookRating.$numberDecimal;
-        }
       }, (error: { json: () => void; }) => {
         console.log(error);
       });
