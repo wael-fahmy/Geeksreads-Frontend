@@ -25,6 +25,7 @@ reviewerid: string;
 reviewerbody: string;
 reviewerlike: string;
 reviewercomm: string;
+reviewerliked: boolean;
 userid: string;
 befor_dots: string [] = [];
 after_dots: string [] = [];
@@ -46,7 +47,7 @@ public review_details: Bookreviews [] = [];
 public Read_status: ReadStatus;
 //////////////////////////////////////////////////////////////////
 constructor(public review_service: Bookreviews_Service,
-            public book_service: Book_Service, public reviewPost: ReviewerDetails_Service, 
+            public book_service: Book_Service, public reviewPost: ReviewerDetails_Service,
             public booktitle_service: BookTitle_Service) { }
 ngOnInit() {
     console.log(this.ReviewID);
@@ -152,7 +153,6 @@ ngOnInit() {
       if (this.review_details[i].reviewId === this.ReviewID) {
         this.reviewerimage = this.review_details[i].photo;
         this.reviewername = this.review_details[i].userName;
-        this.reviewerid = this.review_details[i].userId;
         this.reviewdate = this.review_details[i].reviewDate;
         this.SetDate(this.reviewdate);
         this.reviewrate = this.review_details[i].rating.toString();
@@ -162,7 +162,17 @@ ngOnInit() {
         this.reviewerlike = this.review_details[i].likesCount;
         this.reviewercomm = this.review_details[i].commCount;
         this.userid = this.review_details[i].userId;
+        this.reviewerliked = this.review_details[i].liked;
+        this.LikeStatus(this.reviewerliked);
       }
+    }
+  }
+  LikeStatus(liked: boolean) {
+    const like = document.getElementById('liked');
+    if (liked === true) {
+      like.textContent = 'Unlike';
+    } else if (liked === false) {
+      like.textContent = 'Like';
     }
   }
   SetDate(date: string) {
@@ -248,5 +258,16 @@ more_review_discription() {
     btnText.innerHTML = 'Show Less Review';
     moreText.style.display = 'inline';
   }
+}
+LikePost() {
+  console.log(this.ReviewID);
+  if (this.reviewerliked === false) {
+    this.reviewPost.like_review(this.ReviewID);
+    this.ngOnInit();
+  } else if (this.reviewerliked === true) {
+    this.reviewPost.like_review(this.ReviewID);
+    this.ngOnInit();
+  }
+  console.log('error in liking');
 }
 }

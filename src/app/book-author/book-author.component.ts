@@ -135,7 +135,6 @@ public after_dots: string [] = [];
     // tslint:disable-next-line:variable-name
     this.Sub_profile = this.authordetails_service.get_author_details_updated().subscribe((author_Information: AuthorDetails[]) => {
       this.author_details = author_Information;
-      this.SplitString(this.author_details[0].About);
       this.SetElements();
       this.SetFollow(author_Information);
       localStorage.removeItem('authorID');
@@ -248,6 +247,7 @@ public after_dots: string [] = [];
           this.authorfollowers[x] = this.author_details[x].FollowingUserId.length.toString();
           this.bookid[x] = this.author_details[x].BookId;
           this.authorimage[x] = this.author_details[x].Photo;
+          this.befor_dots[x] = this.author_details[x].About;
         }
       }
   /**

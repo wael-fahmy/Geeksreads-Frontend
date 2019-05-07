@@ -1,14 +1,15 @@
 <div id="user-reviews">
   <img class="reviewer-image" src="{{reviewerimage}}">
-  <div>
-      <p id="Reviewer-name" [routerLink]="['/other-user-profile-entity', userid]">{{reviewername}}
+  <div id="reviewer-data">
+    <div id="name-div">
+        <p id="Reviewer-name" [routerLink]="['/other-user-profile-entity', userid]">{{reviewername}}</p>
           <span id="rate-it">rated a book</span>
           <span id="star0" class="fa fa-star" class="dots"></span>
           <span id="star1" class="fa fa-star"></span>
           <span id="star2" class="fa fa-star"></span>
           <span id="star3" class="fa fa-star"></span>
           <span id="star4" class="fa fa-star"></span>
-      </p>
+    </div>
       <p id="review-date">{{reviewdate}}</p>
   </div>
 </div>
@@ -31,11 +32,11 @@
       <span id="more-review">{{after_dots[0]}}</span> <button (click)="more_review_discription()" id="myBtn-user-review" mat-button>Read Full Review</button></p>
 </div>
 <div id="review-like-comment">
-  <p  id="liked" class="blue-text">Like</p>
+  <p (click)="LikePost()" id="liked" class="blue-text">Like</p>
   <p class="dots">.</p>
   <i class="thumbs-up"><mat-icon>thumb_up_alt</mat-icon></i>
   <p type="text" class="dots" id="show-likes">{{reviewerlike}}</p>
   <p class="dots">.</p>
   <i class="comment"><mat-icon> mode_comment</mat-icon></i>
-  <p class="dots" id="comments-number">{{reviewercomm}}</p>
+  <p class="dots" id="show-comment">{{reviewercomm}}</p>
 </div>

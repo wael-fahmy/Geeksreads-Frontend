@@ -91,4 +91,18 @@ add_book_to_shelf_read(bookid: string) {
      console.log(responsedata.ReturnMsg);                   // to check that the request sent successfuly
     });
 }
+like_review(reviewid: string) {
+    const Review = {
+    token : localStorage.getItem('token'),
+    User_Id: localStorage.getItem('userId'),
+    resourceId: reviewid,
+    Type: 'Review'
+    };
+    this.http
+// tslint:disable-next-line: max-line-length
+    .post<{ ReturnMsg: string }> ('https://geeksreads.herokuapp.com/api/resources/like', Review)   // to send request with the book info
+    .subscribe(responsedata => {                                    // to add a book to a read shelf
+     console.log(responsedata.ReturnMsg);                   // to check that the request sent successfuly
+    });
+}
 }
