@@ -27,9 +27,7 @@ export class GenresComponent implements OnInit {
     
   }
 
-   randomize(){
-     
-   }
+  
   /**
    *
    * Angular Init

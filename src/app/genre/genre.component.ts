@@ -26,9 +26,7 @@ export class GenreComponent implements OnInit {
 
   genreType1 = 'Thriller';
 
-  genreType2 = 'Comedy';
-
-  genreType3 = 'Horror';
+  
 
   /**
    *  Creates an instance of GenreComponent.
