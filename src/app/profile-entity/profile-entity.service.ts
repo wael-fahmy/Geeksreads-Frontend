@@ -29,8 +29,6 @@ export class TitlesService {
    * @memberof TitlesService
    */
   private User: User;
-  private List: ListOfBooks[];
-  private listUpdated = new Subject<ListOfBooks[]>();
   /**
    * to update the user info on demand
    *
@@ -41,7 +39,7 @@ export class TitlesService {
 
   /**
    *
-   * to get the json response from the mock service and update the user info
+   * to get the json response from the backend service and update the user info
    * get response from this URL
    * subscribe the recived data
    * and put it in the user object to display it
@@ -71,15 +69,20 @@ export class TitlesService {
     return this.userUpdated.asObservable();
   }
 
+    /**
+     * to get the json response from the mockup service and update the user info
+     * get response from this URL
+     * subscribe the recived data
+     * and put it in the user object to display it
+     *
+     * @memberof TitlesService
+     */
     get_user_info_mockup()
     {
      this.http.get<{message:string,User_Info:User}>('http://localhost:3000/api/users/info').
      subscribe((UserData) => {
          this.User=UserData.User_Info
          this.userUpdated.next(this.User);
-     }); 
+     });
   }
-
-
-
 }
