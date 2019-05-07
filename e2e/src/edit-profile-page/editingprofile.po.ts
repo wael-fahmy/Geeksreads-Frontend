@@ -10,7 +10,7 @@ export class LoginPage {
         return browser.get('/profile');
     }
     navigateTosignin() {
-        browser.get('http://geeksreads.herokuapp.com/');
+        browser.get('http://localhost:4200');
         return browser.get('/sign-in');
     }
 
