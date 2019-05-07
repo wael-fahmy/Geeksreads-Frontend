@@ -58,11 +58,11 @@ export class ProfileEditComponent implements OnInit {
     this.profileEditService.updateProfile(this.myDate, this.username, this.photo).subscribe(updateProfileResponse => {
 
       if (this.oldpassword == "" && this.newpassword == "") {
-        alert(updateProfileResponse.ReturnMsg);
+        // alert(updateProfileResponse.ReturnMsg);
       } else {
 
         this.profileEditService.updatepassword(this.oldpassword, this.newpassword).subscribe(updatePasswordResponse => {
-          alert(updatePasswordResponse.ReturnMsg);
+         // alert(updatePasswordResponse.ReturnMsg);
         }, error => {
           console.log(error);
           alert(error.error.ReturnMsg);
