@@ -90,4 +90,15 @@ export class LoginPage {
         // date button
         return element(by.id('mat-input-12'));
     }
+
+
+    /////////////////////////// photo /////////
+
+    clickBrowsephoto() {
+        return element(by.id('photo'));
+    }
+    clickuploadphoto() {
+        return element(by.css('[type="file"]'));
+    }
+
 }

@@ -15,6 +15,7 @@ import { ProfileEditService } from './profile-edit.service';
 export class ProfileEditComponent implements OnInit {
 
 
+
   myDate = '';
   username = '';
   photo = '';
@@ -71,9 +72,5 @@ export class ProfileEditComponent implements OnInit {
       console.log(error);
       alert(error.error.ReturnMsg);
     });
-
-
-
-
   }
 }

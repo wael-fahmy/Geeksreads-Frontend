@@ -2,10 +2,14 @@ import { LoginPage } from './editingprofile.po';
 import { browser, logging, by, ElementFinder, ElementArrayFinder } from 'protractor';
 import { protractor } from 'protractor/built/ptor';
 import { element } from '@angular/core/src/render3';
-import { url } from 'inspector';
+// import { url } from 'inspector';
+import { RouterModule } from '@angular/router';
+import { domRendererFactory3 } from '@angular/core/src/render3/interfaces/renderer';
+import { doesNotThrow } from 'assert';
+import { resolve } from 'url';
 
 
-describe('Editing profile tests', () => {
+describe('Editing profile', () => {
     let page: LoginPage;
     let username;
     let clickedit;
@@ -28,7 +32,12 @@ describe('Editing profile tests', () => {
     let datee;
     let calender;
     let datecheck;
-
+    let photo;
+    let upload;
+    // let remote;
+    let fileToUpload;
+    let absolutePath;
+    let path;
 
     beforeEach(() => {
         page = new LoginPage();
@@ -60,81 +69,88 @@ describe('Editing profile tests', () => {
         datee = page.getdate();
         calender = page.getcalender();
         datecheck = page.getdateclass();
+        photo = page.clickBrowsephoto();
+        upload = page.clickuploadphoto();
     });
 
     /******************************************************************************************************* */
-    // EMAIL
 
 
-    it('Editing username to be (new name) and routing to profile page to check it', () => {
-        browser.get('/sign-in'),
-            emailsignin.sendKeys('ayahossam_95@hotmail.com'),
-            passsignin.sendKeys('tmam123'),
-            clicksignin.click().then(() => {
-                browser.waitForAngular('30000'),
-                browser.get('/profile-edit'),
-                username.clear().then(() => {
-                    username.sendKeys('mona'),
-                    pwdBox.sendKeys('tmam123'),
-                    newpass.sendKeys('tmam123').then(() => {
 
-                        // browser.driver.sleep(300000);
-                        // browser.waitForAngular('3000000');
-                        // browser.wait(browser.switchTo().alert().accept());
-                        // browser.waitForAngular('30000000');
-                        // browser.get('/profile');
-                        // browser.driver.sleep(30000);
-                        // browser.waitForAngular('30000').then(() => {
-                        datee.sendKeys('01/01/2000'),
-                        sumbitBtn.click().then(() => {
-                        expect(datecheck.getAttribute('class').toContain('ng-valid'));
+    // it('Editing username to be (Monaliza) and Routing to profile page to check it', () => {
+    //     browser.get('/sign-in');
+    //     emailsignin.sendKeys('ayahossam_95@hotmail.com');
+    //     passsignin.sendKeys('tmam123'),
+    //         clicksignin.click(),
+    //         browser.waitForAngular('30000'),
+    //         browser.get('/profile-edit'),
+    //         username.clear(),
+    //         username.sendKeys('Monaliza'),
+    //         pwdBox.sendKeys('tmam123'),
+    //         newpass.sendKeys('tmam123'),
+    //         sumbitBtn.click(),
+    //         browser.waitForAngular('900000').then(() => {
+    //             browser.get('http://localhost:4200/profile');
+    //             browser.waitForAngular('990000');
+    //             browser.getCurrentUrl().then((url) =>
+    //                 expect(url).toBe('http://localhost:4200/profile'));
+    //             browser.ignoreSynchronization = false;
+    //         });
+    // });
 
-                        });
-                    });
-                });
-            });
+
+
+    it('Changing The Profile Photo and Routing to profile page to check it', done => {
+        browser.get('/sign-in');
+        emailsignin.sendKeys('ayahossam_95@hotmail.com');
+        passsignin.sendKeys('tmam123'),
+        clicksignin.click(),
+        browser.waitForAngular('30000'),
+        browser.get('/profile-edit'),
+        // username.clear(),
+        browser.waitForAngular('30000'),
+        photo.click(),
+
+///////////////// Photo //////////
+        fileToUpload = ('../PicturesL/testingpicture.jpg'),
+        absolutePath = path.resolve(__dirname, fileToUpload),
+        // console.log(absolutePath);
+        // this.upload.sendKeys(absolutePath);
+        // browser.actions().sendKeys(protractor.Key.ENTER).perform(),
+        upload.sendKeys(absolutePath),
+        browser.actions().sendKeys(protractor.Key.ENTER).perform(),
+
+        browser.waitForAngular('90000'),
+        pwdBox.sendKeys('tmam123'),
+        newpass.sendKeys('tmam123'),
+        sumbitBtn.click(),
+
+        browser.waitForAngular('90000').then(() => {
+        browser.get('http://localhost:4200/profile');
+        browser.waitForAngular('90000');
+        browser.getCurrentUrl().then((url) =>
+        expect(url).toBe('http://localhost:4200/profile'));
+        browser.ignoreSynchronization = false;
+        done();
+
+            }).catch(err => {
+                throw err;
     });
 
+    // browser.driver.sleep(300000);
+    // browser.waitForAngular('3000000');
+    // browser.wait(browser.switchTo().alert().accept());
+    // browser.waitForAngular('30000000');
+    // browser.get('/profile');
+    // browser.driver.sleep(30000);
+    // browser.waitForAngular('30000').then(() => {
+    // datee.sendKeys('01/01/2000'),
+    //     sumbitBtn.click().then(() => {
+    // expect(datecheck.getAttribute('class').toContain('ng-valid'));
 
-    // it('check that the username is now changed ', () => {
-    //     browser.get('/sign-in'),
-    //         emailsignin.sendKeys('samersosta@gmail.com'),
-    //         passsignin.sendKeys('123456'),
-    //         clicksignin.click(),
-    //         browser.driver.sleep(30000),
-    //         browser.waitForAngular('300000').then(() => {
-    //                             browser.get('/profile').then(() => {
-    //                                 expect(profileuser.toContain('new name'));
-    //                             });
-    //                         });
-    //                 });
-
-
-/******************************************************************************************************* */
-    // PASSWORD
-
-    // pwdTestCases.valid.forEach((testCase) => {
-    //     it('Signin form: PASSWORD INPUT : ' + testCase + '   SHOULD BE : VALID', () => {
-    //         pwdBox.clear().then(() => {
-    //             pwdBox.sendKeys(testCase).then(() => {
-    //                 expect(pwdBox.getAttribute('class')).toContain('ng-valid');
-    //             });
-    //         });
-    //     });
     // });
 
-
-    // pwdTestCases.invalid.forEach((testCase) => {
-    //     it('Signin form: PASSWORD INPUT : ' + testCase + '   SHOULD BE : INVALID', () => {
-    //         pwdBox.clear().then(() => {
-    //             pwdBox.sendKeys(testCase).then(() => {
-    //                 expect(pwdBox.getAttribute('class')).toContain('ng-invalid');
-    //             });
-    //         });
-    //     });
-    // });
-
-
+    });
 
 
 });
