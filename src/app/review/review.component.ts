@@ -86,6 +86,7 @@ export class ReviewComponent implements OnInit {
   }
   SetRate() {
     const rate = this.rating.toString();
+    console.log(rate);
     const rate0 = document.getElementById('star0');
     const rate1 = document.getElementById('star1');
     const rate2 = document.getElementById('star2');
@@ -94,6 +95,7 @@ export class ReviewComponent implements OnInit {
     if (rate === '1') {
       rate0.style.color = 'orange';
     } else if (rate === '2') {
+      console.log('entered here 1 time');
       rate0.style.color = 'orange';
       rate1.style.color = 'orange';
     } else if (rate === '3') {
