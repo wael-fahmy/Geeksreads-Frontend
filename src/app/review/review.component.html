@@ -1,14 +1,15 @@
 <div id="user-reviews">
     <img routerLink="/profile" class="reviewer-image" src="{{photo}}">
-    <div>
-        <p id="Reviewer-name" [routerLink]="['/other-user-profile-entity', userId]">{{userName}}
+    <div id="reviewer-details">
+        <div id="reviewer-group">
+            <p id="Reviewer-name" [routerLink]="['/other-user-profile-entity', userId]">{{userName}}</p>
             <span id="rate-it">rated it</span>
             <span id="star0" class="fa fa-star" class="dots"></span>
             <span id="star1" class="fa fa-star"></span>
             <span id="star2" class="fa fa-star"></span>
             <span id="star3" class="fa fa-star"></span>
             <span id="star4" class="fa fa-star"></span>
-        </p>
+        </div>
         <p id="review-date">{{reviewDate}}</p>
     </div>
 </div>
