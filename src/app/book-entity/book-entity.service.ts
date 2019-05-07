@@ -109,16 +109,13 @@ export class BookTitle_Service {
             this.router.navigate(['/sign-in']);
             return;
         }
-        console.log(bookc_id);
-        console.log(bookc_rate);
         const UserToken = {
             userId: localStorage.getItem('userId'),
             bookId: bookc_id,
             rating: bookc_rate
         };
         this.http.post<{ message: string }>('https://geeksreads.herokuapp.com/api/reviews/rate', UserToken).
-      subscribe(bookData => {          //  subscribe the list of books recieved
-        console.log(bookData);   // assign them to the list to display them
+      subscribe(bookData => {          //  subscribe the list of books recieved  // assign them to the list to display them
         this.book_detailsUpdated.next([...this.book_details]);
     }, (error: { json: () => void; }) => {
         console.log(error);
@@ -133,7 +130,6 @@ export class BookTitle_Service {
      // tslint:disable-next-line:variable-name
     subscribe((read: any) => {
         this.read_status = read;
-        console.log(read);
         this.read_statusupdated.next(this.read_status);
     }, (error: { json: () => void; }) => {
         console.log(error);

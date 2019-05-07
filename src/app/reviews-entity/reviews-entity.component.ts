@@ -7,6 +7,7 @@ import { BookTitle_Service } from '../book-entity/book-entity.service';
 import { Book } from '../book/book.model';
 import {ReviewerDetails_Service} from './reviews-entity.service';
 import { Bookreviews } from '../book-comment-user/book-comment-user.model';
+import { ReviewService } from '../review/review.service';
 @Component({
   selector: 'app-reviews-entity',
   templateUrl: './reviews-entity.component.html',
@@ -48,7 +49,7 @@ public Read_status: ReadStatus;
 //////////////////////////////////////////////////////////////////
 constructor(public review_service: Bookreviews_Service,
             public book_service: Book_Service, public reviewPost: ReviewerDetails_Service,
-            public booktitle_service: BookTitle_Service) { }
+            public booktitle_service: BookTitle_Service, public ReviewServ: ReviewService) { }
 ngOnInit() {
     console.log(this.ReviewID);
     // tslint:disable-next-line: max-line-length
@@ -69,8 +70,6 @@ ngOnInit() {
     // tslint:disable-next-line:variable-name
     this.Sub_profile = this.booktitle_service.get_status_Info_updated().subscribe((status_Information: ReadStatus) => {
       this.Read_status = status_Information;
-      console.log('ts');
-      console.log(this.Read_status);
       this.SetReadStatus();
     });
   }
@@ -262,12 +261,9 @@ more_review_discription() {
 LikePost() {
   console.log(this.ReviewID);
   if (this.reviewerliked === false) {
-    this.reviewPost.like_review(this.ReviewID);
-    this.ngOnInit();
+    this.ReviewServ.post_Like_Review(this.ReviewID);
   } else if (this.reviewerliked === true) {
-    this.reviewPost.like_review(this.ReviewID);
-    this.ngOnInit();
+    this.ReviewServ.post_UnLike_Review(this.ReviewID);
   }
-  console.log('error in liking');
 }
 }

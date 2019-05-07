@@ -42,6 +42,7 @@ ngOnInit() {
 // tslint:disable-next-line: variable-name
     .subscribe((review_Information: Bookreviews[]) => {
       this.review_information = review_Information;
+      console.log(this.review_information);
     });
   }
   ShowReviews() {
@@ -58,6 +59,9 @@ ngOnInit() {
     }
   }
   SendComment() {
+    if (this.value === null || this. value === 0) {
+      this.value = 0;
+    }
     let date = this.datePipe.transform(this.myDate, 'yyyy-MM-dd');
     date = date + 'T12:53:00.000Z';
     this.bookreviews_service.post_book_review(this.bookid, this.str, date, this.value);

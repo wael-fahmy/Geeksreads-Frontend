@@ -22,7 +22,7 @@
 .checked {
     color: orange;
 }
-#reviewer-group{
+#name-div{
     display: flex;
     flex-wrap: nowrap;
     flex-direction: row;

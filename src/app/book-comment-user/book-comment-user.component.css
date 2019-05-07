@@ -38,8 +38,11 @@
 }
 #adding-comment
 {
-    background-color: #f9f8f4;
+    background-color:white;
     margin-bottom: 0px;
+}
+#radio-space {
+    margin-left: 10px;
 }
 #checked {
     color: orange;

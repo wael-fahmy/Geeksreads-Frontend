@@ -11,7 +11,6 @@ import { Router } from '@angular/router';
 // tslint:disable-next-line:class-name
 export class ReviewerDetails_Service {
 constructor(private http: HttpClient, private router: Router) { }
-liked = 1;
 private reviewer_details: ReviewDetails[] = [];
 private reviewer_detailsUpdated = new Subject<ReviewDetails[]>();
 private book_detailsUpdated = new Subject<BookDetails[]>();

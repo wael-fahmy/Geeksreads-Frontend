@@ -114,6 +114,12 @@ export class ReviewComponent implements OnInit {
     }
   }
   LikeReview() {
-    this.ReviewServ.post_Like_Review(this.reviewId);
+    if (this.liked === false) {
+      this.ReviewServ.post_Like_Review(this.reviewId);
+      location.reload();
+    } else if (this.liked === true) {
+      this.ReviewServ.post_UnLike_Review(this.reviewId);
+      location.reload();
+    }
   }
 }

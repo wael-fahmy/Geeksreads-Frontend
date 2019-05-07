@@ -16,11 +16,29 @@ constructor(private http: HttpClient, private router: Router) { }
         }
 // tslint:disable-next-line: max-line-length
         const UserToken = {
-            resourceId: ReviewID,
             token: localStorage.getItem('token'),
+            User_Id: localStorage.getItem('userId'),
+            resourceId: ReviewID,
             Type: 'Review'
         };
         this.http.post<{ message: string}>('https://geeksreads.herokuapp.com/api/resources/like', UserToken).
+        subscribe(responseData => {          //  subscribe the list of books recieved
+        console.log(responseData);    // assign them to the list to display them
+        });
+    }
+    post_UnLike_Review(ReviewID: string) {
+        if (localStorage.getItem('userId') === null) {
+            this.router.navigate(['/sign-in']);
+            return;
+        }
+// tslint:disable-next-line: max-line-length
+        const UserToken = {
+            token: localStorage.getItem('token'),
+            User_Id: localStorage.getItem('userId'),
+            resourceId: ReviewID,
+            Type: 'Review'
+        };
+        this.http.post<{ message: string}>('https://geeksreads.herokuapp.com/api/resources/unlike', UserToken).
         subscribe(responseData => {          //  subscribe the list of books recieved
         console.log(responseData);    // assign them to the list to display them
         });
