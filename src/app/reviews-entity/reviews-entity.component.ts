@@ -142,7 +142,7 @@ ngOnInit() {
       this.after_dots[0] = word[1];
     }
 }
-SetRate(rate: string) {
+SetRate(rate: string) { 
   const rate0 = document.getElementById('star0');
   const rate1 = document.getElementById('star1');
   const rate2 = document.getElementById('star2');
@@ -170,4 +170,6 @@ SetRate(rate: string) {
     rate4.style.color = 'orange';
   }
 }
+more_review_discription()
+{}
 }
