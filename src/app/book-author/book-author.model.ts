@@ -54,6 +54,18 @@ export interface AuthorDetails {
      * @memberof AuthorDetails
      */
     user_id: string;
+    /**
+     *
+     * variable to carry author return message
+     * @type {string}
+     * @memberof AuthorDetails
+     */
     message: string;
+    /**
+     *
+     * vairbale to carry success state of json
+     * @type {boolean}
+     * @memberof AuthorDetails
+     */
     success: boolean;
 }
