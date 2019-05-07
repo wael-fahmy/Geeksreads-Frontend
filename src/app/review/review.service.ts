@@ -2,14 +2,32 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import {Bookreviews} from './review.model';
 import { Injectable } from '@angular/core';
-
+/**
+ *
+ * main class
+ * @export
+ * @class ReviewService
+ */
 @Injectable({ providedIn: 'root' })
 
 export class ReviewService {
 
+/**
+ * Creates an instance of ReviewService.
+ * @param {HttpClient} http
+ * @param {Router} router
+ * @memberof ReviewService
+ */
 constructor(private http: HttpClient, private router: Router) { }
 
-    post_Like_Review(ReviewID: string) {
+/**
+ *
+ * function to post like
+ * @param {string} ReviewID
+ * @returns
+ * @memberof ReviewService
+ */
+post_Like_Review(ReviewID: string) {
         if (localStorage.getItem('userId') === null) {
             this.router.navigate(['/sign-in']);
             return;
@@ -26,6 +44,13 @@ constructor(private http: HttpClient, private router: Router) { }
         console.log(responseData);    // assign them to the list to display them
         });
     }
+    /**
+     *
+     * function to post unlike
+     * @param {string} ReviewID
+     * @returns
+     * @memberof ReviewService
+     */
     post_UnLike_Review(ReviewID: string) {
         if (localStorage.getItem('userId') === null) {
             this.router.navigate(['/sign-in']);

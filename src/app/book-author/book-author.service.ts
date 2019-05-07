@@ -3,22 +3,64 @@ import { Subject } from 'rxjs';
 import { AuthorDetails } from './book-author.model';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-
+/**
+ *
+ * services class for author
+ * @export
+ * @class AuthorDetails_Service
+ */
 @Injectable({ providedIn: 'root' })
 
-// tslint:disable-next-line:class-name
+
 export class AuthorDetails_Service {
     /**
      * Creates an instance of AuthorDetails_Service.
      * @param {HttpClient} http
+     * @param {Router} router
      * @memberof AuthorDetails_Service
      */
     constructor(private http: HttpClient, private router: Router) { }
+    /**
+     *
+     * vairabl to carry author name
+     * @type {string}
+     * @memberof AuthorDetails_Service
+     */
     name: string;
+    /**
+     *
+     * variable to carry author image
+     * @type {string}
+     * @memberof AuthorDetails_Service
+     */
     image: string;
+    /**
+     *
+     * vairbale to carry author id
+     * @type {string}
+     * @memberof AuthorDetails_Service
+     */
     id: string;
+    /**
+     *
+     * variable to carry about author
+     * @type {string}
+     * @memberof AuthorDetails_Service
+     */
     body: string;
+    /**
+     *
+     * vairable to carry book id
+     * @type {string}
+     * @memberof AuthorDetails_Service
+     */
     bookid: string;
+    /**
+     *
+     * vairble to carry number of followers
+     * @type {string}
+     * @memberof AuthorDetails_Service
+     */
     followers: string;
     // tslint:disable-next-line:variable-name
     /**
@@ -57,6 +99,12 @@ export class AuthorDetails_Service {
                 console.log(error);
             });
     }
+    /**
+     *
+     * get updated author info
+     * @returns
+     * @memberof AuthorDetails_Service
+     */
     get_author_details_updated() {
         return this.author_detailsUpdated.asObservable();
     }
@@ -87,6 +135,13 @@ export class AuthorDetails_Service {
         console.log(error);
     });
     }
+    /**
+     *
+     * function to follow author
+     * @param {string} authorid
+     * @returns
+     * @memberof AuthorDetails_Service
+     */
     post_author_follow(authorid: string) {
         if (localStorage.getItem('userId') === null) {
             this.router.navigate(['/sign-in']);
