@@ -58,6 +58,10 @@ export class BookTitle_Service {
  * @memberof BookTitle_Service
  */
 post_book_status(bookc_id: string, bookc_status: string) {
+        if (localStorage.getItem('userId') === null) {
+            this.router.navigate(['/sign-in']);
+            return;
+        }
         const UserToken = {
             token : localStorage.getItem('token'),
             BookId: bookc_id,
@@ -69,6 +73,27 @@ post_book_status(bookc_id: string, bookc_status: string) {
         console.log(bookData.ReadingData);
         this.book_details = bookData.ReadingData;    // assign them to the list to display them
         this.book_detailsUpdated.next([...this.book_details]);
-      });
+    });
+    }
+    post_book_rate(bookc_id: string, bookc_rate: number) {
+        if (localStorage.getItem('userId') === null) {
+            this.router.navigate(['/sign-in']);
+            return;
+        }
+        console.log(bookc_id);
+        console.log(bookc_rate);
+        const UserToken = {
+            userId : localStorage.getItem('userId'),
+            bookId: bookc_id,
+            rating: bookc_rate,
+            token: localStorage.getItem('token')
+        };
+        this.http.post<{ message: string }>('https://geeksreads.herokuapp.com/api/reviews/rate', UserToken).
+      subscribe(bookData => {          //  subscribe the list of books recieved
+        console.log(bookData.message);   // assign them to the list to display them
+        this.book_detailsUpdated.next([...this.book_details]);
+    }, (error: { json: () => void; }) => {
+        console.log(error);
+    });
     }
 }
