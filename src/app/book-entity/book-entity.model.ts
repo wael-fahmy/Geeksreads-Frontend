@@ -14,6 +14,7 @@ export interface BookDetails {
     Publisher: string;
     message: string;
     success: boolean;
+    BookRating: string;
 }
 export interface AuthorDetails {
     AuthorId: string;

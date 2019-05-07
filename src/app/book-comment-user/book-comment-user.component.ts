@@ -42,7 +42,6 @@ ngOnInit() {
 // tslint:disable-next-line: variable-name
     .subscribe((review_Information: Bookreviews[]) => {
       this.review_information = review_Information;
-      console.log(this.review_information);
     });
   }
   ShowReviews() {

@@ -32,6 +32,10 @@ export class BookTitle_Service {
         return this.book_detailsUpdated.asObservable();
     }
     Remove_Book(bookid: string) {
+        if (localStorage.getItem('userId') === null) {
+            this.router.navigate(['/sign-in']);
+            return;
+        }
         console.log(bookid);
         const bookID = {
         token : localStorage.getItem('token'),
@@ -45,6 +49,10 @@ export class BookTitle_Service {
         });
     }
     AddToShelf(bookid: string, shelf: string) {
+        if (localStorage.getItem('userId') === null) {
+            this.router.navigate(['/sign-in']);
+            return;
+        }
         if (shelf === 'Want To Read') {
             shelf = 'WantToRead';
         } else if (shelf === 'Currently Reading') {
@@ -64,6 +72,10 @@ export class BookTitle_Service {
         });
     }
     add_book_to_shelf_reading(bookid: string) {
+        if (localStorage.getItem('userId') === null) {
+            this.router.navigate(['/sign-in']);
+            return;
+        }
         const bookID = {
         token : localStorage.getItem('token'),
         BookId: bookid
@@ -76,6 +88,10 @@ export class BookTitle_Service {
         });
     }
     add_book_to_shelf_read(bookid: string) {
+        if (localStorage.getItem('userId') === null) {
+            this.router.navigate(['/sign-in']);
+            return;
+        }
         const bookID = {
         token : localStorage.getItem('token'),
         BookId: bookid
@@ -96,21 +112,19 @@ export class BookTitle_Service {
         console.log(bookc_id);
         console.log(bookc_rate);
         const UserToken = {
-            userId : localStorage.getItem('userId'),
+            userId: localStorage.getItem('userId'),
             bookId: bookc_id,
-            rating: bookc_rate,
-            token: localStorage.getItem('token')
+            rating: bookc_rate
         };
         this.http.post<{ message: string }>('https://geeksreads.herokuapp.com/api/reviews/rate', UserToken).
       subscribe(bookData => {          //  subscribe the list of books recieved
-        console.log(bookData.message);   // assign them to the list to display them
+        console.log(bookData);   // assign them to the list to display them
         this.book_detailsUpdated.next([...this.book_details]);
     }, (error: { json: () => void; }) => {
         console.log(error);
     });
     }
     Get_book_status(bookid: string) {
-        console.log(bookid);
         const UserToken = {
             BookId: bookid,
             token: localStorage.getItem('token')

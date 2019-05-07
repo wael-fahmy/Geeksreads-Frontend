@@ -56,7 +56,6 @@ size: number;
             // tslint:disable-next-line:variable-name
             subscribe((reviewdata: Bookreviews[]) => {
                 this.review_information = reviewdata;
-                console.log(reviewdata);
                 this.review_informationUpdated.next([...this.review_information]);
             }, (error: { json: () => void; }) => {
                 console.log(error);

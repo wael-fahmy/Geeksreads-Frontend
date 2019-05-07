@@ -42,6 +42,7 @@ ngOnInit() {
     // tslint:disable-next-line:variable-name
     this.Sub_profile = this.booktitle_service.get_book_Info_updated().subscribe((book_Information: BookDetails[]) => {
       this.book_details = book_Information;
+      console.log(book_Information);
       this.SetBookInfor();
       this.SplitString();
       this.SetRate();
@@ -51,8 +52,6 @@ ngOnInit() {
     // tslint:disable-next-line:variable-name
     this.Sub_profile = this.booktitle_service.get_status_Info_updated().subscribe((status_Information: ReadStatus) => {
       this.Read_status = status_Information;
-      console.log('ts');
-      console.log(this.Read_status);
       this.SetReadStatus();
     });
   }
@@ -71,7 +70,7 @@ ngOnInit() {
     this.booktitle[this.book_index] = this.book_details[this.book_index].Title;
     this.bookbody[this.book_index] = this.book_details[this.book_index].Description;
     this.bookauthor[this.book_index] = this.book_details[this.book_index].AuthorName;
-    this.bookrate[this.book_index] = this.book_details[this.book_index].RateCount.toString();
+    this.bookrate[this.book_index] = this.book_details[this.book_index].BookRating.toString();
   }
   PostRate(rate: string) {
     console.log(rate);
@@ -108,7 +107,6 @@ ngOnInit() {
       }
   }
   SetRate() {
-    this.bookrate[this.book_index] = this.bookrate[this.book_index];
     const rate0 = document.getElementById('star0');
     const rate1 = document.getElementById('star1');
     const rate2 = document.getElementById('star2');
@@ -116,18 +114,28 @@ ngOnInit() {
     const rate4 = document.getElementById('star4');
     if (this.bookrate[this.book_index].toString() === '1') {
       rate0.style.color = 'orange';
+      rate1.style.color = 'black';
+      rate2.style.color = 'black';
+      rate3.style.color = 'black';
+      rate4.style.color = 'black';
     } else if (this.bookrate[this.book_index].toString() === '2') {
       rate0.style.color = 'orange';
       rate1.style.color = 'orange';
+      rate2.style.color = 'black';
+      rate3.style.color = 'black';
+      rate4.style.color = 'black';
     } else if (this.bookrate[this.book_index].toString() === '3') {
       rate0.style.color = 'orange';
       rate1.style.color = 'orange';
       rate2.style.color = 'orange';
+      rate3.style.color = 'black';
+      rate4.style.color = 'black';
     } else if (this.bookrate[this.book_index].toString() === '4') {
       rate0.style.color = 'orange';
       rate1.style.color = 'orange';
       rate2.style.color = 'orange';
       rate3.style.color = 'orange';
+      rate4.style.color = 'black';
     } else if (this.bookrate[this.book_index].toString() === '5') {
       rate0.style.color = 'orange';
       rate1.style.color = 'orange';

@@ -4,12 +4,13 @@ import { ReviewDetails } from './reviews-entity.model';
 import { BookDetails } from '../book-entity/book-entity.model';
 import { AuthorDetails } from '../book-entity/book-entity.model';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Injectable({ providedIn: 'root' })
 
 // tslint:disable-next-line:class-name
 export class ReviewerDetails_Service {
-constructor(private http: HttpClient) { }
+constructor(private http: HttpClient, private router: Router) { }
 liked = 1;
 private reviewer_details: ReviewDetails[] = [];
 private reviewer_detailsUpdated = new Subject<ReviewDetails[]>();
@@ -54,7 +55,10 @@ get_book_Info_updated() {
     }
 
 Remove_Book(bookid: string) {
-    console.log(bookid);
+    if (localStorage.getItem('userId') === null) {
+        this.router.navigate(['/sign-in']);
+        return;
+    }
     const bookID = {
     token : localStorage.getItem('token'),
     BookId: bookid
@@ -68,6 +72,10 @@ Remove_Book(bookid: string) {
     });
 }
 add_book_to_shelf_reading(bookid: string) {
+    if (localStorage.getItem('userId') === null) {
+        this.router.navigate(['/sign-in']);
+        return;
+    }
     const bookID = {
     token : localStorage.getItem('token'),
     BookId: bookid
@@ -80,6 +88,10 @@ add_book_to_shelf_reading(bookid: string) {
     });
 }
 add_book_to_shelf_read(bookid: string) {
+    if (localStorage.getItem('userId') === null) {
+        this.router.navigate(['/sign-in']);
+        return;
+    }
     const bookID = {
     token : localStorage.getItem('token'),
     BookId: bookid
@@ -92,6 +104,10 @@ add_book_to_shelf_read(bookid: string) {
     });
 }
 like_review(reviewid: string) {
+    if (localStorage.getItem('userId') === null) {
+        this.router.navigate(['/sign-in']);
+        return;
+    }
     const Review = {
     token : localStorage.getItem('token'),
     User_Id: localStorage.getItem('userId'),
