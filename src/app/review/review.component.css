@@ -16,10 +16,16 @@
     cursor: pointer;
 }
 #rate-it {
+    margin-left: 5px;
     color: rgb(88, 88, 88);
 }
 .checked {
     color: orange;
+}
+#reviewer-group{
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
 }
 #review-date {
     margin: 5px 0 0 10px;
@@ -79,6 +85,7 @@
     margin-left: 10px;
 }
 #star0 {
+    margin-left: 5px;
     color:black;
 }
 #star1 {

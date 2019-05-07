@@ -19,3 +19,6 @@ export interface AuthorDetails {
     AuthorId: string;
     AuthorName: string;
 }
+export interface ReadStatus {
+    ReturnMsg: string;
+}

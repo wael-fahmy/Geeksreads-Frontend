@@ -51,7 +51,6 @@ export class AuthorDetails_Service {
         }).
             // tslint:disable-next-line:variable-name
             subscribe((authordata: AuthorDetails) => {
-                console.log(authordata);
                 this.author_details[0] = authordata;
                 this.author_detailsUpdated.next([...this.author_details]);
             }, (error: { json: () => void; }) => {
@@ -81,7 +80,6 @@ export class AuthorDetails_Service {
         };
         this.http.post<{ message: string}>('https://geeksreads.herokuapp.com/api/authors/unfollow', UserToken)
     .subscribe((serverResponse: any) => {
-        console.log(serverResponse);
         this.author_details[0].message = serverResponse.Message;
         this.author_details[0].success = serverResponse.success;
         this.author_detailsUpdated.next(this.author_details);
@@ -102,7 +100,6 @@ export class AuthorDetails_Service {
         };
         this.http.post<{ message: string}>('https://geeksreads.herokuapp.com/api/authors/follow', UserToken)
     .subscribe((serverResponse: any) => {
-        console.log(serverResponse);
         this.author_details[0].message = serverResponse.Message;
         this.author_details[0].success = serverResponse.success;
         this.author_detailsUpdated.next(this.author_details);

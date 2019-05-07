@@ -28,6 +28,7 @@ constructor(public comments_service: CommentsDetails_Service) { }
     this.comments_service.post_Comment(this.str, this.ReviewID, this.BookID);
     this.str = '';
     location.reload();
+    this.ngOnInit();
   }
   GetCommentsUpdated() {
     this.comments_service.get_comments_Info(this.ReviewID);                                  // to get the user info from the service

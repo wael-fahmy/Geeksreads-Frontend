@@ -43,7 +43,10 @@
             <!--right part starts here-->
             <p class="book-name-style"> {{bookname}}</p>
             <p class="author-name-style">{{authorname}}</p>
-            <button id="wantToRead">Want to read</button>
+             <button *ngIf="bookstatus==='WantToRead'" id="wantToRead" (click)="changeToReading()">want to read</button> 
+            <button *ngIf="bookstatus==='Reading'" id="Reading" > Reading</button>
+            <button *ngIf="bookstatus==='Read'" id="Read" >Read</button>
+            <button *ngIf="bookstatus==='null'" id="null">Read</button>
         </div>
     </div>
 

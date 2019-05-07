@@ -129,7 +129,6 @@ body {
     size: 5;
     margin-left: 0;
 }
-
 #Write-a-review {
     margin: 10px 0 0 15px;
     background-color: #F4F1EA;
@@ -145,7 +144,7 @@ body {
     cursor: pointer;
 }
 
-.checked {
+#checked {
     color: orange;
 }
 

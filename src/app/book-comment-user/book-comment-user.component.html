@@ -6,3 +6,41 @@
 </app-review>
 <button (click)="ShowReviews()" id="show-reviews" mat-stroked-button>Show Commuinty Reviews</button>
 <hr id="review-underline">
+<div id="adding-comment">
+<div id="rate-part">
+        <mat-radio-group [(ngModel)]="value" aria-label="Select an option">
+                <mat-radio-button value="1">
+                        <span class="fa fa-star" id="checked"></span>
+                </mat-radio-button>
+                <mat-radio-button value="2">
+                        <span class="fa fa-star" id="checked"></span>
+                        <span class="fa fa-star" id="checked"></span>
+                </mat-radio-button>
+                <mat-radio-button value="3">
+                        <span class="fa fa-star" id="checked"></span>
+                        <span class="fa fa-star" id="checked"></span>
+                        <span class="fa fa-star" id="checked"></span>
+                </mat-radio-button>
+                <mat-radio-button value="4">
+                        <span class="fa fa-star" id="checked"></span>
+                        <span class="fa fa-star" id="checked"></span>
+                        <span class="fa fa-star" id="checked"></span>
+                        <span class="fa fa-star" id="checked"></span>
+                </mat-radio-button>
+                <mat-radio-button value="5">
+                        <span class="fa fa-star" id="checked"></span>
+                        <span class="fa fa-star" id="checked"></span>
+                        <span class="fa fa-star" id="checked"></span>
+                        <span class="fa fa-star" id="checked"></span>
+                        <span class="fa fa-star" id="checked"></span>
+                        <span id='space'></span>
+                </mat-radio-button>
+        </mat-radio-group>
+</div>
+<img id="user-image-comment" src="https://s.gr-assets.com/assets/nophoto/user/u_30x30-4610a6c9a81aac8aaf70b7ad4388f9a2.png">
+<mat-form-field id="user-input">
+        <textarea [(ngModel)]="str" class="user-input" matInput placeholder="Comment"></textarea>
+</mat-form-field>
+<button (click)="SendComment()" id="comment-send-bt" mat-flat-button>Post</button>
+</div>
+<hr id="review-underline">

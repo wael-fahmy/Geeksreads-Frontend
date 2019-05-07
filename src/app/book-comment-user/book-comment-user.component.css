@@ -18,8 +18,44 @@
     margin-left: 10px;
     font-weight: bold;
 }
-#review {
-    display: none;
+#user-image-comment
+{
+    margin-left: 30px;
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+    border: darkgray 2px outset;
+}
+#user-input
+{
+    width:85%;
+    margin-left: 40px;
+}
+#comment-send-bt
+{
+    background-color: gainsboro;
+    margin-left: 10px;
+}
+#adding-comment
+{
+    background-color: #f9f8f4;
+    margin-bottom: 0px;
+}
+#checked {
+    color: orange;
+}
+#rate-part span {
+    color:orange;
+}
+#rate-part {
+    margin-left: 20px;
+    margin-bottom: 30px;
+}
+#rate{
+    margin-left: auto;
+}
+#space {
+    margin-left: 5px;
 }
 #show-reviews {
     width: 90%;

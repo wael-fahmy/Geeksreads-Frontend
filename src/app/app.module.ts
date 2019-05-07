@@ -24,6 +24,7 @@ import { GenresComponent } from './genres/genres.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MAT_LABEL_GLOBAL_OPTIONS } from '@angular/material';
+import { MatInputModule, MatFormFieldModule, MatRadioModule} from '@angular/material';
 import { MaterialModule } from './material.module';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { NewsfeedCommentPostComponent } from './newsfeed-comment-post/newsfeed-comment-post.component';
@@ -105,7 +106,10 @@ import { SearchComponent } from './search/search.component';
     FormsModule,
     HttpClientModule,
     MaterialModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatInputModule,
+    FormsModule,
+    MatRadioModule
   ],
   providers: [
     DataSharingService,
