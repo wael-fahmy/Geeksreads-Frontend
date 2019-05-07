@@ -29,8 +29,6 @@ export class SearchComponent implements OnInit {
     this.searchSubscription = this.searchService.getSearchUpdated()
       .subscribe((searchInformation: any) => {
         this.searchModel = searchInformation;
-        // console.log(this.searchModel);
-        // console.log(searchInformation);
         if (this.searchModel[0].length === 0 && this.searchModel[1].length === 0) {
           this.results = false;
         } else {
@@ -40,5 +38,4 @@ export class SearchComponent implements OnInit {
         console.log(error);
       });
   }
-
 }

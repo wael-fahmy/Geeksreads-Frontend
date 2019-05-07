@@ -13,11 +13,9 @@ export class NotificationService {
   private notificationUpdated = new Subject<NotificationModel[]>();
 
   getNotifications() {
-    this.http
-      .get('https://geeksreads.herokuapp.com/api/users/Notifications', {
-        params: {
+    this.http.post('https://geeksreads.herokuapp.com/api/users/Notifications', {
         token: localStorage.getItem('token'),
-      }})
+      })
       .subscribe((serverResponse: any) => {
         this.notificationModel = serverResponse;
         this.notificationUpdated.next([...this.notificationModel]);
