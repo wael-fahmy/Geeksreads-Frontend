@@ -4,8 +4,7 @@
 [likesCount]="item.likesCount" [reviewId]="item.reviewId" [commCount]="item.commCount"
 [userId]="item.userId" [bookId]="item.bookId" [liked]="item.liked" [rating]="item.rating">
 </app-review>
-<button (click)="ShowReviews()" id="show-reviews" mat-stroked-button>Show Commuinty Reviews</button>
-<hr id="review-underline">
+<!--<button (click)="ShowReviews()" id="show-reviews" mat-stroked-button>Show Commuinty Reviews</button>-->
 <div id="adding-comment">
 <div id="rate-part">
         <mat-radio-group [(ngModel)]="value" aria-label="Select an option">
@@ -42,5 +41,4 @@
         <textarea [(ngModel)]="str" class="user-input" matInput placeholder="Leave A Review"></textarea>
 </mat-form-field>
 <button (click)="SendComment()" id="comment-send-bt" mat-flat-button>Post</button>
-</div>
 <hr id="review-underline">
