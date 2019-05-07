@@ -2,8 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { BookDetails } from './book-entity.model';
 import { Subscription } from 'rxjs';
 import { BookTitle_Service } from './book-entity.service';
-import { AuthorDetails } from './book-entity.model';
-import { delay } from 'q';
+import { ReadStatus } from './book-entity.model';
 
 @Component({
   selector: 'app-book-entity',
@@ -29,12 +28,13 @@ bookrate: string[] = [];
 bookauthorid: string [] = [];
 type1: string;
 type2: string;
+type3: string;
 bookauthor: string [] = [];
 public befor_dots: string [] = [];
 public after_dots: string [] = [];
 private Sub_profile: Subscription;
 public book_details: BookDetails[] = [];
-public author_details: AuthorDetails[] = [];
+public Read_status: ReadStatus;
 book_index = 0;
 constructor(public booktitle_service: BookTitle_Service) { }
 ngOnInit() {
@@ -47,20 +47,31 @@ ngOnInit() {
       this.SetRate();
       localStorage.removeItem('bookID');
     });
+    this.booktitle_service.Get_book_status(this.bookID);                            // to get the user info from the service
+    // tslint:disable-next-line:variable-name
+    this.Sub_profile = this.booktitle_service.get_status_Info_updated().subscribe((status_Information: ReadStatus) => {
+      this.Read_status = status_Information;
+      console.log('ts');
+      console.log(this.Read_status);
+      this.SetReadStatus();
+    });
+  }
+  SetReadStatus() {
+    this.bookstatus[this.book_index] = this.Read_status.ReturnMsg;
+    if (this.bookstatus[this.book_index] === 'This BookId is Not in any Shelf, Please Add it to Shelf First') {
+      this.bookstatus[this.book_index] = 'Add To Shelf';
+      this.assign_status(this.bookstatus[this.book_index]);
+    } else {
+      this.assign_status(this.bookstatus[this.book_index]);
+    }
   }
   SetBookInfor() {
     this.bookauthorid[this.book_index] = this.book_details[this.book_index].AuthorId;
     this.bookimage[this.book_index] = this.book_details[this.book_index].Cover;
     this.booktitle[this.book_index] = this.book_details[this.book_index].Title;
-    this.bookstatus[this.book_index] = this.book_details[this.book_index].ReadStatus;
     this.bookbody[this.book_index] = this.book_details[this.book_index].Description;
     this.bookauthor[this.book_index] = this.book_details[this.book_index].AuthorName;
     this.bookrate[this.book_index] = this.book_details[this.book_index].RateCount.toString();
-    this.assign_status(this.bookstatus[this.book_index]);
-  }
-  SetAuthorInfo() {
-    this.bookauthor[this.book_index] = this.author_details[this.book_index].AuthorName;
-    console.log(this.bookauthor[this.book_index]);
   }
   PostRate(rate: string) {
     console.log(rate);
@@ -146,20 +157,6 @@ more_book_discription() {
   }
 /**
  *
- * function used to post request of book status
- * @param {string} index
- * @memberof BookEntityComponent
- */
-book_status(index: string) {
-    const first = document.getElementById(index);
-    const second = document.getElementById('first-option');
-    let x = first.innerHTML.toString();
-    first.innerHTML = second.innerHTML.toString();
-    second.innerHTML = x;
-    this.booktitle_service.post_book_status(this.bookID, second.textContent );
-  }
-/**
- *
  * function used to assign status of book on intilize
  * @param {string} index
  * @memberof BookEntityComponent
@@ -167,14 +164,57 @@ book_status(index: string) {
 assign_status(index: string) {
   if (index === 'Want To Read') {
     this.type1 = 'Currently Reading';
-    this.type2 = 'Read';
+    this.type2 = 'Remove From Shelve';
+    this.type3 = '';
   } else if (index === 'Read') {
-    this.type1 = 'Currently Reading';
-    this.type2 = 'Want To Read';
+    this.type1 = 'Remove From Shelve';
+    this.type2 = '';
+    this.type3 = '';
   } else if (index === 'Currently Reading') {
     this.type1 = 'Read';
-    this.type2 = 'Want To Read';
+    this.type2 = 'Remove From Shelve';
+    this.type3 = '';
+  } else if (index === 'Add To Shelf') {
+    this.type1 = 'Want To Read';
+    this.type2 = 'Currently Reading';
+    this.type3 = 'Read';
   }
+}
+book_status_Post(indexfirst: string, indexsecond: string) {
+  const first = document.getElementById(indexfirst);
+  const second = document.getElementById(indexsecond);
+  const y = first.textContent;
+  const x = second.textContent;
+  if (y === 'Read') {
+    this.booktitle_service.Remove_Book(this.bookID);
+    first.textContent = 'Add To Shelf';
+    this.assign_status(first.textContent);
+  } else if (y === 'Want To Read') {
+    if (x === 'Remove From Shelve') {
+      this.booktitle_service.Remove_Book(this.bookID);
+      first.textContent = 'Add To Shelf';
+      this.assign_status(first.textContent);
+    } else {
+      this.booktitle_service.add_book_to_shelf_reading(this.bookID);
+      first.textContent = x;
+      this.assign_status(x);
+    }
+  } else if (y === 'Currently Reading') {
+    if (x === 'Remove From Shelve') {
+      this.booktitle_service.Remove_Book(this.bookID);
+      first.textContent = 'Add To Shelf';
+      this.assign_status(first.textContent);
+    } else {
+      this.booktitle_service.add_book_to_shelf_read(this.bookID);
+      first.textContent = x;
+      this.assign_status(x);
+    }
+  } else if (y === 'Add To Shelf') {
+    this.booktitle_service.AddToShelf(this.bookID, x);
+    first.textContent = x;
+    this.assign_status(x);
+  }
+  console.log('missed');
 }
 Clear_Storage() {
     localStorage.removeItem('ISBN');

@@ -6,8 +6,9 @@
             <span (click)="Clear_Storage()" [routerLink]="['/authors', bookauthorid[book_index]]" id="Author-name">{{bookauthor[book_index]}}</span></p>
         <button mat-button [matMenuTriggerFor]="menu" class="want-to-read" id='first-option'>{{bookstatus[book_index]}}</button>
         <mat-menu #menu="matMenu">
-            <button mat-menu-item (click)="book_status('second-option')" id='second-option'>{{type1}}</button>
-            <button mat-menu-item (click)="book_status('third-option')" id='third-option'>{{type2}}</button>
+            <button mat-menu-item (click)="book_status_Post('first-option','second-option')" id='second-option'>{{type1}}</button>
+            <button mat-menu-item (click)="book_status_Post('first-option','third-option')" id='third-option'>{{type2}}</button>
+            <button mat-menu-item (click)="book_status_Post('first-option','fourth-option')" id='fourth-option'>{{type3}}</button>
         </mat-menu>
         <button mat-button [matMenuTriggerFor]="menu2" id="rate">Rate</button>
         <mat-menu #menu2="matMenu">

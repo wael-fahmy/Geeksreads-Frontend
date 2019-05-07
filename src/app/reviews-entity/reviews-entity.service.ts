@@ -62,7 +62,8 @@ Remove_Book(bookid: string) {
     this.http
 // tslint:disable-next-line: max-line-length
     .post <{ ReturnMsg: string }>('https://geeksreads.herokuapp.com/api/users/RemoveFromShelf', bookID)   // to send request with the book info
-    .subscribe(responsedata => {                                    // to add a book to a read shelf
+    .subscribe(responsedata => {
+    console.log('removing book');                                  // to add a book to a read shelf
     console.log(responsedata.ReturnMsg);                   // to check that the request sent successfuly
     });
 }

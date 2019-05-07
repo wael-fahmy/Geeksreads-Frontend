@@ -20,8 +20,9 @@
           <p [routerLink]="['/authors', authorid]" id="By-Author">by <span id="Author-name">{{bookauthor}}</span></p>
           <button mat-raised-button color="primary" [matMenuTriggerFor]="menu" class="want-to-read" id='first-option'>{{bookstatus}}</button>
           <mat-menu #menu="matMenu">
-              <button class="want-to-read" mat-menu-item (click)="book_status('second-option')" id='second-option'>{{type1}}</button>
-              <button class="want-to-read" mat-menu-item (click)="book_status('third-option')" id='third-option'>{{type2}}</button>
+            <button mat-menu-item (click)="book_status_Post('first-option','second-option')" id='second-option'>{{type1}}</button>
+            <button mat-menu-item (click)="book_status_Post('first-option','third-option')" id='third-option'>{{type2}}</button>
+            <button mat-menu-item (click)="book_status_Post('first-option','fourth-option')" id='fourth-option'>{{type3}}</button>
           </mat-menu>
       </div>
   </div>
