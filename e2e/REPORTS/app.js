@@ -231,304 +231,159 @@ app.controller('ScreenshotReportController', function ($scope, $http) {
 
     var results = [
     {
-        "description": "should have a Title|workspace-project App",
+        "description": "Editing username to be (new name) and routing to profile page to check it|Editing profile tests",
         "passed": false,
         "pending": false,
         "os": "Windows NT",
-        "instanceId": 17200,
+        "instanceId": 27188,
         "browser": {
             "name": "chrome",
-            "version": "73.0.3683.103"
+            "version": "74.0.3729.131"
         },
         "message": [
-            "Expected [ Entry({ level: WARNING, message: 'deprecation - HTML Imports is deprecated and will be removed in M73, around March 2019. Please use ES modules instead. See https://www.chromestatus.com/features/5144752345317376 for more details.', timestamp: 1556713388452, type: '' }), Entry({ level: SEVERE, message: 'ng:///AppModule/NavBarComponent.ngfactory.js 190:33 \"ERROR\" Error: MatToolbar: Attempting to combine different toolbar modes. Either specify multiple `<mat-toolbar-row>` elements explicitly or just place content inside of a `<mat-toolbar>` for a single row.\n    at throwToolbarMixedModesError (http://localhost:4200/vendor.js:134738:11)\n    at MatToolbar.push../node_modules/@angular/material/esm5/toolbar.es5.js.MatToolbar._checkToolbarMixedModes (http://localhost:4200/vendor.js:134703:13)\n    at MatToolbar.push../node_modules/@angular/material/esm5/toolbar.es5.js.MatToolbar.ngAfterViewInit (http://localhost:4200/vendor.js:134674:14)\n    at callProviderLifecycles (http://localhost:4200/vendor.js:87435:18)\n    at callElementProvidersLifecycles (http://localhost:4200/vendor.js:87409:13)\n    at callLifecycleHooksChildrenFirst (http://localhost:4200/vendor.js:87399:29)\n    at checkAndUpdateView (http://localhost:4200/vendor.js:88335:5)\n    at callViewAction (http://localhost:4200/vendor.js:88567:21)\n    at execComponentViewsAction (http://localhost:4200/vendor.js:88509:13)\n    at checkAndUpdateView (http://localhost:4200/vendor.js:88332:5)', timestamp: 1556713399881, type: '' }), Entry({ level: SEVERE, message: 'ng:///AppModule/NavBarComponent.ngfactory.js 190:33 \"ERROR CONTEXT\" DebugContext_', timestamp: 1556713399882, type: '' }) ] not to contain <jasmine.objectContaining(Object({ level: SEVERE }))>."
+            "Failed: javascript error: angular is not defined\n  (Session info: chrome=74.0.3729.131)\n  (Driver info: chromedriver=2.46.628402 (536cd7adbad73a3783fdc2cab92ab2ba7ec361e1),platform=Windows NT 10.0.17134 x86_64)"
         ],
         "trace": [
-            "Error: Failed expectation\n    at Object.<anonymous> (C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\e2e\\src\\approot\\app.e2e-spec.ts:19:22)\n    at step (C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\node_modules\\tslib\\tslib.js:133:27)\n    at Object.next (C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\node_modules\\tslib\\tslib.js:114:57)\n    at fulfilled (C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\node_modules\\tslib\\tslib.js:104:62)\n    at <anonymous>\n    at process._tickCallback (internal/process/next_tick.js:188:7)"
+            "JavascriptError: javascript error: angular is not defined\n  (Session info: chrome=74.0.3729.131)\n  (Driver info: chromedriver=2.46.628402 (536cd7adbad73a3783fdc2cab92ab2ba7ec361e1),platform=Windows NT 10.0.17134 x86_64)\n    at Object.checkLegacyResponse (C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\node_modules\\selenium-webdriver\\lib\\error.js:546:15)\n    at parseHttpResponse (C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\node_modules\\selenium-webdriver\\lib\\http.js:509:13)\n    at doSend.then.response (C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\node_modules\\selenium-webdriver\\lib\\http.js:441:30)\n    at <anonymous>\n    at process._tickCallback (internal/process/next_tick.js:188:7)\nFrom: Task: WebDriver.executeScript()\n    at Driver.schedule (C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\node_modules\\selenium-webdriver\\lib\\webdriver.js:807:17)\n    at Driver.executeScript (C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\node_modules\\selenium-webdriver\\lib\\webdriver.js:878:16)\n    at C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\node_modules\\selenium-webdriver\\lib\\by.js:191:35\n    at call (C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\node_modules\\selenium-webdriver\\lib\\webdriver.js:1068:28)\n    at C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\node_modules\\selenium-webdriver\\lib\\webdriver.js:907:19\n    at ManagedPromise.invokeCallback_ (C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\node_modules\\selenium-webdriver\\lib\\promise.js:1376:14)\n    at TaskQueue.execute_ (C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\node_modules\\selenium-webdriver\\lib\\promise.js:3084:14)\n    at TaskQueue.executeNext_ (C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\node_modules\\selenium-webdriver\\lib\\promise.js:3067:27)\n    at asyncRun (C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\node_modules\\selenium-webdriver\\lib\\promise.js:2974:25)\n    at C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\node_modules\\selenium-webdriver\\lib\\promise.js:668:7\nFrom: Task: WebDriver.call(function)\n    at Driver.call (C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\node_modules\\selenium-webdriver\\lib\\webdriver.js:901:23)\n    at Driver.findElementsInternal_ (C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\node_modules\\selenium-webdriver\\lib\\webdriver.js:1068:17)\n    at Driver.findElements (C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\node_modules\\selenium-webdriver\\lib\\webdriver.js:1043:19)\n    at Object.findElementsOverride (C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\node_modules\\protractor\\built\\locators.js:177:31)\n    at ptor.waitForAngular.then (C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\node_modules\\protractor\\built\\element.js:156:40)\n    at ManagedPromise.invokeCallback_ (C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\node_modules\\selenium-webdriver\\lib\\promise.js:1376:14)\n    at TaskQueue.execute_ (C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\node_modules\\selenium-webdriver\\lib\\promise.js:3084:14)\n    at TaskQueue.executeNext_ (C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\node_modules\\selenium-webdriver\\lib\\promise.js:3067:27)\n    at asyncRun (C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\node_modules\\selenium-webdriver\\lib\\promise.js:2927:27)\n    at C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\node_modules\\selenium-webdriver\\lib\\promise.js:668:7Error\n    at ElementArrayFinder.applyAction_ (C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\node_modules\\protractor\\built\\element.js:459:27)\n    at ElementArrayFinder.(anonymous function).args [as sendKeys] (C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\node_modules\\protractor\\built\\element.js:91:29)\n    at ElementFinder.(anonymous function).args [as sendKeys] (C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\node_modules\\protractor\\built\\element.js:831:22)\n    at C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\e2e\\src\\edit-profile-page\\editingprofile.e2e-spec.ts:88:31\n    at elementArrayFinder_.then (C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\node_modules\\protractor\\built\\element.js:804:32)\n    at ManagedPromise.invokeCallback_ (C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\node_modules\\selenium-webdriver\\lib\\promise.js:1376:14)\n    at TaskQueue.execute_ (C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\node_modules\\selenium-webdriver\\lib\\promise.js:3084:14)\n    at TaskQueue.executeNext_ (C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\node_modules\\selenium-webdriver\\lib\\promise.js:3067:27)\n    at asyncRun (C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\node_modules\\selenium-webdriver\\lib\\promise.js:2927:27)\n    at C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\node_modules\\selenium-webdriver\\lib\\promise.js:668:7\nFrom: Task: Run it(\"Editing username to be (new name) and routing to profile page to check it\") in control flow\n    at UserContext.<anonymous> (C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\node_modules\\jasminewd2\\index.js:94:19)\n    at attempt (C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\node_modules\\jasmine\\node_modules\\jasmine-core\\lib\\jasmine-core\\jasmine.js:4297:26)\n    at QueueRunner.run (C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\node_modules\\jasmine\\node_modules\\jasmine-core\\lib\\jasmine-core\\jasmine.js:4217:20)\n    at runNext (C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\node_modules\\jasmine\\node_modules\\jasmine-core\\lib\\jasmine-core\\jasmine.js:4257:20)\n    at C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\node_modules\\jasmine\\node_modules\\jasmine-core\\lib\\jasmine-core\\jasmine.js:4264:13\n    at C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\node_modules\\jasmine\\node_modules\\jasmine-core\\lib\\jasmine-core\\jasmine.js:4172:9\n    at C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\node_modules\\jasminewd2\\index.js:64:48\n    at ControlFlow.emit (C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\node_modules\\selenium-webdriver\\lib\\events.js:62:21)\n    at ControlFlow.shutdown_ (C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\node_modules\\selenium-webdriver\\lib\\promise.js:2674:10)\n    at shutdownTask_.MicroTask (C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\node_modules\\selenium-webdriver\\lib\\promise.js:2599:53)\nFrom asynchronous test: \nError\n    at Suite.<anonymous> (C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\e2e\\src\\edit-profile-page\\editingprofile.e2e-spec.ts:69:5)\n    at addSpecsToSuite (C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\node_modules\\jasmine\\node_modules\\jasmine-core\\lib\\jasmine-core\\jasmine.js:1107:25)\n    at Env.describe (C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\node_modules\\jasmine\\node_modules\\jasmine-core\\lib\\jasmine-core\\jasmine.js:1074:7)\n    at describe (C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\node_modules\\jasmine\\node_modules\\jasmine-core\\lib\\jasmine-core\\jasmine.js:4399:18)\n    at Object.<anonymous> (C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\e2e\\src\\edit-profile-page\\editingprofile.e2e-spec.ts:8:1)\n    at Module._compile (module.js:652:30)\n    at Module.m._compile (C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\node_modules\\ts-node\\src\\index.ts:439:23)\n    at Module._extensions..js (module.js:663:10)\n    at Object.require.extensions.(anonymous function) [as .ts] (C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\node_modules\\ts-node\\src\\index.ts:442:12)"
         ],
-        "browserLogs": [],
-        "screenShotFile": "Screenshots\\00fa00c8-005f-00cc-00a6-002700c200e8.png",
-        "timestamp": 1556713392356,
-        "duration": 8291
-    },
-    {
-        "description": "Rout to books page and check the book image|BookShelves tests",
-        "passed": false,
-        "pending": false,
-        "os": "Windows NT",
-        "instanceId": 17200,
-        "browser": {
-            "name": "chrome",
-            "version": "73.0.3683.103"
-        },
-        "message": [
-            "Failed: protractor_1.by.class is not a function",
-            "Failed: protractor_2.by.class is not a function"
-        ],
-        "trace": [
-            "TypeError: protractor_1.by.class is not a function\n    at BookShelves.getBook (C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\e2e\\src\\books\\bookShelves.po.ts:9:32)\n    at UserContext.<anonymous> (C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\e2e\\src\\books\\bookShelves.e2e-spec.ts:19:21)\n    at C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\node_modules\\jasminewd2\\index.js:112:25\n    at new ManagedPromise (C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\node_modules\\selenium-webdriver\\lib\\promise.js:1077:7)\n    at ControlFlow.promise (C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\node_modules\\selenium-webdriver\\lib\\promise.js:2505:12)\n    at schedulerExecute (C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\node_modules\\jasminewd2\\index.js:95:18)\n    at TaskQueue.execute_ (C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\node_modules\\selenium-webdriver\\lib\\promise.js:3084:14)\n    at TaskQueue.executeNext_ (C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\node_modules\\selenium-webdriver\\lib\\promise.js:3067:27)\n    at asyncRun (C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\node_modules\\selenium-webdriver\\lib\\promise.js:2974:25)\n    at C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\node_modules\\selenium-webdriver\\lib\\promise.js:668:7\nFrom: Task: Run beforeEach in control flow\n    at UserContext.<anonymous> (C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\node_modules\\jasminewd2\\index.js:94:19)\n    at attempt (C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\node_modules\\jasmine\\node_modules\\jasmine-core\\lib\\jasmine-core\\jasmine.js:4297:26)\n    at QueueRunner.run (C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\node_modules\\jasmine\\node_modules\\jasmine-core\\lib\\jasmine-core\\jasmine.js:4217:20)\n    at runNext (C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\node_modules\\jasmine\\node_modules\\jasmine-core\\lib\\jasmine-core\\jasmine.js:4257:20)\n    at C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\node_modules\\jasmine\\node_modules\\jasmine-core\\lib\\jasmine-core\\jasmine.js:4264:13\n    at C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\node_modules\\jasmine\\node_modules\\jasmine-core\\lib\\jasmine-core\\jasmine.js:4172:9\n    at C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\node_modules\\jasminewd2\\index.js:64:48\n    at ControlFlow.emit (C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\node_modules\\selenium-webdriver\\lib\\events.js:62:21)\n    at ControlFlow.shutdown_ (C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\node_modules\\selenium-webdriver\\lib\\promise.js:2674:10)\n    at shutdownTask_.MicroTask (C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\node_modules\\selenium-webdriver\\lib\\promise.js:2599:53)\nFrom asynchronous test: \nError\n    at Suite.<anonymous> (C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\e2e\\src\\books\\bookShelves.e2e-spec.ts:16:5)\n    at addSpecsToSuite (C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\node_modules\\jasmine\\node_modules\\jasmine-core\\lib\\jasmine-core\\jasmine.js:1107:25)\n    at Env.describe (C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\node_modules\\jasmine\\node_modules\\jasmine-core\\lib\\jasmine-core\\jasmine.js:1074:7)\n    at describe (C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\node_modules\\jasmine\\node_modules\\jasmine-core\\lib\\jasmine-core\\jasmine.js:4399:18)\n    at Object.<anonymous> (C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\e2e\\src\\books\\bookShelves.e2e-spec.ts:8:1)\n    at Module._compile (module.js:652:30)\n    at Module.m._compile (C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\node_modules\\ts-node\\src\\index.ts:439:23)\n    at Module._extensions..js (module.js:663:10)\n    at Object.require.extensions.(anonymous function) [as .ts] (C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\node_modules\\ts-node\\src\\index.ts:442:12)",
-            "TypeError: protractor_2.by.class is not a function\n    at UserContext.<anonymous> (C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\e2e\\src\\books\\bookShelves.e2e-spec.ts:33:36)\n    at C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\node_modules\\jasminewd2\\index.js:112:25\n    at new ManagedPromise (C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\node_modules\\selenium-webdriver\\lib\\promise.js:1077:7)\n    at ControlFlow.promise (C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\node_modules\\selenium-webdriver\\lib\\promise.js:2505:12)\n    at schedulerExecute (C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\node_modules\\jasminewd2\\index.js:95:18)\n    at TaskQueue.execute_ (C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\node_modules\\selenium-webdriver\\lib\\promise.js:3084:14)\n    at TaskQueue.executeNext_ (C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\node_modules\\selenium-webdriver\\lib\\promise.js:3067:27)\n    at asyncRun (C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\node_modules\\selenium-webdriver\\lib\\promise.js:2974:25)\n    at C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\node_modules\\selenium-webdriver\\lib\\promise.js:668:7\n    at <anonymous>\nFrom: Task: Run it(\"Rout to books page and check the book image\") in control flow\n    at UserContext.<anonymous> (C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\node_modules\\jasminewd2\\index.js:94:19)\n    at attempt (C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\node_modules\\jasmine\\node_modules\\jasmine-core\\lib\\jasmine-core\\jasmine.js:4297:26)\n    at QueueRunner.run (C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\node_modules\\jasmine\\node_modules\\jasmine-core\\lib\\jasmine-core\\jasmine.js:4217:20)\n    at runNext (C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\node_modules\\jasmine\\node_modules\\jasmine-core\\lib\\jasmine-core\\jasmine.js:4257:20)\n    at C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\node_modules\\jasmine\\node_modules\\jasmine-core\\lib\\jasmine-core\\jasmine.js:4264:13\n    at C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\node_modules\\jasmine\\node_modules\\jasmine-core\\lib\\jasmine-core\\jasmine.js:4172:9\n    at Function.next.fail (C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\node_modules\\jasmine\\node_modules\\jasmine-core\\lib\\jasmine-core\\jasmine.js:4274:9)\n    at C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\node_modules\\jasminewd2\\index.js:64:48\n    at ControlFlow.emit (C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\node_modules\\selenium-webdriver\\lib\\events.js:62:21)\n    at ControlFlow.shutdown_ (C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\node_modules\\selenium-webdriver\\lib\\promise.js:2674:10)\nFrom asynchronous test: \nError\n    at Suite.<anonymous> (C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\e2e\\src\\books\\bookShelves.e2e-spec.ts:27:5)\n    at addSpecsToSuite (C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\node_modules\\jasmine\\node_modules\\jasmine-core\\lib\\jasmine-core\\jasmine.js:1107:25)\n    at Env.describe (C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\node_modules\\jasmine\\node_modules\\jasmine-core\\lib\\jasmine-core\\jasmine.js:1074:7)\n    at describe (C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\node_modules\\jasmine\\node_modules\\jasmine-core\\lib\\jasmine-core\\jasmine.js:4399:18)\n    at Object.<anonymous> (C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\e2e\\src\\books\\bookShelves.e2e-spec.ts:8:1)\n    at Module._compile (module.js:652:30)\n    at Module.m._compile (C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\node_modules\\ts-node\\src\\index.ts:439:23)\n    at Module._extensions..js (module.js:663:10)\n    at Object.require.extensions.(anonymous function) [as .ts] (C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\node_modules\\ts-node\\src\\index.ts:442:12)"
-        ],
-        "browserLogs": [],
-        "screenShotFile": "Screenshots\\00c300c0-0080-00ed-00b8-0069007c0027.png",
-        "timestamp": 1556713401908,
-        "duration": 12
-    },
-    {
-        "description": "Should Redirect to Edit Profile when he clicks edit button|Profile tests",
-        "passed": true,
-        "pending": false,
-        "os": "Windows NT",
-        "instanceId": 17200,
-        "browser": {
-            "name": "chrome",
-            "version": "73.0.3683.103"
-        },
-        "message": "Passed.",
-        "trace": "",
         "browserLogs": [
             {
-                "level": "SEVERE",
-                "message": "ng:///AppModule/NavBarComponent.ngfactory.js 190:33 \"ERROR\" Error: MatToolbar: Attempting to combine different toolbar modes. Either specify multiple `<mat-toolbar-row>` elements explicitly or just place content inside of a `<mat-toolbar>` for a single row.\n    at throwToolbarMixedModesError (http://localhost:4200/vendor.js:134738:11)\n    at MatToolbar.push../node_modules/@angular/material/esm5/toolbar.es5.js.MatToolbar._checkToolbarMixedModes (http://localhost:4200/vendor.js:134703:13)\n    at MatToolbar.push../node_modules/@angular/material/esm5/toolbar.es5.js.MatToolbar.ngAfterViewInit (http://localhost:4200/vendor.js:134674:14)\n    at callProviderLifecycles (http://localhost:4200/vendor.js:87435:18)\n    at callElementProvidersLifecycles (http://localhost:4200/vendor.js:87409:13)\n    at callLifecycleHooksChildrenFirst (http://localhost:4200/vendor.js:87399:29)\n    at checkAndUpdateView (http://localhost:4200/vendor.js:88335:5)\n    at callViewAction (http://localhost:4200/vendor.js:88567:21)\n    at execComponentViewsAction (http://localhost:4200/vendor.js:88509:13)\n    at checkAndUpdateView (http://localhost:4200/vendor.js:88332:5)",
-                "timestamp": 1556713408231,
+                "level": "WARNING",
+                "message": "deprecation - HTML Imports is deprecated and will be removed in M73, around March 2019. Please use ES modules instead. See https://www.chromestatus.com/features/5144752345317376 for more details.",
+                "timestamp": 1557204270608,
                 "type": ""
             },
             {
-                "level": "SEVERE",
-                "message": "ng:///AppModule/NavBarComponent.ngfactory.js 190:33 \"ERROR CONTEXT\" DebugContext_",
-                "timestamp": 1556713408234,
-                "type": ""
-            }
-        ],
-        "screenShotFile": "Screenshots\\00e40008-002d-00ae-0033-00a0002f002d.png",
-        "timestamp": 1556713402388,
-        "duration": 9557
-    },
-    {
-        "description": "Should Redirect to homepage when he clicks GeeksReads LOGO |NavBar tests",
-        "passed": true,
-        "pending": false,
-        "os": "Windows NT",
-        "instanceId": 17200,
-        "browser": {
-            "name": "chrome",
-            "version": "73.0.3683.103"
-        },
-        "message": "Passed.",
-        "trace": "",
-        "browserLogs": [
-            {
-                "level": "SEVERE",
-                "message": "ng:///AppModule/NavBarComponent.ngfactory.js 190:33 \"ERROR\" Error: MatToolbar: Attempting to combine different toolbar modes. Either specify multiple `<mat-toolbar-row>` elements explicitly or just place content inside of a `<mat-toolbar>` for a single row.\n    at throwToolbarMixedModesError (http://localhost:4200/vendor.js:134738:11)\n    at MatToolbar.push../node_modules/@angular/material/esm5/toolbar.es5.js.MatToolbar._checkToolbarMixedModes (http://localhost:4200/vendor.js:134703:13)\n    at MatToolbar.push../node_modules/@angular/material/esm5/toolbar.es5.js.MatToolbar.ngAfterViewInit (http://localhost:4200/vendor.js:134674:14)\n    at callProviderLifecycles (http://localhost:4200/vendor.js:87435:18)\n    at callElementProvidersLifecycles (http://localhost:4200/vendor.js:87409:13)\n    at callLifecycleHooksChildrenFirst (http://localhost:4200/vendor.js:87399:29)\n    at checkAndUpdateView (http://localhost:4200/vendor.js:88335:5)\n    at callViewAction (http://localhost:4200/vendor.js:88567:21)\n    at execComponentViewsAction (http://localhost:4200/vendor.js:88509:13)\n    at checkAndUpdateView (http://localhost:4200/vendor.js:88332:5)",
-                "timestamp": 1556713415000,
+                "level": "WARNING",
+                "message": "http://localhost:4200/vendor.js 165635 WebSocket connection to 'ws://localhost:4200/sockjs-node/956/0gxoveht/websocket' failed: WebSocket is closed before the connection is established.",
+                "timestamp": 1557204290498,
                 "type": ""
             },
             {
-                "level": "SEVERE",
-                "message": "ng:///AppModule/NavBarComponent.ngfactory.js 190:33 \"ERROR CONTEXT\" DebugContext_",
-                "timestamp": 1556713415003,
+                "level": "WARNING",
+                "message": "http://localhost:4200/vendor.js 165635 WebSocket connection to 'ws://localhost:4200/sockjs-node/467/blhhp1zg/websocket' failed: WebSocket is closed before the connection is established.",
+                "timestamp": 1557204295150,
                 "type": ""
             },
             {
-                "level": "SEVERE",
-                "message": "ng:///AppModule/NavBarComponent.ngfactory.js 190:33 \"ERROR\" Error: MatToolbar: Attempting to combine different toolbar modes. Either specify multiple `<mat-toolbar-row>` elements explicitly or just place content inside of a `<mat-toolbar>` for a single row.\n    at throwToolbarMixedModesError (http://localhost:4200/vendor.js:134738:11)\n    at MatToolbar.push../node_modules/@angular/material/esm5/toolbar.es5.js.MatToolbar._checkToolbarMixedModes (http://localhost:4200/vendor.js:134703:13)\n    at MatToolbar.push../node_modules/@angular/material/esm5/toolbar.es5.js.MatToolbar.ngAfterViewInit (http://localhost:4200/vendor.js:134674:14)\n    at callProviderLifecycles (http://localhost:4200/vendor.js:87435:18)\n    at callElementProvidersLifecycles (http://localhost:4200/vendor.js:87409:13)\n    at callLifecycleHooksChildrenFirst (http://localhost:4200/vendor.js:87399:29)\n    at checkAndUpdateView (http://localhost:4200/vendor.js:88335:5)\n    at callViewAction (http://localhost:4200/vendor.js:88567:21)\n    at execComponentViewsAction (http://localhost:4200/vendor.js:88509:13)\n    at checkAndUpdateView (http://localhost:4200/vendor.js:88332:5)",
-                "timestamp": 1556713417878,
-                "type": ""
-            },
-            {
-                "level": "SEVERE",
-                "message": "ng:///AppModule/NavBarComponent.ngfactory.js 190:33 \"ERROR CONTEXT\" DebugContext_",
-                "timestamp": 1556713417881,
-                "type": ""
-            },
-            {
-                "level": "SEVERE",
-                "message": "ng:///AppModule/NavBarComponent.ngfactory.js 190:33 \"ERROR\" Error: MatToolbar: Attempting to combine different toolbar modes. Either specify multiple `<mat-toolbar-row>` elements explicitly or just place content inside of a `<mat-toolbar>` for a single row.\n    at throwToolbarMixedModesError (http://localhost:4200/vendor.js:134738:11)\n    at MatToolbar.push../node_modules/@angular/material/esm5/toolbar.es5.js.MatToolbar._checkToolbarMixedModes (http://localhost:4200/vendor.js:134703:13)\n    at MatToolbar.push../node_modules/@angular/material/esm5/toolbar.es5.js.MatToolbar.ngAfterViewInit (http://localhost:4200/vendor.js:134674:14)\n    at callProviderLifecycles (http://localhost:4200/vendor.js:87435:18)\n    at callElementProvidersLifecycles (http://localhost:4200/vendor.js:87409:13)\n    at callLifecycleHooksChildrenFirst (http://localhost:4200/vendor.js:87399:29)\n    at checkAndUpdateView (http://localhost:4200/vendor.js:88335:5)\n    at callViewAction (http://localhost:4200/vendor.js:88567:21)\n    at execComponentViewsAction (http://localhost:4200/vendor.js:88509:13)\n    at checkAndUpdateView (http://localhost:4200/vendor.js:88332:5)",
-                "timestamp": 1556713420929,
-                "type": ""
-            },
-            {
-                "level": "SEVERE",
-                "message": "ng:///AppModule/NavBarComponent.ngfactory.js 190:33 \"ERROR CONTEXT\" DebugContext_",
-                "timestamp": 1556713420931,
-                "type": ""
-            }
-        ],
-        "screenShotFile": "Screenshots\\00d6000c-0044-0003-00bf-0006006a0078.png",
-        "timestamp": 1556713412293,
-        "duration": 8993
-    },
-    {
-        "description": "Should Redirect to newsfeed page when he clicks Home button|NavBar tests",
-        "passed": true,
-        "pending": false,
-        "os": "Windows NT",
-        "instanceId": 17200,
-        "browser": {
-            "name": "chrome",
-            "version": "73.0.3683.103"
-        },
-        "message": "Passed.",
-        "trace": "",
-        "browserLogs": [
-            {
-                "level": "SEVERE",
-                "message": "ng:///AppModule/NavBarComponent.ngfactory.js 190:33 \"ERROR\" Error: MatToolbar: Attempting to combine different toolbar modes. Either specify multiple `<mat-toolbar-row>` elements explicitly or just place content inside of a `<mat-toolbar>` for a single row.\n    at throwToolbarMixedModesError (http://localhost:4200/vendor.js:134738:11)\n    at MatToolbar.push../node_modules/@angular/material/esm5/toolbar.es5.js.MatToolbar._checkToolbarMixedModes (http://localhost:4200/vendor.js:134703:13)\n    at MatToolbar.push../node_modules/@angular/material/esm5/toolbar.es5.js.MatToolbar.ngAfterViewInit (http://localhost:4200/vendor.js:134674:14)\n    at callProviderLifecycles (http://localhost:4200/vendor.js:87435:18)\n    at callElementProvidersLifecycles (http://localhost:4200/vendor.js:87409:13)\n    at callLifecycleHooksChildrenFirst (http://localhost:4200/vendor.js:87399:29)\n    at checkAndUpdateView (http://localhost:4200/vendor.js:88335:5)\n    at callViewAction (http://localhost:4200/vendor.js:88567:21)\n    at execComponentViewsAction (http://localhost:4200/vendor.js:88509:13)\n    at checkAndUpdateView (http://localhost:4200/vendor.js:88332:5)",
-                "timestamp": 1556713425632,
-                "type": ""
-            },
-            {
-                "level": "SEVERE",
-                "message": "ng:///AppModule/NavBarComponent.ngfactory.js 190:33 \"ERROR CONTEXT\" DebugContext_",
-                "timestamp": 1556713425634,
-                "type": ""
-            },
-            {
-                "level": "SEVERE",
-                "message": "http://geeksreads.herokuapp.com/main.0ded764c33cc2aaf3285.js 0:59649 \"ERROR\" e",
-                "timestamp": 1556713426936,
-                "type": ""
-            }
-        ],
-        "screenShotFile": "Screenshots\\00a300a7-0048-002d-0070-002200fe0028.png",
-        "timestamp": 1556713421734,
-        "duration": 5536
-    },
-    {
-        "description": "Should Redirect to Profile when he clicks profile button|Profile tests",
-        "passed": true,
-        "pending": false,
-        "os": "Windows NT",
-        "instanceId": 17200,
-        "browser": {
-            "name": "chrome",
-            "version": "73.0.3683.103"
-        },
-        "message": "Passed.",
-        "trace": "",
-        "browserLogs": [
-            {
-                "level": "SEVERE",
-                "message": "ng:///AppModule/NavBarComponent.ngfactory.js 190:33 \"ERROR\" Error: MatToolbar: Attempting to combine different toolbar modes. Either specify multiple `<mat-toolbar-row>` elements explicitly or just place content inside of a `<mat-toolbar>` for a single row.\n    at throwToolbarMixedModesError (http://localhost:4200/vendor.js:134738:11)\n    at MatToolbar.push../node_modules/@angular/material/esm5/toolbar.es5.js.MatToolbar._checkToolbarMixedModes (http://localhost:4200/vendor.js:134703:13)\n    at MatToolbar.push../node_modules/@angular/material/esm5/toolbar.es5.js.MatToolbar.ngAfterViewInit (http://localhost:4200/vendor.js:134674:14)\n    at callProviderLifecycles (http://localhost:4200/vendor.js:87435:18)\n    at callElementProvidersLifecycles (http://localhost:4200/vendor.js:87409:13)\n    at callLifecycleHooksChildrenFirst (http://localhost:4200/vendor.js:87399:29)\n    at checkAndUpdateView (http://localhost:4200/vendor.js:88335:5)\n    at callViewAction (http://localhost:4200/vendor.js:88567:21)\n    at execComponentViewsAction (http://localhost:4200/vendor.js:88509:13)\n    at checkAndUpdateView (http://localhost:4200/vendor.js:88332:5)",
-                "timestamp": 1556713431498,
-                "type": ""
-            },
-            {
-                "level": "SEVERE",
-                "message": "ng:///AppModule/NavBarComponent.ngfactory.js 190:33 \"ERROR CONTEXT\" DebugContext_",
-                "timestamp": 1556713431501,
+                "level": "WARNING",
+                "message": "http://localhost:4200/vendor.js 165635 WebSocket connection to 'ws://localhost:4200/sockjs-node/926/obebmcw0/websocket' failed: WebSocket is closed before the connection is established.",
+                "timestamp": 1557204298509,
                 "type": ""
             },
             {
                 "level": "SEVERE",
                 "message": "http://localhost:4200/null - Failed to load resource: the server responded with a status of 404 (Not Found)",
-                "timestamp": 1556713431630,
+                "timestamp": 1557204301436,
                 "type": ""
             },
             {
                 "level": "SEVERE",
-                "message": "https://geeksreads.herokuapp.com/api/users/GetUserReadDetails - Failed to load resource: the server responded with a status of 401 (Unauthorized)",
-                "timestamp": 1556713432891,
+                "message": "https://geeksreads.herokuapp.com/api/user_status/show - Failed to load resource: the server responded with a status of 400 (Bad Request)",
+                "timestamp": 1557204305945,
                 "type": ""
             },
             {
                 "level": "SEVERE",
-                "message": "https://geeksreads.herokuapp.com/api/users/GetUserWantToReadDetails - Failed to load resource: the server responded with a status of 401 (Unauthorized)",
-                "timestamp": 1556713432895,
+                "message": "http://localhost:4200/vendor.js 80742:18 \"ERROR\" HttpErrorResponse",
+                "timestamp": 1557204305945,
                 "type": ""
             },
             {
                 "level": "SEVERE",
-                "message": "http://geeksreads.herokuapp.com/main.0ded764c33cc2aaf3285.js 0:59649 \"ERROR\" e",
-                "timestamp": 1556713432898,
+                "message": "https://geeksreads.herokuapp.com/api/user_status/show - Failed to load resource: the server responded with a status of 400 (Bad Request)",
+                "timestamp": 1557204305945,
                 "type": ""
             },
             {
                 "level": "SEVERE",
-                "message": "http://geeksreads.herokuapp.com/main.0ded764c33cc2aaf3285.js 0:59649 \"ERROR\" e",
-                "timestamp": 1556713432900,
+                "message": "http://localhost:4200/vendor.js 80742:18 \"ERROR\" HttpErrorResponse",
+                "timestamp": 1557204305945,
                 "type": ""
             },
             {
                 "level": "SEVERE",
-                "message": "https://geeksreads.herokuapp.com/api/users/GetUserReadingDetails - Failed to load resource: the server responded with a status of 401 (Unauthorized)",
-                "timestamp": 1556713432903,
+                "message": "https://geeksreads.herokuapp.com/api/user_status/show - Failed to load resource: the server responded with a status of 400 (Bad Request)",
+                "timestamp": 1557204306747,
                 "type": ""
             },
             {
                 "level": "SEVERE",
-                "message": "http://geeksreads.herokuapp.com/main.0ded764c33cc2aaf3285.js 0:59649 \"ERROR\" e",
-                "timestamp": 1556713432907,
-                "type": ""
-            },
-            {
-                "level": "SEVERE",
-                "message": "https://geeksreads.herokuapp.com/api/users/me - Failed to load resource: the server responded with a status of 401 (Unauthorized)",
-                "timestamp": 1556713433047,
-                "type": ""
-            },
-            {
-                "level": "SEVERE",
-                "message": "http://geeksreads.herokuapp.com/main.0ded764c33cc2aaf3285.js 0:59649 \"ERROR\" e",
-                "timestamp": 1556713433049,
-                "type": ""
-            },
-            {
-                "level": "SEVERE",
-                "message": "https://geeksreads.herokuapp.com/api/users/GetUserReadingDetails - Failed to load resource: the server responded with a status of 401 (Unauthorized)",
-                "timestamp": 1556713433051,
-                "type": ""
-            },
-            {
-                "level": "SEVERE",
-                "message": "http://geeksreads.herokuapp.com/main.0ded764c33cc2aaf3285.js 0:59649 \"ERROR\" e",
-                "timestamp": 1556713433154,
+                "message": "https://geeksreads.herokuapp.com/api/user_status/show - Failed to load resource: the server responded with a status of 400 (Bad Request)",
+                "timestamp": 1557204306747,
                 "type": ""
             }
         ],
-        "screenShotFile": "Screenshots\\00450061-00d5-00dd-00ac-001f00e50036.png",
-        "timestamp": 1556713427688,
-        "duration": 5481
+        "screenShotFile": "Screenshots\\004200a5-0051-00a1-00ca-005d0080005c.png",
+        "timestamp": 1557204274726,
+        "duration": 35158
     },
     {
-        "description": "Should Redirect to Profile when he clicks profile button|Profile tests",
+        "description": "Should Redirect to newsfeed page when he clicks Home button|NavBar tests",
         "passed": false,
         "pending": false,
         "os": "Windows NT",
-        "instanceId": 17200,
+        "instanceId": 27188,
         "browser": {
             "name": "chrome",
-            "version": "73.0.3683.103"
+            "version": "74.0.3729.131"
         },
         "message": [
-            "Expected 'http://localhost:4200/sign-in' to be 'http://geeksreads.herokuapp.com/sign-in'."
+            "Expected 'http://localhost:4200/newsfeed' to be 'http://geeksreads.herokuapp.com/newsfeed'."
         ],
         "trace": [
-            "Error: Failed expectation\n    at C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\e2e\\src\\sign-in-routing\\siginingrouting.e2e-spec.ts:29:21\n    at ManagedPromise.invokeCallback_ (C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\node_modules\\selenium-webdriver\\lib\\promise.js:1376:14)\n    at TaskQueue.execute_ (C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\node_modules\\selenium-webdriver\\lib\\promise.js:3084:14)\n    at TaskQueue.executeNext_ (C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\node_modules\\selenium-webdriver\\lib\\promise.js:3067:27)\n    at asyncRun (C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\node_modules\\selenium-webdriver\\lib\\promise.js:2927:27)\n    at C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\node_modules\\selenium-webdriver\\lib\\promise.js:668:7\n    at <anonymous>\n    at process._tickCallback (internal/process/next_tick.js:188:7)"
+            "Error: Failed expectation\n    at C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\e2e\\src\\newsfeed-routing\\newsfeed.e2e-spec.ts:24:21\n    at ManagedPromise.invokeCallback_ (C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\node_modules\\selenium-webdriver\\lib\\promise.js:1376:14)\n    at TaskQueue.execute_ (C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\node_modules\\selenium-webdriver\\lib\\promise.js:3084:14)\n    at TaskQueue.executeNext_ (C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\node_modules\\selenium-webdriver\\lib\\promise.js:3067:27)\n    at asyncRun (C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\node_modules\\selenium-webdriver\\lib\\promise.js:2927:27)\n    at C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\node_modules\\selenium-webdriver\\lib\\promise.js:668:7\n    at <anonymous>\n    at process._tickCallback (internal/process/next_tick.js:188:7)"
         ],
         "browserLogs": [
             {
                 "level": "SEVERE",
-                "message": "ng:///AppModule/NavBarComponent.ngfactory.js 190:33 \"ERROR\" Error: MatToolbar: Attempting to combine different toolbar modes. Either specify multiple `<mat-toolbar-row>` elements explicitly or just place content inside of a `<mat-toolbar>` for a single row.\n    at throwToolbarMixedModesError (http://localhost:4200/vendor.js:134738:11)\n    at MatToolbar.push../node_modules/@angular/material/esm5/toolbar.es5.js.MatToolbar._checkToolbarMixedModes (http://localhost:4200/vendor.js:134703:13)\n    at MatToolbar.push../node_modules/@angular/material/esm5/toolbar.es5.js.MatToolbar.ngAfterViewInit (http://localhost:4200/vendor.js:134674:14)\n    at callProviderLifecycles (http://localhost:4200/vendor.js:87435:18)\n    at callElementProvidersLifecycles (http://localhost:4200/vendor.js:87409:13)\n    at callLifecycleHooksChildrenFirst (http://localhost:4200/vendor.js:87399:29)\n    at checkAndUpdateView (http://localhost:4200/vendor.js:88335:5)\n    at callViewAction (http://localhost:4200/vendor.js:88567:21)\n    at execComponentViewsAction (http://localhost:4200/vendor.js:88509:13)\n    at checkAndUpdateView (http://localhost:4200/vendor.js:88332:5)",
-                "timestamp": 1556713437455,
+                "message": "https://geeksreads.herokuapp.com/api/user_status/show - Failed to load resource: the server responded with a status of 400 (Bad Request)",
+                "timestamp": 1557204317288,
                 "type": ""
             },
             {
                 "level": "SEVERE",
-                "message": "ng:///AppModule/NavBarComponent.ngfactory.js 190:33 \"ERROR CONTEXT\" DebugContext_",
-                "timestamp": 1556713437456,
+                "message": "https://geeksreads.herokuapp.com/api/user_status/show - Failed to load resource: the server responded with a status of 400 (Bad Request)",
+                "timestamp": 1557204317288,
                 "type": ""
             },
             {
-                "level": "WARNING",
-                "message": "http://localhost:4200/sign-in - [DOM] Found 2 elements with non-unique id #nav-search-bar: (More info: https://goo.gl/9p2vKq) %o %o",
-                "timestamp": 1556713437515,
+                "level": "SEVERE",
+                "message": "http://localhost:4200/vendor.js 80742:18 \"ERROR\" HttpErrorResponse",
+                "timestamp": 1557204317288,
+                "type": ""
+            },
+            {
+                "level": "SEVERE",
+                "message": "http://localhost:4200/vendor.js 80742:18 \"ERROR\" HttpErrorResponse",
+                "timestamp": 1557204317288,
                 "type": ""
             }
         ],
-        "screenShotFile": "Screenshots\\00a300ba-0097-0048-008a-00ff00f500dd.png",
-        "timestamp": 1556713433536,
-        "duration": 4253
+        "screenShotFile": "Screenshots\\00d70082-0072-000e-00a1-0014009600c8.png",
+        "timestamp": 1557204310508,
+        "duration": 6790
+    },
+    {
+        "description": "Should Redirect to Sign out when he clicks sign out button|Logout tests",
+        "passed": false,
+        "pending": false,
+        "os": "Windows NT",
+        "instanceId": 27188,
+        "browser": {
+            "name": "chrome",
+            "version": "74.0.3729.131"
+        },
+        "message": [
+            "Expected 'http://localhost:4200/sign-out' to be 'http://geeksreads.herokuapp.com/sign-out'."
+        ],
+        "trace": [
+            "Error: Failed expectation\n    at C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\e2e\\src\\sig-out-routing\\sign-out.e2e-spec.ts:30:21\n    at ManagedPromise.invokeCallback_ (C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\node_modules\\selenium-webdriver\\lib\\promise.js:1376:14)\n    at TaskQueue.execute_ (C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\node_modules\\selenium-webdriver\\lib\\promise.js:3084:14)\n    at TaskQueue.executeNext_ (C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\node_modules\\selenium-webdriver\\lib\\promise.js:3067:27)\n    at asyncRun (C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\node_modules\\selenium-webdriver\\lib\\promise.js:2927:27)\n    at C:\\Aya .. me\\SOFTWARE PROJECT FINAL\\Project 3rd Phase\\Geeksreads-Frontend\\node_modules\\selenium-webdriver\\lib\\promise.js:668:7\n    at <anonymous>\n    at process._tickCallback (internal/process/next_tick.js:188:7)"
+        ],
+        "browserLogs": [],
+        "screenShotFile": "Screenshots\\00e600bf-007d-0012-000e-00130096009a.png",
+        "timestamp": 1557204317646,
+        "duration": 5351
     }
 ];
 
