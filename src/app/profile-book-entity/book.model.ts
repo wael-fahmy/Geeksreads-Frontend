@@ -31,7 +31,19 @@ export interface ListOfBooks {
    * @memberof ListOfBooks
    */
   Cover: string;
+  /**
+   * Book Rating
+   *
+   * @type {string}
+   * @memberof ListOfBooks
+   */
   BookRating: string;
+  /**
+   * Publisher
+   *
+   * @type {string}
+   * @memberof ListOfBooks
+   */
   Publisher: string;
 
 }

@@ -24,7 +24,7 @@ export class OtherUserProfileEntityComponent implements OnInit {
   /**
    *
    * to store user info
-   * @type {User}
+   * @type {OtherUser}
    * @memberof OtherUserProfileEntityComponent
    */
   userInfo: OtherUser;            // user object contains user info
@@ -44,10 +44,45 @@ export class OtherUserProfileEntityComponent implements OnInit {
    * @memberof OtherUserProfileEntityComponent
    */
   userName: string;
+
+  /**
+   *
+   * user email
+   * @type {string}
+   * @memberof OtherUserProfileEntityComponent
+   */
   userEmail: string;
+
+  /**
+   *
+   * user followers
+   * @type {number}
+   * @memberof OtherUserProfileEntityComponent
+   */
   userFollowers: number;
+
+  /**
+   *
+   * user following
+   * @type {number}
+   * @memberof OtherUserProfileEntityComponent
+   */
   userFollowing: number;
+
+  /**
+   *
+   * user birth date
+   * @type {string}
+   * @memberof OtherUserProfileEntityComponent
+   */
   userBirthDay: string;
+
+  /**
+   *
+   * user is followed by the signed in user or not
+   * @type {string}
+   * @memberof OtherUserProfileEntityComponent
+   */
   isFollowing: string;
   /**
    * Creates an instance of ProfileEntityComponent.
@@ -65,11 +100,36 @@ export class OtherUserProfileEntityComponent implements OnInit {
    * @memberof ProfileReadingShelfComponent
    */
   listOfBooksReading: ListOfBooks[] = [];
+
+  /**
+   *
+   * List of books currently read
+   * @type {ListOfBooks[]}
+   * @memberof OtherUserProfileEntityComponent
+   */
   listOfBooksRead: ListOfBooks[] = [];
+
+  /**
+   *
+   * List of books want to read
+   * @type {ListOfBooks[]}
+   * @memberof OtherUserProfileEntityComponent
+   */
   listOfWantToReadBooks: ListOfBooks[] = [];
 
+  /**
+   * user id
+   *
+   * @type {string}
+   * @memberof OtherUserProfileEntityComponent
+   */
   userId: string;
 
+  /**
+   * to follow this user on click
+   *
+   * @memberof OtherUserProfileEntityComponent
+   */
   OnClickFollow()
   {
      this.isFollowing = 'True';
@@ -77,6 +137,11 @@ export class OtherUserProfileEntityComponent implements OnInit {
      this.OtherUserService.Follow_User(this.userId);
   }
 
+  /**
+   * to unfollow this user on click
+   *
+   * @memberof OtherUserProfileEntityComponent
+   */
   OnClickUnFollow()
   {
     this.isFollowing = 'False';
@@ -84,6 +149,11 @@ export class OtherUserProfileEntityComponent implements OnInit {
     this.OtherUserService.UnFollow_User(this.userId);
   }
 
+  /**
+   * to get the book info from the service
+   * subscribe the list of books recived and put it in the list of books to display them
+   * @memberof OtherUserProfileEntityComponent
+   */
   get_listReading_observed()
   {
     this.OtherUserService.get_List_of_books_reading(this.userId);                    // to get the book info from the service
@@ -93,6 +163,12 @@ export class OtherUserProfileEntityComponent implements OnInit {
         this.listOfBooksReading = List;                              // and put it in the list of books to display them
       });
   }
+  /**
+   * to get the book info from the service
+   * subscribe the list of books recived and put it in the list of books to display them
+   *
+   * @memberof OtherUserProfileEntityComponent
+   */
   get_listRead_observed()
   {
     this.OtherUserService.get_List_of_books_read(this.userId);                    // to get the book info from the service
@@ -102,6 +178,13 @@ export class OtherUserProfileEntityComponent implements OnInit {
         this.listOfBooksRead = List;                              // and put it in the list of books to display them
       });
   }
+
+  /**
+   * to get the book info from the service
+   * subscribe the list of books recived and put it in the list of books to display them
+   *
+   * @memberof OtherUserProfileEntityComponent
+   */
   get_listToRead_observed()
   {
     this.OtherUserService.get_List_of_books_want_to_read(this.userId);                         // to get the book info from the service

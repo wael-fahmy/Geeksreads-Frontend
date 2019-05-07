@@ -71,14 +71,49 @@ export class CountBooksService {
    * @memberof CountBooksService
    */
   private List_reading: ListOfBooks[] = [];
+
+  /**
+   *
+   * list of books recieved from the backend
+   * @private
+   * @type {ListOfBooks[]}
+   * @memberof CountBooksService
+   */
   private List_read: ListOfBooks[] = [];
+
+  /**
+   *
+   * list of books recieved from the backend
+   * @private
+   * @type {ListOfBooks[]}
+   * @memberof CountBooksService
+   */
   private List_wantto_read: ListOfBooks[] = [];
+  /**
+   * to update the list of books reading
+   *
+   * @private
+   * @memberof CountBooksService
+   */
   private listReadingUpdated = new Subject<ListOfBooks[]>();
+  /**
+   * to update the list of books read
+   *
+   * @private
+   * @memberof CountBooksService
+   */
   private listReadUpdated = new Subject<ListOfBooks[]>();
+
+  /**
+   *
+   * to update the list of books want to read
+   * @private
+   * @memberof CountBooksService
+   */
   private listWanttoReadUpdated = new Subject<ListOfBooks[]>();
   /**
    *
-   * to get the json response from the mock service and update the book info
+   * to get the json response from the Backend service and update the book info
    * subscribe the list of books recieved
    * assign them to the list to display them
    * @memberof CountBooksService
@@ -100,6 +135,13 @@ export class CountBooksService {
       });
   }
 
+  /**
+   * to get the json response from the mock service and update the book info
+   * subscribe the list of books recieved
+   * assign them to the list to display them
+   *
+   * @memberof CountBooksService
+   */
   get_List_of_books_reading_mockup() {
     this.http.get<{message: string , Books: ListOfBooks[] }>('http://localhost:3000/api/users/reading'
     ).
@@ -122,7 +164,7 @@ export class CountBooksService {
 
   /**
    *
-   * to get the json response from the mock service and update the book info
+   * to get the json response from the backend service and update the book info
    * subscribe the list of books recieved
    * assign them to the list to display them
    * @memberof CountBooksService
@@ -146,6 +188,13 @@ export class CountBooksService {
       });
   }
 
+  /**
+   * to get the json response from the mock service and update the book info
+   * subscribe the list of books recieved
+   * assign them to the list to display them
+   *
+   * @memberof CountBooksService
+   */
   get_List_of_books_read_mockup() {
     this.http.get<{message: string , Books: ListOfBooks[] }>('http://localhost:3000/api/users/read'
     ).
@@ -168,7 +217,7 @@ export class CountBooksService {
 
   /**
    *
-   * to get the json response from the mock service and update the book info
+   * to get the json response from the backend service and update the book info
    * subscribe the list of books recieved
    * assign them to the list to display them
    * @memberof CountBooksService
@@ -190,6 +239,13 @@ export class CountBooksService {
       });
   }
 
+  /**
+   * to get the json response from the mock service and update the book info
+   * subscribe the list of books recieved
+   * assign them to the list to display them
+   *
+   * @memberof CountBooksService
+   */
   get_List_of_books_to_read_mockup() {
     this.http.get<{message: string , Books: ListOfBooks[] }>('http://localhost:3000/api/users/toread'
     ).
@@ -211,9 +267,8 @@ export class CountBooksService {
     return this.listWanttoReadUpdated.asObservable();
   }
   /**
-   * to inc number of books read
-   * to update the number of books read
-   * to send request with the book info
+   * to update number of books read and reading
+   * to send request with the book id
    * to add a book to a read shelf
    * to check that the request sent successfuly
    * @param {ListOfBooks} index the index of the book selected to send as a request
@@ -235,8 +290,10 @@ export class CountBooksService {
   }
 
   /**
-   * to inc the number of books reading
-   * to update the number of books reading
+   *  to update number of books  want to read and reading
+   * to send request with the book id
+   * to add a book to a reading shelf
+   * to check that the request sent successfuly
    * @param {ListOfBooks} index index of the book that will be sent
    * @memberof CountBooksService
    */
@@ -253,6 +310,12 @@ export class CountBooksService {
    }
 
 
+   /**
+    * to remove the book from the shelf given the book id
+    *
+    * @param {ListOfBooks} index
+    * @memberof CountBooksService
+    */
    Remove_Book(index: ListOfBooks)
    {
     const bookID = {

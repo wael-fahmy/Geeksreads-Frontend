@@ -2,6 +2,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Subject, Observable } from 'rxjs';
 import { Row } from './genre-row.model';
+//import { Router } from '@angular/router';
 import { GenreRowComponent } from './genre-row.component';
 
 /**
@@ -41,7 +42,7 @@ export class RowServices {
    */
   get_row(genre: string) {
     this.http
-      .get('https://geeksreads.herokuapp.com/api/books/id', {
+      .get('https://geeksreads.herokuapp.com/api/books/genre', {
         params: {
           Genre: genre,
         }

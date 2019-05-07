@@ -27,9 +27,14 @@ export class ProfileReadingShelfComponent implements OnInit {
    * @memberof ProfileReadingShelfComponent
    */
   listOfBooksReading: ListOfBooks[] = [];
+
+  /**
+   *
+   * to update the list of books in currently reading shelf
+   * @private
+   * @memberof ProfileReadingShelfComponent
+   */
   private listReadingUpdated = new Subject<ListOfBooks[]>();
-  private listReadUpdated = new Subject<ListOfBooks[]>();
-  private listWanttoReadUpdated = new Subject<ListOfBooks[]>();
   /**
    *  Creates an instance of ProfileReadingShelfComponent.
    *  @param {CountBooksService} countBooksService
@@ -40,7 +45,7 @@ export class ProfileReadingShelfComponent implements OnInit {
 
   /**
    *
-   * to increment the number of books currently reading on click
+   * to add the book from currently reading shelf to read on click
    * @param {ListOfBooks} index index of the book to be sent to the backend
    * @memberof ProfileReadingShelfComponent
    */
@@ -49,10 +54,22 @@ export class ProfileReadingShelfComponent implements OnInit {
     this.listReadingUpdated.next([...this.listOfBooksReading]);
     this.listReadingUpdated.asObservable();
   }
+
+  /**
+   *
+   * to remove the book from the currently reading shelf
+   * @param {ListOfBooks} index
+   * @memberof ProfileReadingShelfComponent
+   */
   OnClick_Remove(index: ListOfBooks){
     this.countBooksService.Remove_Book(index);
   }
-
+  /**
+   * to get the book info from the service
+   * subscribe the list of books recived
+   * and put it in the list of books to display them
+   * @memberof ProfileReadingShelfComponent
+   */
   get_listReading_observed()
   {
     this.countBooksService.get_List_of_books_reading();                    // to get the book info from the service
@@ -62,8 +79,6 @@ export class ProfileReadingShelfComponent implements OnInit {
         this.listOfBooksReading = List;                              // and put it in the list of books to display them
       });
   }
-
-
   /**
    *  on initializing that class implement this function
    *  to get the book info from the service
@@ -74,5 +89,4 @@ export class ProfileReadingShelfComponent implements OnInit {
   ngOnInit() {
     this.get_listReading_observed();
   }
-   
 }
