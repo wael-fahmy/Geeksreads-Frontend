@@ -17,25 +17,29 @@ import { RowServices } from './genre-row.service';
 export class GenreRowComponent implements OnInit {
 
   @Input() genreType: string;
+ // @Input() bookImage1: string;
+  //@Input() bookimage2:string;
+  //@Input() bookimage3:string;
+
 
   /**
    * book image 1
    * @memberof GenreRowComponent
    */
-  bookImage1 = 'https://via.placeholder.com/120x120';
+  bookImage1 ;
 
   /**
    * book image 2
    * @memberof GenreRowComponent
    */
-  bookImage2 = 'https://via.placeholder.com/120x120';
+  bookImage2 ;
 
   /**
    *
    * book image 3
    * @memberof GenreRowComponent
    */
-  bookImage3 = 'https://via.placeholder.com/120x120';
+  bookImage3 ;
 
   /**
    * Row object created to fill data
@@ -72,9 +76,9 @@ export class GenreRowComponent implements OnInit {
     this.subprofile = this.rowServicesObj.get_row_updated().subscribe((RowData: Row) => {
       this.RowObj = RowData;
       // this.genreType = this.RowObj.genretype;
-      // this.bookImage1 = this.RowObj.bookimage1;
-      // this.bookImage2 = this.RowObj.bookimage2;
-      // this.bookImage3 = this.RowObj.bookimage3;
+     this.bookImage1 = RowData[0].Cover;
+     this.bookImage2 = RowData[1].Cover;
+      this.bookImage3 = RowData[2].Cover;
     });
   }
 }

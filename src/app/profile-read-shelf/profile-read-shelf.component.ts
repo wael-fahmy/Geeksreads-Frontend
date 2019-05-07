@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
+import {Subject} from 'rxjs';
 import { ListOfBooks } from '../profile-book-entity/book.model';
 import { CountBooksService } from '../profile-book-entity/book.service';
 import { listLazyRoutes } from '@angular/compiler/src/aot/lazy_routes';
@@ -33,6 +34,9 @@ export class ProfileReadShelfComponent implements OnInit {
    * @type {ListOfBooks[]} to store the books read info inside it
    * @memberof ProfileReadShelfComponent
    */
+  private listReadingUpdated = new Subject<ListOfBooks[]>();
+  private listReadUpdated = new Subject<ListOfBooks[]>();
+  private listWanttoReadUpdated = new Subject<ListOfBooks[]>();
   listOfBooksRead: ListOfBooks[] = [];
   bookRoute: string;
 
@@ -51,7 +55,8 @@ export class ProfileReadShelfComponent implements OnInit {
    */
   OnClick_Remove(index: ListOfBooks) {                           // to increment the number of books currently reading on click
     this.countBooksService.Remove_Book(index);
-    this.get_ListRead_observed();
+    this.listReadUpdated.next([...this.listOfBooksRead]);
+    this.listReadUpdated.asObservable();
   }
   
 get_ListRead_observed()

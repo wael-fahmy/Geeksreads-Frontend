@@ -57,7 +57,6 @@ export class AuthorService {
         }
       })
       .subscribe((serverResponse: AuthorModel) => {
-        console.log(serverResponse);
         this.author = serverResponse;
         this.authorUpdated.next(this.author);
       }
@@ -84,11 +83,10 @@ export class AuthorService {
       // .get('http://localhost:3000/api/books/author', {
       .get('https://geeksreads.herokuapp.com/api/books/author', {
         params: {
-        search_param: snapshotParam,
-      }})
+          search_param: snapshotParam
+        }
+      })
       .subscribe((serverResponse: any) => {
-        console.log(serverResponse);
-        // this.authorBooks[0] = serverResponse;
         this.authorBooks = serverResponse;
         this.authorBooksUpdated.next([...this.authorBooks]);
       }

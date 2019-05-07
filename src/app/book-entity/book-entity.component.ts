@@ -38,8 +38,6 @@ public author_details: AuthorDetails[] = [];
 book_index = 0;
 constructor(public booktitle_service: BookTitle_Service) { }
 ngOnInit() {
-    console.log(this.bookID);
-    console.log(this.bookauthorid);
     this.booktitle_service.get_book_Info(this.bookID);                            // to get the user info from the service
     // tslint:disable-next-line:variable-name
     this.Sub_profile = this.booktitle_service.get_book_Info_updated().subscribe((book_Information: BookDetails[]) => {
@@ -47,8 +45,7 @@ ngOnInit() {
       this.SetBookInfor();
       this.SplitString();
       this.SetRate();
-      localStorage.setItem('authorID', this.bookauthorid[this.book_index]);
-      localStorage.setItem('bookID', this.bookID);
+      localStorage.removeItem('bookID');
     });
   }
   SetBookInfor() {
@@ -58,11 +55,31 @@ ngOnInit() {
     this.bookstatus[this.book_index] = this.book_details[this.book_index].ReadStatus;
     this.bookbody[this.book_index] = this.book_details[this.book_index].Description;
     this.bookauthor[this.book_index] = this.book_details[this.book_index].AuthorName;
-    this.bookrate[this.book_index] = this.book_details[this.book_index].BookRating;
+    this.bookrate[this.book_index] = this.book_details[this.book_index].RateCount.toString();
+    this.assign_status(this.bookstatus[this.book_index]);
   }
   SetAuthorInfo() {
     this.bookauthor[this.book_index] = this.author_details[this.book_index].AuthorName;
     console.log(this.bookauthor[this.book_index]);
+  }
+  PostRate(rate: string) {
+    console.log(rate);
+    if (rate === 'rate-first') {
+      this.booktitle_service.post_book_rate(this.bookID, 1);
+      this.ngOnInit();
+    } else if (rate === 'rate-second') {
+      this.booktitle_service.post_book_rate(this.bookID, 2);
+      this.ngOnInit();
+    } else if (rate === 'rate-third') {
+      this.booktitle_service.post_book_rate(this.bookID, 3);
+      this.ngOnInit();
+    } else if (rate === 'rate-fourth') {
+      this.booktitle_service.post_book_rate(this.bookID, 4);
+      this.ngOnInit();
+    } else if (rate === 'rate-fifth') {
+      this.booktitle_service.post_book_rate(this.bookID, 5);
+      this.ngOnInit();
+    }
   }
   SplitString() {
       const ReadMoreBt = document.getElementById('myBtn-book-discription');
@@ -86,21 +103,21 @@ ngOnInit() {
     const rate2 = document.getElementById('star2');
     const rate3 = document.getElementById('star3');
     const rate4 = document.getElementById('star4');
-    if (this.bookrate[this.book_index].toString() === '1.0') {
+    if (this.bookrate[this.book_index].toString() === '1') {
       rate0.style.color = 'orange';
-    } else if (this.bookrate[this.book_index].toString() === '2.0') {
+    } else if (this.bookrate[this.book_index].toString() === '2') {
       rate0.style.color = 'orange';
       rate1.style.color = 'orange';
-    } else if (this.bookrate[this.book_index].toString() === '3.0') {
+    } else if (this.bookrate[this.book_index].toString() === '3') {
       rate0.style.color = 'orange';
       rate1.style.color = 'orange';
       rate2.style.color = 'orange';
-    } else if (this.bookrate[this.book_index].toString() === '4.0') {
+    } else if (this.bookrate[this.book_index].toString() === '4') {
       rate0.style.color = 'orange';
       rate1.style.color = 'orange';
       rate2.style.color = 'orange';
       rate3.style.color = 'orange';
-    } else if (this.bookrate[this.book_index].toString() === '5.0') {
+    } else if (this.bookrate[this.book_index].toString() === '5') {
       rate0.style.color = 'orange';
       rate1.style.color = 'orange';
       rate2.style.color = 'orange';

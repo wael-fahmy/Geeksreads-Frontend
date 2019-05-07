@@ -12,8 +12,9 @@ export class BookDetailsComponent implements OnInit {
   /**
    *  Panel open state boolean
    */
+  ////////////////////////////////////////
   public panelOpenState: boolean;
-  bookID: string;
+  @Input() bookID: string;
   bdition: string [] = [];
   bASIN: string [] = [];
   btitle: string [] = [];
@@ -24,7 +25,6 @@ export class BookDetailsComponent implements OnInit {
   book_index = 0;
   constructor(public booktitle_service: BookTitle_Service) { }
   ngOnInit() {
-    this.bookID = localStorage.getItem('bookID');
     this.booktitle_service.get_book_Info(this.bookID);                            // to get the user info from the service
     // tslint:disable-next-line:variable-name
     this.Sub_profile = this.booktitle_service.get_book_Info_updated().subscribe((book_Information: BookDetails[]) => {

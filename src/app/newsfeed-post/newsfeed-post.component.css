@@ -17,7 +17,7 @@
 }
 
 .activity {
-    font-size: 115%;
+    font-size: 140%;
     position: relative;
     padding-top: -2;
     border-top: 10px;
@@ -50,6 +50,42 @@
     font-size: 12px;
     cursor: pointer;
 }
+#Reading {
+    background-color: rgb(34, 58, 122);
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    cursor: pointer;
+}
+#null {
+    background-color: rgb(34, 58, 122);
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    cursor: pointer;
+}
+#Read {
+    background-color: rgb(95, 10, 4);
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+
+
 
 .author-name-style {
     color: grey;

@@ -50,6 +50,7 @@ export class RowServices {
         console.log(serverResponse);
         this.Row = serverResponse;
         this.rowUpdated.next(this.Row);
+        
       }, (error: { json: () => void; }) => {
         console.log(error);
       });

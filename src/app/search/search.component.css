@@ -1,3 +1,7 @@
+img {
+    max-width: 100px;
+}
+
 .nav-margin {
     height: 64px;
 }
@@ -8,6 +12,10 @@ hr {
 
 .nav-bar-margin {
     height: 65px;
+}
+
+.author-book {
+    cursor: pointer;
 }
 
 .author-book-header {

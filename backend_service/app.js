@@ -629,7 +629,7 @@ app.use("/api/users/info", (req, res, next) => {
 //this function gets user info from the backend to update newsfeed
 app.use("/api/newsfeed", (req, res, next) => {
     const Post = {
-        StatusType: 'comment',
+        StatusType: 'Comment',
         StatusId: '5678',
         UserId: '102982',
         CommentId: '939820',
@@ -644,9 +644,18 @@ app.use("/api/newsfeed", (req, res, next) => {
         ReviewBody: 'It was really bad.',
         ReviewDate: 'about 12 hours ago',
         ReviewLikesCount: '0',
-        MakerId: '12345',
-        MakerPhoto: 'https://via.placeholder.com/86x120',
-        MakerName: 'Abdullah'
+        ReviewMakerId: '12345',
+        ReviewMakerPhoto: 'https://via.placeholder.com/86x120',
+        ReviewMakerName: 'Abdullah',
+        CommentMakerId :'57447',
+        CommentMakerPhoto:'https://via.placeholder.com/86x120',
+        CommentMakerName: 'Hunya',
+        BookStatus: 'Read',
+       ReviewIsLiked: 'true', 
+       AuthorName: 'kyaraaa',
+       AuthorId:'123',
+
+        
     };
     res.status(200).json({
         message: "User fetched successfully!",
@@ -670,7 +679,7 @@ app.use("/api/genres", (req, res, next) => {
 app.post("/api/sign-in", (req, res, next) => {
     email = "omar@gmail.com";
     pass = "1234";
-
+    localStorage.setItem('token', 12345);
     console.log('data', req.body)
 
     if ((req.body.email == email) & (pass == req.body.pass))

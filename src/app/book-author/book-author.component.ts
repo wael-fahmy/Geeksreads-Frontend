@@ -1,8 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { AuthorDetails } from './book-author.model';
 import { Subscription } from 'rxjs';
+import { Book } from '../book/book.model';
+import { Book_Service } from '../book/book.service';
 import { AuthorDetails_Service } from './book-author.service';
 import { delay } from 'q';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-book-author',
@@ -20,6 +23,8 @@ export class BookAuthorComponent implements OnInit {
    * @type {string []}
    * @memberof BookAuthorComponent
    */
+  @Input() BookID: string;
+  authid: string;
   authorname: string [] = [];
   /**
    *
@@ -96,6 +101,8 @@ public after_dots: string [] = [];
    * @memberof BookAuthorComponent
    */
   public author_details: AuthorDetails[] = [];
+  private book_details: Book[] = [];
+  public follow: AuthorDetails;
   // tslint:disable-next-line:variable-name
   /**
    *
@@ -109,33 +116,53 @@ public after_dots: string [] = [];
    * @param {AuthorDetails_Service} authordetails_service
    * @memberof BookAuthorComponent
    */
-  constructor(public authordetails_service: AuthorDetails_Service) { }
+  constructor(public authordetails_service: AuthorDetails_Service, public booktitle_service: Book_Service,
+              public router: Router) { }
   /**
    *
    * function used to read author list from services.ts
    * @memberof BookAuthorComponent
    */
   ngOnInit() {
-    const author = localStorage.getItem('authorID');
-    this.authordetails_service.get_author_Info(author);                                  // to get the user info from the service
+    let auth;
+    this.booktitle_service.get_book_Info(this.BookID);                            // to get the user info from the service
+    // tslint:disable-next-line:variable-name
+    this.Sub_profile = this.booktitle_service.get_book_Info_updated().subscribe((book_Information: Book[]) => {
+      this.book_details = book_Information;
+      auth = this.book_details[0].AuthorId;
+      this.authordetails_service.get_author_Info(auth);
+    });                              // to get the user info from the service
     // tslint:disable-next-line:variable-name
     this.Sub_profile = this.authordetails_service.get_author_details_updated().subscribe((author_Information: AuthorDetails[]) => {
       this.author_details = author_Information;
       this.SplitString(this.author_details[0].About);
       this.SetElements();
-      /* console.log(this.User_info.User_Name)
-      console.log(this.User_info.user_id)
-      console.log(this.User_info.User_Photo)*/
+      this.SetFollow(author_Information);
+      localStorage.removeItem('authorID');
     });
   }
-  /**
-   *
-   * function to follow author
-   * @memberof BookAuthorComponent
-   */
+  SetFollow(author: AuthorDetails []) {
+    const userid = localStorage.getItem('userId');
+// tslint:disable-next-line: prefer-for-of
+    for (let i = 0; i < author[0].FollowingUserId.length; i++) {
+      if (author[0].FollowingUserId[i] === userid) {
+        this.authorIsFollowing = true;
+        console.log('already followed this author');
+        return;
+      }
+    }
+    this.authorIsFollowing = false;
+  }
   followAuthor() {
     // TODO: Send request
-    this.authorIsFollowing = true;
+// tslint:disable-next-line: prefer-for-of
+    const userid = localStorage.getItem('userId');
+// tslint:disable-next-line: prefer-for-of
+    for (let i = 0; i < this.author_details[0].FollowingUserId.length; i++) {
+      if (this.author_details[0].FollowingUserId[i] === userid) {
+        return;
+      }
+    }
     const number = document.getElementById('number-followers');
 // tslint:disable-next-line: radix
     let x = number.innerHTML.toString();
@@ -143,11 +170,23 @@ public after_dots: string [] = [];
     let y = parseInt(x);
     y = y + 1;
     x = y.toString();
-    number.innerHTML = x;
-    console.log(this.authorid[this.author_index]);
+    //number.innerHTML = x;
     this.authordetails_service.post_author_follow(this.authorid[this.author_index]);
-    //this.authorNumberOfFollowers += 1;
-    console.log('Following this author');
+    //this.authorfollowers[0] = this.GetNumberOfFollowers();
+    //number.innerHTML = x;
+    this.ngOnInit();
+  }
+    GetNumberOfFollowers(): string {
+      this.authordetails_service.get_author_Info(this.authorid[this.author_index]);
+      this.Sub_profile = this.authordetails_service.get_author_details_updated()
+      .subscribe((authorInformation: AuthorDetails[]) => {
+        this.author_details = authorInformation;
+        this.SetFollow(authorInformation);
+        return authorInformation[0].FollowingUserId.length.toString();
+      }, (error: { json: () => void; }) => {
+        console.log(error);
+      });
+      return '';
   }
   Clear_Storage() {
     localStorage.removeItem('ISBN');
@@ -165,7 +204,6 @@ public after_dots: string [] = [];
    */
   unfollowAuthor() {
     // TODO: Send request
-    this.authorIsFollowing = false;
     // this.authorNumberOfFollowers -= 1;
     const number = document.getElementById('number-followers');
 // tslint:disable-next-line: radix
@@ -174,12 +212,10 @@ public after_dots: string [] = [];
     let y = parseInt(x);
     y = y - 1;
     x = y.toString();
-    number.innerHTML = x;
-    this.authordetails_service.post_author_unfollow(this.authorid[this.author_index], this.userid[this.author_index]);
-    console.log('Unfollowing this author');
-  }
-  GetAuthorByID() {
-    this.authordetails_service.post_author_id(this.authorid[this.author_index]);
+    this.authordetails_service.post_author_unfollow(this.authorid[this.author_index]);
+    //this.authorfollowers[0] = this.GetNumberOfFollowers();
+    //number.innerHTML = x;
+    this.ngOnInit();
   }
   /**
    *
@@ -192,8 +228,6 @@ public after_dots: string [] = [];
     this.after_dots[0] = word[1];
     const ReadMoreBt = document.getElementById('myBtn-author-discription');
     const ReadMoreDot = document.getElementById('dots-author-discription');
-    console.log(this.author_details[0]);
-    console.log(this.befor_dots[0].length);
     const check = this.author_details[0].About.split(' ');
     if (check.length < 15) {
       ReadMoreBt.style.display = 'none';
