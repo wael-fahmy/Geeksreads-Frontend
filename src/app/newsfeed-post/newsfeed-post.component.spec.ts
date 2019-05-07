@@ -32,12 +32,12 @@ describe('NewsfeedPostComponent', () => {
   });
   it('checks that the username is mohamed ', () => {
     fixture.whenStable().then(() => {
-      expect(component.username).toContain('Mohamed');
+      expect(component.userName).toContain('Mohamed');
     });
   });
   it('checks that the username is mohamed ', () => {
       fixture.whenStable().then(() => {
-        expect(component.username).toContain('Mohamed');
+        expect(component.userName).toContain('Mohamed');
       });
     });
   it('checks that the bookname is A Tale of Two Cities ', () => {
