@@ -8,11 +8,11 @@
 <div *ngIf="PostObj?.length > 0">
     <div *ngFor=" let i of PostObj">
         <div *ngIf=" i.StatusType === 'Comment' ">
-            <app-newsfeed-comment-post [userName]="i.CommentMakerName" [activityDate]="i.CommentDate" [comment]="i.CommentBody" [makerImage]="i.CommentMakerPhoto"  ></app-newsfeed-comment-post> 
+            <app-newsfeed-comment-post [userName]="i.CommentMakerName" [activityDate]="i.CommentDate" [comment]="i.CommentBody" [makerImage]="i.CommentMakerPhoto" [userId]="i.CommentMakerId" [commentId]="i.CommentId" ></app-newsfeed-comment-post> 
         </div>
         <div *ngIf=" i.StatusType === 'Review' ">
  
-    <app-newsfeed-post  [userName]="i.ReviewMakerName" [NumberOfStars]="i.NumberOfStars" [activityDate]="i.ReviewDate" [bookimage]="i.BookPhoto" [bookname]="i.BookName" [authorname]="i.AuthorName" [bookstatus]="i.BookStatus" [review]="i.ReviewBody" [makerImage]="i.ReviewMakerPhoto" ></app-newsfeed-post>
+    <app-newsfeed-post  [userName]="i.ReviewMakerName" [NumberOfStars]="i.NumberOfStars" [activityDate]="i.ReviewDate" [bookimage]="i.BookPhoto" [bookname]="i.BookName" [authorname]="i.AuthorName" [bookstatus]="i.BookStatus" [review]="i.ReviewBody" [makerImage]="i.ReviewMakerPhoto" [userId]="i.ReviewMakerId" [authorId]="i.AuthorId" ></app-newsfeed-post>
         </div>
     </div>
 </div>
