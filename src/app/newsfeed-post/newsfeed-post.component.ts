@@ -1,9 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Subscription } from 'rxjs';
-import { PostsServices } from '../newsfeed/newsfeed-main.service';
 import { Post } from '../newsfeed/newsfeed-main.model';
-import { BookDetailsComponent } from '../book-details/book-details.component';
-import { AddToShelfService } from './add-to-shelf.service';
+import { Subscription } from 'rxjs';
 
 /**
  *  Newsfeed post component
@@ -19,44 +16,99 @@ import { AddToShelfService } from './add-to-shelf.service';
 
 export class NewsfeedPostComponent implements OnInit {
 
-  @Input() userName: string;
+  /**
+   * Number of Stars
+   * @type {*}
+   * @memberof NewsfeedPostComponent
+   */
   @Input() NumberOfStars: any;
+
+  /**
+   * Activity Date
+   * @type {string}
+   * @memberof NewsfeedPostComponent
+   */
   @Input() activityDate: string;
-  @Input() bookimage: any;
-  @Input() bookname: any;
+
+  /**
+   * Author ID
+   * @type {string}
+   * @memberof NewsfeedPostComponent
+   */
+  @Input() authorId: string;
+
+  /**
+   * Author Name
+   * @type {*}
+   * @memberof NewsfeedPostComponent
+   */
   @Input() authorname: any;
-  @Input() bookstatus: any;
-  @Input() review: string;
-  @Input() makerImage: string;
+
+  /**
+   * Book ID
+   * @type {string}
+   * @memberof NewsfeedPostComponent
+   */
   @Input() bookId: string;
-  @Input() authorId: string; 
-  @Input() userId: string; 
- 
 
   /**
-   *  This is the constructor of the component class, it makes an instance of the posts service class
-   *  @private
-   *  @type {Subscription}
-   *  @memberof NewsfeedPostComponent
-   */
-  private subprofile: Subscription;
-
-  /**
-   *
-   * Post object to fill data
-   * @type {Post}
+   * Book Image
+   * @type {*}
    * @memberof NewsfeedPostComponent
    */
-  PostObj: Post[] = [];
+  @Input() bookimage: any;
 
-
-   constructor(private addToShelfService: AddToShelfService) { }
-  
   /**
-   * The  functions created in the service are implemented here
-   *
+   * Book Name
+   * @type {*}
    * @memberof NewsfeedPostComponent
    */
-  ngOnInit() {  
-  }
+  @Input() bookname: any;
+
+  /**
+   * Book Status
+   * @type {*}
+   * @memberof NewsfeedPostComponent
+   */
+  @Input() bookstatus: any;
+
+  /**
+   * Maker Image
+   * @type {string}
+   * @memberof NewsfeedPostComponent
+   */
+  @Input() makerImage: string;
+
+  /**
+   * Review
+   * @type {string}
+   * @memberof NewsfeedPostComponent
+   */
+  @Input() review: string;
+
+  /**
+   * Review
+   * @type {string}
+   * @memberof NewsfeedPostComponent
+   */
+  @Input() userId: string;
+
+  /**
+   * User Name
+   * @type {string}
+   * @memberof NewsfeedPostComponent
+   */
+  @Input() userName: string;
+
+  /**
+   * Creates an instance of NewsfeedPostComponent.
+   * @memberof NewsfeedPostComponent
+   */
+  constructor() { }
+
+  /**
+   * Angular Init
+   * @memberof NewsfeedPostComponent
+   */
+  ngOnInit() { }
 }

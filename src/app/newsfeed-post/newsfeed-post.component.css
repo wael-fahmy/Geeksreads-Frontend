@@ -1,6 +1,11 @@
 .activity-card {
-    width: 600px;
-    margin: 10px 0;
+    width: 60%;
+    margin: 10px auto;
+}
+
+.user-name {
+    color: blue;
+    cursor: pointer;
 }
 
 .activity-header-image {
@@ -28,6 +33,7 @@
     width: 100px;
     height: 100px;
     margin: 0 !important;
+    cursor: pointer;
 }
 
 .example-button-row button,
@@ -50,6 +56,7 @@
     font-size: 12px;
     cursor: pointer;
 }
+
 #Reading {
     background-color: rgb(34, 58, 122);
     border: none;
@@ -61,6 +68,7 @@
     font-size: 12px;
     cursor: pointer;
 }
+
 #null {
     background-color: rgb(34, 58, 122);
     border: none;
@@ -72,6 +80,7 @@
     font-size: 12px;
     cursor: pointer;
 }
+
 #Read {
     background-color: rgb(95, 10, 4);
     border: none;
@@ -84,9 +93,6 @@
     cursor: pointer;
 }
 
-
-
-
 .author-name-style {
     color: grey;
     font-size: 18px;
@@ -95,6 +101,7 @@
 .book-name-style {
     color: black;
     font-size: 22px;
+    cursor: pointer;
 }
 
 .book-details {
@@ -116,6 +123,11 @@
 .stars {
     margin-left: 15px;
 }
-.subtitle{
-    margin-left: 10px ; 
+
+.subtitle {
+    margin-left: 10px;
 }
+
+.pointer {
+    cursor: pointer;
+  }
