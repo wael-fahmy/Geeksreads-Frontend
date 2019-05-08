@@ -1,5 +1,5 @@
+import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-
 /**
  *
  * Genre Component
@@ -14,52 +14,42 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./genre.component.css']
 })
 
-
 export class GenreComponent implements OnInit {
-
+  snapshotParam = 'initial value';
   /**
-   *
    * Specific Genre
    * @memberof GenreComponent
    */
   specificgenre;
 
-  genreType1 = 'Thriller';
+  genreType1;
 
+  showDiv: boolean;
 
-    showDiv: boolean;
+  hideButton = false;
 
-    hideButton: boolean =  false;
-    showLess: boolean = false;
+  showLess = false;
 
   /**
    *  Creates an instance of GenreComponent.
    *  @memberof GenreComponent
    */
-  constructor() { }
+  constructor(private route: ActivatedRoute) { }
 
   See_more_genres() {
     console.log('Loading more genres ... ');
 
     this.showDiv = true;
     this.hideButton = true;
-    this.showLess = true ;
- }
-//  Show_less(){
-
-//    this.showLess = false;
-//    this.hideButton = true;
-//    this.showDiv = false;
-//  }
-
+    this.showLess = true;
+  }
 
   /**
-   *
    * Angular Init
    * @memberof GenreComponent
    */
   ngOnInit() {
-
+    this.snapshotParam = this.route.snapshot.paramMap.get('genreName');
+    this.genreType1 = this.snapshotParam;
   }
-
 }

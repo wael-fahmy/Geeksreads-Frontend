@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
 /**
- *
  * Genres Component
  * @export
  * @class GenresComponent
@@ -23,16 +22,13 @@ export class GenresComponent implements OnInit {
    *  Creates an instance of GenresComponent.
    *  @memberof GenresComponent
    */
-  constructor() { 
-    
-  }
+  constructor() {}
 
-  
   /**
    *
    * Angular Init
    * @memberof GenresComponent
    */
   ngOnInit() { }
- 
+
 }

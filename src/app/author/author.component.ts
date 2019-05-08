@@ -139,10 +139,10 @@ export class AuthorComponent implements OnInit {
    *  @memberof AuthorComponent
    */
   constructor(private route: ActivatedRoute,
-              private router: Router,
-              public authorFollowService: AuthorFollowService,
-              public authorService: AuthorService,
-              public authorUnfollowService: AuthorUnfollowService) { }
+    private router: Router,
+    public authorFollowService: AuthorFollowService,
+    public authorService: AuthorService,
+    public authorUnfollowService: AuthorUnfollowService) { }
 
   /**
    *  Author component initialization
