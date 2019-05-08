@@ -19,8 +19,8 @@
         </div>
         <span *ngIf="!isSignedIn" class="nav-link" id="sign-in-link"><a routerLink="/sign-in">Sign In</a></span>
         <span *ngIf="!isSignedIn" class="nav-link" id="sign-up-link"><a routerLink="/sign-up">Join</a></span>
-        <button *ngIf="isSignedIn" mat-icon-button [matMenuTriggerFor]="notificationMenu" id="notifications-button">
-            <mat-icon>notifications</mat-icon>
+        <button *ngIf="isSignedIn" mat-icon-button [matMenuTriggerFor]="notificationMenu" id="notifications-button" (click)="clearNotificationNumber()">
+            <mat-icon>notifications</mat-icon><span id="notification-number">{{unseenNotifications}}</span>
           </button>
         <mat-menu #notificationMenu="matMenu">
             <div *ngFor="let i of notificationsModel">

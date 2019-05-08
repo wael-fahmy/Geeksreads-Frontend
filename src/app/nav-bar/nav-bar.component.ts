@@ -104,6 +104,10 @@ export class NavBarComponent implements OnInit {
    */
   public notificationsModel: NotificationModel[] = [];
 
+  clearNotificationNumber() {
+    this.unseenNotifications = 0;
+  }
+
   /**
    * Search using query
    * @param {*} formData
@@ -136,6 +140,7 @@ export class NavBarComponent implements OnInit {
     this.notificationSubscription = this.notificationService.getNotificationUpdated()
       .subscribe((notificationInformation: NotificationModel[]) => {
         this.notificationsModel = notificationInformation;
+        this.unseenNotifications = this.notificationsModel.length
       }, (error: { json: () => void; }) => {
         console.log(error);
       });

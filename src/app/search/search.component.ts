@@ -1,5 +1,5 @@
-import { ActivatedRoute, Router } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { SearchModel } from './search-model';
 import { SearchService } from './search.service';
 import { Subscription } from 'rxjs';
@@ -17,6 +17,13 @@ import { Subscription } from 'rxjs';
 })
 
 export class SearchComponent implements OnInit {
+
+  /**
+   * To enable refresh
+   * @memberof SearchComponent
+   */
+  navigationSubscription;
+
   /**
    * Search Term from URL
    * @memberof SearchComponent
@@ -53,7 +60,17 @@ export class SearchComponent implements OnInit {
    */
   constructor(public searchService: SearchService,
               private readonly route: ActivatedRoute,
-              private readonly router: Router) { }
+              private readonly router: Router) {
+                this.navigationSubscription = this.router.events.subscribe((e: any) => {
+                  if (e instanceof NavigationEnd) {
+                    this.initialiseInvites();
+                  }
+                })
+              }
+
+  initialiseInvites() {
+    this.ngOnInit();
+  }
 
   /**
    * Angular Init
