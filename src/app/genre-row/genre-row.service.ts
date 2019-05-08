@@ -1,9 +1,8 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Subject, Observable } from 'rxjs';
 import { Row } from './genre-row.model';
-import { GenreRowComponent } from './genre-row.component';
-
+import { Subject, Observable } from 'rxjs';
+import { Router } from '@angular/router';
 /**
  *
  * Injectable
@@ -18,7 +17,7 @@ export class RowServices {
    * @param {HttpClient} http
    * @memberof RowServices
    */
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router: Router) { }
 
   /**
    * Row
@@ -45,12 +44,11 @@ export class RowServices {
         Genre: genre,
       }
     }).subscribe((serverResponse: Row[]) => {
-      console.log(genre);
       this.Row = serverResponse;
-      console.log(this.Row);
       this.rowUpdated.next(this.Row);
     }, (error: { json: () => void; }) => {
       console.log(error);
+      this.router.navigate(['/homepage']);
     });
   }
 

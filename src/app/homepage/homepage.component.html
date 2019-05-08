@@ -1,72 +1,69 @@
 <div class="nav-margin"></div>
 <div class="top-section">
-  <div class="child-section"></div>
+    <div class="child-section"></div>
 </div>
 
 <div class="box-container">
-  <div class="header-container">
-    <div class="content">
-      <h4>Deciding what to read next?</h4>
-      <p>
-        You are in the right place. Tell us what titles or genres you have
-        enjoyed in the past and we will give you surprisingly insightful
-        recommendations
-      </p>
+    <div class="header-container">
+        <div class="content">
+            <h4>Deciding what to read next?</h4>
+            <p>
+                You are in the right place. Tell us what titles or genres you have enjoyed in the past and we will give you surprisingly insightful recommendations
+            </p>
+        </div>
+        <div class="content">
+            <h4>What are your friends reading?</h4>
+            <p>
+                Chances are your friends are discussing their favourite (and least favourite) books on Geeks Reads
+            </p>
+        </div>
     </div>
-    <div class="content">
-      <h4>What are your friends reading?</h4>
-      <p>
-        Chances are your friends are discussing their favourite (and least
-        favourite) books on Geeks Reads
-      </p>
+    <div class="books-container round">
+        <h4>What will you discover?</h4>
+        <h6>Because Omar Liked</h6>
+        <div class="books-list">
+            <div class="book" *ngFor="let book of books">
+                <a [routerLink]="['/book', book.url]"><img [src]="book.img" /></a>
+            </div>
+        </div>
     </div>
-  </div>
-  <div class="books-container round">
-    <h4>What will you discover?</h4>
-    <h6>Because Omar Liked</h6>
-    <div class="books-list">
-      <div class="book" *ngFor="let book of books">
-        <a [routerLink]="['/book', book.url]"><img [src]="book.img"/></a>
-      </div>
-    </div>
-  </div>
-  <!-- <hr> -->
+    <!-- <hr> -->
 </div>
 <div class="links-container">
-  <div class="types">
-    <ul>
-      <li><a routerLink="/homepage">Art</a></li>
-      <li><a routerLink="/homepage">Bigraphy</a></li>
-      <li><a routerLink="/homepage">Business</a></li>
-      <li><a routerLink="/homepage">Children's</a></li>
-      <li><a routerLink="/homepage">Christian</a></li>
-      <li><a routerLink="/homepage">Classics</a></li>
-      <li><a routerLink="/homepage">Comics</a></li>
-      <li><a routerLink="/homepage">Cookbooks</a></li>
-    </ul>
-  </div>
-  <div class="types">
-    <ul>
-      <li><a routerLink="/homepage">Ebooks</a></li>
-      <li><a routerLink="/homepage">Fantasy</a></li>
-      <li><a routerLink="/homepage">Fiction</a></li>
-      <li><a routerLink="/homepage">Graphic Novels</a></li>
-      <li><a routerLink="/homepage">Historical Fiction</a></li>
-      <li><a routerLink="/homepage">History</a></li>
-      <li><a routerLink="/homepage">Horror</a></li>
-      <li><a routerLink="/homepage">Memoir</a></li>
-    </ul>
-  </div>
-  <div class="types">
-    <ul>
-      <li><a routerLink="/homepage">Music</a></li>
-      <li><a routerLink="/homepage">Mystery</a></li>
-      <li><a routerLink="/homepage">Non Fiction</a></li>
-      <li><a routerLink="/homepage">Poetry</a></li>
-      <li><a routerLink="/homepage">Psyhology</a></li>
-      <li><a routerLink="/homepage">Romance</a></li>
-      <li><a routerLink="/homepage">Science</a></li>
-      <li><a routerLink="/homepage">Science Fiction</a></li>
-    </ul>
-  </div>
+    <div class="types">
+        <ul>
+            <li><a [routerLink]="['/genre', 'Art']">Art</a></li>
+            <li><a [routerLink]="['/genre', 'Bigraphy']">Bigraphy</a></li>
+            <li><a [routerLink]="['/genre', 'Business']">Business</a></li>
+            <li><a [routerLink]="['/genre', 'Children']">Children's</a></li>
+            <li><a [routerLink]="['/genre', 'Christian']">Christian</a></li>
+            <li><a [routerLink]="['/genre', 'Classics']">Classics</a></li>
+            <li><a [routerLink]="['/genre', 'Comedy']">Comedy</a></li>
+            <li><a [routerLink]="['/genre', 'Crime']">Crime</a></li>
+        </ul>
+    </div>
+    <div class="types">
+        <ul>
+            <li><a [routerLink]="['/genre', 'Ebooks']">Ebooks</a></li>
+            <li><a [routerLink]="['/genre', 'Fantasy']">Fantasy</a></li>
+            <li><a [routerLink]="['/genre', 'Fiction']">Fiction</a></li>
+            <li><a [routerLink]="['/genre', 'Graphic Novels']">Graphic Novels</a></li>
+            <li><a [routerLink]="['/genre', 'Historical Fiction']">Historical Fiction</a></li>
+            <li><a [routerLink]="['/genre', 'History']">History</a></li>
+            <li><a [routerLink]="['/genre', 'Horror']">Horror</a></li>
+            <li><a [routerLink]="['/genre', 'Memoir']">Memoir</a></li>
+        </ul>
+    </div>
+    <div class="types">
+        <ul>
+            <li><a [routerLink]="['/genre', 'Music']">Music</a></li>
+            <li><a [routerLink]="['/genre', 'Mystery']">Mystery</a></li>
+            <li><a [routerLink]="['/genre', 'Nonfiction']">Non Fiction</a></li>
+            <li><a [routerLink]="['/genre', 'Poetry']">Poetry</a></li>
+            <li><a [routerLink]="['/genre', 'Psychology']">Psyhology</a></li>
+            <li><a [routerLink]="['/genre', 'Romance']">Romance</a></li>
+            <li><a [routerLink]="['/genre', 'Science']">Science</a></li>
+            <li><a [routerLink]="['/genre', 'Thriller']">Thriller</a></li>
+        </ul>
+    </div>
 </div>

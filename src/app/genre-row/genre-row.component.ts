@@ -22,7 +22,7 @@ export class GenreRowComponent implements OnInit {
 
   /**
    *
-   * ID of first book 
+   * ID of first book
    * @memberof GenreRowComponent
    */
   bookId1;
@@ -30,7 +30,7 @@ export class GenreRowComponent implements OnInit {
 
   /**
    *
-   * Id of second book 
+   * Id of second book
    * @memberof GenreRowComponent
    */
   bookId2;
@@ -38,7 +38,7 @@ export class GenreRowComponent implements OnInit {
 
   /**
    *
-   * ID of third book 
+   * ID of third book
    * @memberof GenreRowComponent
    */
   bookId3;
@@ -46,7 +46,7 @@ export class GenreRowComponent implements OnInit {
 
   /**
    *
-   * Name of first book 
+   * Name of first book
    * @memberof GenreRowComponent
    */
   bookName1;
@@ -54,7 +54,7 @@ export class GenreRowComponent implements OnInit {
 
   /**
    *
-   * Name of second book 
+   * Name of second book
    * @memberof GenreRowComponent
    */
   bookName2;
@@ -62,7 +62,7 @@ export class GenreRowComponent implements OnInit {
 
   /**
    *
-  * Name of third book 
+   * Name of third book
    * @memberof GenreRowComponent
    */
   bookName3;
@@ -125,10 +125,6 @@ export class GenreRowComponent implements OnInit {
       this.bookName1 = this.RowObj[0].Title;
       this.bookName2 = this.RowObj[1].Title;
       this.bookName3 = this.RowObj[2].Title;
-
-
-
-
     });
   }
 }

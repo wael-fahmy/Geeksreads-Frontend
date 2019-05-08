@@ -73,7 +73,7 @@ const routes: Routes = [
     component: SignOutComponent
   },
   {
-    path: 'genre',
+    path: 'genre/:genreName',
     component: GenreComponent
   },
   {
