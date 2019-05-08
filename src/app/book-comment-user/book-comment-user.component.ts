@@ -3,6 +3,7 @@ import { Bookreviews } from './book-comment-user.model';
 import { Subscription } from 'rxjs';
 import { Bookreviews_Service } from './book-comment-user.service';
 import { DatePipe } from '@angular/common';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-book-comment-user',
@@ -34,7 +35,8 @@ public review_information: Bookreviews[] = [];
 public befor_dots: string [] = [];
 public after_dots: string [] = [];
 public load_more_reviews = 0;
-constructor(public bookreviews_service: Bookreviews_Service, render: Renderer2, private datePipe: DatePipe) { }
+constructor(public bookreviews_service: Bookreviews_Service, render: Renderer2, private datePipe: DatePipe,
+            public snackbar: MatSnackBar) { }
 
 ngOnInit() {
     this.bookreviews_service.get_review_Info(this.bookid);                                  // to get the user info from the service
@@ -67,6 +69,9 @@ ngOnInit() {
     date = date + 'T12:53:00.000Z';
     this.bookreviews_service.post_book_review(this.bookid, this.str, date, this.value);
     this.str = '';
-    console.log('review add success');
+    const snackbaref = this.snackbar.open('Review Has Been Added: Refresh Page', ' ' , {
+      horizontalPosition: 'end',
+      duration: 2000
+    });
   }
 }

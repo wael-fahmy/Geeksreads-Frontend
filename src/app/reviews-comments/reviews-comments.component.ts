@@ -45,9 +45,9 @@ constructor(public comments_service: CommentsDetails_Service, private datePipe: 
     date = date + 'T12:53:00.000Z';
     this.comments_service.post_Comment(this.str, this.ReviewID, this.BookID, date, this.Photo);
     const snackbaref = this.snackbar.open('Comment Has Been Added', ' ' , {
-      horizontalPosition: 'end'
+      horizontalPosition: 'end',
+      duration: 2000
     });
-    delay(2000);
     this.str = '';
   }
   GetCommentsUpdated() {

@@ -6,6 +6,7 @@ import { Book_Service } from '../book/book.service';
 import { AuthorDetails_Service } from './book-author.service';
 import { delay } from 'q';
 import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material';
 /**
  *
  * class used to implement logic
@@ -154,7 +155,7 @@ public after_dots: string [] = [];
    * @memberof BookAuthorComponent
    */
   constructor(public authordetails_service: AuthorDetails_Service, public booktitle_service: Book_Service,
-              public router: Router) { }
+              public router: Router, public snackbar: MatSnackBar) { }
   /**
    *
    * function used to read author list from services.ts
@@ -190,7 +191,6 @@ public after_dots: string [] = [];
     for (let i = 0; i < author[0].FollowingUserId.length; i++) {
       if (author[0].FollowingUserId[i] === userid) {
         this.authorIsFollowing = true;
-        console.log('already followed this author');
         return;
       }
     }
@@ -222,6 +222,10 @@ public after_dots: string [] = [];
     //number.innerHTML = x;
     this.authordetails_service.post_author_follow(this.authorid[this.author_index]);
     //this.authorfollowers[0] = this.GetNumberOfFollowers();
+    const snackbaref = this.snackbar.open('Author Has Been Followed', ' ' , {
+      horizontalPosition: 'end',
+      duration: 2000
+    });
     //number.innerHTML = x;
     this.ngOnInit();
   }
@@ -275,6 +279,10 @@ public after_dots: string [] = [];
     this.authordetails_service.post_author_unfollow(this.authorid[this.author_index]);
     //this.authorfollowers[0] = this.GetNumberOfFollowers();
     //number.innerHTML = x;
+    const snackbaref = this.snackbar.open('Author Has Been Unfollowed', ' ' , {
+      horizontalPosition: 'end',
+      duration: 2000
+    });
     this.ngOnInit();
   }
   /**

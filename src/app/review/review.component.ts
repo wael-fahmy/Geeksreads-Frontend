@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, ViewEncapsulation } from '@angular/core';
 import { ReviewService } from './review.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material';
 
 /**
  *
@@ -118,7 +119,7 @@ export class ReviewComponent implements OnInit {
    * @param {Router} router
    * @memberof ReviewComponent
    */
-  constructor(public ReviewServ: ReviewService, private router: Router) { }
+  constructor(public ReviewServ: ReviewService, private router: Router, public snackbar: MatSnackBar) { }
 
   /**
    *
@@ -251,10 +252,16 @@ SetLike() {
   LikeReview() {
     if (this.liked === false) {
       this.ReviewServ.post_Like_Review(this.reviewId);
-      location.reload();
+      const snackbaref = this.snackbar.open('Review Has Been Liked: Reload Page', ' ' , {
+        horizontalPosition: 'end',
+        duration: 2000
+      });
     } else if (this.liked === true) {
       this.ReviewServ.post_UnLike_Review(this.reviewId);
-      location.reload();
+      const snackbaref = this.snackbar.open('Review Has Been Liked: Reload Page', ' ' , {
+        horizontalPosition: 'end',
+        duration: 2000
+      });
     }
   }
 }
