@@ -3,6 +3,12 @@ import { ForgotPasswordService } from './forgot-password.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 
+/**
+ * Forgot Password Component
+ * @export
+ * @class ForgotPasswordComponent
+ * @implements {OnInit}
+ */
 @Component({
   selector: 'app-forgot-password',
   templateUrl: './forgot-password.component.html',
@@ -10,12 +16,31 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ForgotPasswordComponent implements OnInit {
 
+  /**
+   * Email Boolean
+   * @memberof ForgotPasswordComponent
+   */
   hide = true;
 
+  /**
+   * Was the request successful
+   * @type {boolean}
+   * @memberof ForgotPasswordComponent
+   */
   requestSuccess: boolean;
 
+  /**
+   * Form Group
+   * @type {FormGroup}
+   * @memberof ForgotPasswordComponent
+   */
   formdata: FormGroup;
 
+  /**
+   * Email
+   * @type {FormControl}
+   * @memberof ForgotPasswordComponent
+   */
   email: FormControl;
 
   /**
@@ -30,13 +55,33 @@ export class ForgotPasswordComponent implements OnInit {
         : '';
   }
 
+  /**
+   * Request Password
+   * @param {*} formData
+   * @memberof ForgotPasswordComponent
+   */
   requestNewPassword(formData) {
-    this.forgotPasswordService.forgotPassword(formData.email);
+    try {
+      this.forgotPasswordService.forgotPassword(formData.email);
+    } catch (error) {
+      this.requestSuccess = false;
+      return;
+    }
     this.requestSuccess = true;
   }
 
+  /**
+   * Creates an instance of ForgotPasswordComponent.
+   * @param {HttpClient} http
+   * @param {ForgotPasswordService} forgotPasswordService
+   * @memberof ForgotPasswordComponent
+   */
   constructor(private http: HttpClient, public forgotPasswordService: ForgotPasswordService) { }
 
+  /**
+   * Angular Init
+   * @memberof ForgotPasswordComponent
+   */
   ngOnInit() {
     this.requestSuccess = false;
     this.email = new FormControl('', Validators.compose([
@@ -47,5 +92,4 @@ export class ForgotPasswordComponent implements OnInit {
       email: this.email,
     });
   }
-
 }

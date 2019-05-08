@@ -62,12 +62,6 @@ export class NavBarComponent implements OnInit {
       .subscribe((notificationInformation: NotificationModel[]) => {
         console.log(notificationInformation);
         this.notificationsModel = notificationInformation;
-        for (let i = 0; i < this.notificationsModel.length; i++) {
-          if (this.notificationsModel[i].Seen === false) {
-            this.unseenNotifications += 1;
-          }
-        }
-        console.log(this.unseenNotifications);
       }, (error: { json: () => void; }) => {
         console.log(error);
       });

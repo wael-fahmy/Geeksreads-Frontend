@@ -14,9 +14,15 @@ export class AppComponent implements OnInit {
 
   /**
    * Application Title
+   * @memberof AppComponent
    */
   title = 'geeksreads';
 
+  /**
+   * Scroll to top when routing
+   * @param {*} event
+   * @memberof AppComponent
+   */
   onActivate(event) {
     window.scroll(0, 0);
     // or document.body.scrollTop = 0;

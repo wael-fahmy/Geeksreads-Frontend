@@ -1,6 +1,7 @@
+import { AddToShelfService } from './add-to-shelf.service';
 import { Component, Input, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { AddToShelfService } from './add-to-shelf.service';
+
 /**
  *  Author Book Component
  *  @export
@@ -13,7 +14,6 @@ import { AddToShelfService } from './add-to-shelf.service';
   styleUrls: ['./author-book.component.css']
 })
 export class AuthorBookComponent implements OnInit {
-
   /**
    * Book image
    * @type {string}
@@ -68,6 +68,5 @@ export class AuthorBookComponent implements OnInit {
    *  Author component initialization
    *  @memberof AuthorBookComponent
    */
-  ngOnInit() {
-  }
+  ngOnInit() {}
 }

@@ -1,8 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { PasswordResetService } from './password-reset.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { PasswordResetService } from './password-reset.service';
 
+/**
+ * Password Reset Component
+ * @export
+ * @class PasswordResetComponent
+ * @implements {OnInit}
+ */
 @Component({
   selector: 'app-password-reset',
   templateUrl: './password-reset.component.html',
@@ -10,60 +16,78 @@ import { HttpClient } from '@angular/common/http';
 })
 export class PasswordResetComponent implements OnInit {
   /**
-   * Later
+   * Was the request successful
    * @type {boolean}
    * @memberof PasswordResetComponent
    */
-  hide = true;
-
   requestSuccess: boolean;
 
+  /**
+   * Form Group
+   * @type {FormGroup}
+   * @memberof PasswordResetComponent
+   */
   formdata: FormGroup;
 
-  email: FormControl;
-
+  /**
+   * Password Input
+   * @type {FormControl}
+   * @memberof PasswordResetComponent
+   */
   password: FormControl;
 
+  /**
+   * Token
+   * @type {FormControl}
+   * @memberof PasswordResetComponent
+   */
   token: FormControl;
 
   /**
-   * test request for sign in
-   * @memberof Password
+   *
+   * @param {*} formData
+   * @memberof PasswordResetComponent
    */
   updatePassword(formData) {
-    this.passwordResetService.updatePassword(formData.email, formData.password, formData.token);
+    try {
+      this.passwordResetService.updatePassword(formData.password, formData.token);
+    } catch (error) {
+      return;
+    }
     this.requestSuccess = true;
   }
 
-  getErrorMessage() {
-    return this.email.hasError('required')
-      ? 'You must enter a value'
-      : this.email.hasError('email')
-        ? 'Not a valid email'
-        : '';
-  }
-
+  /**
+   * Validate Password < 6
+   * @param {*} formcontrol
+   * @returns
+   * @memberof PasswordResetComponent
+   */
   passwordvalidation(formcontrol) {
     if (formcontrol.value.length < 6) {
       return { password: true };
     }
   }
 
+  /**
+   * Creates an instance of PasswordResetComponent.
+   * @param {HttpClient} http
+   * @param {PasswordResetService} passwordResetService
+   * @memberof PasswordResetComponent
+   */
   constructor(private http: HttpClient, public passwordResetService: PasswordResetService) { }
 
+  /**
+   * Angular Init
+   * @memberof PasswordResetComponent
+   */
   ngOnInit() {
     this.requestSuccess = false;
     this.password = new FormControl('', this.passwordvalidation);
     this.token = new FormControl('', Validators.required);
-    this.email = new FormControl('', Validators.compose([
-      Validators.required,
-      Validators.pattern('[^ @]*@[^ @]*\.[a-z]+')
-    ]));
     this.formdata = new FormGroup({
-      email: this.email,
       password: this.password,
       token: this.token
     });
   }
-
 }

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { DataSharingService } from '../nav-bar/data-sharing.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { MatSnackBar } from '@angular/material';
@@ -26,14 +25,28 @@ export class SignInComponent implements OnInit {
    */
   hide = true;
 
+  /**
+   * Form Group
+   * @type {FormGroup}
+   * @memberof SignInComponent
+   */
   formdata: FormGroup;
 
+  /**
+   * Email
+   * @type {FormControl}
+   * @memberof SignInComponent
+   */
   email: FormControl;
 
+  /**
+   * Password
+   * @type {FormControl}
+   * @memberof SignInComponent
+   */
   password: FormControl;
 
   /**
-   *
    * Checks email
    * @memberof SignInComponent
    */
@@ -46,16 +59,26 @@ export class SignInComponent implements OnInit {
   }
 
   /**
-   * test request for sign in
+   * SignIn Using Form
    * @memberof SignInComponent
    */
   signIn(formData) {
-    this.signInService.signIn(formData.email, formData.password);
-    this.snackBar.open('Redirecting', null, {
-      duration: 1500,
-    });
+    try {
+      this.signInService.signIn(formData.email, formData.password);
+    } catch (error) {
+      return;
+    }
+    // this.snackBar.open('Redirecting', null, {
+    //   duration: 1500,
+    // });
   }
 
+  /**
+   * Validate Passsword
+   * @param {*} formcontrol
+   * @returns
+   * @memberof SignInComponent
+   */
   passwordvalidation(formcontrol) {
     if (formcontrol.value.length < 6) {
       return { password: true };
@@ -74,8 +97,7 @@ export class SignInComponent implements OnInit {
               private snackBar: MatSnackBar) { }
 
   /**
-   *
-   * function called on initiallization
+   * Function called on initiallization
    * @memberof SignInComponent
    */
   ngOnInit() {

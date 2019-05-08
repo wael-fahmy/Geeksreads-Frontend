@@ -3,10 +3,22 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 
+/**
+ * SignIn Service
+ * @export
+ * @class SignInService
+ */
 @Injectable({
   providedIn: 'root'
 })
 export class SignInService {
+
+  /**
+   * SignIn
+   * @param {*} email
+   * @param {*} password
+   * @memberof SignInService
+   */
   signIn(email, password) {
     const data = {
       UserEmail: email,
@@ -21,7 +33,7 @@ export class SignInService {
         localStorage.setItem('userId', serverResponse.UserId);
         this.router.navigate(['/newsfeed']);
       }, (error: { json: () => void; }) => {
-        console.log(error.json);
+        console.log(error);
         alert(error['error']['ReturnMsg']);
       });
   }
