@@ -20,29 +20,104 @@ import { Subscription } from 'rxjs';
 })
 
 export class NavBarComponent implements OnInit {
+  /**
+   * Is a user signed in
+   * @type {boolean}
+   * @memberof NavBarComponent
+   */
   isSignedIn: boolean;
+
+  /**
+   * User Name
+   * @type {string}
+   * @memberof NavBarComponent
+   */
   userName: string;
+
+  /**
+   * Is there a token
+   * @type {boolean}
+   * @memberof NavBarComponent
+   */
   isToken: boolean;
+
+  /**
+   * Mobile Query
+   * @type {MediaQueryList}
+   * @memberof NavBarComponent
+   */
   mobileQuery: MediaQueryList;
+
+  /**
+   * How many notifications were unseen
+   * @memberof NavBarComponent
+   */
   unseenNotifications = 0;
 
-  // tslint:disable-next-line: variable-name
+  /**
+   * Mobile Listener
+   * @private
+   * @memberof NavBarComponent
+   */
   private _mobileQueryListener: () => void;
 
+  /**
+   * Form Group
+   * @type {FormGroup}
+   * @memberof NavBarComponent
+   */
   formdata: FormGroup;
+
+  /**
+   * Search Text
+   * @type {FormControl}
+   * @memberof NavBarComponent
+   */
   searchText: FormControl;
 
+  /**
+   * Form Group
+   * @type {FormGroup}
+   * @memberof NavBarComponent
+   */
   formdata2: FormGroup;
+
+  /**
+   * Search Text
+   * @type {FormControl}
+   * @memberof NavBarComponent
+   */
   searchText2: FormControl;
 
+  /**
+   * Notification Subscription
+   * @private
+   * @type {Subscription}
+   * @memberof NavBarComponent
+   */
   private notificationSubscription: Subscription;
 
+  /**
+   * Notifications Model
+   * @type {NotificationModel[]}
+   * @memberof NavBarComponent
+   */
   public notificationsModel: NotificationModel[] = [];
 
+  /**
+   * Search using query
+   * @param {*} formData
+   * @memberof NavBarComponent
+   */
   search(formData) {
     this.router.navigate(['/search', formData.searchText]);
   }
 
+  /**
+   * Search using query
+   * @param {*} formData2
+   * @memberof NavBarComponent
+   */
   search2(formData2) {
     this.router.navigate(['/search', formData2.searchText2]);
   }
@@ -67,7 +142,11 @@ export class NavBarComponent implements OnInit {
       });
   }
 
-  // tslint:disable-next-line: use-life-cycle-interface
+
+  /**
+   * Angular Destroy
+   * @memberof NavBarComponent
+   */
   ngOnDestroy(): void {
     // tslint:disable-next-line: deprecation
     this.mobileQuery.removeListener(this._mobileQueryListener);
@@ -92,7 +171,6 @@ export class NavBarComponent implements OnInit {
 
     this.mobileQuery = media.matchMedia('(max-width: 831px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
-    // tslint:disable-next-line: deprecation
     this.mobileQuery.addListener(this._mobileQueryListener);
   }
 
