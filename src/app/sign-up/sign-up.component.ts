@@ -72,7 +72,7 @@ export class SignUpComponent implements OnInit {
    * Tests the sign up component
    * @memberof SignUpComponent
    */
-  testRequest() {
+  sign_up() {
     // tslint:disable-next-line: deprecation
     // const data = new URLSearchParams();
     // data.append('userName', this.userName);
@@ -83,13 +83,13 @@ export class SignUpComponent implements OnInit {
       UserEmail: this.userEmail,
       UserPassword: this.userPassword
     };
-
     this.http
       .post('https://geeksreads.herokuapp.com/api/users/signup', data)
       .subscribe((serverResponse) => {
         this.router.navigate(['verification']);
       }, error => {
         console.log(error);
+        alert(error.error.ReturnMsg);
       });
   }
 
@@ -105,6 +105,10 @@ export class SignUpComponent implements OnInit {
    * function called on initiallization
    * @memberof SignUpComponent
    */
-  ngOnInit() { }
+  ngOnInit() {
+    if (localStorage.getItem('token') !== null) {
+      this.router.navigate(['/newsfeed']);
+    }
+  }
 
 }

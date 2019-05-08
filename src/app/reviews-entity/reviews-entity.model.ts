@@ -1,99 +1,74 @@
 /**
  *
- * struct of the recieved json
+ * json interface
  * @export
  * @interface ReviewDetails
  */
 export interface ReviewDetails {
     /**
      *
-     * variable used to carry the book title
+     * variable to carry book id
      * @type {string}
      * @memberof ReviewDetails
      */
-    book_title: string;
+    bookId: string;
     /**
      *
-     * variable used to carry the book image
-     * @type {string}
+     * variable to carry like count
      * @memberof ReviewDetails
      */
-    book_image: string;
+    likesCount;
     /**
      *
-     * variable used to carry the book author
+     * variable to carry user image
      * @type {string}
      * @memberof ReviewDetails
      */
-    book_author: string;
+    photo: string;
     /**
      *
-     * variable used to carry the book read date
-     * @type {string}
+     * variable to carry user rating
      * @memberof ReviewDetails
      */
-    book_read_date: string;
+    rating;
     /**
      *
-     * variable used to carry the book id
+     * variable to carry review body
      * @type {string}
      * @memberof ReviewDetails
      */
-    book_id: string;
+    reviewBody: string;
     /**
      *
-     * variable used to carry the reviewer id
-     * @type {string}
+     * variable to carry review date
      * @memberof ReviewDetails
      */
-    reviewer_id: string;
+    reviewDate;
     /**
      *
-     * variable used to carry the reviewer image
+     * variable to carry review id
      * @type {string}
      * @memberof ReviewDetails
      */
-    reviewer_image: string;
+    reviewId: string;
     /**
      *
-     * variable used to carry the reviewer rate
-     * @type {string}
+     * variable to carry shelf
      * @memberof ReviewDetails
      */
-    reviewer_rate: string;
+    shelf;
     /**
      *
-     * variable used to carry the reviewer name
+     * variable to carry user id
      * @type {string}
      * @memberof ReviewDetails
      */
-    reviewer_name: string;
+    userId: string;
     /**
      *
-     * variable used to carry the reviewer body
+     * variable to carry user name
      * @type {string}
      * @memberof ReviewDetails
      */
-    reviewer_body: string;
-    /**
-     *
-     * variable used to carry the reviewer likes
-     * @type {string}
-     * @memberof ReviewDetails
-     */
-    reviewer_likes: string;
-    /**
-     *
-     * variable used to carry the reviewer likes
-     * @type {string}
-     * @memberof ReviewDetails
-     */
-    reviewer_comments: string;
-    /**
-     *
-     * variable used to carry the reviewer date
-     * @type {string}
-     * @memberof ReviewDetails
-     */
-    reviewer_date: string;
+    userName: string;
 }

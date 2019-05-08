@@ -1,22 +1,26 @@
 <div class="genre-row">
-    <h2 class="genre-type">{{genretype}}</h2>
+    <div *ngIf="showGenreName === true">
+        <h2 class="genre-type">{{genreType}}</h2>
+    </div>
     <div class="books-container">
         <!--body of the the book row contains three books with a button underneath-->
-        <div class="book-entitiy">
-            <a href="#"><img mat-card-image class="book-image" src={{bookimage1}} alt="Photo of the book"></a>
-            <button class="book-button">want to read</button>
+        <div class="book-entitiy" [routerLink]="['/book',bookId1]">
+            <a [routerLink]="['/book',bookId1]"><img mat-card-image class="book-image" src={{bookImage1}} alt="Photo of the book"></a>
+            <a [routerLink]="['/book',bookId1]">
+                <p>{{bookName1}}</p>
+            </a>
         </div>
-        <div class="book-entitiy">
-            <a href="#"><img mat-card-image class="book-image" src={{bookimage2}} alt="Photo of the book"></a>
-            <button class="book-button">want to read</button>
+        <div class="book-entitiy" [routerLink]="['/book',bookId2]">
+            <a [routerLink]="['/book',bookId2]"><img mat-card-image class="book-image" src={{bookImage2}} alt="Photo of the book"></a>
+            <a [routerLink]="['/book',bookId2]">
+                <p>{{bookName2}}</p>
+            </a>
         </div>
-        <div class="book-entitiy">
-            <a href="#"><img mat-card-image class="book-image" src={{bookimage3}} alt="Photo of the book"></a>
-            <button class="book-button">want to read</button>
+        <div class="book-entitiy" [routerLink]="['/book',bookId3]">
+            <a [routerLink]="['/book',bookId3]"><img mat-card-image class="book-image" src={{bookImage3}} alt="Photo of the book"></a>
+            <a [routerLink]="['/book',bookId3]">
+                <p>{{bookName3}}</p>
+            </a>
         </div>
-    </div>
-    <div class="see-more-container">
-        <button mat-button class="see-more">See more</button>
     </div>
 </div>
-<hr>

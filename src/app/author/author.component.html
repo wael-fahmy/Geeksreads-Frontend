@@ -3,21 +3,23 @@
     <div class="author-header">
         <div class="author-stats">
             <div class="author-image">
-                <img src={{authorPicture}} alt="Author {{authorName}}'s Picture">
+                <img src={{authorModel?.Photo}} alt="Author {{authorModel?.AuthorName}}'s Picture">
             </div>
             <div class="author-info-details">
-                <h1 id="author-name">{{authorName}}</h1>
+                <h1 id="author-name">{{authorModel?.AuthorName}}</h1>
                 <button *ngIf=!authorIsFollowing id="author-follow" class="author-following-button" (click)="followAuthor()">Follow Author</button>
-                <button *ngIf=authorIsFollowing id="author-unfollow" class="author-following-button" (click)="unfollowAuthor()">Unollow Author</button>
+                <button *ngIf=authorIsFollowing id="author-unfollow" class="author-following-button" (click)="unfollowAuthor()">Unfollow Author</button>
                 <p><span id="author-followers">{{authorNumberOfFollowers}}</span> Followers</p>
             </div>
         </div>
         <div class="author-about">
-            <p id="author-details">{{authorDetails}}</p>
+            <p id="author-details">{{authorModel?.About}}</p>
         </div>
     </div>
     <hr>
-    <h2 class="author-books-header">{{authorName}}’s Books</h2>
-    <app-author-book></app-author-book>
-    <app-author-book></app-author-book>
+    <h2 class="author-books-header">{{authorModel?.AuthorName}}’s Books</h2>
+    <div *ngFor="let i of authorBooksModel">
+        <app-author-book [bookImage]="i.Cover" [bookName]="i.Title" [bookRating]="i.BookRating" [bookShelfStatus]="i.ReadStatus" [bookId]="i.BookId">
+        </app-author-book>
+    </div>
 </div>

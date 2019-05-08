@@ -50,7 +50,34 @@ export class ProfileEntityComponent implements OnInit {
    * @memberof ProfileEntityComponent
    */
   userName: string;
-
+  /**
+   * user email
+   *
+   * @type {string}
+   * @memberof ProfileEntityComponent
+   */
+  userEmail: string;
+  /**
+   * user followers
+   *
+   * @type {number}
+   * @memberof ProfileEntityComponent
+   */
+  userFollowers: number;
+  /**
+   * user followings
+   *
+   * @type {number}
+   * @memberof ProfileEntityComponent
+   */
+  userFollowing: number;
+  /**
+   * user birth date
+   *
+   * @type {string}
+   * @memberof ProfileEntityComponent
+   */
+  userBirthDay: string;
   /**
    * Creates an instance of ProfileEntityComponent.
    * @param {TitlesService} titlesService
@@ -67,12 +94,18 @@ export class ProfileEntityComponent implements OnInit {
    * @memberof ProfileEntityComponent
    */
   ngOnInit() {
-    this.titlesService.get_User_Info();                                  // to get the user info from the service
+    this.titlesService.get_User_Info();
+    //this.titlesService.get_user_info_mockup();                                  // to get the user info from the service
     this.subProfile = this.titlesService.get_User_Info_updated().       // once the class is initialized
       subscribe((userInformation: User) => {                            //  supscripe the value recieved
         this.userInfo = userInformation;
-        this.userCoverPhoto = this.userInfo.userPhoto;
-        this.userName = this.userInfo.userName;
+        this.userCoverPhoto = this.userInfo.Photo;
+        this.userName = this.userInfo.UserName;
+        this.userEmail = this.userInfo.UserEmail;
+        this.userFollowers = this.userInfo.NoOfFollowers;
+        this.userFollowing = this.userInfo.NoOfFollowings;
+       // this.userBirthDay = this.userInfo.UserBirthDate;
+       // console.log(this.userInfo.UserPhoto)
          /*console.log(this.userInfo.userName)
          console.log(this.userInfo.user_id)
          console.log(this.userInfo.User_Photo)*/

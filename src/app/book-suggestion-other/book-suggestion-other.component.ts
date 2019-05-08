@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { SuggestedBookDetails } from './book-suggestion-other.model';
 import { Subscription } from 'rxjs';
 import { SuggestedBook_Service } from './book-suggestion-other.service';
@@ -7,7 +7,8 @@ import { delay } from 'q';
 @Component({
   selector: 'app-book-suggestion-other',
   templateUrl: './book-suggestion-other.component.html',
-  styleUrls: ['./book-suggestion-other.component.css']
+  styleUrls: ['./book-suggestion-other.component.css'],
+  encapsulation: ViewEncapsulation.Emulated
 })
 export class BookSuggestionOtherComponent implements OnInit {
 

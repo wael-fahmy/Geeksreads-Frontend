@@ -1,18 +1,36 @@
 .example-card {
-  width: 600px;
-  margin: 0px;
-  }
-  
-  .example-header-image {
-    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
-    background-size: cover;
-  }
-  .header{
+    width: 60%;
+    margin: 5px auto;
+    background-color: whitesmoke;
+}
+
+.example-header-image {
+    max-width: 30px;
+    max-height: 30px;
+}
+
+.example-header-image img {
+    max-width: 30px;
+    max-height: 30px;
+}
+
+.header {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-  }
-  .activity{
-    color: brown ; 
-    margin: 0px 0 ; 
-  }
+}
+
+.activity {
+    color: brown;
+    margin: 0px 0;
+    display: flex;
+}
+
+.user-name {
+    color: blue;
+    cursor: pointer;
+}
+
+.pointer {
+  cursor: pointer;
+}

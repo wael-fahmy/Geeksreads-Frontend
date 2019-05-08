@@ -1,0 +1,70 @@
+#profile {
+    text-align: center;
+    margin-top: 80px;
+    
+}
+.photo {
+    max-width: 150px;
+    max-height: 150px;
+}
+#user-name {
+    font-family: 'Times New Roman', Times, serif;
+    color: cadetblue; 
+}
+#user-email {
+    font-family: 'Times New Roman', Times, serif;
+    color: cadetblue; 
+}
+#my-book {
+    font-family: 'Times New Roman', Times, serif;
+    margin-left: 10px;
+    margin-top: 10px;
+    font-size: 3rem;
+    color: cadetblue;    
+}
+#UnFollow-Button {
+    color: cadetblue;
+}
+#Follow-button {
+    color: aliceblue;
+    background-color: blue;
+}
+pre{
+    color: blue;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: large;
+    
+}
+
+
+h2{
+    margin-top: 90px;
+    color: cadetblue;
+}
+
+img{
+    margin-top: 1rem;
+    margin-right: 2rem;
+    margin-bottom: 2.5em;
+    
+}
+
+mat-list-item{
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+}
+
+
+#MENU{
+    margin-left: 2rem;
+    color:primary;
+}
+
+p{
+     margin-left: 20px;
+    
+}
+.checked
+{
+    color:orange;
+}

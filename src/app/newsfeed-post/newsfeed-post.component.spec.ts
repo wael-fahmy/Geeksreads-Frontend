@@ -27,7 +27,22 @@ describe('NewsfeedPostComponent', () => {
   });
 
   it('button should contain want to read', () => {
-    let button = fixture.debugElement.nativeElement.querySelector('button').textContent
-    expect(button).toContain('Want to read')
+    const button = fixture.debugElement.nativeElement.querySelector('button').textContent;
+    expect(button).toContain('Want to read');
   });
-});
+  it('checks that the username is mohamed ', () => {
+    fixture.whenStable().then(() => {
+      expect(component.userName).toContain('Mohamed');
+    });
+  });
+  it('checks that the username is mohamed ', () => {
+      fixture.whenStable().then(() => {
+        expect(component.userName).toContain('Mohamed');
+      });
+    });
+  it('checks that the bookname is A Tale of Two Cities ', () => {
+        fixture.whenStable().then(() => {
+          expect(component.bookname).toContain('A Tale of Two Cities');
+        });
+    });
+  });

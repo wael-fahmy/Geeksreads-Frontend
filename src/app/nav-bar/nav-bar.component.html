@@ -1,43 +1,77 @@
-<mat-toolbar>
-    <mat-toolbar-row>
+<div>
+    <mat-toolbar>
+        <button mat-icon-button id="hamburger-button" (click)="snav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
         <div class="nav-margin">
-            <span><a routerLink="/homepage"><img src="../../assets/logos/nav-logo.png" alt="Geeksreads main logo" id="nav-logo"></a></span>
+            <span><a routerLink="/homepage" id="homepage-route"><img src="../../assets/logos/nav-logo.png" alt="Geeksreads main logo"
+              id="nav-logo"></a></span>
             <span id="nav-links-container">
-        <span class="nav-link"><a routerLink="/newsfeed">Home</a></span>
-            <span class="nav-link"><a routerLink="/book">My Books</a></span>
-            <span class="nav-link"><a routerLink="/genres">Browse</a></span>
-            <form id="nav-search-bar">
+          <div class="main-links">
+            <span class="nav-link"><a routerLink="/newsfeed" id="newsfeed-route">Home</a></span>
+            <span class="nav-link"><a routerLink="/genres" id="genres-route">Browse</a></span>
+            <form id="nav-search-bar" [formGroup]="formdata" (ngSubmit)="search(formdata.value)">
                 <mat-form-field>
-                    <input type="search" matInput placeholder="Search">
+                    <input type="search" matInput placeholder="Search" id="search" name="searchText" formControlName="searchText">
                     <mat-icon matSuffix id="nav-search-bar-icon">search</mat-icon>
                 </mat-form-field>
             </form>
-            <span class="nav-link"><a routerLink="/sign-in">Sign In</a></span>
-            <span class="nav-link"><a routerLink="/sign-up">Join</a></span>
-            <button mat-icon-button [matMenuTriggerFor]="notificationMenu">
-          <mat-icon>notifications</mat-icon>
-        </button>
-            <mat-menu #notificationMenu="matMenu">
-                <div class="notification-instance">
-                    <p>This will be a component</p>
-                </div>
-                <hr>
-                <div class="notification-instance">
-                    <p>This too</p>
-                </div>
-            </mat-menu>
-            <button mat-icon-button [matMenuTriggerFor]="userMenu">
-        <mat-icon>person</mat-icon>
-      </button>
-            <mat-menu #userMenu="matMenu">
-                <div class="user-menu">
-                    <p>Geek</p>
-                    <a routerLink="/profile">Profile</a>
-                    <hr>
-                    <a routerLink="/sign-out">Sign Out</a>
-                </div>
-            </mat-menu>
-            </span>
         </div>
-    </mat-toolbar-row>
+        <span *ngIf="!isSignedIn" class="nav-link" id="sign-in-link"><a routerLink="/sign-in">Sign In</a></span>
+        <span *ngIf="!isSignedIn" class="nav-link" id="sign-up-link"><a routerLink="/sign-up">Join</a></span>
+        <button *ngIf="isSignedIn" mat-icon-button [matMenuTriggerFor]="notificationMenu" id="notifications-button" (click)="clearNotificationNumber()">
+            <mat-icon>notifications</mat-icon><span id="notification-number">{{unseenNotifications}}</span>
+          </button>
+        <mat-menu #notificationMenu="matMenu">
+            <div *ngFor="let i of notificationsModel">
+                <div *ngIf="!i.Seen && i.NotificationType === 'Comment'">
+                    <div class="notification-instance">
+                        <p [routerLink]="['/book', i?.BookId]">{{i?.UserName}} did a {{i?.NotificationType}} on a review</p>
+                    </div>
+                    <hr>
+                </div>
+                <div *ngIf="!i.Seen && i.NotificationType === 'ReviewLike'">
+                    <div class="notification-instance">
+                        <p [routerLink]="['/book', i?.BookId]">{{i?.UserName}} liked a review</p>
+                    </div>
+                    <hr>
+                </div>
+                <div *ngIf="!i.Seen && i.NotificationType === 'Follow'">
+                    <div class="notification-instance">
+                        <p [routerLink]="['/other-user-profile-entity', i?.MakerId]">{{i?.MakerName || i?.UserName}} followed you</p>
+                    </div>
+                    <hr>
+                </div>
+            </div>
+        </mat-menu>
+        <button *ngIf="isSignedIn" mat-icon-button [matMenuTriggerFor]="userMenu" id="user-button">
+            <mat-icon>person</mat-icon>
+          </button>
+        <mat-menu #userMenu="matMenu">
+            <div class="user-menu">
+                <p>{{userName}}</p>
+                <a routerLink="/profile" id="profile-route">Profile</a>
+                <hr>
+                <a routerLink="/sign-out" id="sign-out-route">Sign Out</a>
+            </div>
+        </mat-menu>
+        </span>
+</div>
 </mat-toolbar>
+<mat-sidenav-container class="example-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+    <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
+        <mat-nav-list>
+            <span class="nav-link"><a routerLink="/newsfeed" id="homepage-side-route">Home</a></span>
+            <span class="nav-link"><a routerLink="/genres" id="genres-side-route">Browse</a></span>
+            <form id="nav-search-bar-side" [formGroup]="formdata2" (ngSubmit)="search2(formdata2.value)">
+                <mat-form-field>
+                    <input type="search" matInput placeholder="Search" id="search-side" name="searchText2" formControlName="searchText2">
+                    <mat-icon matSuffix id="nav-search-bar-icon-side">search</mat-icon>
+                </mat-form-field>
+            </form>
+            <span *ngIf="!isSignedIn" class="nav-link"><a routerLink="/sign-in" id="sign-in-side-route">Sign In</a></span>
+            <span *ngIf="!isSignedIn" class="nav-link"><a routerLink="/sign-up" id="sign-up-side-route">Join</a></span>
+        </mat-nav-list>
+    </mat-sidenav>
+</mat-sidenav-container>
+</div>

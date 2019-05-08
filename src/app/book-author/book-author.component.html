@@ -8,21 +8,17 @@
         <div id="Author-picture-data">
             <img id="author-image" src={{authorimage[author_index]}}>
             <div id="Author-data">
-                <p (click)="GetAuthorByID()" routerLink="/author" id="author-name">{{authorname[author_index]}}</p>
+                <p (click)="Clear_Storage()" [routerLink]="['/authors', authorid[author_index]]" id="author-name">{{authorname[author_index]}}</p>
                 <div id="author-followers">
                     <p id="number-followers">{{authorfollowers[author_index]}}</p>
                     <span id="followers-word">Followers</span>
                 </div>
                 <button *ngIf=!authorIsFollowing id="author-follow" class="author-following-button" (click)="followAuthor()">Follow Author</button>
-                <button *ngIf=authorIsFollowing id="author-unfollow" class="author-following-button" (click)="unfollowAuthor()">Unollow Author</button>
+                <button *ngIf=authorIsFollowing id="author-unfollow" class="author-following-button" (click)="unfollowAuthor()">Unfollow Author</button>
             </div>
         </div>
         <div class="author-discription">
-            <p>{{befor_dots[author_index]}}
-                <span id="dots-author-discription">...</span>
-                <span id="more-author-discription">
-                {{after_dots[author_index]}}</span>
-            <button (click)="more_author_details()" mat-button id="myBtn-author-discription">Read more</button></p>
+            <p id="author-details">{{befor_dots[author_index]}}</p>
         </div>
     </mat-expansion-panel>
 </mat-accordion>

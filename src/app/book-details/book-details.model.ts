@@ -1,64 +1,112 @@
 /**
  *
- * mmodule used to carru json
+ * model of json
  * @export
- * @interface Bookinformation
+ * @interface BookDetails
  */
-export interface Bookinformation {
+export interface BookDetails {
     /**
      *
-     * book eddition variable
+     * carry book ID
      * @type {string}
-     * @memberof Bookinformation
+     * @memberof BookDetails
      */
-    book_edition: string;
+    BookId: string;
     /**
      *
-     * published year variable
+     * carry book title
      * @type {string}
-     * @memberof Bookinformation
+     * @memberof BookDetails
      */
-    book_published: string;
+    Title: string;
     /**
      *
-     * SIN Variable
+     * carry book cover photo
      * @type {string}
-     * @memberof Bookinformation
+     * @memberof BookDetails
      */
-    book_ASIN: string;
+    Cover: string;
     /**
      *
-     * book language variable
+     * carry book about
      * @type {string}
-     * @memberof Bookinformation
+     * @memberof BookDetails
      */
-    book_language: string;
+    Description: string;
     /**
      *
-     * book orignal name variable
+     * carry read status from current user
      * @type {string}
-     * @memberof Bookinformation
+     * @memberof BookDetails
      */
-    book_title: string;
+    ReadStatus: string;
     /**
      *
-     * book awards vairable
+     * carry author ID
      * @type {string}
-     * @memberof Bookinformation
+     * @memberof BookDetails
      */
-    book_awards: string;
+    AuthorId: string;
     /**
      *
-     * book characters variable
-     * @type {string}
-     * @memberof Bookinformation
+     * carry book rating
+     * @memberof BookDetails
      */
-    book_characters: string;
+    BookRating;
     /**
      *
-     * variable to carry book id
+     * carry author name
      * @type {string}
-     * @memberof Bookinformation
+     * @memberof BookDetails
      */
-    book_id: string;
+    AuthorName: string;
+    /**
+     *
+     * carry author Genre
+     * @type {string}
+     * @memberof BookDetails
+     */
+    Genre: string;
+    /**
+     *
+     * carry book ASIN
+     * @type {string}
+     * @memberof BookDetails
+     */
+    ISBN: string;
+    /**
+     *
+     * carry number of pages
+     * @type {number}
+     * @memberof BookDetails
+     */
+    Pages: number;
+    /**
+     *
+     * carry year published
+     * @type {string}
+     * @memberof BookDetails
+     */
+    Published: string;
+    /**
+     *
+     * carry data publisher
+     * @type {string}
+     * @memberof BookDetails
+     */
+    Publisher: string;
+    /**
+     *
+     * message on success
+     * @type {string}
+     * @memberof BookDetails
+     */
+    message: string;
+    /**
+     *
+     * boolean on success
+     * @type {boolean}
+     * @memberof BookDetails
+     */
+    success: boolean;
 }

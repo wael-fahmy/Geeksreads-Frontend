@@ -33,46 +33,13 @@ export class ProfileBookEntityComponent implements OnInit {
    * @memberof ProfileBookEntityComponent
    */
   listOfBooks: ListOfBooks[] = [];
-
+  
   /**
    * Creates an instance of ProfileBookEntityComponent.
    * @param {CountBooksService} CountBooksService
    * @memberof ProfileBookEntityComponent
    */
   constructor(public countBooksService: CountBooksService) { }
-
-  /**
-   *
-   * to increment the number of books want to read on click
-   * @param {ListOfBooks} index   index of the book selected
-   * @memberof ProfileBookEntityComponent
-   */
-  OnClick_want_read(index: ListOfBooks) {
-    this.countBooksService.add_count_want_to_read(index);
-  }
-
-  /**
-   *
-   * to increment the number of books read on click
-   * @param {ListOfBooks} index   index of the book selected
-   * @memberof ProfileBookEntityComponent
-   */
-  OnClick_read(index: ListOfBooks) {
-    this.countBooksService.add_count_read(index);
-    // index.state = 'read';
-
-  }
-
-  /**
-   *
-   *  // to increment the number of books currently reading on click
-   * @param {ListOfBooks} index  index of the book selected
-   * @memberof ProfileBookEntityComponent
-   */
-  OnClick_reading(index: ListOfBooks) {
-    this.countBooksService.add_count_reading(index);
-    // console.log(index.author_name);
-  }
 
   /**
    * on initializing that class implement this function
@@ -83,10 +50,11 @@ export class ProfileBookEntityComponent implements OnInit {
    */
   ngOnInit() {
 
-    this.countBooksService.get_List_of_books();                    // to get the book info from the service
-    this.subList = this.countBooksService.get_List_of_books_updated().
+    this.countBooksService.get_List_of_books_reading();                    // to get the book info from the service
+    this.subList = this.countBooksService.get_List_of_books_reading_updated().
       subscribe((List: ListOfBooks[]) => {                     // subscribe the list of books recived
         this.listOfBooks = List;                              // and put it in the list of books to display them
+        
       });
 
   }

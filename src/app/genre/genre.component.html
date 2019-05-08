@@ -1,9 +1,12 @@
 <div class="navbar-margin"></div>
-<h1>Specific Genre {{specificgenre}}</h1>
-
-
 <div class="genres-row-container">
-    <app-genre-row></app-genre-row>
-    <app-genre-row></app-genre-row>
-    <app-genre-row></app-genre-row>
+    <app-genre-row [genreType]="genreType1" [showGenreName]="true"></app-genre-row>
+</div>
+<div *ngIf="hideButton===false">
+    <div class="see-more-container">
+        <button (click)="See_more_genres()" mat-button class="see-more" id="seeMoreButton">See more</button>
+    </div>
+</div>
+<div *ngIf="showDiv===true" class="genres-row-container">
+    <app-genre-row [genreType]="genreType1" [showGenreName]="false"></app-genre-row>
 </div>

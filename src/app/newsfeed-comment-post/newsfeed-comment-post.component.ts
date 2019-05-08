@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 
 /**
  *  Newsfeed Comment Component
@@ -13,22 +13,57 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class NewsfeedCommentPostComponent implements OnInit {
+  ///////////////////////// Subscription and instances from Post Model and at inputs ///////////////////////////
 
   /**
-   *  User name
+   * User Name
+   * @type {string}
+   * @memberof NewsfeedCommentPostComponent
    */
-  userName: string;
+  @Input() userName: string;
 
   /**
-   *  User name
+   * Date
+   * @type {string}
+   * @memberof NewsfeedCommentPostComponent
    */
-  activityDate: string;
+  @Input() activityDate: string;
 
   /**
-   *  User name
+   * Comment
+   * @type {string}
+   * @memberof NewsfeedCommentPostComponent
    */
-  comment: string;
+  @Input() comment: string;
 
+  /**
+   * User Image
+   * @type {string}
+   * @memberof NewsfeedCommentPostComponent
+   */
+  @Input() makerImage: string;
+
+  /**
+   * Comment ID
+   * @type {string}
+   * @memberof NewsfeedCommentPostComponent
+   */
+  @Input() commentId: string;
+
+  /**
+   * User ID
+   * @type {string}
+   * @memberof NewsfeedCommentPostComponent
+   */
+  @Input() userId: string;
+
+  /**
+   * Activity Log
+   * @memberof NewsfeedCommentPostComponent
+   */
+  activityLog = 'commented on a post.';
+
+  //////////// The constructor and the ngOnInit fn /////////////////////////////////////////////
   /**
    *  Creates an instance of NewsfeedCommentPostComponent.
    *  @memberof NewsfeedCommentPostComponent
@@ -36,9 +71,8 @@ export class NewsfeedCommentPostComponent implements OnInit {
   constructor() { }
 
   /**
-   *  Angular Init
+   * Angular Init
    * @memberof NewsfeedCommentPostComponent
    */
-  ngOnInit() {
-  }
+  ngOnInit() { }
 }

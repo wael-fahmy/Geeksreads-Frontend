@@ -11,42 +11,42 @@ export interface AuthorDetails {
      * @type {string}
      * @memberof AuthorDetails
      */
-    author_name: string;
+    AuthorName: string;
     /**
      *
      * author image variable
      * @type {string}
      * @memberof AuthorDetails
      */
-    author_image: string;
+    Photo: string;
     /**
      *
      * author followers number variable
      * @type {string}
      * @memberof AuthorDetails
      */
-    author_followers: string;
+    FollowingUserId: string [];
     /**
      *
      * shown details of the author
      * @type {string}
      * @memberof AuthorDetails
      */
-    author_body: string;
+    About: string;
     /**
      *
      * variable to carry author id
      * @type {string}
      * @memberof AuthorDetails
      */
-    author_id: string;
+    AuthorId: string;
     /**
      *
      * variable to book id
      * @type {string}
      * @memberof AuthorDetails
      */
-    book_id: string;
+    BookId: string;
     /**
      *
      * variable to carry user id
@@ -54,4 +54,18 @@ export interface AuthorDetails {
      * @memberof AuthorDetails
      */
     user_id: string;
+    /**
+     *
+     * variable to carry author return message
+     * @type {string}
+     * @memberof AuthorDetails
+     */
+    message: string;
+    /**
+     *
+     * vairbale to carry success state of json
+     * @type {boolean}
+     * @memberof AuthorDetails
+     */
+    success: boolean;
 }

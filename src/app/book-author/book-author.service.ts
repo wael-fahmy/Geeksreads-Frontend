@@ -2,17 +2,66 @@ import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import { AuthorDetails } from './book-author.model';
 import { HttpClient } from '@angular/common/http';
-
+import { Router } from '@angular/router';
+/**
+ *
+ * services class for author
+ * @export
+ * @class AuthorDetails_Service
+ */
 @Injectable({ providedIn: 'root' })
 
-// tslint:disable-next-line:class-name
+
 export class AuthorDetails_Service {
     /**
      * Creates an instance of AuthorDetails_Service.
      * @param {HttpClient} http
+     * @param {Router} router
      * @memberof AuthorDetails_Service
      */
-    constructor(private http: HttpClient) { }
+    constructor(private http: HttpClient, private router: Router) { }
+    /**
+     *
+     * vairabl to carry author name
+     * @type {string}
+     * @memberof AuthorDetails_Service
+     */
+    name: string;
+    /**
+     *
+     * variable to carry author image
+     * @type {string}
+     * @memberof AuthorDetails_Service
+     */
+    image: string;
+    /**
+     *
+     * vairbale to carry author id
+     * @type {string}
+     * @memberof AuthorDetails_Service
+     */
+    id: string;
+    /**
+     *
+     * variable to carry about author
+     * @type {string}
+     * @memberof AuthorDetails_Service
+     */
+    body: string;
+    /**
+     *
+     * vairable to carry book id
+     * @type {string}
+     * @memberof AuthorDetails_Service
+     */
+    bookid: string;
+    /**
+     *
+     * vairble to carry number of followers
+     * @type {string}
+     * @memberof AuthorDetails_Service
+     */
+    followers: string;
     // tslint:disable-next-line:variable-name
     /**
      *
@@ -36,17 +85,23 @@ export class AuthorDetails_Service {
      * get author details from server
      * @memberof AuthorDetails_Service
      */
-    get_author_Info() {
-        this.http.get<{ message: string, author_details: AuthorDetails[] }>('http://localhost:3000/api/authordata').
+    get_author_Info(authorid: string) {
+        this.http.get('https://geeksreads.herokuapp.com/api/authors/id', {
+            params: {
+            auth_id: authorid,
+            }
+        }).
             // tslint:disable-next-line:variable-name
-            subscribe((authordata) => {
-                this.author_details = authordata.author_details;
+            subscribe((authordata: AuthorDetails) => {
+                this.author_details[0] = authordata;
                 this.author_detailsUpdated.next([...this.author_details]);
+            }, (error: { json: () => void; }) => {
+                console.log(error);
             });
     }
     /**
      *
-     * get updated author details
+     * get updated author info
      * @returns
      * @memberof AuthorDetails_Service
      */
@@ -60,29 +115,52 @@ export class AuthorDetails_Service {
      * @param {string} user_id
      * @memberof AuthorDetails_Service
      */
-    post_author_unfollow(authorid: string, userid: string) {
-        const author: AuthorDetails = {user_id: userid, author_id: authorid, author_body: null,
-            author_followers: null, author_image: null, author_name: null, book_id: null};
-        this.http.post<{message: string}>('http://localhost:3000/api/authordata', author)
-        .subscribe ((responseData) => {
-            console.log(responseData.message);
-        });
+    post_author_unfollow(authorid: string) {
+        if (localStorage.getItem('userId') === null) {
+            this.router.navigate(['/sign-in']);
+            return;
+        }
+        console.log(localStorage.getItem('userId'));
+        const UserToken = {
+            auth_id: authorid,
+            myuserId: localStorage.getItem('userId'),
+            token: localStorage.getItem('token'),
+        };
+        this.http.post<{ message: string}>('https://geeksreads.herokuapp.com/api/authors/unfollow', UserToken)
+    .subscribe((serverResponse: any) => {
+        this.author_details[0].message = serverResponse.Message;
+        this.author_details[0].success = serverResponse.success;
+        this.author_detailsUpdated.next(this.author_details);
+    }, (error: { json: () => void; }) => {
+        console.log(error);
+    });
     }
-    post_author_follow(authorid: string, userid: string) {
-        const author: AuthorDetails = {user_id: userid, author_id: authorid, author_body: null,
-            author_followers: null, author_image: null, author_name: null, book_id: null};
-        this.http.post<{message: string}>('http://localhost:3000/api/authordata', author)
-        .subscribe ((responseData) => {
-            console.log(responseData.message);
-        });
-    }
-    post_author_id(authorid: string) {
-        const author: AuthorDetails = {user_id: null, author_id: authorid, author_body: null,
-            author_followers: null, author_image: null, author_name: null, book_id: null};
-        this.http.post<{message: string}>('http://localhost:3000/api/authordata', author)
-        .subscribe ((responseData) => {
-            console.log(responseData.message);
-        });
+    /**
+     *
+     * function to follow author
+     * @param {string} authorid
+     * @returns
+     * @memberof AuthorDetails_Service
+     */
+    post_author_follow(authorid: string) {
+        if (localStorage.getItem('userId') === null) {
+            this.router.navigate(['/sign-in']);
+            return;
+        }
+        console.log(localStorage.getItem('userId'));
+        const UserToken = {
+            auth_id: authorid,
+            myuserId: localStorage.getItem('userId'),
+            token: localStorage.getItem('token'),
+        };
+        this.http.post<{ message: string}>('https://geeksreads.herokuapp.com/api/authors/follow', UserToken)
+    .subscribe((serverResponse: any) => {
+        this.author_details[0].message = serverResponse.Message;
+        this.author_details[0].success = serverResponse.success;
+        this.author_detailsUpdated.next(this.author_details);
+    }, (error: { json: () => void; }) => {
+        console.log(error);
+    });
     }
 }
 

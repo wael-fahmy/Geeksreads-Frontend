@@ -10,10 +10,10 @@ export interface User {
     /**
      *
      * user id
-     * @type {number}
+     * @type {string}
      * @memberof User
      */
-    userId: number;  // user id
+    UserId: string;  // user id
 
     /**
      *
@@ -21,13 +21,85 @@ export interface User {
      * @type {string}
      * @memberof User
      */
-    userName: string;  // user name
+    UserName: string;  // user name
 
+    /**
+     * user Email
+     *
+     * @type {string}
+     * @memberof User
+     */
+    UserEmail: string;
     /**
      *
      * user profile photo
      * @type {string}
      * @memberof User
      */
-    userPhoto: string;  // user profile photo
+    Photo: string;  // user profile photo
+
+    /**
+     *
+     * reading books ids
+     * @type {string []}
+     * @memberof User
+     */
+    Reading: string [];
+
+    /**
+     * want to read books ids
+     *
+     * @type {string []}
+     * @memberof User
+     */
+    WantToRead: string [];
+
+    /**
+     *
+     * read books ids
+     * @type {string []}
+     * @memberof User
+     */
+    Read: string [];
+
+    /**
+     *
+     * followers ids
+     * @type {string []}
+     * @memberof User
+     */
+    FollowersUserId: string [];
+
+    /**
+     *
+     * following ids
+     * @type {string []}
+     * @memberof User
+     */
+    FollowingUserId: string [];
+
+    /**
+     *
+     * number of followings
+     * @type {number}
+     * @memberof User
+     */
+    NoOfFollowings: number;
+
+    /**
+     *
+     * number of followers
+     * @type {number}
+     * @memberof User
+     */
+    NoOfFollowers: number;
+
+    /**
+     *
+     * user Birth date
+     * @type {string}
+     * @memberof User
+     */
+    UserBirthDate: string;
+
 }

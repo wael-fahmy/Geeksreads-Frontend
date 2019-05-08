@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Post } from './newsfeed-post.model';
-import { PostsServices } from './newsfeed-post.service';
+import { Component, OnInit, Input } from '@angular/core';
+import { Post } from '../newsfeed/newsfeed-main.model';
 import { Subscription } from 'rxjs';
 
 /**
@@ -17,97 +16,99 @@ import { Subscription } from 'rxjs';
 
 export class NewsfeedPostComponent implements OnInit {
 
-
   /**
-   *  This is the constructor of the component class, it makes an instance of the posts service class
-   *  @private
-   *  @type {Subscription}
-   *  @memberof NewsfeedPostComponent
-   */
-  private subprofile: Subscription;
-
-  /**
-   *
-   * Post object to fill data
-   * @type {Post}
+   * Number of Stars
+   * @type {*}
    * @memberof NewsfeedPostComponent
    */
-  PostObj: Post;
+  @Input() NumberOfStars: any;
 
   /**
-   *
-   * User name
+   * Activity Date
+   * @type {string}
    * @memberof NewsfeedPostComponent
    */
-  username = 'Yara';
+  @Input() activityDate: string;
 
   /**
-   *
-   * Activity date
+   * Author ID
+   * @type {string}
    * @memberof NewsfeedPostComponent
    */
-  activitydate = 'about 2 hours ago';
+  @Input() authorId: string;
 
   /**
-   *
-   * Book name
-   * @memberof NewsfeedPostComponent
-   */
-  bookname = 'Eat Pray Love';
-
-  /**
-   *
    * Author Name
+   * @type {*}
    * @memberof NewsfeedPostComponent
    */
-  authorname = 'Paulo';
+  @Input() authorname: any;
 
   /**
-   *
-   * Review
+   * Book ID
+   * @type {string}
    * @memberof NewsfeedPostComponent
    */
-  review = 'It was really nice';
+  @Input() bookId: string;
 
   /**
-   *
-   * Activity
-   * @memberof NewsfeedPostComponent
-   */
-  activity = 'rated a book';
-
-  /**
-   *
    * Book Image
+   * @type {*}
    * @memberof NewsfeedPostComponent
    */
-  bookimage = 'https://via.placeholder.com/120x120';
+  @Input() bookimage: any;
 
   /**
-   *  Creates an instance of NewsfeedPostComponent.
-   *  @param {PostsServices} PostsServicesObj
-   *  @memberof NewsfeedPostComponent
-   */
-  constructor(public PostsServicesObj: PostsServices) { }
-
-
-  /**
-   * The  functions created in the service are implemented here
-   *
+   * Book Name
+   * @type {*}
    * @memberof NewsfeedPostComponent
    */
-  ngOnInit() {
-    this.PostsServicesObj.getpost();
-    this.subprofile = this.PostsServicesObj.get_post_updated().subscribe((PostInfo: Post) => {
-      this.PostObj = PostInfo;
-      this.activity = this.PostObj.activitylog;
-      this.activitydate = this.PostObj.activitydate;
-      this.authorname = this.PostObj.authorname;
-      this.bookimage = this.PostObj.bookimage;
-      this.bookname = this.PostObj.bookname;
-      this.review = this.PostObj.review;
-      this.username = this.PostObj.username;
+  @Input() bookname: any;
 
-    });
-  }
+  /**
+   * Book Status
+   * @type {*}
+   * @memberof NewsfeedPostComponent
+   */
+  @Input() bookstatus: any;
+
+  /**
+   * Maker Image
+   * @type {string}
+   * @memberof NewsfeedPostComponent
+   */
+  @Input() makerImage: string;
+
+  /**
+   * Review
+   * @type {string}
+   * @memberof NewsfeedPostComponent
+   */
+  @Input() review: string;
+
+  /**
+   * Review
+   * @type {string}
+   * @memberof NewsfeedPostComponent
+   */
+  @Input() userId: string;
+
+  /**
+   * User Name
+   * @type {string}
+   * @memberof NewsfeedPostComponent
+   */
+  @Input() userName: string;
+
+  /**
+   * Creates an instance of NewsfeedPostComponent.
+   * @memberof NewsfeedPostComponent
+   */
+  constructor() { }
+
+  /**
+   * Angular Init
+   * @memberof NewsfeedPostComponent
+   */
+  ngOnInit() { }
 }

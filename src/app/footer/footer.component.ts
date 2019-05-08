@@ -12,7 +12,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./footer.component.css']
 })
 export class FooterComponent implements OnInit {
-
   /**
    *  Creates an instance of FooterComponent.
    *  @memberof FooterComponent
@@ -26,5 +25,4 @@ export class FooterComponent implements OnInit {
   ngOnInit() {
     document.getElementById('footer-year').innerHTML = new Date().getFullYear().toString();
   }
-
 }

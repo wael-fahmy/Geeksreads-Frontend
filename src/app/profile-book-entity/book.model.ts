@@ -1,13 +1,12 @@
 
 export interface ListOfBooks {
-
   /**
    *
    * book id
-   * @type {number}
+   * @type {string}
    * @memberof ListOfBooks
    */
-  bookId: number;
+  BookId: string;
 
   /**
    *
@@ -15,7 +14,7 @@ export interface ListOfBooks {
    * @type {string}
    * @memberof ListOfBooks
    */
-  bookName: string;
+  Title: string;
 
   /**
    * author name
@@ -23,7 +22,7 @@ export interface ListOfBooks {
    * @type {string}
    * @memberof ListOfBooks
    */
-  authorName: string;
+  AuthorName: string;
 
   /**
    *
@@ -31,13 +30,20 @@ export interface ListOfBooks {
    * @type {string}
    * @memberof ListOfBooks
    */
-  bookCover: string;
-
+  Cover: string;
   /**
+   * Book Rating
    *
-   * book state ( read , want to read , currently reading )
    * @type {string}
    * @memberof ListOfBooks
    */
-  state: string;
+  BookRating: string;
+  /**
+   * Publisher
+   *
+   * @type {string}
+   * @memberof ListOfBooks
+   */
+  Publisher: string;
+
 }

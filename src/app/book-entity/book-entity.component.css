@@ -8,10 +8,11 @@ body {
     margin: 5px 0 0 0;
     display: block;
 }
-#title
-{
+
+#title {
     font-weight: bold;
 }
+
 #Book-Title {
     display: inline;
     vertical-align: top;
@@ -52,26 +53,27 @@ body {
     color: blue;
     text-decoration: underline;
 }
-#star0
-{
-    color:black;
+
+#star0 {
+    color: black;
 }
-#star1
-{
-    color:black;
+
+#star1 {
+    color: black;
 }
-#star2
-{
-    color:black;
+
+#star2 {
+    color: black;
 }
-#star3
-{
-    color:black;
+
+#star3 {
+    color: black;
 }
-#star4
-{
-    color:black;
+
+#star4 {
+    color: black;
 }
+
 #book-details {
     color: #00635D;
     margin: 5px 0 0 24px;
@@ -82,7 +84,7 @@ body {
     margin: 15px 0 0 15px;
     background-color: #F4F1EA;
     border: none;
-    border:1px solid #D6D0C4;
+    border: 1px solid #D6D0C4;
     font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
     color: #181818;
     font-size: 20px;
@@ -92,11 +94,12 @@ body {
     font-size: 12px;
     cursor: pointer;
 }
-#Author-name
-{
+
+#Author-name {
     color: #00635D;
     text-decoration: none;
 }
+
 #By-Author {
     cursor: pointer;
 }
@@ -105,7 +108,7 @@ body {
     margin: 15px 0 0 5px;
     background-color: #F4F1EA;
     border: none;
-    border:1px solid #D6D0C4;
+    border: 1px solid #D6D0C4;
     font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
     color: #181818;
     font-size: 20px;
@@ -126,12 +129,11 @@ body {
     size: 5;
     margin-left: 0;
 }
-
 #Write-a-review {
     margin: 10px 0 0 15px;
     background-color: #F4F1EA;
     border: none;
-    border:1px solid #D6D0C4;
+    border: 1px solid #D6D0C4;
     font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
     color: #181818;
     font-size: 20px;
@@ -142,7 +144,7 @@ body {
     cursor: pointer;
 }
 
-.checked {
+#checked {
     color: orange;
 }
 
@@ -151,9 +153,15 @@ body {
 }
 
 #myBtn-book-discription {
-    color:#00635D;
+    color: #00635D;
 }
 
 #dots-book-discription {
     color: blue;
+}
+
+@media only screen and (max-width: 831px) {
+    #Book-info {
+        margin-top: 5px;
+    }
 }

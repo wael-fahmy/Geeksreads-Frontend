@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from "@angular/router";
 
 /**
  *
@@ -14,16 +15,41 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ReviewsComponent implements OnInit {
   /**
-   * Creates an instance of ReviewsComponent.
+   *
+   * variable to carry url parameter
    * @memberof ReviewsComponent
    */
-  constructor() { }
-
+  SnapshotParam = 'initial value';
   /**
-   * Angular Init
+   *
+   * vairable to carry review id
+   * @type {string}
+   * @memberof ReviewsComponent
+   */
+  ReviewID: string;
+  /**
+   *
+   * vairable to carry book id
+   * @type {string}
+   * @memberof ReviewsComponent
+   */
+  BookID: string;
+  /**
+   * Creates an instance of ReviewsComponent.
+   * @param {ActivatedRoute} route
+   * @memberof ReviewsComponent
+   */
+  constructor(private route: ActivatedRoute) { }
+  /**
+   *
+   * intilize class
    * @memberof ReviewsComponent
    */
   ngOnInit() {
+    this.SnapshotParam = this.route.snapshot.paramMap.get('reviewid');
+    this.ReviewID = this.SnapshotParam;
+    this.SnapshotParam = this.route.snapshot.paramMap.get('bookid');
+    this.BookID = this.SnapshotParam;
   }
 
 }

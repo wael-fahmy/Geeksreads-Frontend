@@ -1,14 +1,25 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { AuthorDetails } from './book-author.model';
 import { Subscription } from 'rxjs';
+import { Book } from '../book/book.model';
+import { Book_Service } from '../book/book.service';
 import { AuthorDetails_Service } from './book-author.service';
 import { delay } from 'q';
-
+import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material';
+/**
+ *
+ * class used to implement logic
+ * @export
+ * @class BookAuthorComponent
+ * @implements {OnInit}
+ */
 @Component({
   selector: 'app-book-author',
   templateUrl: './book-author.component.html',
   styleUrls: ['./book-author.component.css']
 })
+
 export class BookAuthorComponent implements OnInit {
   /**
    *  Panel open state boolean
@@ -16,7 +27,21 @@ export class BookAuthorComponent implements OnInit {
   public panelOpenState: boolean;
   /**
    *
-   * variable to carry author name list
+   * variable to carry book id
+   * @type {string}
+   * @memberof BookAuthorComponent
+   */
+  @Input() BookID: string;
+  /**
+   *
+   * vairbale to carry author id
+   * @type {string}
+   * @memberof BookAuthorComponent
+   */
+  authid: string;
+  /**
+   *
+   * vairbale to carry author name
    * @type {string []}
    * @memberof BookAuthorComponent
    */
@@ -46,7 +71,7 @@ export class BookAuthorComponent implements OnInit {
    *
    * variable to carry author followers number list
    * @type {string []}
-   * @memberof BookAuthorComponent
+   * @memberof B.okAuthorComponent
    */
   authorfollowers: string [] = [];
   /**
@@ -87,6 +112,11 @@ public after_dots: string [] = [];
    * @memberof BookAuthorComponent
    */
   private Sub_profile: Subscription;
+  /**
+   *
+   * boolea used for checking following auhtor
+   * @memberof BookAuthorComponent
+   */
   authorIsFollowing = false;
   // tslint:disable-next-line:variable-name
   /**
@@ -96,6 +126,21 @@ public after_dots: string [] = [];
    * @memberof BookAuthorComponent
    */
   public author_details: AuthorDetails[] = [];
+  /**
+   *
+   * variable to carry book details
+   * @private
+   * @type {Book[]}
+   * @memberof BookAuthorComponent
+   */
+  private book_details: Book[] = [];
+  /**
+   *
+   * vairbale to carry follow updated
+   * @type {AuthorDetails}
+   * @memberof BookAuthorComponent
+   */
+  public follow: AuthorDetails;
   // tslint:disable-next-line:variable-name
   /**
    *
@@ -109,34 +154,64 @@ public after_dots: string [] = [];
    * @param {AuthorDetails_Service} authordetails_service
    * @memberof BookAuthorComponent
    */
-  constructor(public authordetails_service: AuthorDetails_Service) { }
+  constructor(public authordetails_service: AuthorDetails_Service, public booktitle_service: Book_Service,
+              public router: Router, public snackbar: MatSnackBar) { }
   /**
    *
    * function used to read author list from services.ts
    * @memberof BookAuthorComponent
    */
   ngOnInit() {
-    let author=localStorage.getItem("authorID");
-    console.log(author);
-    this.authordetails_service.get_author_Info();                                  // to get the user info from the service
+    let auth;
+    this.booktitle_service.get_book_Info(this.BookID);                            // to get the user info from the service
+    // tslint:disable-next-line:variable-name
+    this.Sub_profile = this.booktitle_service.get_book_Info_updated().subscribe((book_Information: Book[]) => {
+      this.book_details = book_Information;
+      auth = this.book_details[0].AuthorId;
+      this.authordetails_service.get_author_Info(auth);
+    });                              // to get the user info from the service
     // tslint:disable-next-line:variable-name
     this.Sub_profile = this.authordetails_service.get_author_details_updated().subscribe((author_Information: AuthorDetails[]) => {
       this.author_details = author_Information;
-      this.SplitString();
       this.SetElements();
-      /* console.log(this.User_info.User_Name)
-      console.log(this.User_info.user_id)
-      console.log(this.User_info.User_Photo)*/
+      this.SetFollow(author_Information);
+      localStorage.removeItem('authorID');
     });
   }
   /**
    *
+   * function to set follow button
+   * @param {AuthorDetails []} author
+   * @returns
+   * @memberof BookAuthorComponent
+   */
+  SetFollow(author: AuthorDetails []) {
+    const userid = localStorage.getItem('userId');
+// tslint:disable-next-line: prefer-for-of
+    for (let i = 0; i < author[0].FollowingUserId.length; i++) {
+      if (author[0].FollowingUserId[i] === userid) {
+        this.authorIsFollowing = true;
+        return;
+      }
+    }
+    this.authorIsFollowing = false;
+  }
+  /**
+   *
    * function to follow author
+   * @returns
    * @memberof BookAuthorComponent
    */
   followAuthor() {
     // TODO: Send request
-    this.authorIsFollowing = true;
+// tslint:disable-next-line: prefer-for-of
+    const userid = localStorage.getItem('userId');
+// tslint:disable-next-line: prefer-for-of
+    for (let i = 0; i < this.author_details[0].FollowingUserId.length; i++) {
+      if (this.author_details[0].FollowingUserId[i] === userid) {
+        return;
+      }
+    }
     const number = document.getElementById('number-followers');
 // tslint:disable-next-line: radix
     let x = number.innerHTML.toString();
@@ -144,11 +219,48 @@ public after_dots: string [] = [];
     let y = parseInt(x);
     y = y + 1;
     x = y.toString();
-    number.innerHTML = x;
-    this.authordetails_service.post_author_unfollow(this.authorid[this.author_index], this.userid[this.author_index]);
-    //this.authorNumberOfFollowers += 1;
-    console.log('Following this author');
+    //number.innerHTML = x;
+    this.authordetails_service.post_author_follow(this.authorid[this.author_index]);
+    //this.authorfollowers[0] = this.GetNumberOfFollowers();
+    const snackbaref = this.snackbar.open('Author Has Been Followed', ' ' , {
+      horizontalPosition: 'end',
+      duration: 2000
+    });
+    //number.innerHTML = x;
+    this.ngOnInit();
   }
+  /**
+   *
+   * function to get updated number of users
+   * @returns {string}
+   * @memberof BookAuthorComponent
+   */
+  GetNumberOfFollowers(): string {
+      this.authordetails_service.get_author_Info(this.authorid[this.author_index]);
+      this.Sub_profile = this.authordetails_service.get_author_details_updated()
+      .subscribe((authorInformation: AuthorDetails[]) => {
+        this.author_details = authorInformation;
+        this.SetFollow(authorInformation);
+        return authorInformation[0].FollowingUserId.length.toString();
+      }, (error: { json: () => void; }) => {
+        console.log(error);
+      });
+      return '';
+  }
+  /**
+   *
+   * function to clear local storage
+   * @memberof BookAuthorComponent
+   */
+  Clear_Storage() {
+    localStorage.removeItem('ISBN');
+    localStorage.removeItem('genre');
+    localStorage.removeItem('pages');
+    localStorage.removeItem('publishedDate');
+    localStorage.removeItem('publisher');
+    localStorage.removeItem('bookTitle');
+    localStorage.removeItem('bookID');
+}
   /**
    *
    * function to unfollow author
@@ -156,8 +268,7 @@ public after_dots: string [] = [];
    */
   unfollowAuthor() {
     // TODO: Send request
-    this.authorIsFollowing = false;
-    //this.authorNumberOfFollowers -= 1;
+    // this.authorNumberOfFollowers -= 1;
     const number = document.getElementById('number-followers');
 // tslint:disable-next-line: radix
     let x = number.innerHTML.toString();
@@ -165,28 +276,32 @@ public after_dots: string [] = [];
     let y = parseInt(x);
     y = y - 1;
     x = y.toString();
-    number.innerHTML = x;
-    this.authordetails_service.post_author_unfollow(this.authorid[this.author_index], this.userid[this.author_index]);
-    console.log('Unfollowing this author');
-  }
-  GetAuthorByID() {
-    this.authordetails_service.post_author_id(this.authorid[this.author_index]);
+    this.authordetails_service.post_author_unfollow(this.authorid[this.author_index]);
+    //this.authorfollowers[0] = this.GetNumberOfFollowers();
+    //number.innerHTML = x;
+    const snackbaref = this.snackbar.open('Author Has Been Unfollowed', ' ' , {
+      horizontalPosition: 'end',
+      duration: 2000
+    });
+    this.ngOnInit();
   }
   /**
    *
    * function used for spliting author body
    * @memberof BookAuthorComponent
    */
-  SplitString() {
-    let starting_indext = 0;
-// tslint:disable-next-line: prefer-for-of
-    for (let i = 0; i < this.author_details.length; i ++) {
-      const word = this.author_details[i].author_body.split(',');
-      this.befor_dots[starting_indext] = word[0];
-      this.after_dots[starting_indext] = word[1];
-      starting_indext++;
+  SplitString(index: string) {
+    const word = this.author_details[0].About.split(',');
+    this.befor_dots[0] = word[0];
+    this.after_dots[0] = word[1];
+    const ReadMoreBt = document.getElementById('myBtn-author-discription');
+    const ReadMoreDot = document.getElementById('dots-author-discription');
+    const check = this.author_details[0].About.split(' ');
+    if (check.length < 15) {
+      ReadMoreBt.style.display = 'none';
+      ReadMoreDot.style.display = 'none';
     }
-  }
+}
   /**
    *
    * function used to set list elements
@@ -195,13 +310,13 @@ public after_dots: string [] = [];
   SetElements() {
     // tslint:disable-next-line: prefer-for-of
         for (let x = 0; x < this.author_details.length; x++) {
-          this.authorname[x] = this.author_details[x].author_name;
-          this.authorid[x] = this.author_details[x].author_id;
-          this.authorbody[x] = this.author_details[x].author_body;
-          this.authorfollowers[x] = this.author_details[x].author_followers;
-          this.bookid[x] = this.author_details[x].book_id;
-          this.authorimage[x] = this.author_details[x].author_image;
-          this.userid[x] = this.author_details[x].user_id;
+          this.authorname[x] = this.author_details[x].AuthorName;
+          this.authorid[x] = this.author_details[x].AuthorId;
+          this.authorbody[x] = this.author_details[x].About;
+          this.authorfollowers[x] = this.author_details[x].FollowingUserId.length.toString();
+          this.bookid[x] = this.author_details[x].BookId;
+          this.authorimage[x] = this.author_details[x].Photo;
+          this.befor_dots[x] = this.author_details[x].About;
         }
       }
   /**

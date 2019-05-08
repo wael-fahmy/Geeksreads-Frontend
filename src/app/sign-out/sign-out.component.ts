@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { DataSharingService } from '../nav-bar/data-sharing.service';
+import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 /**
  *  Signout Component
@@ -15,19 +17,38 @@ import { FormGroup, FormControl } from '@angular/forms';
 export class SignOutComponent implements OnInit {
 
   /**
+   * SignOut
+   * @memberof SignOutComponent
+   */
+  signOut() {
+    const data = {
+      token: localStorage.getItem('token')
+    };
+    this.http
+      .post('https://geeksreads.herokuapp.com/api/users/SignOut', data)
+      .subscribe((serverResponse: any) => {
+        this.dataSharingService.isUserLoggedIn.next(false);
+        localStorage.removeItem('token');
+        localStorage.removeItem('userId');
+      }, (error: { json: () => void; }) => {
+        console.log(error);
+      });
+  }
+  /**
    *  Creates an instance of SignOutComponent.
    *  @memberof SignOutComponent
    */
-  constructor() { }
+  constructor(private http: HttpClient, private router: Router, private dataSharingService: DataSharingService) { }
 
   /**
    *  Angular ngOnInit
    * @memberof SignOutComponent
    */
   ngOnInit() {
-    // TODO: Send Request
-    localStorage.removeItem('token');
-    localStorage.removeItem('userId');
+    if (localStorage.getItem('token') === null) {
+      this.router.navigate(['/newsfeed']);
+    }
+    this.signOut();
   }
 
 }

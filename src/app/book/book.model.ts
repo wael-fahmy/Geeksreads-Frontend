@@ -1,92 +1,113 @@
 /**
- * json module list
+ *
+ * interface
  * @export
- * @interface GenreDetails
+ * @class BookComponent
+ * @implements {OnInit}
  */
-export interface GenreDetails {
-
-  /**
-   * genre one
-   * @type {string}
-   * @memberof Genredetails
-   */
-  genreOne: string;
+export interface Book {
   /**
    *
-   * genre two
+   * vairable to carry book id
    * @type {string}
-   * @memberof Genredetails
+   * @memberof Book
    */
-  genreTwo: string;
+  BookId: string;
   /**
    *
-   * genre three
+   * vairbale to carry book title
    * @type {string}
-   * @memberof Genredetails
+   * @memberof Book
    */
-  genreThree: string;
-
+  Title: string;
   /**
    *
-   * genre four
+   * vairable to carry book image
    * @type {string}
-   * @memberof Genredetails
+   * @memberof Book
    */
-  genreFour: string;
-
+  Cover: string;
   /**
    *
-   * genre five
+   * variable to carry book about
    * @type {string}
-   * @memberof Genredetails
+   * @memberof Book
    */
-  genreFive: string;
-
+  Description: string;
   /**
    *
-   * varibale to carry book id
+   * variable to carry read status
    * @type {string}
-   * @memberof Genredetails
+   * @memberof Book
    */
-  bookId: string;
-
+  ReadStatus: string;
   /**
    *
-   * variable to carry genre id
+   * vairable to carry author id
    * @type {string}
-   * @memberof Genredetails
+   * @memberof Book
    */
-  genereOneId: string;
-
+  AuthorId: string;
   /**
    *
-   * variable to carry genre id
-   * @type {string}
-   * @memberof Genredetails
+   * variable to carry book rating
+   * @memberof Book
    */
-  genereTwoId: string;
-
+  BookRating;
   /**
    *
-   * variable to carry genre id
+   * variable to carry author name
    * @type {string}
-   * @memberof Genredetails
+   * @memberof Book
    */
-  genereThreeId: string;
-
+  AuthorName: string;
   /**
    *
-   * variable to carry genre id
+   * variable to carry book genre
    * @type {string}
-   * @memberof Genredetails
+   * @memberof Book
    */
-  genereFourId: string;
-
+  Genre: string;
   /**
    *
-   * variable to carry genre id
+   * varaible to carry book asin
    * @type {string}
-   * @memberof Genredetails
+   * @memberof Book
    */
-  genereFiveId: string;
+  ISBN: string;
+  /**
+   *
+   * varaible to carry book pages
+   * @type {number}
+   * @memberof Book
+   */
+  Pages: number;
+  /**
+   *
+   * variable to carry book publisher
+   * @type {string}
+   * @memberof Book
+   */
+  Published: string;
+  /**
+   *
+   * variable to  carry book published
+   * @type {string}
+   * @memberof Book
+   */
+  Publisher: string;
+  /**
+   *
+   * variable to carry book message
+   * @type {string}
+   * @memberof Book
+   */
+  message: string;
+  /**
+   *
+   * variable to carry success state
+   * @type {boolean}
+   * @memberof Book
+   */
+  success: boolean;
 }

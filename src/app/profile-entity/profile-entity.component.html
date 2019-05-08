@@ -4,8 +4,10 @@
     <textarea cols="100" rows="2">{{"Search my shelves"}} </textarea>
 -->
 <div>
-    <img width="80" height="80" [src]="userCoverPhoto">
-    <h3>{{userName}}</h3>
-    <button routerLink="/profile-edit">Edit Profile</button>
+    <img class="photo"  [src]="userCoverPhoto">
+    <h3 id="user-name">{{userName}}</h3>
+    <h3 id="user-email">{{userEmail}}</h3>
+    <button id="profile-button" routerLink="/profile-edit">Edit Profile</button>
+    <pre id="number-followers">Followers : {{userFollowers}}         Following : {{userFollowing}}   </pre>
 </div>
-<h1> My Books : </h1>
+<h1 id="my-book"> My Books : </h1>

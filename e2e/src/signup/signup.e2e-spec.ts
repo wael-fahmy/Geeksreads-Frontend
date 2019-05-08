@@ -17,6 +17,7 @@ describe('Login tests', () => {
 
 
     beforeEach(() => {
+        browser.get('http://geeksreads.herokuapp.com/');
         page = new LoginPage();
         page.navigateTo();
         emailBox = page.getEmailTextbox();
@@ -27,6 +28,21 @@ describe('Login tests', () => {
     });
 
 
+
+    it('Sign-up form with USername, EMAIL and Passwrod : ' + '"ayahossam_95@hotmail.com" and "tmam123"' + '   SHOULD BE : VALID', () => {
+
+        emailBox.clear().then(() => {
+            emailBox.sendKeys('ayahossam_95@hotmail.com').then(() => {
+                expect(emailBox.getAttribute('class')).toContain('ng-valid');
+            });
+
+            pwdBox.clear().then(() => {
+                pwdBox.sendKeys('tmam123').then(() => {
+                    expect(pwdBox.getAttribute('class')).toContain('ng-valid');
+                });
+            });
+        });
+    });
     /******************************************************************************************************* */
     // EMAIL
 

@@ -1,8 +1,10 @@
+import { CountBooksService } from '../profile-book-entity/book.service';
+import { DataSharingService } from '../nav-bar/data-sharing.service';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { ListOfBooks } from '../profile-book-entity/book.model';
 import { Subject } from 'rxjs';
 import { User } from './profile.model';
-import { HttpClient } from '@angular/common/http';
-
 /**
  *
  * Injectable
@@ -18,7 +20,7 @@ export class TitlesService {
    * @param {HttpClient} http
    * @memberof TitlesService
    */
-  constructor(private http: HttpClient) { }
+  constructor(public countBooksService: CountBooksService, private http: HttpClient, private dataSharingService: DataSharingService) { }
 
   /**
    * User data member to put user info inside
@@ -27,7 +29,6 @@ export class TitlesService {
    * @memberof TitlesService
    */
   private User: User;
-
   /**
    * to update the user info on demand
    *
@@ -38,20 +39,25 @@ export class TitlesService {
 
   /**
    *
-   * to get the json response from the mock service and update the user info
+   * to get the json response from the backend service and update the user info
    * get response from this URL
    * subscribe the recived data
    * and put it in the user object to display it
    * @memberof TitlesService
    */
-  get_User_Info() {
-    this.http.get<{ message: string, User_Info: User }>('http://localhost:3000/api/title').    // get response from this URL
-      subscribe((UserData) => {       // subscribe the recived data
-        this.User = UserData.User_Info;       // and put it in the user object to display it
-        this.userUpdated.next(this.User);
-      });
-  }
-
+   get_User_Info() {    // give the signed in user id as a parameter
+     const UserToken = {
+       token: localStorage.getItem('token'),
+       UserId: localStorage.getItem('userId')
+      };
+     this.http.post('https://geeksreads.herokuapp.com/api/users/me', UserToken
+     ).    // get response from this URL
+       subscribe((UserData: User) => {       // subscribe the recived data
+         this.User = UserData;       // and put it in the user object to display it
+         this.dataSharingService.userName.next(UserData.UserName);
+         this.userUpdated.next(this.User);
+       });
+   }
   /**
    * to update the user info as observed
    * @returns
@@ -61,4 +67,20 @@ export class TitlesService {
     return this.userUpdated.asObservable();
   }
 
+    /**
+     * to get the json response from the mockup service and update the user info
+     * get response from this URL
+     * subscribe the recived data
+     * and put it in the user object to display it
+     *
+     * @memberof TitlesService
+     */
+    get_user_info_mockup()
+    {
+     this.http.get<{message:string,User_Info:User}>('http://localhost:3000/api/users/info').
+     subscribe((UserData) => {
+         this.User=UserData.User_Info
+         this.userUpdated.next(this.User);
+     });
+  }
 }

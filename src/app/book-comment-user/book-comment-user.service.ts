@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import { Bookreviews } from './book-comment-user.model';
 import { HttpClient } from '@angular/common/http';
+import { BookDetails } from '../book-entity/book-entity.model';
+import { Router } from '@angular/router';
 
 @Injectable({ providedIn: 'root' })
 
@@ -13,12 +15,13 @@ export class Bookreviews_Service {
  * @memberof Bookreviews_Service
  */
 liked = 1;
+size: number;
     /**
      * Creates an instance of Bookreviews_Service.
      * @param {HttpClient} http
      * @memberof Bookreviews_Service
      */
-    constructor(private http: HttpClient) { }
+    constructor(private http: HttpClient, private router: Router) { }
     // tslint:disable-next-line:variable-name
     /**
      *
@@ -43,64 +46,43 @@ liked = 1;
      * get review information from json
      * @memberof Bookreviews_Service
      */
-    get_review_Info() {
-        this.http.get<{ message: string, review_details: Bookreviews[] }>('http://localhost:3000/api/reviewdata').
+    get_review_Info(BookID: string) {
+        this.http.get('https://geeksreads.herokuapp.com/api/reviews/getrev',
+            { params: {
+                bookId: BookID,
+                UserId: localStorage.getItem('userId')
+            }
+            }).
             // tslint:disable-next-line:variable-name
-            subscribe((reviewdata) => {
-                this.review_information = reviewdata.review_details;
+            subscribe((reviewdata: Bookreviews[]) => {
+                this.review_information = reviewdata;
                 this.review_informationUpdated.next([...this.review_information]);
+            }, (error: { json: () => void; }) => {
+                console.log(error);
             });
     }
-   /**
-    *
-    * get review information to update
-    * @returns
-    * @memberof Bookreviews_Service
-    */
-   get_review_Info_updated() {
+    get_review_Info_updated() {
         return this.review_informationUpdated.asObservable();
     }
-// tslint:disable-next-line: variable-name
-/**
- *
- * variable used to post request of reviewer comments
- * @param {string} review_id
- * @memberof Bookreviews_Service
- */
-request_reviewer_comment(review_id: string) {
-// tslint:disable-next-line: max-line-length
-// tslint:disable-next-line: object-literal-shorthand
-// tslint:disable-next-line: max-line-length
-        const reviewer_comment: Bookreviews = {reviewer_id: review_id, reviewer_name:null,reviewer_body:null,reviewer_comments:null,reviewer_date:null,reviewer_image:null,reviewer_likes:null,reviewer_rate:null};
-        this.http.post<{message: string}>('http://localhost:3000/api/reviewdata', reviewer_comment)
-        .subscribe ((responseData) => {
-            console.log(responseData.message);
-        });
-    }
-// tslint:disable-next-line: variable-name
-/**
- *
- * function used to post request of review likes
- * @param {string} review_id
- * @param {string} review_like
- * @memberof Bookreviews_Service
- */
-request_reviewer_like(review_id: string, review_like: string) {
-// tslint:disable-next-line: radix
-        let x = parseInt(review_like);
-        if (this.liked === 0) {
-            x = x + 1;
-            this.liked = 1;
-        } else {
-            x = x - 1;
-            this.liked = 0;
+    post_book_review(bookc_id: string, reviewbody: string, reviewdate: string, Rrating: number) {
+        if (localStorage.getItem('userId') === null) {
+            this.router.navigate(['/sign-in']);
+            return;
         }
-        review_like = x.toString();
-// tslint:disable-next-line: max-line-length
-        const reviewer_comment: Bookreviews = {reviewer_id: review_id, reviewer_name:null,reviewer_body:null,reviewer_comments:null,reviewer_date:null,reviewer_image:null,reviewer_likes:review_like,reviewer_rate:null};
-        this.http.post<{message: string}>('http://localhost:3000/api/reviewdata', reviewer_comment)
-        .subscribe ((responseData) => {
-            console.log(responseData.message);
-        });
+        const UserToken = {
+            userId : localStorage.getItem('userId'),
+            bookId: bookc_id,
+            rating: Rrating,
+            reviewBody: reviewbody,
+            reviewDate: reviewdate,
+            token: localStorage.getItem('token')
+        };
+        this.http.post<{ message: string }>('https://geeksreads.herokuapp.com/api/reviews/add', UserToken).
+      subscribe(bookData => {          //  subscribe the list of books recieved
+        console.log(bookData);   // assign them to the list to display them
+        this.review_informationUpdated.next([...this.review_information]);
+    }, (error: { json: () => void; }) => {
+        console.log(error);
+    });
     }
 }

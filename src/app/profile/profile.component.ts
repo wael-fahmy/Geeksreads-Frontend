@@ -1,4 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
+import { ListOfBooks } from '../profile-book-entity/book.model';
 import { CountBooksService } from '../profile-book-entity/book.service';
 import { Subscription } from 'rxjs';
 
@@ -29,7 +30,9 @@ export class ProfileComponent implements OnInit {
    * @memberof ProfileComponent
    */
   numReading = 0;                  // number of books currently reading
-
+  listOfBooksReading: ListOfBooks[] = [];
+  listOfBooksToRead: ListOfBooks[] = [];
+  listOfBooksRead: ListOfBooks[] = [];
   /**
    *
    * sub num read
@@ -78,23 +81,31 @@ export class ProfileComponent implements OnInit {
    * @memberof ProfileComponent
    */
   ngOnInit() {
-    // this.CountBooksService.get_count_read();
+    
 
-    this.Sub = this.countBooksService.get_count_update_read().      // to observe the update in the number of books read
-      subscribe((numRead: number) => {                              // once you finished reading
-        this.numRead = numRead;
-
+    this.countBooksService.get_List_of_books_read();                    // to get the book info from the service
+   //this.countBooksService.get_List_of_books_read_mockup(); 
+   this.Sub = this.countBooksService.get_List_of_books_read_updated().
+      subscribe((ListRead: ListOfBooks[]) => {                     // subscribe the list of books recived
+        this.listOfBooksRead = ListRead;                              // and put it in the list of books to display them
+        this.numRead = this.listOfBooksRead.length;
       });
 
-    this.Sub2 = this.countBooksService.get_count_update_want_to_read().   // to observe the update in the number of books
-      subscribe((numToRead: number) => {                                  // want to read once you add a book to want to read
-        this.numToRead = numToRead;
-      });
+      this.countBooksService.get_List_of_books_want_to_read();                    // to get the book info from the service
+     //this.countBooksService.get_List_of_books_to_read_mockup();
+      this.Sub2 = this.countBooksService.get_List_of_books_want_to_read_updated().
+        subscribe((ListToRead: ListOfBooks[]) => {                     // subscribe the list of books recived
+          this.listOfBooksToRead = ListToRead;                              // and put it in the list of books to display them
+          this.numToRead = this.listOfBooksToRead.length;
+        });
 
-    this.Sub3 = this.countBooksService.get_count_update_reading().      // to observe the update in the number of books read
-      subscribe((numReading: number) => {                              // once you finished reading
-        this.numReading = numReading;
-      });
+      this.countBooksService.get_List_of_books_reading();                    // to get the book info from the service
+      //this.countBooksService.get_List_of_books_reading_mockup();
+      this.Sub3 = this.countBooksService.get_List_of_books_reading_updated().
+        subscribe((ListReading: ListOfBooks[]) => {                     // subscribe the list of books recived
+          this.listOfBooksReading = ListReading;                              // and put it in the list of books to display them
+          this.numReading = this.listOfBooksReading.length;
+        });
   }
 
   /**

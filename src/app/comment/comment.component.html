@@ -1,0 +1,11 @@
+<div id="user-comment">
+<img id="user-image" src="{{Photo}}">
+  <div id="user-part">
+      <p id="user-backet">
+        <a id="user-name" [routerLink]="['/other-user-profile-entity', userId]">{{userName}}</a>
+        <span id="user-body">{{Body}}</span>
+      </p>
+      <p id="comment-date">{{date}}</p>
+  </div>
+</div>
+<hr id="user-underline">

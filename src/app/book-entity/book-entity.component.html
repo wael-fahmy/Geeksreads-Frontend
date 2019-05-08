@@ -3,13 +3,41 @@
     <div id="Book-Title">
         <h3 id="title">{{booktitle[book_index]}}</h3>
         <p id="By-Author">by
-            <span (click)="GetAuthorByID()" routerLink="/author" id="Author-name">{{bookauthor[book_index]}}</span></p>
-            <button mat-button [matMenuTriggerFor]="menu" class="want-to-read" id='first-option'>{{bookstatus[book_index]}}</button>
+            <span (click)="Clear_Storage()" [routerLink]="['/authors', bookauthorid[book_index]]" id="Author-name">{{bookauthor[book_index]}}</span></p>
+        <button mat-button [matMenuTriggerFor]="menu" class="want-to-read" id='first-option'>{{bookstatus[book_index]}}</button>
         <mat-menu #menu="matMenu">
-            <button mat-menu-item (click)="book_status('second-option')" id='second-option'>{{type1}}</button>
-            <button mat-menu-item (click)="book_status('third-option')" id='third-option'>{{type2}}</button>
+            <button mat-menu-item (click)="book_status_Post('first-option','second-option')" id='second-option'>{{type1}}</button>
+            <button mat-menu-item (click)="book_status_Post('first-option','third-option')" id='third-option'>{{type2}}</button>
+            <button mat-menu-item (click)="book_status_Post('first-option','fourth-option')" id='fourth-option'>{{type3}}</button>
         </mat-menu>
-        <button mat-stroked-button id="rate">Rate </button>
+        <button mat-button [matMenuTriggerFor]="menu2" id="rate">Rate</button>
+        <mat-menu #menu2="matMenu">
+            <button mat-menu-item id='rate-first' (click)="PostRate('rate-first')">
+                    <span class="fa fa-star" id="checked"></span>
+            </button>
+            <button mat-menu-item id='rate-second' (click)="PostRate('rate-second')">
+                    <span id="checked" class="fa fa-star"></span>
+                    <span id="checked" class="fa fa-star"></span>
+            </button>
+            <button mat-menu-item id='rate-third' (click)="PostRate('rate-third')">
+                    <span id="checked" class="fa fa-star"></span>
+                    <span id="checked" class="fa fa-star"></span>
+                    <span id="checked" class="fa fa-star"></span>
+            </button>
+            <button mat-menu-item id='rate-fourth' (click)="PostRate('rate-fourth')">
+                    <span id="checked" class="fa fa-star"></span>
+                    <span id="checked" class="fa fa-star"></span>
+                    <span id="checked" class="fa fa-star"></span>
+                    <span id="checked" class="fa fa-star"></span>
+            </button>
+            <button mat-menu-item id='rate-fifth' (click)="PostRate('rate-fifth')">
+                    <span id="checked" class="fa fa-star"></span>
+                    <span id="checked" class="fa fa-star"></span>
+                    <span id="checked" class="fa fa-star"></span>
+                    <span id="checked" class="fa fa-star"></span>
+                    <span id="checked" class="fa fa-star"></span>
+            </button>
+        </mat-menu>
     </div>
 
 </div>
@@ -28,6 +56,6 @@
     <p>{{befor_dots[book_index]}}
         <span id="dots-book-discription">...</span>
         <span id="more-book-discription">{{after_dots[book_index]}}</span>
-    <button (click)="more_book_discription()" mat-button id="myBtn-book-discription">Read more</button></p>
+        <button (click)="more_book_discription()" mat-button id="myBtn-book-discription">Read more</button></p>
     <hr id="underline-bookk-entity" class="w3-gray">
 </div>

@@ -5,10 +5,11 @@ describe('workspace-project App', () => {
   let page: AppPage;
 
   beforeEach(() => {
+    browser.get('http://localhost:4200');
     page = new AppPage();
   });
 
-  it('should display welcome message', () => {
+  it('should have a Title', () => {
     page.navigateTo();
   });
 

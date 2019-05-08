@@ -1,8 +1,8 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
 import { Row } from './genre-row.model';
-
+import { Subject, Observable } from 'rxjs';
+import { Router } from '@angular/router';
 /**
  *
  * Injectable
@@ -17,7 +17,7 @@ export class RowServices {
    * @param {HttpClient} http
    * @memberof RowServices
    */
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router: Router) { }
 
   /**
    * Row
@@ -25,27 +25,33 @@ export class RowServices {
    * @type {Row}
    * @memberof RowServices
    */
-  private Row: Row;
+  private Row: Row[] = [];
 
   /**
    * Row Updated
    * @private
    * @memberof RowServices
    */
-  private rowUpdated = new Subject<Row>();
+  private rowUpdated = new Subject<Row[]>();
 
   /**
    * This function gets the row info
    * @memberof RowServices
    */
-  get_row() {
-    this.http.get<{ message: string, Row: Row }>('http://localhost:3000/api/genres').subscribe((RowData) => {
-      this.Row = RowData.Row;
-      this.rowUpdated.next(this.Row);
-
+  get_row(genre: string): Observable<any> {
+    return this.http.get('https://geeksreads.herokuapp.com/api/books/genre', {
+      params: {
+        Genre: genre,
+      }
     });
+    // .subscribe((serverResponse: Row[]) => {
+    //   this.Row = serverResponse;
+    //   this.rowUpdated.next(this.Row);
+    // }, (error: { json: () => void; }) => {
+    //   console.log(error);
+    //   this.router.navigate(['/homepage']);
+    // });
   }
-
 
   /**
    *

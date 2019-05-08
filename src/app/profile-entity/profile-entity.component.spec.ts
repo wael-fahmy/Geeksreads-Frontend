@@ -39,9 +39,15 @@ describe('ProfileEntityComponent', () => {
   }));
 
 
-  it('User Name should be Mohamed Medhat', async(() => {
+  it('User Name should be Signed in user name', async(() => {
     fixture.whenStable().then(() => {
-      expect(component.userInfo.userName).toBe('Mohamed Medhat');
+      expect(component.userInfo.UserName).toBe('Mohamed Ashraf');
+    });
+  }));
+
+  it('User Email should be signed in user email', async(() => {
+    fixture.whenStable().then(() => {
+      expect(component.userInfo.UserEmail).toBe('samersosta@gmail.com');
     });
   }));
 

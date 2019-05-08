@@ -1,0 +1,60 @@
+<h2>
+    currently Reading Books : </h2>
+<mat-list *ngFor="let index of listOfBooksReading">
+    <!-- <mat-list-item *ngIf="index.state=='currently reading'">     -->
+    <mat-list-item>
+        <img width="60" height="80" src="{{index.Cover}}" alt="book">
+        <a routerLink="/book/{{index.BookId}}" id="book-route">{{index.Title}} <br> by {{index.AuthorName}}  </a>
+        <button id="MENU" [matMenuTriggerFor]="menu">currently reading...</button>
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item (click)=" OnClick_read(index)" id="readButton">read</button>
+            <button mat-menu-item (click)="OnClick_Remove(index)" id="wantToReadButton">Remove book</button>
+        </mat-menu>
+        <div *ngIf="index.BookRating=='1.0'">
+            <p>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star"></span>
+                <span class="fa fa-star"></span>
+                <span class="fa fa-star"></span>
+                <span class="fa fa-star"></span>
+            </p>
+        </div>
+        <div *ngIf="index.BookRating=='2.0'">
+            <p>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star"></span>
+                <span class="fa fa-star"></span>
+                <span class="fa fa-star"></span>
+            </p>
+        </div>
+        <div *ngIf="index.BookRating=='3.0'">
+            <p>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star"></span>
+                <span class="fa fa-star"></span>
+            </p>
+        </div>
+        <div *ngIf="index.BookRating=='4.0'">
+            <p>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star"></span>
+            </p>
+        </div>
+        <div *ngIf="index.BookRating=='5.0'">
+            <p>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+            </p>
+        </div>
+
+    </mat-list-item>
+</mat-list>

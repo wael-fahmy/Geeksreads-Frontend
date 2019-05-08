@@ -3,6 +3,8 @@ import { browser, logging } from 'protractor';
 import { protractor } from 'protractor/built/ptor';
 import { testCases as emailTestCases } from './testCases-signin-email';
 import { testCases as pwdTestCases } from './testCases-signin-pwd';
+// import { testCases as nameTestCases } from './testCases-signin-name';
+// import { testCases as allTestCases } from './testCases-signin-withall';
 
 // import * as fooo from 'testCases-signin-email.json';
 
@@ -22,7 +24,6 @@ describe('Login tests', () => {
         sumbitBtn = page.getSubmitButton();
         form = page.getForm();
     });
-
 
     /******************************************************************************************************* */
     // EMAIL
@@ -70,6 +71,8 @@ describe('Login tests', () => {
             });
         });
     });
+
+
 
 
 });

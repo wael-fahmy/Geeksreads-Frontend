@@ -1,0 +1,30 @@
+<div id="user-reviews">
+    <img [routerLink]="['/other-user-profile-entity', userId]" class="reviewer-image" src="{{photo}}">
+    <div id="reviewer-data">
+        <div id="name-div">
+            <p id="Reviewer-name" [routerLink]="['/other-user-profile-entity', userId]">{{userName}}</p>
+            <span id="rate-it">rated it</span>
+            <span id="star0" class="fa fa-star"></span>
+            <span id="star1" class="fa fa-star"></span>
+            <span id="star2" class="fa fa-star"></span>
+            <span id="star3" class="fa fa-star"></span>
+            <span id="star4" class="fa fa-star"></span>
+        </div>
+        <p id="review-date">{{reviewDate}}</p>
+    </div>
+</div>
+<div id="review-comment">
+    <p>{{befordots[0]}}</p>
+</div>
+<div id="review-like-comment">
+    <p (click)="LikeReview()" class="blue-text" id="liked">Like</p>
+    <p class="dots">.</p>
+    <p (click)="ClickStorage()" class="blue-text" id="comment">Comment</p>
+    <p class="dots">.</p>
+    <i class="thumbs-up"><mat-icon>thumb_up_alt</mat-icon></i>
+    <p type="text" class="dots" id="show-likes">{{likesCount}}</p>
+    <p class="dots">.</p>
+    <i class="comment">	<mat-icon> mode_comment</mat-icon></i>
+    <p class="dots" id="show-comments">{{commCount}}</p>
+</div>
+<hr id="next-review" class="w3-gray">

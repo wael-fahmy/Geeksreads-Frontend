@@ -1,59 +1,65 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
-import { Bookinformation } from './book-details.model';
+import { BookDetails } from './book-details.model';
 import { HttpClient } from '@angular/common/http';
 
+/**
+ *
+ * clasee to carry services
+ * @export
+ * @class BookTitle_Service
+ */
 @Injectable({ providedIn: 'root' })
 
-// tslint:disable-next-line:class-name
-export class BookInformation_Service {
 
+export class BookTitle_Service {
     /**
-     * Creates an instance of BookInformation_Service.
+     * Creates an instance of BookTitle_Service.
      * @param {HttpClient} http
-     * @memberof BookInformation_Service
+     * @memberof BookTitle_Service
      */
     constructor(private http: HttpClient) { }
-    // tslint:disable-next-line:variable-name
     /**
      *
-     * recieve book information from json
+     * carry book details recieved
      * @private
-     * @type {Bookinformation[]}
-     * @memberof BookInformation_Service
+     * @type {BookDetails[]}
+     * @memberof BookTitle_Service
      */
-    private book_information: Bookinformation[] = [];
-
-    // tslint:disable-next-line:variable-name
-
+    private book_details: BookDetails[] = [];
     /**
      *
-     * updated information variable
+     * update current upon recieving
      * @private
-     * @memberof BookInformation_Service
+     * @memberof BookTitle_Service
      */
-    private book_informationUpdated = new Subject<Bookinformation[]>();
-
+    private book_detailsUpdated = new Subject<BookDetails[]>();
     /**
      *
-     * read book information and place them in side the variables to be send to ts
-     * @memberof BookInformation_Service
+     * function to get book details
+     * @param {string} bookid
+     * @memberof BookTitle_Service
      */
-    get_book_Info() {
-        this.http.get<{ message: string, book_details: Bookinformation[] }>('http://localhost:3000/api/bookDetails').
+    get_book_Info(bookid: string) {
+        this.http.get('https://geeksreads.herokuapp.com/api/books/id', { params: {
+            book_id: bookid
+    }
+        }).
             // tslint:disable-next-line:variable-name
-            subscribe((bookdata) => {
-                this.book_information = bookdata.book_details;
-                this.book_informationUpdated.next([...this.book_information]);
+            subscribe((bookdata: any) => {
+                this.book_details[0] = bookdata;
+                this.book_detailsUpdated.next([...this.book_details]);
+            }, (error: { json: () => void; }) => {
+                console.log(error);
             });
     }
     /**
      *
-     * get book information updated
+     * function to get updated list
      * @returns
-     * @memberof BookInformation_Service
+     * @memberof BookTitle_Service
      */
     get_book_Info_updated() {
-        return this.book_informationUpdated.asObservable();
+        return this.book_detailsUpdated.asObservable();
     }
 }

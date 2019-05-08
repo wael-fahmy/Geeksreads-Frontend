@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, Validators, NgForm } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { MatSnackBar } from '@angular/material';
 import { Router } from '@angular/router';
+import { SignInService } from './sign-in.service';
 
 /**
- *
  * This is sign in component
  * @export
  * @class SignInComponent
@@ -15,8 +16,8 @@ import { Router } from '@angular/router';
   templateUrl: './sign-in.component.html',
   styleUrls: ['./sign-in.component.css']
 })
-export class SignInComponent implements OnInit {
 
+export class SignInComponent implements OnInit {
   /**
    * Later
    * @type {boolean}
@@ -25,29 +26,27 @@ export class SignInComponent implements OnInit {
   hide = true;
 
   /**
-   * used to validate input
+   * Form Group
+   * @type {FormGroup}
+   * @memberof SignInComponent
+   */
+  formdata: FormGroup;
+
+  /**
+   * Email
    * @type {FormControl}
    * @memberof SignInComponent
    */
-  email = new FormControl('', [Validators.required, Validators.email]);
+  email: FormControl;
 
   /**
-   *
-   * User's email entered in the form
-   * @type {String}
+   * Password
+   * @type {FormControl}
    * @memberof SignInComponent
    */
-  userEmail = '';
+  password: FormControl;
 
   /**
-   * User's password hashed
-   * @type {String}
-   * @memberof SignInComponent
-   */
-  userPassword = '';
-
-  /**
-   *
    * Checks email
    * @memberof SignInComponent
    */
@@ -60,29 +59,31 @@ export class SignInComponent implements OnInit {
   }
 
   /**
-   * test request for sign in
+   * SignIn Using Form
    * @memberof SignInComponent
    */
-  testRequest() {
-    // tslint:disable-next-line: deprecation
-    // const data = new URLSearchParams();
-    // data.append('email', this.userEmail);
-    // data.append('pass', this.userPassword);
-    const data = {
-      UserEmail: this.userEmail,
-      UserPassword: this.userPassword
-    };
-    this.http
-      .post('https://geeksreads.herokuapp.com/api/auth/signin', data)
-      .subscribe((serverResponse: any) => {
-        localStorage.setItem('token', serverResponse.Token);
-        localStorage.setItem('userId', serverResponse.UserId);
-        this.router.navigate(['/newsfeed']);
-      }, (error: { json: () => void; }) => {
-        console.log(error.json);
-      });
+  signIn(formData) {
+    try {
+      this.signInService.signIn(formData.email, formData.password);
+    } catch (error) {
+      return;
+    }
+    // this.snackBar.open('Redirecting', null, {
+    //   duration: 1500,
+    // });
   }
 
+  /**
+   * Validate Passsword
+   * @param {*} formcontrol
+   * @returns
+   * @memberof SignInComponent
+   */
+  passwordvalidation(formcontrol) {
+    if (formcontrol.value.length < 6) {
+      return { password: true };
+    }
+  }
 
   /**
    * Creates an instance of SignInComponent.
@@ -90,13 +91,28 @@ export class SignInComponent implements OnInit {
    * @param {HttpClient} http
    * @memberof SignInComponent
    */
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(private http: HttpClient,
+              private router: Router,
+              public signInService: SignInService,
+              private snackBar: MatSnackBar) { }
 
   /**
-   *
-   * function called on initiallization
+   * Function called on initiallization
    * @memberof SignInComponent
    */
-  ngOnInit() { }
-
+  ngOnInit() {
+    localStorage.removeItem('token');
+    if (localStorage.getItem('token') !== null) {
+      this.router.navigate(['/newsfeed']);
+    }
+    this.password = new FormControl('', this.passwordvalidation);
+    this.email = new FormControl('', Validators.compose([
+      Validators.required,
+      Validators.pattern('[^ @]*@[^ @]*\.[a-z]+')
+    ]));
+    this.formdata = new FormGroup({
+      email: this.email,
+      password: this.password
+    });
+  }
 }

@@ -8,3 +8,13 @@
     flex-wrap: nowrap;
     align-items: center;
 }
+.see-more{
+    background-color: rgb(214, 214, 214);
+    color:black;
+    padding: 0px 0px;
+    text-align: center;
+    text-decoration: bold ; 
+    font-size: 15px;
+    cursor: pointer;
+    width: 100%
+}
