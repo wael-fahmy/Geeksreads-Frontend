@@ -1,31 +1,41 @@
 .genre-row {
     width: 100%;
-
 }
 
 .books-container {
     display: flex;
     flex-direction: row;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     align-items: center;
     width: 600px;
     margin: 0 auto;
 }
 
+.book-entitiy a {
+    text-decoration: none;
+}
+
+.book-entitiy a:hover {
+    text-decoration: underline;
+}
+
 .book-entitiy {
+    align-items: center;
+    cursor: pointer;
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
+    justify-content: center;
     margin: 0 20px;
     width: calc(33.3333% - 40px);
-    align-items: center;
 }
 
-.book-image{
+.book-image {
     width: 100px;
     height: 150px;
 }
-.book-button{
+
+.book-button {
     background-color: #4CAF50;
     border: none;
     color: white;
@@ -38,12 +48,12 @@
     margin: 10px 0 0 0;
 }
 
-.see-more{
+.see-more {
     background-color: rgb(214, 214, 214);
-    color:black;
+    color: black;
     padding: 0px 0px;
     text-align: center;
-    text-decoration: bold ; 
+    text-decoration: bold;
     font-size: 15px;
     cursor: pointer;
     width: 100%
@@ -53,6 +63,17 @@
     width: 70%;
     margin: 10px auto 0 auto;
 }
-.genre-type{
-    margin-left: 10px ; 
+
+.genre-type {
+    margin-left: 10px;
+}
+
+@media only screen and (max-width: 615px) {
+    .book-entitiy {
+        width: 100%;
+        margin: 0;
+    }
+    .books-container {
+        width: 100%;
+    }
 }
