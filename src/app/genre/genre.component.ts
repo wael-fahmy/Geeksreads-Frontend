@@ -37,8 +37,6 @@ export class GenreComponent implements OnInit {
   constructor(private route: ActivatedRoute) { }
 
   See_more_genres() {
-    console.log('Loading more genres ... ');
-
     this.showDiv = true;
     this.hideButton = true;
     this.showLess = true;

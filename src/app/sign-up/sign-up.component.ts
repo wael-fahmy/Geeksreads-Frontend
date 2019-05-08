@@ -83,8 +83,6 @@ export class SignUpComponent implements OnInit {
       UserEmail: this.userEmail,
       UserPassword: this.userPassword
     };
-    console.log(data)
-
     this.http
       .post('https://geeksreads.herokuapp.com/api/users/signup', data)
       .subscribe((serverResponse) => {

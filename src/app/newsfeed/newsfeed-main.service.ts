@@ -44,7 +44,6 @@ export class PostsServices {
       token: localStorage.getItem('token'),
       UserId: localStorage.getItem('userId')
     }).subscribe((serverResponse: any) => {
-      console.log(serverResponse);
       this.post = serverResponse;
       this.postUpdated.next([...this.post]);
     });

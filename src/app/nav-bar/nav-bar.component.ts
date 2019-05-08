@@ -135,7 +135,6 @@ export class NavBarComponent implements OnInit {
     this.notificationService.getNotifications();
     this.notificationSubscription = this.notificationService.getNotificationUpdated()
       .subscribe((notificationInformation: NotificationModel[]) => {
-        console.log(notificationInformation);
         this.notificationsModel = notificationInformation;
       }, (error: { json: () => void; }) => {
         console.log(error);

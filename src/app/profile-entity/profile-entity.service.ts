@@ -53,10 +53,8 @@ export class TitlesService {
      this.http.post('https://geeksreads.herokuapp.com/api/users/me', UserToken
      ).    // get response from this URL
        subscribe((UserData: User) => {       // subscribe the recived data
-         // console.log(UserData);
          this.User = UserData;       // and put it in the user object to display it
          this.dataSharingService.userName.next(UserData.UserName);
-         //console.log(this.User);
          this.userUpdated.next(this.User);
        });
    }

@@ -28,7 +28,6 @@ export class AddToShelfService {
     this.http
       .post('https://geeksreads.herokuapp.com/api/users/AddToShelf', data)
       .subscribe((serverResponse: any) => {
-        console.log(serverResponse);
       }, (error: { json: () => void; }) => {
         console.log(error);
       });

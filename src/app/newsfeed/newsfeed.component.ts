@@ -113,11 +113,40 @@ export class NewsfeedComponent implements OnInit {
    */
   recerivedPostsCount: number;
 
+  /**
+   * Comment Maker Image
+   * @memberof NewsfeedComponent
+   */
   commentMakerImage;
+
+  /**
+   * Comment
+   * @memberof NewsfeedComponent
+   */
   comment;
+
+  /**
+   * Reviewer Name
+   * @memberof NewsfeedComponent
+   */
   reviewerName;
+
+  /**
+   * Reviewer Image
+   * @memberof NewsfeedComponent
+   */
   reviewerImage;
+
+  /**
+   * Review Date
+   * @memberof NewsfeedComponent
+   */
   reviewDate;
+
+  /**
+   * Review Body
+   * @memberof NewsfeedComponent
+   */
   reviewBody;
   ///////////////////////////////// end of HTML VARIABLES ////////////////////////////////////////////////
 
@@ -128,13 +157,12 @@ export class NewsfeedComponent implements OnInit {
    *  @memberof NewsfeedPostComponent
    */
   constructor(public PostsServicesObj: PostsServices, private router: Router) {
-    
+
    }
 
 
   /**
    * The  functions created in the service are implemented here
-   *
    * @memberof NewsfeedPostComponent
    */
   ngOnInit() {
@@ -144,28 +172,6 @@ export class NewsfeedComponent implements OnInit {
     this.PostsServicesObj.getpost();
     this.newsfeedSubscription = this.PostsServicesObj.get_post_updated().subscribe((PostInfo) => {
       this.PostObj = PostInfo;
-      // console.log(this.PostObj);
-      // this.setData();
-      // The following is to check if there any posts received or not
-      // if their count=0 then a message to be displayed
-      // this.recerivedPostsCount = this.PostObj.length;
-      // if ( this.recerivedPostsCount === 0 ) {
-      //   this.fiStatuses = false;
-      // }
     });
   }
-
-  // setData() {
-  //   this.commentMakerName = this.PostObj[0].CommentMakerName;
-  //   this.commentDate = this.PostObj[0].CommentDate;
-  //   this.commentMakerImage = this.PostObj[0].CommentMakerPhoto;
-  //   this.comment = this.PostObj[0].CommentBody;
-  //   this.StatusType = this.PostObj[0].StatusType;
-  //   this.bookimage = this.PostObj[0].BookPhoto;
-  //   this.bookname = this.PostObj[0].BookName;
-  //   this.reviewerName = this.PostObj[0].ReviewMakerName;
-  //   this.reviewerImage = this.PostObj[0].ReviewMakerPhoto;
-  //   this.reviewDate = this.PostObj[0].ReviewDate;
-  //   this.reviewBody = this.PostObj[0].ReviewBody;
-  // }
 }

@@ -31,7 +31,7 @@ export class SignOutComponent implements OnInit {
         localStorage.removeItem('token');
         localStorage.removeItem('userId');
       }, (error: { json: () => void; }) => {
-        console.log(error.json);
+        console.log(error);
       });
   }
   /**

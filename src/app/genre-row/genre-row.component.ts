@@ -25,7 +25,7 @@ export class GenreRowComponent implements OnInit {
    * ID of first book
    * @memberof GenreRowComponent
    */
-  bookId1;
+  bookId1: '1';
 
 
   /**
@@ -33,7 +33,7 @@ export class GenreRowComponent implements OnInit {
    * Id of second book
    * @memberof GenreRowComponent
    */
-  bookId2;
+  bookId2: '2';
 
 
   /**
@@ -41,7 +41,7 @@ export class GenreRowComponent implements OnInit {
    * ID of third book
    * @memberof GenreRowComponent
    */
-  bookId3;
+  bookId3: '3';
 
 
   /**
@@ -49,41 +49,40 @@ export class GenreRowComponent implements OnInit {
    * Name of first book
    * @memberof GenreRowComponent
    */
-  bookName1;
-
+  bookName1: '1';
 
   /**
    *
    * Name of second book
    * @memberof GenreRowComponent
    */
-  bookName2;
-
+  bookName2: '2';
 
   /**
    *
    * Name of third book
    * @memberof GenreRowComponent
    */
-  bookName3;
+  bookName3: '3';
+
   /**
    * book image 1
    * @memberof GenreRowComponent
    */
-  bookImage1;
+  bookImage1: '1';
 
   /**
    * book image 2
    * @memberof GenreRowComponent
    */
-  bookImage2;
+  bookImage2: '2';
 
   /**
    *
    * book image 3
    * @memberof GenreRowComponent
    */
-  bookImage3;
+  bookImage3: '3';
 
   /**
    * Row object created to fill data
@@ -116,15 +115,28 @@ export class GenreRowComponent implements OnInit {
     this.rowServicesObj.get_row(this.genreType);
     this.subprofile = this.rowServicesObj.get_row_updated().subscribe((RowData: Row[]) => {
       this.RowObj = RowData;
-      this.bookImage1 = this.RowObj[0].Cover;
-      this.bookImage2 = this.RowObj[1].Cover;
-      this.bookImage3 = this.RowObj[2].Cover;
-      this.bookId1 = this.RowObj[0].BookId;
-      this.bookId2 = this.RowObj[1].BookId;
-      this.bookId3 = this.RowObj[2].BookId;
-      this.bookName1 = this.RowObj[0].Title;
-      this.bookName2 = this.RowObj[1].Title;
-      this.bookName3 = this.RowObj[2].Title;
+      if (this.RowObj.length === 3) {
+        this.bookImage1 = this.RowObj[0].Cover;
+        this.bookImage2 = this.RowObj[1].Cover;
+        this.bookImage3 = this.RowObj[2].Cover;
+        this.bookId1 = this.RowObj[0].BookId;
+        this.bookId2 = this.RowObj[1].BookId;
+        this.bookId3 = this.RowObj[2].BookId;
+        this.bookName1 = this.RowObj[0].Title;
+        this.bookName2 = this.RowObj[1].Title;
+        this.bookName3 = this.RowObj[2].Title;
+      } else if (this.RowObj.length === 2) {
+        this.bookImage1 = this.RowObj[0].Cover;
+        this.bookImage2 = this.RowObj[1].Cover;
+        this.bookId1 = this.RowObj[0].BookId;
+        this.bookId2 = this.RowObj[1].BookId;
+        this.bookName1 = this.RowObj[0].Title;
+        this.bookName2 = this.RowObj[1].Title;
+      } else if (this.RowObj.length === 1) {
+        this.bookImage1 = this.RowObj[0].Cover;
+        this.bookId1 = this.RowObj[0].BookId;
+        this.bookName1 = this.RowObj[0].Title;
+      }
     });
   }
 }

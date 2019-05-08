@@ -15,7 +15,7 @@ export class ProfileEditService {
 
       token:localStorage.getItem('token')
     }
-    return this.http.post('https://geeksreads.herokuapp.com/api/users/me',data);
+    return this.http.post('https://geeksreads.herokuapp.com/api/users/me', data);
 }
 
 
@@ -26,8 +26,7 @@ updateProfile(birthDate,userName,photo): Observable<any> {
     NewUserName:userName,
     NewUserPhoto:photo
   }
-  console.log(data)
-  return this.http.post('https://geeksreads.herokuapp.com/api/users/update',data);
+  return this.http.post('https://geeksreads.herokuapp.com/api/users/update', data);
 }
 
 
