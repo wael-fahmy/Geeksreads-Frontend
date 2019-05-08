@@ -49,7 +49,7 @@ export class ProfileEditComponent implements OnInit {
       'kisspng-clip-art-computer-icons-user-download-chamber-of-d-talonpaw-svg-png-icon-' +
       'free-download-175238-on-5b84c95a116717.2809616615354289540713.jpg';
     this.profileEditService.updateProfile(this.myDate, this.username, this.photo).subscribe(updateProfileResponse => {
-      if (this.oldpassword == "" && this.newpassword == "") {
+      if (this.oldpassword === '' && this.newpassword === '') {
         // alert(updateProfileResponse.ReturnMsg);
       } else {
         this.profileEditService.updatepassword(this.oldpassword, this.newpassword).subscribe(updatePasswordResponse => {

@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs';
 import { Row } from './genre-row.model';
 import { RowServices } from './genre-row.service';
+import { Subscription } from 'rxjs';
 
 /**
  * Genre row component
@@ -15,10 +15,8 @@ import { RowServices } from './genre-row.service';
   styleUrls: ['./genre-row.component.css']
 })
 export class GenreRowComponent implements OnInit {
-
   @Input() genreType: string;
   @Input() showGenreName: boolean;
-
 
   /**
    *
@@ -112,9 +110,8 @@ export class GenreRowComponent implements OnInit {
    * @memberof GenreRowComponent
    */
   ngOnInit() {
-    this.rowServicesObj.get_row(this.genreType);
-    this.subprofile = this.rowServicesObj.get_row_updated().subscribe((RowData: Row[]) => {
-      this.RowObj = RowData;
+    this.rowServicesObj.get_row(this.genreType).subscribe(data => {
+      this.RowObj = data;
       if (this.RowObj.length === 3) {
         this.bookImage1 = this.RowObj[0].Cover;
         this.bookImage2 = this.RowObj[1].Cover;
@@ -137,6 +134,8 @@ export class GenreRowComponent implements OnInit {
         this.bookId1 = this.RowObj[0].BookId;
         this.bookName1 = this.RowObj[0].Title;
       }
+    }, error => {
+      console.log(error);
     });
   }
 }

@@ -38,18 +38,19 @@ export class RowServices {
    * This function gets the row info
    * @memberof RowServices
    */
-  get_row(genre: string) {
-    this.http.get('https://geeksreads.herokuapp.com/api/books/genre', {
+  get_row(genre: string): Observable<any> {
+    return this.http.get('https://geeksreads.herokuapp.com/api/books/genre', {
       params: {
         Genre: genre,
       }
-    }).subscribe((serverResponse: Row[]) => {
-      this.Row = serverResponse;
-      this.rowUpdated.next(this.Row);
-    }, (error: { json: () => void; }) => {
-      console.log(error);
-      this.router.navigate(['/homepage']);
     });
+    // .subscribe((serverResponse: Row[]) => {
+    //   this.Row = serverResponse;
+    //   this.rowUpdated.next(this.Row);
+    // }, (error: { json: () => void; }) => {
+    //   console.log(error);
+    //   this.router.navigate(['/homepage']);
+    // });
   }
 
   /**
