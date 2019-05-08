@@ -3,7 +3,7 @@ import { browser, by, element, promise, ElementFinder, ElementArrayFinder } from
 
 export class LoginPage {
     navigateTo() {
-        browser.get('http://geeksreads.herokuapp.com/');
+        browser.get('http://localhost:4200');
         return browser.get('/newsfeed');
     }
 

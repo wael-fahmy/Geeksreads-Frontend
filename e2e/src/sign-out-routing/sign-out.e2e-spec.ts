@@ -1,7 +1,7 @@
 import { LoginPage } from './sign-out.po';
-import { browser, logging, by, element, promise, ElementFinder, ElementArrayFinder } from 'protractor';
+import { browser, logging, by, promise, ElementFinder, ElementArrayFinder } from 'protractor';
 import { protractor } from 'protractor/built/ptor';
-// import { element } from '@angular/core/src/render3';
+import { element } from '@angular/core/src/render3';
 import { RouterModule } from '@angular/router';
 
 
