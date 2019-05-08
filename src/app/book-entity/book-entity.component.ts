@@ -165,7 +165,6 @@ ngOnInit() {
     // tslint:disable-next-line:variable-name
     this.Sub_profile = this.booktitle_service.get_book_Info_updated().subscribe((book_Information: BookDetails[]) => {
       this.book_details = book_Information;
-      console.log(book_Information);
       this.SetBookInfor();
       this.SplitString();
       this.SetRate();
