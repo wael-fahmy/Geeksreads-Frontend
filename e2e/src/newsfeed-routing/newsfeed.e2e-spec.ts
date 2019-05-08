@@ -21,7 +21,7 @@ describe('NavBar tests', () => {
 
     it('Should Redirect to newsfeed page when he clicks Home button', () => {
         browser.getCurrentUrl().then((url) =>
-        expect(url).toBe('http://geeksreads.herokuapp.com/newsfeed'));
+        expect(url).toBe('http://localhost:4200/newsfeed'));
         });
 
 

@@ -5,7 +5,7 @@
  * @interface Row
  */
 export class Row {
-  BooKId;
+  BookId;
   Title;
   AuthorId;
   ISBN;

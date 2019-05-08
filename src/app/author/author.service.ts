@@ -1,5 +1,5 @@
-import { AuthorModel } from './author-model';
 import { AuthorBooksModel } from './author-books-model';
+import { AuthorModel } from './author-model';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';

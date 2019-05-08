@@ -23,12 +23,11 @@
             <mat-icon>notifications</mat-icon>
           </button>
         <mat-menu #notificationMenu="matMenu">
-            <div class="notification-instance">
-                <p>This will be a component</p>
-            </div>
-            <hr>
-            <div class="notification-instance">
-                <p>This too</p>
+            <div *ngFor="let i of notificationsModel">
+                <div class="notification-instance">
+                    <p [routerLink]="['/book', i?.BookId]">{{i?.MakerName}} did a {{i?.NotificationType}} on {{i?.BookName}}</p>
+                </div>
+                <hr>
             </div>
         </mat-menu>
         <button *ngIf="isSignedIn" mat-icon-button [matMenuTriggerFor]="userMenu" id="user-button">

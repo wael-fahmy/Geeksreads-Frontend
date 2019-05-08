@@ -23,7 +23,7 @@ describe('Profile tests', () => {
 
     it('Should Redirect to Edit Profile when he clicks edit button', () => {
         browser.getCurrentUrl().then((url) =>
-        expect(url).toBe('http://geeksreads.herokuapp.com/profile-edit'));
+        expect(url).toBe('http://localhost:4200/profile-edit'));
         });
 
 

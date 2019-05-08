@@ -23,10 +23,8 @@ describe('Profile tests', () => {
 
     it('Should Redirect to Profile when he clicks profile button', () => {
 
-        browser.get('http://geeksreads.herokuapp.com/profile');
-        browser.waitForAngular();
         browser.getCurrentUrl().then((url) =>
-        expect(url).toBe('http://geeksreads.herokuapp.com/profile'));
+        expect(url).toBe('http://localhost:4200/profile'));
         });
 
 

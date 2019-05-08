@@ -16,7 +16,11 @@ import { Router } from '@angular/router';
 })
 export class SignOutComponent implements OnInit {
 
-  signOut(){
+  /**
+   * SignOut
+   * @memberof SignOutComponent
+   */
+  signOut() {
     const data = {
       token: localStorage.getItem('token')
     };

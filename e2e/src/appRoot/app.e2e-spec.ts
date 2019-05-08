@@ -5,7 +5,7 @@ describe('workspace-project App', () => {
   let page: AppPage;
 
   beforeEach(() => {
-    browser.get('http://geeksreads.herokuapp.com/');
+    browser.get('http://localhost:4200');
     page = new AppPage();
   });
 

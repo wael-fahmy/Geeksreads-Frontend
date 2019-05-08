@@ -18,32 +18,79 @@ export class GenreRowComponent implements OnInit {
 
   @Input() genreType: string;
   @Input() showGenreName: boolean;
- 
+
+
+  /**
+   *
+   * ID of first book 
+   * @memberof GenreRowComponent
+   */
+  bookId1;
+
+
+  /**
+   *
+   * Id of second book 
+   * @memberof GenreRowComponent
+   */
+  bookId2;
+
+
+  /**
+   *
+   * ID of third book 
+   * @memberof GenreRowComponent
+   */
+  bookId3;
+
+
+  /**
+   *
+   * Name of first book 
+   * @memberof GenreRowComponent
+   */
+  bookName1;
+
+
+  /**
+   *
+   * Name of second book 
+   * @memberof GenreRowComponent
+   */
+  bookName2;
+
+
+  /**
+   *
+  * Name of third book 
+   * @memberof GenreRowComponent
+   */
+  bookName3;
   /**
    * book image 1
    * @memberof GenreRowComponent
    */
-  bookImage1 ;
+  bookImage1;
 
   /**
    * book image 2
    * @memberof GenreRowComponent
    */
-  bookImage2 ;
+  bookImage2;
 
   /**
    *
    * book image 3
    * @memberof GenreRowComponent
    */
-  bookImage3 ;
+  bookImage3;
 
   /**
    * Row object created to fill data
    * @type {Row}
    * @memberof GenreRowComponent
    */
-  RowObj: Row;
+  RowObj: Row[];
 
   /**
    * Subscription
@@ -53,7 +100,7 @@ export class GenreRowComponent implements OnInit {
    */
   private subprofile: Subscription;
 
-  
+
   /**
    * Creates an instance of GenreRowComponent.
    * @param {RowServices} rowServicesObj
@@ -67,12 +114,21 @@ export class GenreRowComponent implements OnInit {
    */
   ngOnInit() {
     this.rowServicesObj.get_row(this.genreType);
-    this.subprofile = this.rowServicesObj.get_row_updated().subscribe((RowData: Row) => {
+    this.subprofile = this.rowServicesObj.get_row_updated().subscribe((RowData: Row[]) => {
       this.RowObj = RowData;
-      // this.genreType = this.RowObj.genretype;
-     this.bookImage1 = RowData[0].Cover;
-     this.bookImage2 = RowData[1].Cover;
-      this.bookImage3 = RowData[2].Cover;
+      this.bookImage1 = this.RowObj[0].Cover;
+      this.bookImage2 = this.RowObj[1].Cover;
+      this.bookImage3 = this.RowObj[2].Cover;
+      this.bookId1 = this.RowObj[0].BookId;
+      this.bookId2 = this.RowObj[1].BookId;
+      this.bookId3 = this.RowObj[2].BookId;
+      this.bookName1 = this.RowObj[0].Title;
+      this.bookName2 = this.RowObj[1].Title;
+      this.bookName3 = this.RowObj[2].Title;
+
+
+
+
     });
   }
 }
