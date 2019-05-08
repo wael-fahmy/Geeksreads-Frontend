@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewEncapsulation } from '@angular/core';
 import { ReviewService } from './review.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -12,11 +12,13 @@ import { ActivatedRoute, Router } from '@angular/router';
 @Component({
   selector: 'app-review',
   templateUrl: './review.component.html',
-  styleUrls: ['./review.component.css']
+  styleUrls: ['./review.component.css'],
+  encapsulation: ViewEncapsulation.Emulated
 })
 
 export class ReviewComponent implements OnInit {
 
+  @Input() index;
   /**
    *
    * variable to carry book id

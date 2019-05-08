@@ -1,5 +1,5 @@
 <p id="community-reviews">Community Reviews</p>
-<app-review id="review" *ngFor="let item of review_information" [photo]="item.photo"
+<app-review id="review" *ngFor="let item of review_information; let i=index" [index]="i" [photo]="item.photo"
 [userName]="item.userName" [reviewDate]="item.reviewDate" [reviewBody]="item.reviewBody"
 [likesCount]="item.likesCount" [reviewId]="item.reviewId" [commCount]="item.commCount"
 [userId]="item.userId" [bookId]="item.bookId" [liked]="item.liked" [rating]="item.rating">

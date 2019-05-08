@@ -1,4 +1,4 @@
-import { Component, OnInit, Renderer2, Input } from '@angular/core';
+import { Component, OnInit, Renderer2, Input, ViewEncapsulation } from '@angular/core';
 import { Bookreviews } from './book-comment-user.model';
 import { Subscription } from 'rxjs';
 import { Bookreviews_Service } from './book-comment-user.service';
@@ -8,7 +8,8 @@ import { DatePipe } from '@angular/common';
   selector: 'app-book-comment-user',
   templateUrl: './book-comment-user.component.html',
   styleUrls: ['./book-comment-user.component.css'],
-  providers: [DatePipe]
+  providers: [DatePipe],
+  encapsulation: ViewEncapsulation.Emulated
 })
 export class BookCommentUserComponent implements OnInit {
 

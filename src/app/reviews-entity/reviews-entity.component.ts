@@ -8,6 +8,8 @@ import { Book } from '../book/book.model';
 import {ReviewerDetails_Service} from './reviews-entity.service';
 import { Bookreviews } from '../book-comment-user/book-comment-user.model';
 import { ReviewService } from '../review/review.service';
+import { delay } from 'q';
+import { MatSnackBar } from '@angular/material';
 @Component({
   selector: 'app-reviews-entity',
   templateUrl: './reviews-entity.component.html',
@@ -49,7 +51,8 @@ public Read_status: ReadStatus;
 //////////////////////////////////////////////////////////////////
 constructor(public review_service: Bookreviews_Service,
             public book_service: Book_Service, public reviewPost: ReviewerDetails_Service,
-            public booktitle_service: BookTitle_Service, public ReviewServ: ReviewService) { }
+            public booktitle_service: BookTitle_Service, public ReviewServ: ReviewService,
+            public snackbar: MatSnackBar) { }
 ngOnInit() {
     console.log(this.ReviewID);
     // tslint:disable-next-line: max-line-length
@@ -118,30 +121,54 @@ ngOnInit() {
     if (y === 'Read') {
       this.booktitle_service.Remove_Book(this.bookid);
       first.textContent = 'Add To Shelf';
+      const snackbaref = this.snackbar.open('Book Has Been Removed', ' ' , {
+        horizontalPosition: 'end'
+      });
+      delay(2000);
       this.assign_status(first.textContent);
     } else if (y === 'Want To Read') {
       if (x === 'Remove From Shelve') {
         this.booktitle_service.Remove_Book(this.bookid);
         first.textContent = 'Add To Shelf';
+        const snackbaref = this.snackbar.open('Book Has Been Removed', ' ' , {
+          horizontalPosition: 'end'
+        });
+        delay(2000);
         this.assign_status(first.textContent);
       } else {
         this.booktitle_service.add_book_to_shelf_reading(this.bookid);
         first.textContent = x;
+        const snackbaref = this.snackbar.open('Book Has Been Added To Currently Reading', ' ' , {
+          horizontalPosition: 'end'
+        });
+        delay(2000);
         this.assign_status(x);
       }
     } else if (y === 'Currently Reading') {
       if (x === 'Remove From Shelve') {
         this.booktitle_service.Remove_Book(this.bookid);
         first.textContent = 'Add To Shelf';
+        const snackbaref = this.snackbar.open('Book Has Been Removed', ' ' , {
+          horizontalPosition: 'end'
+        });
+        delay(2000);
         this.assign_status(first.textContent);
       } else {
         this.booktitle_service.add_book_to_shelf_read(this.bookid);
         first.textContent = x;
+        const snackbaref = this.snackbar.open('Book Has Been Added to Read', ' ' , {
+          horizontalPosition: 'end'
+        });
+        delay(2000);
         this.assign_status(x);
       }
     } else if (y === 'Add To Shelf') {
       this.booktitle_service.AddToShelf(this.bookid, x);
       first.textContent = x;
+      const snackbaref = this.snackbar.open('Book Has Been Added', ' ' , {
+        horizontalPosition: 'end'
+      });
+      delay(2000);
       this.assign_status(x);
     }
     console.log('missed');
@@ -177,29 +204,6 @@ ngOnInit() {
   SetDate(date: string) {
     const word =  date.split('T');
     this.reviewdate = word[0];
-  }
-  book_status(index: string) {
-    const first = document.getElementById(index);
-    const second = document.getElementById('first-option');
-    let x = first.innerHTML.toString();
-    first.innerHTML = second.innerHTML.toString();
-    second.innerHTML = x;
-    //second
-    if (this.bookstatus === 'Want To Read' && second.textContent === 'Currently Reading') {
-      console.log(second.textContent);
-      console.log(this.bookstatus);
-      console.log(this.bookid);
-      console.log('in first if');
-      this.reviewPost.Remove_Book(this.bookid);
-      this.reviewPost.add_book_to_shelf_reading(this.bookid);
-    } else if (this.bookstatus === 'Currently Reading' && second.textContent === 'Read') {
-      console.log(second.textContent);
-      console.log(this.bookstatus);
-      console.log(this.bookid);
-      console.log('in second if');
-      this.reviewPost.Remove_Book(this.bookid);
-      this.reviewPost.add_book_to_shelf_read(this.bookid);
-    }
   }
   SplitString(body: string) {
     const ReadMoreBt = document.getElementById('myBtn-user-review');
@@ -262,8 +266,16 @@ LikePost() {
   console.log(this.ReviewID);
   if (this.reviewerliked === false) {
     this.ReviewServ.post_Like_Review(this.ReviewID);
+    const snackbaref = this.snackbar.open('Review Liked: Refresh', ' ' , {
+      horizontalPosition: 'end'
+    });
+    delay(2000);
   } else if (this.reviewerliked === true) {
     this.ReviewServ.post_UnLike_Review(this.ReviewID);
+    const snackbaref = this.snackbar.open('Review UnLiked: Refresh', ' ' , {
+      horizontalPosition: 'end'
+    });
+    delay(2000);
   }
 }
 }

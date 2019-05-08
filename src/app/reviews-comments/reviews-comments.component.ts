@@ -5,6 +5,8 @@ import { CommentsDetails_Service } from './reviews-comments.service';
 import { TitlesService } from '../comment/comment.serivce';
 import { User } from '../profile-entity/profile.model';
 import { DatePipe } from '@angular/common';
+import {MatSnackBar} from '@angular/material';
+import { delay } from 'rxjs/operators';
 @Component({
   selector: 'app-reviews-comments',
   templateUrl: './reviews-comments.component.html',
@@ -23,7 +25,7 @@ Photo: string;
 public comment_details: CommentsDetails[] = [];
 /////////////////////////////////////////////////
 constructor(public comments_service: CommentsDetails_Service, private datePipe: DatePipe,
-            public titlesService: TitlesService) { }
+            public titlesService: TitlesService, public snackbar: MatSnackBar) { }
   ngOnInit() {
     this.comments_service.get_comments_Info(this.ReviewID);                                  // to get the user info from the service
     // tslint:disable-next-line:variable-name
@@ -42,8 +44,11 @@ constructor(public comments_service: CommentsDetails_Service, private datePipe: 
     let date = this.datePipe.transform(this.myDate, 'yyyy-MM-dd');
     date = date + 'T12:53:00.000Z';
     this.comments_service.post_Comment(this.str, this.ReviewID, this.BookID, date, this.Photo);
+    const snackbaref = this.snackbar.open('Comment Has Been Added', ' ' , {
+      horizontalPosition: 'end'
+    });
+    delay(2000);
     this.str = '';
-    location.reload();
   }
   GetCommentsUpdated() {
     this.comments_service.get_comments_Info(this.ReviewID);                                  // to get the user info from the service
