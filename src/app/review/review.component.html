@@ -1,5 +1,5 @@
 <div id="user-reviews">
-    <img routerLink="/profile" class="reviewer-image" src="{{photo}}">
+    <img [routerLink]="['/other-user-profile-entity', userId]" class="reviewer-image" src="{{photo}}">
     <div id="reviewer-data">
         <div id="name-div">
             <p id="Reviewer-name" [routerLink]="['/other-user-profile-entity', userId]">{{userName}}</p>
@@ -14,8 +14,7 @@
     </div>
 </div>
 <div id="review-comment">
-    <p>{{befordots[0]}}<span id="dots-user-review">...</span><span id="more-review">{{afterdots[0]}}</span>
-        <button (click)="more_user_preview()" mat-button id="myBtn-user-review">Read more</button></p>
+    <p>{{befordots[0]}}</p>
 </div>
 <div id="review-like-comment">
     <p (click)="LikeReview()" class="blue-text" id="liked">Like</p>

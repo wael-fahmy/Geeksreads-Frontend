@@ -6,7 +6,7 @@
           </mat-panel-title>
       </mat-expansion-panel-header>
       <div id="genres-type">
-          <button id="genre-color" mat-flat-button>{{genre}}</button>
+          <button [routerLink]="['/genre', genre]" id="genre-color" mat-flat-button>{{genre}}</button>
       </div>
   </mat-expansion-panel>
 </mat-accordion>

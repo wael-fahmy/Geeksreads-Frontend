@@ -19,6 +19,11 @@ import { MatSnackBar } from '@angular/material';
 
 export class ReviewComponent implements OnInit {
 
+  /**
+   *
+   * index of the component
+   * @memberof ReviewComponent
+   */
   @Input() index;
   /**
    *
@@ -127,8 +132,8 @@ export class ReviewComponent implements OnInit {
    * @memberof ReviewComponent
    */
   ngOnInit() {
-    this.SplitString();
     this.SetRate();
+    this.befordots[0] = this.reviewBody;
     this.SetLike();
     this.SetDate();
   }
