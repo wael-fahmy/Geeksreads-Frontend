@@ -26,19 +26,19 @@
             <div *ngFor="let i of notificationsModel">
                 <div *ngIf="!i.Seen && i.NotificationType === 'Comment'">
                     <div class="notification-instance">
-                        <p [routerLink]="['/book', i?.BookId]">{{i?.UserName}} did a {{i?.NotificationType}} on a review</p>
+                        <p [routerLink]="['/book', i?.BookId]">{{i?.MakerName}} did a {{i?.NotificationType}} on a review</p>
                     </div>
                     <hr>
                 </div>
                 <div *ngIf="!i.Seen && i.NotificationType === 'ReviewLike'">
                     <div class="notification-instance">
-                        <p [routerLink]="['/book', i?.BookId]">{{i?.UserName}} liked a review</p>
+                        <p [routerLink]="['/book', i?.BookId]">{{i?.MakerName}} liked a review</p>
                     </div>
                     <hr>
                 </div>
                 <div *ngIf="!i.Seen && i.NotificationType === 'Follow'">
                     <div class="notification-instance">
-                        <p [routerLink]="['/other-user-profile-entity', i?.MakerId]">{{i?.MakerName || i?.UserName}} followed you</p>
+                        <p [routerLink]="['/other-user-profile-entity', i?.MakerId]">{{i?.MakerName}} followed you</p>
                     </div>
                     <hr>
                 </div>
